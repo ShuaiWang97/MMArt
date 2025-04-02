@@ -1,26 +1,27 @@
 # PolyArt
 Code base for PolyArt: A Multi-Perspective Dataset for Vision-Language Understanding in Visual Art
 
+This repository contains code for generating descriptions of artwork using various Vision-Language Models (VLMs), including Qwen2-VL. The codebase supports processing artwork from datasets like WikiArt and generating detailed descriptions.
 
-his repository contains code for generating descriptions of artwork using various Vision-Language Models (VLMs), including Qwen2-VL. The codebase supports processing artwork from datasets like WikiArt and generating detailed descriptions.
+or detailed project information and methodology, please refer to our [project documentation](https://docs.google.com/document/d/1mU6i6eATwdlZ57q5yaZCKAjpmE4rNBXYPGsvyDmhgAc/edit?usp=sharing).
 
 ## Features
 - Dataset sampling and balancing across art styles
 - Image processing and description generation using Qwen2-VL
 
 
-
-
 ## Project Structure
-
-├── data/
-│ ├── wikiart/
-│ │ ├── Images/
-│ │ └── wikiart_full.csv
-├──PolyArt
-│ ├── scripts/
-│ ├── ├── MLLM_inference.py
-│ ├── ├── sample_data.py
+    .
+    ├── data/
+    │ ├── wikiart/
+    │ │ ├── Images/
+    │ │ └── wikiart_full.csv
+    ├──PolyArt
+    │ ├── scripts/
+    │ │ ├── MLLM_inference.py
+    │ │ ├── sample_data.py
+    │ ├── qwen2vl_captions.json
+    │ ├── wikiart_balanced_200.csv
 
 
 ### 1. Sample Balanced Dataset
