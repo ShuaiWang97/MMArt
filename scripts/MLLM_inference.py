@@ -24,8 +24,8 @@ def resize_if_needed(image, max_size=512):
 
 def process_paintings_with_qwen(csv_path, image_root_dir, output_path):
     # Load the model and processor
-    model_name = "Qwen/Qwen2-VL-7B-Instruct"
-    model = Qwen2VLForConditionalGeneration.from_pretrained(
+    model_name = "Qwen/Qwen2.5-VL-7B-Instruct"
+    model = Qwen2_5_VLForConditionalGeneration.from_pretrained(
         model_name, torch_dtype="auto", device_map="auto"
     )
     processor = AutoProcessor.from_pretrained(model_name)
@@ -102,6 +102,6 @@ def process_paintings_with_qwen(csv_path, image_root_dir, output_path):
 if __name__ == "__main__":
     csv_path = "wikiart_balanced_200.csv"  # Path to your sampled CSV
     image_root_dir = "../data/wikiart/Images"  # Update with your image directory
-    output_path = "qwen2vl_captions.json"
+    output_path = "output/qwen2-5vl_captions.json"
     
     process_paintings_with_qwen(csv_path, image_root_dir, output_path)

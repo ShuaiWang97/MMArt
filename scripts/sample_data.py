@@ -26,9 +26,9 @@ for idx, style in enumerate(df['style_classification'].unique()):
 
 # Shuffle the final dataset
 balanced_df = balanced_df.sample(frac=1, random_state=42)
-
+import pdb; pdb.set_trace()
 # Save the balanced dataset
-balanced_df.to_csv('wikiart_balanced_200.csv', index=False)
+balanced_df.to_csv('wikiart_balanced_200_v2.csv', index=False)
 
 print(f"Number of styles: {num_styles}")
 print(f"Base samples per style: {samples_per_style}")
