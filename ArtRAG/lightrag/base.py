@@ -18,7 +18,7 @@ class QueryParam:
     mode: Literal["local", "global", "hybrid", "naive"] = "global"
     only_need_context: bool = False
     # response_type: str = "Keep your generated description strictly under 15 words."
-    response_type: str = "Inlcude context e.g. Cultural, Historical and theme in your generated description. Keep your generated description strictly under 70 words. "
+    response_type: str = "Inlcude context e.g. Cultural, Historical and theme in your generated description. Keep your generated description strictly under 80 words. "
     top_k: int = 5
     max_token_for_text_unit: int = 7000
     max_token_for_global_context: int = 1000

@@ -65,7 +65,6 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
     rag = LightRAG(
         working_dir=WORKING_DIR,
         llm_model_func=hf_model_complete,  
-        # llm_model_name='meta-llama/Llama-3.1-8B-Instruct',
         llm_model_name=model_name,
         embedding_func=EmbeddingFunc(
             embedding_dim=384,
@@ -78,12 +77,15 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
         ),
     )
 
-    # Load WikiArt dataset
-    directory = "../wikiart_balanced_200.csv"
-    print("Using WikiArt dataset")
-
-    # Load the data from the specified directory
-    data = pd.read_csv(directory)[:args.data_num]
+    # Calculate data slice for this job
+    total_data = 80000  # approximate total
+    data_per_job = total_data // 8  # around 10,000 per job
+    start_idx = args.job_id * data_per_job
+    end_idx = start_idx + data_per_job if args.job_id < 7 else total_data
+    
+    # Load only the slice of data for this job
+    data = pd.read_csv(args.data_source)[start_idx:end_idx]
+    print(f"Processing data from index {start_idx} to {end_idx}")
 
     # Placeholder for storing results
     results = []
@@ -110,7 +112,6 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
         query = {"text": input_text, "image": img}
 
         # Run inference with LightRAG model
-        # import pdb; pdb.set_trace()
         with torch.no_grad():
             generated_description, retrieved_context, rerank_context = rag.query(
                 query, param=QueryParam(mode=args.retrieval_strategy), data_type="WikiArt", shot_number=0)
@@ -124,37 +125,43 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
             'Tags': tags,
             'Generated Description': generated_description,
             'Retrieved context': retrieved_context,
-            'rerank_context': rerank_context
         })
         
         torch.cuda.empty_cache()
 
         # Print GPU memory usage
         if torch.cuda.is_available():
-            gpu_memory_used = torch.cuda.memory_allocated() / 1024**2  # Convert to MB
-            gpu_memory_cached = torch.cuda.memory_reserved() / 1024**2
             print(f"\nGPU Memory Usage:")
-            print(f"Allocated: {gpu_memory_used:.2f} MB")
-            print(f"Cached: {gpu_memory_cached:.2f} MB")
+            for i in range(torch.cuda.device_count()):
+                torch.cuda.set_device(i)
+                gpu_memory_used = torch.cuda.memory_allocated() / 1024**2  # Convert to MB
+                gpu_memory_cached = torch.cuda.memory_reserved() / 1024**2
+                print(f"GPU {i}:")
+                print(f"  Allocated: {gpu_memory_used:.2f} MB")
+                print(f"  Cached: {gpu_memory_cached:.2f} MB")
 
-    # Convert results to a DataFrame
-    results_df = pd.DataFrame(results)
+        if index % 100 == 0 or index == len(data) - 1:
+            # Convert results to a DataFrame
+            results_df = pd.DataFrame(results)
 
-    output_DIR = os.path.join(WORKING_DIR, "output_{}_{}_{}data".format(
-        current_date, "WikiArt", args.data_num))
-    if not os.path.exists(output_DIR):
-        os.mkdir(output_DIR)
+            output_DIR = os.path.join(WORKING_DIR, "output_{}_{}_{}data".format(
+                current_date, "WikiArt", args.data_num))
+            if not os.path.exists(output_DIR):
+                os.mkdir(output_DIR)
 
-    # Save the results and args to JSON files
-    output_file = os.path.join(output_DIR,
-                              'generated_descriptions_{}_{}.json'.format(args.retrieval_strategy, timestamp))
-    results_df.to_json(output_file, orient='records',
-                      indent=4, force_ascii=False)
+            # Save the results and args to JSON files with job_id in filename
+            output_file = os.path.join(output_DIR,
+                                    'generated_descriptions_{}_{}_job_{}.json'.format(
+                                        args.retrieval_strategy, 
+                                        timestamp,
+                                        args.job_id))
+            results_df.to_json(output_file, orient='records',
+                            indent=4, force_ascii=False)
     
-    # Save args as JSON
+    # Save args as JSON with job_id in filename
     args_dict = vars(args)
     args_file = os.path.join(output_DIR,
-                            'args_{}.json'.format(timestamp))
+                            'args_{}_job_{}.json'.format(timestamp, args.job_id))
     with open(args_file, 'w') as f:
         json.dump(args_dict, f, indent=4)
 
@@ -202,10 +209,16 @@ if __name__ == "__main__":
     parser.add_argument(
         '--data_num',
         type=int,
-        default=200,
+        default=10000,
         help='Number of data samples to process'
     )
-
+    parser.add_argument(
+        '--data_source',
+        type=str,
+        default='../../data/wikiart/wikiart_full.csv',
+        choices=['../wikiart_balanced_200.csv', '../../data/wikiart/wikiart_full.csv'],
+        help='Source dataset to use for evaluation'
+    )
     parser.add_argument(
         '--question_type',
         type=str,
@@ -213,10 +226,15 @@ if __name__ == "__main__":
         choices=["description", "cultural&histroical", "Theme", "style&technique","Movement&school", "artist"],
         help='Type of question to generate'
     )
+    parser.add_argument(
+        '--job_id',
+        type=int,
+        required=True,
+        choices=[0, 1, 2, 3, 4, 5, 6, 7],
+        help='Job ID (0-7) for parallel processing'
+    )
 
     args = parser.parse_args()
     print("args: ", args)
-
-
 
     generated_descriptions_file = run_ArtRAG_inference(args.working_dir, args.model_name, args)

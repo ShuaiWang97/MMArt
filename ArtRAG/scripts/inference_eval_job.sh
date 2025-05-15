@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#SBATCH -n 10
+#SBATCH -n 1
 #SBATCH -p gpu_h100
-#SBATCH --gres=gpu:1
-#SBATCH --time=1:30:00
+#SBATCH --gres=gpu:2
+#SBATCH --time=50:00:00
 #SBATCH --job-name=inference_art
-#SBATCH --output=slurm/slurm_output_inference_naive_%A.out
+#SBATCH --output=slurm/slurm_output_offical_%A.out
 
 module purge
 # module load 2022
@@ -27,11 +27,13 @@ export OPENAI_API_KEY=sk-proj-Lv4mY9j6MQGxEnApzMLgq8A_Y_RP4Yw4gA6pVJcaRQbcxCYHf9
 export PYTHONPATH=$(pwd):$(pwd)/src:$PYTHONPAT
 
 
-python scripts/inference_eval.py --model_name Qwen/Qwen2.5-VL-7B-Instruct
-python scripts/inference_eval.py --model_name Qwen/Qwen2.5-VL-32B-Instruct --data_num 20
-# python scripts/inference_eval.py --model_name Qwen/Qwen2.5-VL-72B-Instruct-AWQ
+# python scripts/inference_eval.py --model_name Qwen/Qwen2.5-VL-7B-Instruct
+# python scripts/inference_eval.py --model_name Qwen/Qwen2.5-VL-32B-Instruct --data_num 20
 
-# Ask for question type as an argument
+job_id=$1
+python scripts/inference_eval.py --model_name Qwen/Qwen2.5-VL-72B-Instruct --job_id $job_id
+
+# # Ask for question type as an argument
 # question_type=$1
 # python scripts/inference_eval.py --shot_number 0 --question_type $question_type --data_num 80
 
