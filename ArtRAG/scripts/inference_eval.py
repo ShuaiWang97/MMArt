@@ -87,17 +87,52 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
     data = pd.read_csv(args.data_source)[start_idx:end_idx]
     print(f"Processing data from index {start_idx} to {end_idx}")
 
+    if args.data_source == "../data/wikiart/wikiart_full.csv":
+        # Setup output directory and file
+        output_DIR = os.path.join(WORKING_DIR, "output_all_{}_{}data".format(
+            "WikiArt", args.data_num))
+    elif args.data_source == "../wikiart_balanced_200.csv":
+        # Setup output directory and file
+        output_DIR = os.path.join(WORKING_DIR, "output_sample_200_{}_{}data".format(
+            "WikiArt", args.data_num))
+    if not os.path.exists(output_DIR):
+        os.mkdir(output_DIR)
+
+
+    output_file = os.path.join(output_DIR,
+                            'generated_descriptions_{}_job_{}.json'.format(
+                                args.retrieval_strategy, 
+                                args.job_id))
+
+    # Load existing results if available
+    existing_results = []
+    if os.path.exists(output_file):
+        try:
+            existing_results = pd.read_json(output_file).to_dict('records')
+            print(f"Loaded {len(existing_results)} existing results from {output_file}")
+        except Exception as e:
+            print(f"Error loading existing results: {e}")
+    
+    # Create a set of already processed image IDs
+    processed_images = {result['Image'] for result in existing_results}
+    
     # Placeholder for storing results
-    results = []
+    results = existing_results.copy()
     
     # Iterate through each row in the dataset
     for index, row in tqdm(data.iterrows(), total=len(data), desc="Processing rows"):
+        img_id = row['image']
+        
+        # Skip if this image has already been processed
+        if img_id in processed_images:
+            print(f"Skipping already processed image: {img_id}")
+            continue
+            
         print("Processing row: ", index)
         
         # Extract required features for each painting
         tags = row['tags']
         artist = row['artist_name'] 
-        img_id = row['image']
         style = row['style_classification']
         timeframe = row['timeframe_estimation']
         img = os.path.join("../../data/wikiart/Images", to_filesystem_name(row['relative_path']))
@@ -111,21 +146,37 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
         input_text += f" with painting Metadata: painting name: {img_id}, Style: {style}, Artist: {artist}, Timeframe: {timeframe}, Tags: {tags}"
         query = {"text": input_text, "image": img}
 
-        # Run inference with LightRAG model
-        with torch.no_grad():
-            generated_description, retrieved_context, rerank_context = rag.query(
-                query, param=QueryParam(mode=args.retrieval_strategy), data_type="WikiArt", shot_number=0)
+        try:
+            # Run inference with LightRAG model
+            with torch.no_grad():
+                generated_description, retrieved_context, rerank_context = rag.query(
+                    query, param=QueryParam(mode=args.retrieval_strategy), data_type="WikiArt", shot_number=0)
 
-        print("generated_description: ", generated_description)
-        results.append({
-            'Image': img_id,
-            'Artist': artist,
-            'Style': style,
-            'Timeframe': timeframe,
-            'Tags': tags,
-            'Generated Description': generated_description,
-            'Retrieved context': retrieved_context,
-        })
+            print("generated_description: ", generated_description)
+            results.append({
+                'Image': img_id,
+                'Artist': artist,
+                'Style': style,
+                'Timeframe': timeframe,
+                'Tags': tags,
+                'Generated Description': generated_description,
+                'Retrieved context': retrieved_context,
+            })
+            
+            # Save progress every 10 images
+            if len(results) % 100 == 0:
+                results_df = pd.DataFrame(results)
+                results_df.to_json(output_file, orient='records',
+                                indent=4, force_ascii=False)
+                print(f"Progress saved: {len(results)} images processed")
+            
+        except Exception as e:
+            print(f"Error processing image {img_id}: {e}")
+            # Save progress even if there's an error
+            results_df = pd.DataFrame(results)
+            results_df.to_json(output_file, orient='records',
+                            indent=4, force_ascii=False)
+            continue
         
         torch.cuda.empty_cache()
 
@@ -140,23 +191,10 @@ def run_ArtRAG_inference(WORKING_DIR, model_name, args):
                 print(f"  Allocated: {gpu_memory_used:.2f} MB")
                 print(f"  Cached: {gpu_memory_cached:.2f} MB")
 
-        if index % 100 == 0 or index == len(data) - 1:
-            # Convert results to a DataFrame
-            results_df = pd.DataFrame(results)
-
-            output_DIR = os.path.join(WORKING_DIR, "output_{}_{}_{}data".format(
-                current_date, "WikiArt", args.data_num))
-            if not os.path.exists(output_DIR):
-                os.mkdir(output_DIR)
-
-            # Save the results and args to JSON files with job_id in filename
-            output_file = os.path.join(output_DIR,
-                                    'generated_descriptions_{}_{}_job_{}.json'.format(
-                                        args.retrieval_strategy, 
-                                        timestamp,
-                                        args.job_id))
-            results_df.to_json(output_file, orient='records',
-                            indent=4, force_ascii=False)
+    # Final save of results
+    results_df = pd.DataFrame(results)
+    results_df.to_json(output_file, orient='records',
+                    indent=4, force_ascii=False)
     
     # Save args as JSON with job_id in filename
     args_dict = vars(args)

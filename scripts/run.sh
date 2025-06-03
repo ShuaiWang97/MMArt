@@ -1,19 +1,10 @@
-#!/bin/bash
 
-#SBATCH -n 10
-#SBATCH -p gpu_a100
-#SBATCH --gres=gpu:1
-#SBATCH --time=5:30:00
-#SBATCH --mem=60G
-#SBATCH --job-name=inference_art
-#SBATCH --output=slurm/slurm_output_inference_%A.out
+# for job_id in  0 1
 
-module purge
-module load 2022
-module load Anaconda3/2022.05
+for job_id in  2 3 4 5 6 7
 
-# Your job starts in the directory where you call sbatch 
-cd ../../projects/0/prjs0996/PolyArt
-source activate LightRAG
+do
+    echo "Hello, Welcome for submiting job $job_id."
+    sbatch scripts/run_job.sh $job_id
+done
 
-python scripts/MLLM_inference.py
