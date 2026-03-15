@@ -1,7 +1,0 @@
-{
-    "working_dir": "./art_context",
-    "model_name": "Qwen/Qwen2.5-VL-32B-Instruct",
-    "retrieval_strategy": "naive",
-    "data_num": 20,
-    "question_type": "cultural&histroical"
-}

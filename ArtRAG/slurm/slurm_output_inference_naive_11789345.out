@@ -1,0 +1,982 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11789345/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x153dcd997b80>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x153dcf0b6820>,
+  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x153dfec019d0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=2)
+Processing data from index 200 to 300
+Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Processing row:  200
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.37it/s][A
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.40it/s][A
+Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.04it/s][A
+Loading checkpoint shards:  80%|████████  | 4/5 [00:03<00:01,  1.02s/it][A
+Loading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.28it/s][ALoading checkpoint shards: 100%|██████████| 5/5 [00:04<00:00,  1.20it/s]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   1%|          | 1/100 [00:14<23:34, 14.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   2%|▏         | 2/100 [00:17<13:05,  8.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   3%|▎         | 3/100 [00:20<09:12,  5.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 4/100 [00:24<07:30,  4.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   5%|▌         | 5/100 [00:28<07:06,  4.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 6/100 [00:31<06:19,  4.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   7%|▋         | 7/100 [00:34<05:57,  3.84s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 8/100 [00:37<05:33,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   9%|▉         | 9/100 [00:40<05:12,  3.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 10/100 [00:44<05:05,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  11%|█         | 11/100 [00:47<04:48,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 12/100 [00:50<04:52,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  13%|█▎        | 13/100 [00:54<04:55,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 14/100 [00:58<05:08,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  15%|█▌        | 15/100 [01:01<05:07,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 16/100 [01:04<04:45,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  17%|█▋        | 17/100 [01:07<04:30,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 18/100 [01:10<04:11,  3.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  19%|█▉        | 19/100 [01:13<04:03,  3.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 20/100 [01:16<03:57,  2.96s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  21%|██        | 21/100 [01:20<04:21,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 22/100 [01:23<04:29,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  23%|██▎       | 23/100 [01:26<04:03,  3.16s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 24/100 [01:29<03:53,  3.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  25%|██▌       | 25/100 [01:32<03:54,  3.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 26/100 [01:35<03:49,  3.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  27%|██▋       | 27/100 [01:38<03:41,  3.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 28/100 [01:41<03:39,  3.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  29%|██▉       | 29/100 [01:44<03:42,  3.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 30/100 [01:48<03:52,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  31%|███       | 31/100 [01:52<03:49,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 32/100 [01:55<03:46,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  33%|███▎      | 33/100 [01:59<03:58,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 34/100 [02:03<03:57,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  35%|███▌      | 35/100 [02:06<03:52,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 36/100 [02:10<03:51,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  37%|███▋      | 37/100 [02:13<03:46,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 38/100 [02:17<03:44,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  39%|███▉      | 39/100 [02:21<03:42,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 40/100 [02:24<03:33,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  41%|████      | 41/100 [02:28<03:39,  3.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 42/100 [02:32<03:35,  3.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  43%|████▎     | 43/100 [02:35<03:25,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 44/100 [02:39<03:24,  3.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  45%|████▌     | 45/100 [02:42<03:09,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 46/100 [02:45<03:03,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  47%|████▋     | 47/100 [02:49<02:56,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 48/100 [02:52<02:55,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  49%|████▉     | 49/100 [02:55<02:51,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 50/100 [02:59<02:46,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  51%|█████     | 51/100 [03:02<02:39,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 52/100 [03:05<02:41,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  53%|█████▎    | 53/100 [03:09<02:38,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▍    | 54/100 [03:12<02:32,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▌    | 55/100 [03:16<02:39,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 56/100 [03:19<02:29,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▋    | 57/100 [03:22<02:18,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 58/100 [03:25<02:13,  3.18s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  59%|█████▉    | 59/100 [03:29<02:16,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 60/100 [03:32<02:13,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  61%|██████    | 61/100 [03:35<02:07,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 62/100 [03:38<01:56,  3.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  63%|██████▎   | 63/100 [03:41<01:53,  3.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 64/100 [03:44<01:54,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  65%|██████▌   | 65/100 [03:48<01:55,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 66/100 [03:51<01:54,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  67%|██████▋   | 67/100 [03:55<01:52,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 68/100 [03:58<01:51,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  69%|██████▉   | 69/100 [04:02<01:48,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 70/100 [04:05<01:40,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  71%|███████   | 71/100 [04:08<01:32,  3.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 72/100 [04:11<01:26,  3.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  73%|███████▎  | 73/100 [04:14<01:24,  3.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 74/100 [04:18<01:26,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  75%|███████▌  | 75/100 [04:22<01:33,  3.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 76/100 [04:26<01:30,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  77%|███████▋  | 77/100 [04:29<01:21,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 78/100 [04:32<01:14,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  79%|███████▉  | 79/100 [04:36<01:12,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 80/100 [04:40<01:14,  3.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  81%|████████  | 81/100 [04:43<01:07,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 82/100 [04:47<01:04,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  83%|████████▎ | 83/100 [04:51<01:00,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 84/100 [04:54<00:56,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  85%|████████▌ | 85/100 [04:57<00:50,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 86/100 [05:01<00:47,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  87%|████████▋ | 87/100 [05:04<00:42,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 88/100 [05:07<00:39,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  89%|████████▉ | 89/100 [05:10<00:37,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 90/100 [05:13<00:31,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  91%|█████████ | 91/100 [05:17<00:29,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 92/100 [05:20<00:25,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  93%|█████████▎| 93/100 [05:23<00:22,  3.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 94/100 [05:26<00:18,  3.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  95%|█████████▌| 95/100 [05:30<00:16,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 96/100 [05:33<00:13,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  97%|█████████▋| 97/100 [05:38<00:11,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 98/100 [05:44<00:09,  4.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  99%|█████████▉| 99/100 [05:48<00:04,  4.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|██████████| 100/100 [05:51<00:00,  3.94s/it]Processing rows: 100%|██████████| 100/100 [05:51<00:00,  3.52s/it]
+image_inputs [<PIL.Image.Image image mode=RGB size=504x448 at 0x153DC8D0F100>]
+generated_description:  This painting, "L'Aube" by Charles Hermans, depicts a lively scene from the late 19th century, reflecting the realism movement. The focus on fashion, social interactions, and the depiction of a bride suggest themes of courtship and societal norms of the era. The artist captures the energy and elegance of the moment, highlighting the fashion and social dynamics of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  201
+image_inputs [<PIL.Image.Image image mode=RGB size=560x420 at 0x153DC8D0F220>]
+generated_description:  The painting "The Flower Seller" by Charles Hermans, created between 1850-1900, exemplifies Realism, focusing on everyday life and capturing the texture and detail of the bouquet and the subject's attire. The style reflects the era's interest in naturalism and the depiction of ordinary people, emphasizing realism over idealization. The use of light and shadow adds depth, highlighting the vibrant colors of the flowers against the muted background. This work likely resonates with the social and economic conditions of the time, showcasing the labor of flower sellers and the beauty of simple, everyday objects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  202
+image_inputs [<PIL.Image.Image image mode=RGB size=448x616 at 0x153DC894FDC0>]
+generated_description:  This painting, "Seated Nude Model" by Christoffer Wilhelm Eckersberg, exemplifies Realism, a movement that emerged in the 1800s, emphasizing direct observation and accurate representation of the natural world. Set against a dark background, the model's muscular physique and draped cloth highlight the artist's focus on anatomical detail and naturalism. The scene reflects the Romantic era's interest in the human form and the exploration of light and shadow, typical of Realist techniques.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  203
+image_inputs [<PIL.Image.Image image mode=RGB size=364x476 at 0x153DC8D0F160>]
+generated_description:  This self-portrait by Chuck Close, created in 2007, showcases his distinctive style of hyperrealism, where he uses small, precise dots to create a lifelike image. The piece reflects the artist's exploration of portraiture and the human face, capturing intricate details and textures. It aligns with the broader movement of realism in contemporary art, emphasizing meticulous craftsmanship and the representation of the subject with high fidelity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  204
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1596 at 0x153DC8652670>]
+generated_description:  This painting, "Portrait of Madame Gaudibert" by Claude Monet, exemplifies the transition from realism to impressionism. Set in the mid-19th century, it captures Madame Gaudibert in Victorian attire, reflecting the fashion of the era. The use of light and color, though somewhat subdued, hints at Monet's evolving style towards impressionism, focusing on the fleeting effects of light rather than precise detail. This work showcases Monet's early exploration of modern life and portraiture, blending realism with emerging artistic trends.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  205
+image_inputs [<PIL.Image.Image image mode=RGB size=588x756 at 0x153DC8652C40>]
+generated_description:  This painting, "Retrato do Professor João Barreira," by Columbano Bordalo Pinheiro, is a realistic portrait from the early 20th century. It captures a gentleman in formal attire, reflecting the artist's focus on capturing the essence and personality of his subjects. The style aligns with the realism movement, emphasizing accurate representation and attention to detail. The timeframe places it within the period of transition towards more modern artistic approaches, yet it maintains a strong connection to traditional portraiture values.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  206
+image_inputs [<PIL.Image.Image image mode=RGB size=3304x2464 at 0x153DB9E06E50>]
+generated_description:  This painting, "Running Dogs" by Constant Troyon, exemplifies Realism, a 19th-century art movement that aimed to depict everyday life with accuracy and detail. Set in a rural field, the scene captures the dynamic motion of dogs in a natural environment, showcasing Troyon's skill in rendering animals and landscapes with precision. The timeframe places it within the period of Realism, emphasizing the artist's focus on capturing real-life subjects and scenes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  207
+image_inputs [<PIL.Image.Image image mode=RGB size=560x476 at 0x153DC86BE520>]
+generated_description:  This painting, "A Careturi," by Constantin Artachino, depicts a rural scene from the early 20th century, showcasing a traditional house with a thatched roof. The style of realism captures the simplicity and tranquility of rural life during the specified timeframe, reflecting the artist's focus on everyday scenes and the natural environment. The composition emphasizes the rustic charm and architectural details of the building, highlighting the cultural and historical context of rural areas in the late 19th and early 20th centuries.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  208
+image_inputs [<PIL.Image.Image image mode=RGB size=392x308 at 0x153DC8652C10>]
+generated_description:  This sketch by Constantin Guys, dated between 1850-1900, captures a scene of urban life, focusing on a horse and carriage. The style of realism reflects the artist's interest in everyday subjects, showcasing the practical aspects of transportation during the mid-to-late 19th century. The presence of horse harnesses and tack highlights the importance of these animals in daily activities, while the sketchy technique adds a sense of immediacy and observation typical of the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  209
+image_inputs [<PIL.Image.Image image mode=RGB size=896x504 at 0x153DC86BED60>]
+generated_description:  This painting, "Marusia Burliuk," by David Burliuk, likely dates from the early 20th century, reflecting the Realism movement's focus on capturing everyday life. The portrait's soft pink hues and delicate rendering of skin emphasize a naturalistic approach, while the oval format adds a sense of intimacy and personal focus. The inclusion of flowers alongside the portrait suggests themes of beauty and femininity, aligning with Burliuk's exploration of modernist sensibilities within traditional portraiture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  210
+image_inputs [<PIL.Image.Image image mode=RGB size=700x840 at 0x153DB9E06D30>]
+generated_description:  This portrait, likely from the early 20th century, showcases David Burliuk's realistic style, focusing on capturing the subject's facial features with precision and detail. The use of sketch-like techniques emphasizes the raw, unidealized representation of the subject, reflecting a shift towards more naturalistic approaches in portraiture during this period. The timeframe places it within the broader context of early 20th-century art, where realism was gaining prominence.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  211
+image_inputs [<PIL.Image.Image image mode=RGB size=896x616 at 0x153DB9E31E20>]
+generated_description:  This painting, "Branch of White Peonies and Secateurs," by Édouard Manet, exemplifies the Realist movement of the 1850s-1900s. It showcases Manet's focus on everyday subjects, such as flowers and garden tools, reflecting his interest in modern life. The use of bold brushstrokes and natural lighting highlights the texture and color of the peonies, emphasizing the simplicity and beauty of nature. This work aligns with the Realist emphasis on accurate representation and the rejection of idealized subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  212
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x756 at 0x153DB9E06F70>]
+generated_description:  This painting, *Lighthouse at Two Lights* by Edward Hopper, exemplifies his realistic style, capturing a tranquil coastal scene. Set in the 1920s, it reflects the era's focus on everyday life and architecture. The lighthouse symbolizes guidance and permanence amidst the natural world, while the muted colors and soft lighting evoke a sense of solitude and introspection, characteristic of Hopper's work. The painting aligns with the broader American Realism movement, emphasizing the beauty and simplicity of the American landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  213
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1400 at 0x153DC894F820>]
+generated_description:  This painting, "Railroad Sunset" by Edward Hopper, exemplifies his realistic style and captures the essence of the American landscape during the early 20th century. Set against a vibrant sunset, the image evokes a sense of solitude and introspection, characteristic of Hopper's work. The stark, geometric forms of the small building and the telephone pole contrast with the soft, dynamic sky, reflecting themes of human presence amidst nature. The painting reflects the era's fascination with the American West and the changing face of the nation, blending realism with symbolic elements that resonate with themes of isolation and contemplation.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  214
+image_inputs [<PIL.Image.Image image mode=RGB size=532x700 at 0x153DB9CADA30>]
+generated_description:  This painting, "Creek in the Woods," by Efim Volkov, exemplifies the Realism style prevalent in the 1850-1900 timeframe. It captures the serene beauty of a northern hardwood forest, focusing on the interplay of light and shadow through the dense foliage. The artist's attention to detail in the textures of leaves and the natural environment reflects a deep appreciation for the natural world, characteristic of the Realist movement. The painting emphasizes the tranquility and complexity of the woodland ecosystem, showcasing the artist's skill in rendering the intricate details of the forest floor and the flowing creek.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  215
+image_inputs [<PIL.Image.Image image mode=RGB size=644x812 at 0x153DB9E31760>]
+generated_description:  This painting, "Grazing," by Efim Volkov, exemplifies Realism, capturing a serene rural scene from the mid-19th to early 20th century. It showcases the natural beauty of forests and the pastoral life, reflecting the era's appreciation for the simplicity and tranquility of the countryside. The artist's meticulous depiction of the landscape and the figures emphasizes the harmony between humans and nature, typical of Realist art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  216
+image_inputs [<PIL.Image.Image image mode=RGB size=700x588 at 0x153DB9E313A0>]
+generated_description:  This painting, *Birth of Love (2nd Version)* by Eric Fischl, reflects a realistic style from the 1950-2000 timeframe. It captures a gritty urban scene, blending elements of street life and domesticity, symbolizing themes of love and human connection amidst everyday surroundings. The use of light and shadow enhances the dramatic and emotional atmosphere, typical of Fischl's exploration of human experience in urban settings.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  217
+image_inputs [<PIL.Image.Image image mode=RGB size=476x700 at 0x153DC8D0F310>]
+generated_description:  The painting "Dancer" by Eric Fischl, created between 1950 and 2000, exemplifies realism. It captures a moment of intense focus and movement, reflecting Fischl's interest in capturing human emotion and action. The warm lighting and detailed rendering of the dancer's costume and pose suggest a deep engagement with the subject, typical of Fischl's realistic style.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  218
+image_inputs [<PIL.Image.Image image mode=RGB size=952x588 at 0x153DB9E3E760>]
+generated_description:  This painting, "Scenes from Late Paradise Beached," by Eric Fischl, depicts a lively beach scene with people enjoying a sunny day. The style is realism, capturing the vibrant energy and casual atmosphere of a vacation setting. The timeframe suggests a contemporary perspective, reflecting modern leisure activities and the changing dynamics of beach culture. The focus on people engaging in fun, bare-chested activities highlights themes of relaxation and social interaction typical of summer vacations.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  219
+image_inputs [<PIL.Image.Image image mode=RGB size=812x588 at 0x153DB9E3ECD0>]
+generated_description:  The painting "Time for Bed" by Eric Fischl, created during the 1950-2000 timeframe, exemplifies realism with its depiction of everyday life. It captures a domestic scene, focusing on themes of youth, leisure, and family dynamics, reflecting post-war American culture's emphasis on family values and the complexities of parenting. The realistic style and candid portrayal of the subjects highlight the artist's interest in capturing authentic human experiences.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  220
+image_inputs [<PIL.Image.Image image mode=RGB size=812x644 at 0x153DB9E3EEB0>]
+generated_description:  This painting, *Le Havre avant Port* by Eugène Boudin, exemplifies the Realism movement of the late 19th century. Set in Normandy, it captures the bustling maritime activity of the port of Le Havre, showcasing the dynamic interplay of light and atmosphere. Boudin's focus on everyday scenes and his use of plein-air techniques reflect his commitment to depicting contemporary life with accuracy and detail. The presence of various ships, including a flagship and a frigate, highlights the importance of maritime trade and naval power during this period. The painting's realistic portrayal of the harbor scene provides a vivid snapshot of 19th-century maritime culture and industry.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  221
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x672 at 0x153DB9CAD250>]
+generated_description:  This painting, "Trouville," by Eugène Boudin, captures the serene beauty of a Normandy coastal town. Set in the mid-19th century, it exemplifies Boudin's mastery of light and atmosphere, reflecting the Realist movement's focus on everyday life. The scene, with its calm waterway, boats, and distant buildings, showcases Boudin's skill in depicting the tranquil charm of the French coast. The painting embodies the Romantic ideal of nature and the simple pleasures of rural life, typical of the era's artistic trends.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  222
+image_inputs [<PIL.Image.Image image mode=RGB size=644x840 at 0x153DB9CAD610>]
+generated_description:  This painting, "Anne in a Striped Dress" by Fairfield Porter, reflects the mid-20th-century realism style. Set in a domestic interior, it captures a candid moment, emphasizing everyday life and fashion through its realistic depiction of light, texture, and color. The striped dress and the surrounding environment suggest a focus on contemporary American culture and personal style.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  223
+image_inputs [<PIL.Image.Image image mode=RGB size=364x476 at 0x153DC894F820>]
+generated_description:  This self-portrait by Fairfield Porter, painted in 1972, exemplifies the realism style prevalent in the 1950s-2000 timeframe. The focus on facial features like the chin, cheek, forehead, and nose, along with the textured brushwork, reflects a meticulous approach to capturing the subject's likeness and emotional depth. This work aligns with the broader trend of portraiture that emphasizes personal expression and the human form.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  224
+image_inputs [<PIL.Image.Image image mode=RGB size=616x728 at 0x153DC8667A30>]
+generated_description:  The painting "The Mirror" by Fairfield Porter, created in 1966, exemplifies Realism, capturing a domestic scene with meticulous detail. The artist's use of light and shadow, along with the reflective surface of the mirror, creates depth and a sense of space. The figure in the foreground, seated and contemplative, contrasts with the standing figure in the mirror, suggesting introspection and the duality of self-perception. This work reflects mid-20th-century interest in everyday life and personal identity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  225
+image_inputs [<PIL.Image.Image image mode=RGB size=784x476 at 0x153DC86675E0>]
+generated_description:  This painting, "Bridge over a Brook" by Fyodor Vasilyev, exemplifies Realism, a style prevalent in the 1850s-1900s. It captures a tranquil rural scene, emphasizing natural beauty and everyday life. The artist's focus on realistic details and subdued colors reflects the movement's aim to depict reality faithfully. The depiction of the bridge and surrounding forest highlights the harmony between human activity and nature, typical of Realist landscape painting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  226
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x153DC8667BB0>]
+generated_description:  This painting, "Dawn in St. Petersburg" by Fyodor Vasilyev, captures the cityscape during twilight, reflecting the realism style prevalent in the 19th century. It showcases the urban environment of St. Petersburg, Russia, with its streets, buildings, and people, emphasizing the transition from day to night. The use of light and shadow highlights the atmospheric conditions typical of the city during this time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  227
+image_inputs [<PIL.Image.Image image mode=RGB size=728x532 at 0x153DB9C75D30>]
+generated_description:  This painting, "Early Morning," by Fyodor Vasilyev, captures a serene rural scene at dawn. Set in a forested area near a riverbank, the composition emphasizes the quiet beauty of nature and the simplicity of rural life. The realistic style and soft lighting evoke a sense of calm and tranquility, typical of the Realist movement, which focused on depicting everyday life with accuracy and detail. The painting likely reflects the artist's interest in natural landscapes and the peaceful moments of the countryside.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  228
+image_inputs [<PIL.Image.Image image mode=RGB size=896x728 at 0x153DB9C75640>]
+generated_description:  This painting, "Spring Morning, Houston and Division Streets, New York," by George Luks, captures a bustling market scene in New York during the early 20th century. The realistic style emphasizes everyday life, reflecting the urban environment and the vibrancy of city markets. The timeframe places it within the realism movement, focusing on capturing the truth of the scene rather than idealized forms. The painting highlights the social dynamics and the economic activities of the time, showcasing the diversity of the urban population and the importance of markets in daily life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  229
+image_inputs [<PIL.Image.Image image mode=RGB size=560x840 at 0x153DB9C75880>]
+generated_description:  This painting, "The Smoker" by Georgios Jakobides, created in 1887, is a realistic portrayal of a young boy smoking. Set in a simple urban environment, the work reflects the social realism movement prevalent in the late 19th century, focusing on everyday life and social issues. The artist captures the boy's contemplative expression and the stark contrast between his youth and the adult activity of smoking, highlighting themes of innocence and societal influences. The painting's realism emphasizes the gritty, unidealized aspects of life, resonating with the broader concerns of the time regarding child labor and social reform.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  230
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x153DB9C49340>]
+generated_description:  This painting, "Intérieur Vert" by Gilles-Aillaud, created in 1964, exemplifies realism, capturing a harbor seal in a harbor setting. The artist's focus on the marine mammal's features and the surrounding environment reflects a naturalistic approach, emphasizing the subject's presence within its habitat. The timeframe places the work within the mid-20th century, a period marked by increasing awareness of environmental issues and wildlife conservation. The painting likely serves as a commentary on human interaction with nature, highlighting the seal's vulnerability in urbanized coastal areas.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  231
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1148 at 0x153DB9C49940>]
+generated_description:  This painting, *Confidences* by Giovanni Boldini, exemplifies the Realism movement of the late 19th century. Set in an elegant interior, the scene captures intimate moments between two women, reflecting the social dynamics of the era. The detailed depiction of the room's furnishings and the women's attire highlights the artist's focus on capturing everyday life with precision and sensitivity. The painting is a testament to Boldini's skill in portraying the nuances of human interaction within a refined domestic setting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  232
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x3248 at 0x153DB9C49130>]
+generated_description:  This painting, *Corner of Painter's Table* by Giovanni Boldini, exemplifies Realism, capturing everyday objects with meticulous detail and natural lighting. Set in the late 19th century, it reflects the artist's interest in still-life composition and the everyday life of artists. The focus on mundane items like dishes, cutlery, and food emphasizes the realism movement's emphasis on capturing the ordinary world. The soft, diffused light and realistic textures highlight the textures and colors of the objects, creating a sense of immediacy and intimacy. This work aligns with the broader trend of depicting the artist's environment during the Realist period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  233
+image_inputs [<PIL.Image.Image image mode=RGB size=448x812 at 0x153DB9C49160>]
+generated_description:  This painting, "In Garden" by Giovanni Boldini, exemplifies the Realism movement of the late 19th century. Set in a natural, serene garden setting, the work captures a candid moment between a woman and a child, reflecting the intimate and everyday life of the upper class. Boldini's loose brushwork and attention to light and atmosphere evoke a sense of immediacy and realism, typical of the era's focus on capturing fleeting moments. The painting's tags—female portraits, double portraits, gardens and parks, forests and trees, and children portraits—highlight its themes of domesticity and familial bonds.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  234
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1092 at 0x153DB9E31D90>]
+generated_description:  This painting, "Peaceful Days" by Giovanni Boldini, exemplifies the Realism movement of the late 19th century. Set in a domestic interior, the scene captures a moment of quiet domesticity, showcasing the artist's skill in rendering textures and light. The focus on everyday life and the intimate setting reflect the Realist interest in portraying the mundane aspects of human existence. The painting's style and subject matter align with the broader social and cultural trends of the time, emphasizing realism and the depiction of contemporary life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  235
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x924 at 0x153DC894F820>]
+generated_description:  This painting, "Still Life: Apples, Pears, and Flowers on a Table," by Gustave Courbet, exemplifies the Realist movement of the 1850s-1900s. It showcases Courbet's commitment to depicting everyday subjects with honesty and detail, reflecting his focus on realism and direct observation. The inclusion of common fruits and flowers highlights his interest in capturing the ordinary world, challenging traditional artistic conventions. The dark background and natural lighting emphasize the textures and colors of the objects, aligning with Courbet's realistic approach.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  236
+image_inputs [<PIL.Image.Image image mode=RGB size=504x644 at 0x153DC8D0F310>]
+generated_description:  Gustave Courbet's "The Hunted Deer" (Spring, 1867) exemplifies his Realist approach, capturing a naturalistic scene of wildlife in its environment. Set in a forest during spring, the painting reflects Courbet's commitment to depicting everyday life and nature authentically. The realistic rendering of the deer and the surrounding landscape highlights his focus on direct observation and the depiction of contemporary subjects. This work aligns with the Realist movement's emphasis on truth and direct representation, showcasing Courbet's ability to blend the natural world with human presence.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  237
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1568 at 0x153DB9E31970>]
+generated_description:  The painting "The Peasants of Flagey Returning from the Fair" by Gustave Courbet, created in 1855, exemplifies his Realist style. Set in the countryside, it captures a pastoral scene with peasants returning from a fair, emphasizing everyday life and rural authenticity. The realistic portrayal of the figures and animals, along with the natural setting, reflects Courbet's commitment to depicting contemporary reality. The painting aligns with the Realist movement's focus on direct observation and the representation of ordinary subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  238
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1512 at 0x153DB9C61820>]
+generated_description:  The painting "The Sleeping Embroiderer" by Gustave Courbet, created in 1853, exemplifies the Realist movement. Set during the 1850-1900 timeframe, it portrays a woman engaged in embroidery, capturing everyday life and labor. This work reflects Courbet's commitment to depicting real people and their activities, challenging traditional academic art. The intimate and detailed portrayal of the subject, combined with the realistic depiction of her surroundings, underscores the artist's focus on direct observation and the representation of contemporary society.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  239
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x812 at 0x153DC8D0F310>]
+generated_description:  The painting "The Source of the Lison" by Gustave Courbet, created in 1866, exemplifies his Realist style. Set in the natural landscape of the Franche-Comté region, it showcases Courbet's commitment to depicting observed reality. The focus on the source of the river Lison highlights his interest in capturing the raw beauty and geological formations of nature. This work reflects the Realist movement's emphasis on direct observation and the depiction of everyday life, challenging traditional academic ideals.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  240
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x840 at 0x153DB9C4A6D0>]
+generated_description:  This painting, "View of Ornans and Its Church Steeple" by Gustave Courbet, exemplifies his Realist style, focusing on the depiction of everyday life and natural surroundings. Created between 1850 and 1900, it showcases Courbet's commitment to capturing realistic scenes, emphasizing the textures and colors of the rural landscape. The church steeple serves as a focal point, symbolizing both the spiritual and social structures within the community. This work reflects the Realist movement's focus on direct observation and the representation of contemporary life, aligning with Courbet's desire to depict the world as he saw it.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  241
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1680 at 0x153DC894F820>]
+generated_description:  This painting, *Young Ladies on the Banks of the Seine (Summer)* by Gustave Courbet, exemplifies his Realist approach, focusing on everyday life and natural settings. Created in 1857, it reflects the artist's commitment to depicting unidealized subjects, capturing a serene moment of leisure and sleep in a natural environment. The painting aligns with the Realist movement's emphasis on direct observation and the depiction of contemporary life, showcasing Courbet's ability to blend realism with a sense of tranquility.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  242
+image_inputs [<PIL.Image.Image image mode=RGB size=532x700 at 0x153DC894F820>]
+generated_description:  This painting, "Girl Fishing," by Helene Schjerfbeck, exemplifies Realism, a 19th-century art movement that aimed to depict everyday life with accuracy and detail. Created in 1884, it captures a moment of rural life, showcasing the artist's focus on naturalism and the human figure. The scene reflects the social and economic conditions of the time, emphasizing the labor and daily activities of individuals. Schjerfbeck's work aligns with the broader movement's emphasis on direct observation and the representation of contemporary reality.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  243
+image_inputs [<PIL.Image.Image image mode=RGB size=2184x1624 at 0x153DB9C493D0>]
+generated_description:  This painting, *A Studio in the Batignolles: Homage to Manet* by Henri Fantin-Latour, depicts a group of artists gathered around a painter working on a canvas, paying homage to Édouard Manet. Set in the 1870s, it reflects the artistic milieu of the time, showcasing realism and the influence of Manet's avant-garde style. The scene highlights the camaraderie and shared artistic vision among the group, emphasizing Manet's pivotal role in the transition from traditional to modern art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  244
+image_inputs [<PIL.Image.Image image mode=RGB size=420x336 at 0x153DB9CADCA0>]
+generated_description:  This painting, "Not Identified," by Henri Fantin-Latour, is a still life from the 1850-1900 timeframe, showcasing garden roses and cut flowers arranged in a bouquet. Fantin-Latour's realistic style emphasizes the textures and colors of the roses, reflecting his interest in the genre of still life. This work aligns with the broader trend of depicting everyday subjects in a lifelike manner, a hallmark of the Realist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  245
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x153DB9CADCA0>]
+generated_description:  This painting, "Reading," by Henri Fantin-Latour, depicts a scene of two individuals engaged in conversation, rendered in a realistic style typical of the late 19th century. Set against a muted background, the focus is on the interaction and the intimate setting, reflecting the artist's interest in capturing everyday life and the social dynamics of the period. Fantin-Latour's work aligns with the Realist movement, emphasizing accurate representation and the portrayal of contemporary subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  246
+image_inputs [<PIL.Image.Image image mode=RGB size=952x784 at 0x153DB9C615E0>]
+generated_description:  This painting, "Roses" by Henri Fantin-Latour, exemplifies the Realist movement of the late 19th century. Set against a muted background, the bouquet of garden roses in a clear vase emphasizes natural textures and colors, reflecting the Realist focus on everyday subjects and accurate representation. Fantin-Latour's meticulous depiction of the flowers and leaves showcases his skill in capturing the subtle nuances of nature, aligning with the Realist emphasis on observation and detail.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  247
+image_inputs [<PIL.Image.Image image mode=RGB size=728x560 at 0x153DB9E82910>]
+generated_description:  Henri Fantin-Latour's "Roses and Nasturtiums in a Vase" (1883) exemplifies Realism, focusing on everyday subjects with meticulous detail and natural lighting. Set during the 1850-1900 timeframe, this still life captures the beauty of garden roses and nasturtiums, reflecting the artist's interest in nature and the transient nature of life, as seen through the wilting flowers. The work aligns with the Realist movement's emphasis on accurate representation and the celebration of ordinary subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  248
+image_inputs [<PIL.Image.Image image mode=RGB size=728x896 at 0x153DC8D0F310>]
+generated_description:  This painting, "Still Life" by Henri Fantin-Latour, created in 1869, exemplifies the Realist movement of the late 19th century. Set against a dark background, the vibrant colors and detailed textures of the melon contrast sharply with the simplicity of the white cloth, reflecting the Realist focus on everyday subjects and natural light. Fantin-Latour's work during this period often featured still lifes, showcasing his skill in capturing the essence of objects through realistic depiction and careful composition.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  249
+image_inputs [<PIL.Image.Image image mode=RGB size=476x560 at 0x153DB9E22580>]
+generated_description:  This painting, "The Reader" by Henri Fantin-Latour, depicts his sister Marie reading, set against a domestic interior. Realism, prevalent in the 1850-1900 timeframe, emphasizes naturalism and everyday life. Fantin-Latour's focus on light and texture, along with the intimate setting, reflects the genre painting tradition, which often portrayed scenes of daily life. The painting captures a quiet moment, highlighting the subject's engagement with her book, embodying the era's appreciation for the beauty of ordinary activities.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  250
+image_inputs [<PIL.Image.Image image mode=RGB size=280x420 at 0x153DB9E3A100>]
+generated_description:  Henrique Pousão's "Model Painting" (1880) exemplifies late 19th-century realism, reflecting a focus on capturing everyday life and human form with precision and naturalism. Set in a studio environment, the painting showcases the artist's attention to light, texture, and the human figure, typical of the Realist movement. This work likely served as a study for larger compositions, demonstrating Pousão's skill in rendering the human body and the interplay of light and shadow.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  251
+image_inputs [<PIL.Image.Image image mode=RGB size=840x952 at 0x153DB9E3A9D0>]
+generated_description:  This painting, "Gathering Plums," by Henry Herbert La Thangue, depicts a realistic scene of two individuals harvesting plums in a lush orchard. The artist's use of natural light and detailed textures reflects the Realist movement's focus on everyday life and the beauty of nature. Set in the early 20th century, the painting captures a moment of rural labor, emphasizing the connection between humans and the land. The style and subject matter align with the broader social and cultural context of the time, reflecting a period of industrialization and growing appreciation for the countryside.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  252
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x153DB9E3ACD0>]
+generated_description:  This painting, "Portrait of T.P. Chaplygin," by Ilya Repin, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. The artist uses realistic brushwork and natural lighting to portray the subject with a focus on capturing the essence of the individual, reflecting the era's emphasis on depicting contemporary life and social issues. The use of facial hair and the somber expression contribute to the portrayal of the subject's character and the overall mood of the piece.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  253
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x153DB9E49340>]
+generated_description:  This painting, "Portrait of the Art Critic Vladimir Stasov" by Ilya Repin, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It captures a gentleman with facial hair, emphasizing realistic detail and naturalism. The dark background and formal attire reflect the artist's focus on portraying the subject's personality and social standing. This work aligns with the broader movement of capturing contemporary life and societal issues through art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  254
+image_inputs [<PIL.Image.Image image mode=RGB size=756x1008 at 0x153DB9E826A0>]
+generated_description:  This painting, "Portrait of the Artist Isaak Brodskiy" by Ilya Repin, reflects the Realism movement of the late 19th and early 20th centuries. Created in 1910, it captures the artist in a candid, unposed moment, emphasizing realism through its natural depiction of light and shadow. The style and technique highlight Repin's focus on capturing the essence of his subject, aligning with the movement's emphasis on truthful representation.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  255
+image_inputs [<PIL.Image.Image image mode=RGB size=756x1008 at 0x153DB9C76E20>]
+generated_description:  This painting, "Portrait of the Narrator of Folk Tales V. Tschegolionkov" by Ilya Repin, exemplifies Realism, a style prevalent during the 1850-1900 timeframe. It depicts a gentleman in a formal pose against a textured red background, capturing the subject's personality and social status through realistic detail and subdued colors. The work reflects the era's focus on portraying individuals with authenticity and depth.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  256
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x812 at 0x153DB9E3A820>]
+generated_description:  This painting, "Self-Portrait," by Ilya Repin, likely dates to the early 20th century, reflecting the Realism movement. It portrays the artist in a rustic interior, emphasizing his character and the environment of his time. The style captures the essence of everyday life, focusing on realistic details and textures, which aligns with the Realist approach of depicting contemporary subjects truthfully.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  257
+image_inputs [<PIL.Image.Image image mode=RGB size=672x1008 at 0x153DB9E49970>]
+generated_description:  This painting, "Sketch for the Painting 'Ceremonial Meeting of the State Council on May 7, 1901-1903'" by Ilya Repin, is a realistic portrayal of a formal meeting. Created between 1900 and 1950, it captures the solemnity and formality of state council proceedings. The style emphasizes accurate representation and detail, reflecting the artist's focus on historical accuracy and social commentary.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  258
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x153DB9C76E20>]
+generated_description:  This painting, "The Surgeon and Pavlov in the Operating Theater" by Ilya Repin, depicts a medical procedure in a hospital setting during the late 19th century. Realism, a prominent style of the time, captures the scene with meticulous detail and natural lighting, reflecting the importance of medical practices and the evolving understanding of surgery. The painting highlights the collaborative effort of medical professionals and the sterile environment of the operating theater, emphasizing the precision and gravity of the surgical process. This work reflects the broader cultural and scientific interest in medicine and the human body during the late 19th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  259
+image_inputs [<PIL.Image.Image image mode=RGB size=532x1008 at 0x153DB9C4AD30>]
+generated_description:  This painting, "Zaporizhian Colonel," by Ilya Repin, depicts a military officer in elaborate Russian attire, symbolizing the historical and cultural significance of the Zaporizhian Cossacks during the 18th century. The realistic style captures the ruggedness and dignity of the subject, reflecting the artist's focus on depicting contemporary life with authenticity. The timeframe places it within the late 19th century, a period of social and political change in Russia, where such imagery served to evoke national pride and historical continuity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  260
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x153DB9E49970>]
+generated_description:  This watercolor by Ilya Repin, titled "Zaporozhets," depicts a Zaporozhian Cossack, a historical figure from Ukraine. Created between 1850-1900, it reflects the Realist movement's focus on depicting everyday life and social issues. The painting captures the rugged character and attire of the Cossack, emphasizing authenticity and the harsh realities of rural life during the Russian Empire.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  261
+image_inputs [<PIL.Image.Image image mode=RGB size=504x308 at 0x153DB9E4E5E0>]
+generated_description:  This sketch by Isaac Levitan, titled "Krivoozersky Monastery: Monks Following Fish," from 1890, reflects the Realist movement's focus on capturing everyday life. Levitan's use of line and text emphasizes the spiritual and communal aspects of Russian monastic life, situating it within the broader context of Russian Orthodox traditions and the artist's exploration of rural landscapes and religious themes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  262
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x153DB9E778E0>]
+generated_description:  This painting, "Lake" by Isaac Levitan, exemplifies late 19th-century Russian Realism, reflecting the artist's focus on natural landscapes. Created during the 1850-1900 timeframe, it captures the serene beauty of a riverbank under a dynamic sky, showcasing Levitan's mastery of light and atmosphere. The work embodies the Romantic ideal of nature's tranquility and the artist's deep connection to the Russian countryside.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  263
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x153DB9E184C0>]
+generated_description:  This painting, "Lake Como" by Isaac Levitan, created in 1894, embodies the Realism movement of the late 19th century. It showcases a serene lakeside scene with vibrant colors and detailed textures, reflecting Levitan's focus on capturing the beauty of nature and everyday life. The realistic depiction of the waterway, boats, and sky highlights his commitment to depicting contemporary settings with accuracy and emotion. This work aligns with the broader Romantic and Realist trends of the era, emphasizing the harmony between man and nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  264
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x153DB9E64280>]
+generated_description:  This black-and-white sketch by Isaac Levitan, titled "Path in the Forest," exemplifies late 19th-century Russian realism. Created during the 1850-1900 timeframe, it captures the natural world with meticulous attention to detail, focusing on the textures and forms of trees and plants. Levitan's work reflects the Romantic movement's emphasis on nature and the sublime, showcasing the intricate beauty of the forest environment. The sketch's simplicity and focus on the interplay of light and shadow highlight Levitan's skill in capturing the essence of his subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  265
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x588 at 0x153DB9E4E3D0>]
+generated_description:  This painting, "Plyos" by Isaac Levitan, exemplifies Russian Realism, capturing a serene natural landscape along the Volga river. Created in 1889, it reflects the artist's focus on the beauty and tranquility of Russia's rural settings during the late 19th century. The realistic depiction of light and shadow, combined with the detailed rendering of the riverbank and distant church spires, highlights Levitan's mastery of naturalistic painting. This work aligns with broader trends in Russian art that emphasized national identity and the sublime beauty of the Russian countryside.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  266
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x153DB9E64B80>]
+generated_description:  This painting, "Village Savvinskaya near Zvenigorod" by Isaac Levitan, exemplifies Russian Realism from the late 19th century. Set in a rural landscape, it captures the essence of a peaceful village during spring, with bare trees suggesting the season's transition. Levitan's realistic style emphasizes the natural beauty and tranquility of the countryside, reflecting the Romantic and Naturalist movements prevalent in Russia during this period. The painting highlights the harmony between human settlement and nature, showcasing Levitan's skill in rendering light and atmosphere.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  267
+image_inputs [<PIL.Image.Image image mode=RGB size=448x504 at 0x153DB9E71A90>]
+generated_description:  This painting, "N.A. Nekrasov During the Last Songs" by Ivan Kramskoy, depicts the poet Nikolay Nekrasov in a moment of reflection, likely during his final illness. Set in a domestic interior, the scene captures Nekrasov's contemplative mood through his pose and the somber atmosphere. The style of realism emphasizes the emotional and psychological depth of the subject, reflecting the artist's focus on capturing the essence of his subjects. This work exemplifies the critical realism movement prevalent in the late 19th century, which aimed to portray contemporary life with honesty and detail.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  268
+image_inputs [<PIL.Image.Image image mode=RGB size=532x728 at 0x153DB9E71B20>]
+generated_description:  This painting, "Old Man with a Crutch" by Ivan Kramskoy (1872), exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It depicts a humble, elderly man, likely representing the struggles of the lower classes. The realistic portrayal, with its focus on everyday life and the human condition, aligns with the Realist movement's aim to reflect contemporary society. The artist's attention to detail and the somber mood reflect the social and political climate of the time, emphasizing realism's role in critiquing societal issues.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  269
+image_inputs [<PIL.Image.Image image mode=RGB size=812x532 at 0x153DB9E71940>]
+generated_description:  This painting, "Pond" by Ivan Kramskoy, exemplifies Realism, a movement prevalent in the 1850-1900 timeframe. It captures a serene natural landscape, focusing on a pond surrounded by dense forests and meadows bathed in morning sunlight. The realistic depiction emphasizes the tranquility and beauty of the natural environment, reflecting the Realist emphasis on direct observation and accurate representation of everyday life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  270
+image_inputs [<PIL.Image.Image image mode=RGB size=616x896 at 0x153DB9E1ECD0>]
+generated_description:  This painting, "Portrait of Artist and Photographer Mikhail Borisovich Tulinova" by Ivan Kramskoy, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It captures a gentleman in a formal pose, reflecting the era's focus on naturalism and direct observation. The subdued palette and realistic depiction of the subject align with Kramskoy's commitment to portraying individuals with honesty and detail.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  271
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x153DB9E1E3D0>]
+generated_description:  This sketch by Ivan Shishkin, titled "Forest Cutting," exemplifies his realistic style, capturing the intricate details of forest life. Created between 1850-1900, it reflects the Peredvizhniki movement's focus on naturalistic depictions of Russian landscapes. The meticulous rendering of trees and undergrowth highlights Shishkin's dedication to botanical accuracy and his deep connection to nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  272
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x153DB9E1EF40>]
+generated_description:  This painting, "Forest Glade" by Ivan Shishkin, exemplifies the Realist style prevalent in the late 19th century. Set in the Russian countryside, it captures the lush greenery and natural beauty of the forest, reflecting the artist's meticulous observation of nature. Shishkin's work aligns with the Peredvizhniki movement, emphasizing the Russian landscape and its seasonal changes, contributing to the appreciation of the natural world during this period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  273
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x153DB9E1E2E0>]
+generated_description:  This painting, "Forest in Mordvinovo" by Ivan Shishkin, exemplifies the Realist style prevalent in the late 19th century. Set in Mordvinovo, a region rich in natural beauty, the artwork captures the serene and untouched essence of a spruce-fir forest. Shishkin's meticulous observation of nature and his focus on the interplay of light and shadow reflect the Realist movement's emphasis on accurate representation and the celebration of the Russian landscape. The painting highlights the importance of preserving natural environments, aligning with the broader cultural and environmental consciousness of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  274
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x153DB9E60AC0>]
+generated_description:  This painting, "Forest Road" by Ivan Shishkin, exemplifies the Realist style prevalent in the late 19th century. Set in a northern hardwood forest, it captures the natural environment with meticulous detail, reflecting the artist's focus on realistic depictions of nature. The composition emphasizes the textures of the trees and the earthy tones of the forest floor, showcasing Shishkin's analytical approach to landscape painting. The timeframe of 1850-1900 aligns with the rise of Realism, which sought to depict contemporary life and natural settings truthfully. The painting's tags—roads-and-vehicles, forests-and-trees, tree, forest, woodland, natural environment, old-growth forest, natural landscape, trunk—highlight its focus on the serene beauty of untouched nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  275
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x153DB9E609D0>]
+generated_description:  This painting, "Gathering Storm," by Ivan Shishkin, exemplifies Realism, capturing the natural environment with meticulous detail. Set in the late 19th century, it reflects the Russian landscape tradition, focusing on the interplay of light, atmosphere, and the untamed wilderness. The gathering storm symbolizes the tension between nature's power and tranquility, embodying the Romantic ideal of the sublime. The realistic portrayal of the forest, lake, and sky highlights Shishkin's dedication to naturalistic observation and his role in the Peredvizhniki movement, which sought to break away from academic constraints.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  276
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x153DB9E1ED90>]
+generated_description:  This painting, "Grove by the Pond," by Ivan Shishkin, exemplifies Realism, capturing the serene beauty of a natural landscape. Created in 1896, it reflects the artist's focus on precise observation and the intricate details of trees and meadows. The scene, set in Preobrazhenskoye, showcases the lush greenery and tranquil pond, embodying the Russian landscape tradition and emphasizing the harmony between nature and light.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  277
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x153DB9E1EA60>]
+generated_description:  This sketch by Ivan Shishkin, titled "Herd of Sheep under an Oak Tree," from 1863, exemplifies the Realism movement. Set in a naturalistic forest setting, it captures the serene coexistence of animals and nature, reflecting the artist's focus on accurate observation and the beauty of the Russian landscape. The use of sketch-like techniques emphasizes the immediacy and spontaneity of the scene, typical of the Realist approach.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  278
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x153DB9E1EA60>]
+generated_description:  This painting, "Crimea," by Ivan Shishkin, exemplifies the Realist style prevalent in the 1850s-1900s. Set in Crimea, it showcases the artist's meticulous observation of natural landscapes, capturing the vibrant greenery and serene atmosphere of the region. Shishkin's focus on the interplay of light and shadow highlights his dedication to realistic representation, reflecting the Romanticist and Realist movements of the time. The painting celebrates the beauty of the natural environment, aligning with the broader trend of emphasizing the sublime in nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  279
+image_inputs [<PIL.Image.Image image mode=RGB size=1988x1344 at 0x153DB9C762E0>]
+generated_description:  This painting, *In the Birch Tree Forest* by Ivan Shishkin (1883), exemplifies the Realist style prevalent in the late 19th century. Set in a northern hardwood forest, the scene captures the serene beauty of nature with meticulous detail and a focus on the interplay of light and shadow. Shishkin's work reflects the Peredvizhniki movement's emphasis on realistic depictions of the Russian landscape, celebrating the untouched wilderness and the tranquility of rural life. The painting's composition and use of color convey a sense of depth and tranquility, embodying the Romantic ideal of nature's majesty and the artist's deep connection to the land.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  280
+image_inputs [<PIL.Image.Image image mode=RGB size=672x1008 at 0x153DB9E3B760>]
+generated_description:  This painting, "In Winter" by Ivan Shishkin, exemplifies the Realist movement of the late 19th century. Set in a snowy forest, it captures the serene yet somber beauty of nature during winter. Shishkin's meticulous attention to detail and realistic portrayal of light and shadow reflect his dedication to naturalism and his desire to depict the Russian landscape authentically. The scene evokes a sense of quiet solitude and the enduring strength of the forest ecosystem amidst harsh winter conditions.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  281
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x153DB9E3BD60>]
+generated_description:  This black-and-white etching by Ivan Shishkin, titled "Path in the Forest," from 1871, exemplifies the Realist style prevalent in the 1850-1900 timeframe. It showcases a serene forest scene with a winding path, rocks, and lush foliage, reflecting Shishkin's meticulous observation of nature. The monochrome palette emphasizes the textures and contrasts of the forest environment, capturing the essence of Russian landscapes. This work aligns with the Peredvizhniki movement, focusing on realistic depictions of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  282
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x153DB9E1ED60>]
+generated_description:  This painting, "Pine Forest" by Ivan Shishkin, exemplifies the Realist style prevalent in the late 19th century. Set in the 1880s, it captures the serene beauty of a natural woodland scene, focusing on the intricate details of the forest's vegetation and the interplay of light and shadow. Shishkin's meticulous observation of nature aligns with the Realist movement's emphasis on accurate representation and the celebration of the Russian landscape. The painting reflects the growing appreciation for the natural world and the desire to document it faithfully.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  283
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x588 at 0x153DB9E7BC40>]
+generated_description:  This sketch by Ivan Shishkin, titled "View of Yelabuga," captures the Russian landscape realism of the 19th century. It showcases the artist's focus on natural elements and architectural structures, reflecting the Peredvizhniki movement's emphasis on depicting everyday life and the beauty of rural Russia. The use of line emphasizes the textures of trees and buildings, highlighting Shishkin's analytical approach to nature. This work exemplifies the period's interest in capturing the essence of place and the harmony between man-made structures and the natural environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  284
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x153DB9E4EE50>]
+generated_description:  This sketch by Ivan Shishkin, titled "Young Crop of Nuts," exemplifies his realistic style, capturing the intricate details of leaves and nuts in a forest setting. Created between 1850-1900, it reflects the Russian emphasis on naturalistic depictions during the Realist movement. The focus on botanical elements aligns with Shishkin's dedication to precise observation and the beauty of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  285
+image_inputs [<PIL.Image.Image image mode=RGB size=644x392 at 0x153DB9E64B50>]
+generated_description:  This painting, "At the Workers' Outskirts of the Days of the Overthrow of the Autocracy," by Ivan Vladimirov, depicts a scene from the Russian Revolution of 1917. The style of realism captures the raw emotions and actions of the time, showing workers and soldiers marching through a town square, symbolizing the uprising against autocratic rule. The presence of military vehicles and flags indicates the involvement of troops in the revolution. The painting reflects the historical context of the Russian Revolution, capturing the pivotal moment of rebellion and the transition from autocracy to a new era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  286
+image_inputs [<PIL.Image.Image image mode=RGB size=616x392 at 0x153DB9D50550>]
+generated_description:  This painting, "Cartomancy" by Ivan Vladimirov, depicts a scene of two women engaged in a card game, rendered in a realistic style. Set in a domestic interior, the artwork captures a moment of interaction and emotional engagement through the characters' expressions and body language. The timeframe places it within the early 20th century, reflecting societal norms and leisure activities of the time. The focus on characters and emotions highlights the artist's interest in capturing human dynamics and everyday life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  287
+image_inputs [<PIL.Image.Image image mode=RGB size=504x224 at 0x153DB9E77CA0>]
+generated_description:  This painting, "Parade of the Navy: Imperial Yacht Standart," by Ivan Vladimirov, depicts a naval parade featuring the Imperial Yacht Standart, set against a backdrop of other ships and a cityscape. Created in 1902, it reflects the grandeur of the Russian Empire during the late 19th century, capturing the opulence and scale of naval events. The realistic style emphasizes the details of the ships and the ceremonial atmosphere, highlighting the importance of maritime power and royal prestige.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  288
+image_inputs [<PIL.Image.Image image mode=RGB size=1344x1652 at 0x153DB9D50490>]
+generated_description:  This painting, "Other Voices" by Jamie Wyeth, depicts a woman in a moment of quiet contemplation or hesitation, set against a simple interior backdrop. The style is realistic, capturing the textures of her clothing and the door's details with precision. The scene evokes themes of introspection and the complexities of human emotion, reflecting Wyeth's exploration of characters and their inner worlds. The timeframe places it within the mid-20th century, a period marked by a focus on individual experience and emotional depth in American art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  289
+image_inputs [<PIL.Image.Image image mode=RGB size=588x476 at 0x153DB9B3F7F0>]
+generated_description:  This painting, "Slayton House" by Jamie Wyeth, captures a rustic wooden house in a rural setting, rendered in a realistic style typical of the mid-20th century. The focus on the structure and its weathered appearance reflects themes of decay and nostalgia, common in post-war American art. The timeframe places it within the broader context of mid-century realism, emphasizing everyday life and vernacular architecture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  290
+image_inputs [<PIL.Image.Image image mode=RGB size=1540x1932 at 0x153DB9D66760>]
+generated_description:  This painting, "Torn Spruce" by Jamie Wyeth, exemplifies realism, capturing the rugged beauty of a forested landscape. The torn spruce trunk, central to the composition, symbolizes resilience amidst nature's forces. Wyeth's work reflects the mid-20th-century interest in natural settings and the enduring themes of environmental impact and human connection to the wilderness. The painting's focus on the tree's texture and the surrounding forest underscores Wyeth's appreciation for the intricate details of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  291
+image_inputs [<PIL.Image.Image image mode=RGB size=560x420 at 0x153DB9D50910>]
+generated_description:  Jean-François Millet's "A Hilly Landscape" (1867) exemplifies his Realist style, capturing the rugged terrain of Auvergne with meticulous detail. This work reflects the artist's focus on naturalistic representation and the everyday life of rural France, aligning with the Barbizon School's emphasis on direct observation and the beauty of the countryside. The painting's earthy tones and textured brushwork emphasize the rawness of the landscape, resonating with the Romantic appreciation for nature's untamed aspects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  292
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x840 at 0x153DB9E7BE80>]
+generated_description:  This painting, "House Birthplace Millet," by Jean-François Millet, depicts a rustic cottage, reflecting the artist's focus on rural life and simplicity. Created between 1850 and 1900, it embodies the Realism movement, capturing everyday scenes with meticulous detail. The composition highlights the humble dwelling and its surroundings, emphasizing the connection between humans and nature, themes central to Millet's work.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  293
+image_inputs [<PIL.Image.Image image mode=RGB size=588x700 at 0x153DB9D50490>]
+generated_description:  Jean-François Millet's "The Blacksmith and His Bride" (1848) exemplifies his Realist style, capturing a moment of domestic life in rural France. Set against a rustic backdrop, the sketch portrays a blacksmith and his bride, highlighting themes of labor and family. This work reflects the artist's focus on everyday subjects and his commitment to realism, a movement that gained prominence in the 19th century, challenging traditional academic art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  294
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x2436 at 0x153DB9D66DC0>]
+generated_description:  This painting, "Woman Baking Bread," by Jean-François Millet, exemplifies the Realism movement, capturing everyday rural life with meticulous detail and a focus on the labor and dignity of peasants. Set in a rustic kitchen, the scene reflects Millet's commitment to depicting authentic, unidealized moments of rural existence, aligning with the Arts and Crafts movement's emphasis on craftsmanship and simplicity. The painting's realistic portrayal of domestic work underscores Millet's broader exploration of the human condition within the context of 19th-century French society.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  295
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x1036 at 0x153DB9B3FEE0>]
+generated_description:  Johan Hendrik Weissenbruch's "Shell-Carts on the Beach" (1850-1900) exemplifies Realism, capturing a serene coastal scene with shell carts. The focus on everyday life and natural light reflects the artist's interest in Dutch Romanticism and later the Hague School, emphasizing the interplay of sky and sea. The painting's style and subject matter highlight the artist's dedication to depicting the Dutch polder landscape and its inhabitants.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  296
+image_inputs [<PIL.Image.Image image mode=RGB size=3052x2716 at 0x153DB9B3F820>]
+generated_description:  This painting, "View from Dekkersduin" by Johan Hendrik Weissenbruch, exemplifies the Realism movement of the 19th century. Set in the 1840s, it captures a serene rural landscape, showcasing the artist's meticulous observation of nature and human settlements. The composition emphasizes the interplay of light and shadow, reflecting the influence of earlier Dutch masters like Jacob van Ruisdael. The inclusion of a river, boats, and distant fields highlights the Dutch polder landscape, a common subject in Weissenbruch's work. The ornate frame adds to the painting's historical context, suggesting its placement within a traditional Dutch domestic setting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  297
+image_inputs [<PIL.Image.Image image mode=RGB size=756x980 at 0x153DB9E7BE80>]
+generated_description:  This painting, *Fifth Avenue, New York* by John French Sloan, captures the bustling urban scene of early 20th-century New York. Realism, the style of the painting, emphasizes the everyday life and architecture of the city. The timeframe places it within the period of rapid urbanization and modernization, reflecting the social and economic changes of the era. The focus on Fifth Avenue highlights the city's growing prominence and the fashion and leisure activities of its residents. The group portraits of women in fashionable attire and the presence of vehicles suggest the evolving social dynamics and the increasing mobility of the time. This work offers a vivid snapshot of urban life during a transformative period in American history.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  298
+image_inputs [<PIL.Image.Image image mode=RGB size=896x756 at 0x153DB9D66BB0>]
+generated_description:  This painting, "Humoresque" by John French Sloan, created in 1915, embodies the realism style prevalent in the early 20th century. It depicts a natural landscape with figures engaging in leisure activities, reflecting the era's interest in capturing everyday life and the beauty of the natural world. The use of vibrant colors and detailed observation of terrain and vegetation aligns with the realism movement's focus on accurate representation. The inclusion of figures adds a human element, showcasing the artist's ability to blend the natural environment with human activity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  299
+image_inputs [<PIL.Image.Image image mode=RGB size=812x616 at 0x153DB9D66580>]
+generated_description:  This painting, "Goan Beach" by John Miller, captures a serene coastal scene with a realistic style. Set in the mid-20th century, it reflects the post-war era's appreciation for natural beauty and tranquility. The soft, diffused light and muted colors evoke a calm atmosphere, typical of the Realism movement, emphasizing the natural environment and atmospheric effects. The beach, sea, and palm trees are rendered with attention to detail, showcasing the artist's skill in capturing the essence of the coastal landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_185120_job_2.json'.
+
+JOB STATISTICS
+==============
+Job ID: 11789345
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: RUNNING
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 01:39:44 core-walltime
+Job Wall-clock time: 00:06:14
+Memory Utilized: 0.00 MB
+Memory Efficiency: 0.00% of 180.00 GB (180.00 GB/node)
+WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

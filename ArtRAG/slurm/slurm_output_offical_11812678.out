@@ -1,0 +1,169 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11812678/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x14d55e687c10>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x14d4f74bd8b0>,
+  llm_model_name = Qwen/Qwen2.5-VL-72B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x14d527007a60>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-72B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=0)
+Processing data from index 0 to 10000
+Processing rows:   0%|          | 0/10000 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Processing row:  0
+
+Loading checkpoint shards:   0%|          | 0/38 [00:00<?, ?it/s][A
+Loading checkpoint shards:   3%|▎         | 1/38 [00:07<04:23,  7.12s/it][A
+Loading checkpoint shards:   5%|▌         | 2/38 [00:11<03:23,  5.65s/it][A
+Loading checkpoint shards:   8%|▊         | 3/38 [00:15<02:43,  4.66s/it][A
+Loading checkpoint shards:  11%|█         | 4/38 [00:18<02:21,  4.17s/it][A
+Loading checkpoint shards:  13%|█▎        | 5/38 [00:22<02:09,  3.94s/it][A
+Loading checkpoint shards:  16%|█▌        | 6/38 [00:26<02:04,  3.90s/it][A
+Loading checkpoint shards:  18%|█▊        | 7/38 [00:29<01:54,  3.70s/it][A
+Loading checkpoint shards:  21%|██        | 8/38 [00:32<01:46,  3.56s/it][A
+Loading checkpoint shards:  24%|██▎       | 9/38 [00:35<01:41,  3.51s/it][A
+Loading checkpoint shards:  26%|██▋       | 10/38 [00:39<01:38,  3.50s/it][A
+Loading checkpoint shards:  29%|██▉       | 11/38 [00:42<01:32,  3.41s/it][A
+Loading checkpoint shards:  32%|███▏      | 12/38 [00:46<01:29,  3.42s/it][A
+Loading checkpoint shards:  34%|███▍      | 13/38 [00:49<01:23,  3.35s/it][A
+Loading checkpoint shards:  37%|███▋      | 14/38 [00:52<01:21,  3.38s/it][A
+Loading checkpoint shards:  39%|███▉      | 15/38 [00:56<01:17,  3.37s/it][A
+Loading checkpoint shards:  42%|████▏     | 16/38 [00:59<01:14,  3.38s/it][A
+Loading checkpoint shards:  45%|████▍     | 17/38 [01:02<01:10,  3.36s/it][A
+Loading checkpoint shards:  47%|████▋     | 18/38 [01:06<01:09,  3.47s/it][A
+Loading checkpoint shards:  50%|█████     | 19/38 [01:09<01:05,  3.43s/it][A
+Loading checkpoint shards:  53%|█████▎    | 20/38 [01:13<01:01,  3.41s/it][A
+Loading checkpoint shards:  55%|█████▌    | 21/38 [01:16<00:58,  3.42s/it][A
+Loading checkpoint shards:  58%|█████▊    | 22/38 [01:20<00:56,  3.50s/it][A
+Loading checkpoint shards:  61%|██████    | 23/38 [01:23<00:52,  3.47s/it][A
+Loading checkpoint shards:  63%|██████▎   | 24/38 [01:26<00:47,  3.40s/it][A
+Loading checkpoint shards:  66%|██████▌   | 25/38 [01:30<00:44,  3.40s/it][A
+Loading checkpoint shards:  68%|██████▊   | 26/38 [01:34<00:41,  3.48s/it][A
+Loading checkpoint shards:  71%|███████   | 27/38 [01:37<00:38,  3.47s/it][A
+Loading checkpoint shards:  74%|███████▎  | 28/38 [01:40<00:34,  3.44s/it][A
+Loading checkpoint shards:  76%|███████▋  | 29/38 [01:44<00:31,  3.46s/it][A
+Loading checkpoint shards:  79%|███████▉  | 30/38 [01:48<00:28,  3.52s/it][A
+Loading checkpoint shards:  82%|████████▏ | 31/38 [01:51<00:23,  3.38s/it][A
+Loading checkpoint shards:  84%|████████▍ | 32/38 [01:54<00:20,  3.39s/it][A
+Loading checkpoint shards:  87%|████████▋ | 33/38 [01:57<00:16,  3.37s/it][A
+Loading checkpoint shards:  89%|████████▉ | 34/38 [02:01<00:13,  3.48s/it][A
+Loading checkpoint shards:  92%|█████████▏| 35/38 [02:04<00:10,  3.44s/it][A
+Loading checkpoint shards:  95%|█████████▍| 36/38 [02:08<00:07,  3.51s/it][A
+Loading checkpoint shards:  97%|█████████▋| 37/38 [02:10<00:03,  3.04s/it][A
+Loading checkpoint shards: 100%|██████████| 38/38 [02:11<00:00,  2.48s/it][ALoading checkpoint shards: 100%|██████████| 38/38 [02:11<00:00,  3.47s/it]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   0%|          | 1/10000 [02:34<429:05:40, 154.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 2/10000 [02:49<201:28:29, 72.55s/it] INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 3/10000 [03:03<127:17:48, 45.84s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 4/10000 [03:16<91:00:32, 32.78s/it] INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 5/10000 [03:33<75:06:07, 27.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 6/10000 [03:48<64:11:34, 23.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 7/10000 [04:05<57:58:50, 20.89s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 8/10000 [04:21<53:35:45, 19.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 9/10000 [04:37<50:59:28, 18.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 10/10000 [04:51<47:24:59, 17.09s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 11/10000 [05:08<47:32:11, 17.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 12/10000 [05:22<44:27:18, 16.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 13/10000 [05:36<43:03:16, 15.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 14/10000 [05:51<42:30:08, 15.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 15/10000 [06:07<43:10:17, 15.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 16/10000 [06:22<42:43:29, 15.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 17/10000 [06:37<42:26:14, 15.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 18/10000 [06:53<42:36:16, 15.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 19/10000 [07:08<42:11:57, 15.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 20/10000 [07:22<41:47:28, 15.08s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 21/10000 [07:38<41:51:30, 15.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 22/10000 [07:53<42:04:10, 15.18s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 23/10000 [08:07<40:47:31, 14.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 24/10000 [08:20<40:03:57, 14.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 25/10000 [08:35<39:53:45, 14.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 26/10000 [08:52<42:01:11, 15.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   0%|          | 27/10000 [09:07<42:25:12, 15.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+slurmstepd: error: *** JOB 11812678 ON gcn95 CANCELLED AT 2025-05-13T22:54:04 DUE TO TIME LIMIT ***
+
+JOB STATISTICS
+==============
+Job ID: 11812678
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 32
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 05:25:20 core-walltime
+Job Wall-clock time: 00:10:10
+Memory Utilized: 6.36 GB
+Memory Efficiency: 1.77% of 360.00 GB (360.00 GB/node)

@@ -1,9 +1,0 @@
-{
-    "working_dir": "./art_context",
-    "model_name": "Qwen/Qwen2.5-VL-7B-Instruct",
-    "retrieval_strategy": "naive",
-    "data_num": 10000,
-    "data_source": "../wikiart_balanced_200.csv",
-    "question_type": "cultural&histroical",
-    "job_id": 0
-}

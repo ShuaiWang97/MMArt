@@ -1,0 +1,1118 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11594806/slurm_script: line 21: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+Lmod has detected the following error: The following module(s) are unknown:
+"Java/11.0.2"
+
+Please check the spelling or version number. Also try "module spider ..."
+It is also possible your cache file is out-of-date; it may help to try:
+  $ module --ignore_cache load "Java/11.0.2"
+
+Also make sure that all modulefiles written in TCL start with the string
+#%Module
+
+
+
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x145583dab0d0>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x1455855478b0>,
+  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x145591c460d0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', mdoel_name='Qwen/Qwen2.5-VL-7B-Instruct', shot_number=0, retrieval_strategy='naive', batch_size=16, data_num=200, generated_descriptions=None, fewshot_type='SM_fewshot', question_type='cultural&histroical')
+Using WikiArt dataset
+Processing rows:   0%|          | 0/200 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Processing row:  0
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
+Loading checkpoint shards:  20%|██        | 1/5 [00:05<00:20,  5.16s/it][A
+Loading checkpoint shards:  40%|████      | 2/5 [00:10<00:16,  5.34s/it][A
+Loading checkpoint shards:  60%|██████    | 3/5 [00:16<00:10,  5.37s/it][A
+Loading checkpoint shards:  80%|████████  | 4/5 [00:21<00:05,  5.36s/it][A
+Loading checkpoint shards: 100%|██████████| 5/5 [00:22<00:00,  3.90s/it][ALoading checkpoint shards: 100%|██████████| 5/5 [00:22<00:00,  4.54s/it]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   0%|          | 1/200 [00:35<1:59:22, 35.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   1%|          | 2/200 [00:39<54:55, 16.65s/it]  INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   2%|▏         | 3/200 [00:43<35:35, 10.84s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   2%|▏         | 4/200 [00:44<23:50,  7.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   2%|▎         | 5/200 [00:46<17:13,  5.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   3%|▎         | 6/200 [00:48<13:25,  4.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   4%|▎         | 7/200 [00:51<11:50,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   4%|▍         | 8/200 [00:58<15:07,  4.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   4%|▍         | 9/200 [01:01<13:31,  4.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   5%|▌         | 10/200 [01:03<11:41,  3.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   6%|▌         | 11/200 [01:06<10:52,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   6%|▌         | 12/200 [01:10<10:59,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   6%|▋         | 13/200 [01:12<09:45,  3.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   7%|▋         | 14/200 [01:15<09:40,  3.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   8%|▊         | 15/200 [01:18<09:08,  2.96s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   8%|▊         | 16/200 [01:26<13:54,  4.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:   8%|▊         | 17/200 [01:29<12:16,  4.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:   9%|▉         | 18/200 [01:31<10:11,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  10%|▉         | 19/200 [01:33<09:10,  3.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  10%|█         | 20/200 [01:36<09:05,  3.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  10%|█         | 21/200 [01:39<09:10,  3.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  11%|█         | 22/200 [01:42<08:59,  3.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  12%|█▏        | 23/200 [01:45<08:55,  3.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  12%|█▏        | 24/200 [01:48<08:42,  2.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  12%|█▎        | 25/200 [01:51<08:33,  2.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  13%|█▎        | 26/200 [01:54<08:24,  2.90s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  14%|█▎        | 27/200 [01:56<08:09,  2.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  14%|█▍        | 28/200 [01:59<07:55,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  14%|█▍        | 29/200 [02:02<07:46,  2.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  15%|█▌        | 30/200 [02:04<07:25,  2.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  16%|█▌        | 31/200 [02:06<06:39,  2.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  16%|█▌        | 32/200 [02:09<07:09,  2.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  16%|█▋        | 33/200 [02:12<08:03,  2.89s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  17%|█▋        | 34/200 [02:15<07:54,  2.86s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  18%|█▊        | 35/200 [02:17<07:15,  2.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  18%|█▊        | 36/200 [02:20<07:04,  2.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  18%|█▊        | 37/200 [02:23<07:14,  2.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  19%|█▉        | 38/200 [02:26<07:26,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  20%|█▉        | 39/200 [02:28<07:16,  2.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  20%|██        | 40/200 [02:31<06:57,  2.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  20%|██        | 41/200 [02:32<06:19,  2.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  21%|██        | 42/200 [02:36<07:16,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  22%|██▏       | 43/200 [02:39<07:12,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  22%|██▏       | 44/200 [02:43<08:34,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  22%|██▎       | 45/200 [02:46<08:09,  3.16s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  23%|██▎       | 46/200 [02:50<08:23,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  24%|██▎       | 47/200 [02:52<07:46,  3.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 1 chunks
+Processing rows:  24%|██▍       | 48/200 [02:55<07:35,  2.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 0 chunks
+Processing rows:  24%|██▍       | 48/200 [02:57<09:20,  3.69s/it]
+generated_description:  This painting, "Old Luk-Oie," by Kay Nielsen, reflects the Art Nouveau movement, which emerged in the late 19th and early 20th centuries, emphasizing organic forms and intricate patterns. It was created during the 1900-1950 timeframe, a period marked by significant cultural shifts and modernization. The style and themes in the painting align with the era's fascination with nature and fantasy, typical of Art Nouveau aesthetics.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  1
+generated_description:  Vincent van Gogh's "Basket of Sprouting Bulbs" (1887) reflects the Post-Impressionist movement, which emerged in the late 19th century, emphasizing expressive brushwork and vivid colors. This painting captures the natural world with a focus on texture and light, typical of Van Gogh's style during his time in Arles, France. The sprouting bulbs symbolize new life and growth, aligning with the broader themes of renewal and transformation prevalent in the late 19th-century cultural landscape.
+retrieved_context: 
+Processing row:  2
+generated_description:  The painting "The Infant Samuel at Prayer" by Joshua Reynolds reflects the Rococo style prevalent during the 1750-1800 timeframe. This period was marked by a revival of interest in the Baroque's emotional intensity but with a lighter, more decorative approach. The focus on religious themes, such as the young Samuel, aligns with the widespread influence of Christianity and the veneration of saints and apostles during this era. The soft lighting and intimate portrayal of the child emphasize the Rococo's emphasis on sensuality and emotion.
+retrieved_context: 
+Processing row:  3
+generated_description:  This painting, "Rouge Gris," by Genevieve Asse, reflects the minimalist art movement, which emerged in the mid-20th century, emphasizing simplicity and abstraction. It likely draws inspiration from the clean lines and color contrasts characteristic of modernist and contemporary art trends.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  4
+generated_description:  This painting, created during the mid-20th century, reflects the Expressionist movement, which emphasized emotional and psychological themes over realistic depictions. The abstracted forms and intense color contrasts suggest a focus on personal experience and inner emotions, typical of Expressionism.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  5
+generated_description:  This sketch by Filippo Brunelleschi, created during the early Renaissance (1400-1450), reflects the era's growing interest in science, technology, and engineering. It showcases Brunelleschi's innovative approach to designing machines, embodying the Renaissance focus on empirical observation and practical problem-solving.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  6
+generated_description:  This painting, "Lean Kitchen" by Jan Steen, reflects the Baroque period's focus on everyday life and realism. Created between 1650-1700, it captures a lively scene of domestic activity, typical of Dutch Golden Age genre painting. The style emphasizes dramatic lighting and detailed observation, common in Baroque art, reflecting the cultural emphasis on realism and the celebration of everyday moments.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  7
+generated_description:  The painting "The Judgment of Paris" by Lucas Cranach the Elder reflects the Northern Renaissance period, influenced by Greek and Roman mythology. It depicts the mythological scene where Paris must choose between Aphrodite, Hera, and Athena, reflecting themes of beauty, power, and conflict. The style and iconography align with the era's interest in classical antiquity and humanism.
+retrieved_context: 
+Processing row:  8
+generated_description:  This painting, "Reclining River Nymph at the Fountain" by Lucas Cranach the Elder, reflects the Northern Renaissance period's fascination with classical mythology and humanism. The use of perspective and detailed landscape elements align with the era's interest in realism and naturalism. The depiction of the nymph and the fountain symbolizes themes of nature, beauty, and the harmony between humans and the divine, resonating with the cultural emphasis on the idealized human form and the revival of classical learning.
+retrieved_context: 
+Processing row:  9
+generated_description:  The painting "Girl with Jug" by Konstantin Makovsky reflects the Romanticism movement prevalent in the 1850s-1900s, emphasizing emotion, individualism, and a return to nature. The artist's focus on the girl's expression and attire highlights themes of innocence and rural life, resonating with Romantic ideals of simplicity and connection to the past.
+retrieved_context: 
+Processing row:  10
+generated_description:  The painting "Scipio Africanus" by Theodoor van Thulden reflects the Baroque period's emphasis on grandeur, emotion, and dramatic contrasts. Influenced by the cultural movement's focus on mythology and historical figures, the artwork celebrates Scipio Africanus, a Roman general, through allegorical and mythological elements, showcasing themes of power, virtue, and divine favor.
+retrieved_context: 
+Processing row:  11
+generated_description:  This painting, "Vista de Lisboa Tejo e Topo do Arco da Rua Augusta," by Carlos Botelho, reflects the Fauvism movement, which emerged in the early 20th century. Influenced by the vibrant colors and expressive brushwork characteristic of Fauvism, Botelho captures the lively atmosphere of Lisbon, showcasing the city's architectural diversity and the bustling life along the Tagus River. The timeframe of 1900-1950 places the painting within the broader context of modernist art, where artists sought to break away from traditional realism and explore new forms of expression.
+retrieved_context: Portuguese art includes many different styles from many different eras.
+
+Sculptures
+Portuguese sculptures can be best analysed by studying the many tombs of the 12th and 14th centuries that are found throughout Portugal. In the late 1700s, the colony of Brazil was the main influence in Portuguese sculpture. This can be seen by the increase in Baroque wooden sculpture during this time. Joaquim Machado de Castro, a famous Portuguese artist who lived around thjais responsible for a lot of these works.
+
+Painting
+The Classical and Romantic styles of painting, brought to Portugal from Italy and France, had an influence on Portuguese artist Machado de Castro in the late 18th century and António Soares dos Reis in the 19th century. A school for amateur painters, led by Nuno Gonçalves, was popular in the 15th century. As a result, Flemish artists added to the native style by decorating palaces and convents using their own techniques. The result gave Portugal a rich heritage of religious art. The Romantic period in the 19th century sparked a rebirth of national art. This was followed by an era of naturalist realism, which in turn was followed by experimentation the 20th century.
+
+Contemporary artists
+Many Portuguese contemporary artists have made their mark on the world stage. Maria Helena Vieira de Silva was a famous Portuguese abstract painter and Carlos Botelho was known for his street scenes of Lisbon. Paula Rego is known for her "storytelling" in painting. She became famous for her works "Dog Woman" (1990's), and "Abortion", a reaction to the referendum in Portugal which made abortion a crime (late 1990s). Her art has been shown in museums such as Tate Modern in London and Casa das Histórias Paula Rego, in Cascais (dedicated solely to her art).
+
+Azulejos
+The Portuguese glazed tiles (azulejos) are one of Portugal's best decorative arts. Many 16th and 17th century buildings are lined with tiles, and the rooms and halls of palaces and mansions have tilted panels following a colour motif. Some prime examples of this style of art are the Pátio da Carranca (courtyard of Carranca) of the Paço de Sintra (Palace of Sintra), the São Roque church in Lisbon and the Quinta da Bacalhoa at Vila Fresca de Azeitão near Setúbal.
+
+
+== References ==
+Processing row:  12
+generated_description:  This painting, "Ploughing the Field" by David Burliuk, reflects the Naive Art or Primitivism movement, which emerged in the early 20th century. Influenced by folk art and the rejection of traditional academic styles, it captures a rural scene with vibrant colors and expressive brushstrokes, emphasizing the directness and emotional intensity of the countryside life.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  13
+generated_description:  This painting by Mark Rothko, "Yellow-Band," reflects the post-war era's emphasis on abstract expressionism and color field painting. The vibrant colors and large, unmodulated fields of color align with the movement's focus on emotional expression and the exploration of pure color. The timeframe of 1950-2000 places it within the mid-20th century, a period marked by significant cultural shifts and existential questioning, which Rothko's work often addressed through its powerful, emotive presence.
+retrieved_context: 
+Processing row:  14
+generated_description:  The painting "On the Street" by August Macke, created during the early 20th century, reflects the Fauvist movement's emphasis on bold colors and expressive brushwork. Influenced by the vibrant urban landscapes of Paris, Macke's work captures the energy and dynamism of city life through abstracted forms and flattened perspectives, embodying the modernist spirit of the era.
+retrieved_context: 
+Processing row:  15
+generated_description:  This sketch by Albrecht Dürer, "Martyrdom of the Ten Thousand," reflects the Northern Renaissance period's focus on religious devotion and martyrdom. The detailed depiction of punishments and tortures aligns with the era's interest in moral and spiritual themes, while the inclusion of saints and apostles underscores the importance of faith and piety during this time.
+retrieved_context: 
+Processing row:  16
+generated_description:  This painting, created during the late Edo period (1800-1850) by Utagawa Kunisada, reflects the ukiyo-e style, which was deeply influenced by the cultural fascination with courtesans and everyday life in Edo (modern-day Tokyo). The depiction of intimate scenes and the use of vibrant colors align with the era's emphasis on pleasure and entertainment. The focus on female nudity and the detailed costumes highlight the social norms and artistic conventions of the time.
+retrieved_context: 
+Processing row:  17
+generated_description:  This painting, "Hackney Road Drawing" by David Batchelor, reflects contemporary minimalism, emphasizing geometric forms and color gradients against a grid background. It aligns with the late 20th-century interest in abstraction and conceptual art, focusing on the interplay between form and space.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  18
+generated_description:  This painting, "Untitled" by Cy Twombly, reflects the Abstract Expressionist movement, which emerged in the 1950s, emphasizing spontaneous, automatic, and subconscious creation. The use of blackboard-like textures and lines symbolizes the raw, expressive nature of the era, reflecting post-war disillusionment and a search for new forms of artistic expression.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  19
+generated_description:  This painting, "Jacob Blessing the Children of Joseph," created by Rembrandt in 1656, reflects the Baroque period's emphasis on dramatic lighting and emotional intensity. The scene captures a biblical moment, showcasing the artist's mastery of chiaroscuro, which was popular during this era. The cultural context of the Dutch Golden Age influenced Rembrandt's approach to portraiture and narrative painting, emphasizing realism and individual expression.
+retrieved_context: . 1661-1662) – Nationalmuseum, Stockholm. The majority of the original painting is now lost as Rembrandt cut it up in order for it to be sold. It is also his last secular history painting.
+Syndics of the Drapers' Guild (1662) – Rijksmuseum, Amsterdam
+The Jewish Bride (c. 1665-1669) – Rijksmuseum, Amsterdam
+Haman before Esther (1665) – National Museum of Art of Romania, Bucharest
+Self-Portrait at the Age of 63 (1669) – National Gallery, London. One of Rembrandt's last self-portraits.
+The Return of the Prodigal Son (1669) – Hermitage Museum, St. Petersburg. One of Rembrandt's last paintings.
+
+Exhibitions
+Sept–Oct 1898: Rembrandt Tentoonstelling (Rembrandt Exhibition), Stedelijk Museum, Amsterdam, the Netherlands.
+Jan–Feb 1899: Rembrandt Tentoonstelling (Rembrandt Exhibition), Royal Academy, London.
+21 April 2011 – 18 July 2011: Rembrandt and the Face of Jesus, Musée du Louvre.
+16 September 2013 – 14 November 2013: Rembrandt: The Consummate Etcher, Syracuse University Art Galleries.
+19 May 2014 – 27 June 2014: From Rembrandt to Rosenquist: Works on Paper from the NAC's Permanent Collection, National Arts Club.
+19 October 2014 – 4 January 2015: Rembrandt, Rubens, Gainsborough and the Golden Age of Painting in Europe, Jule Collins Smith Museum of Art.
+15 October 2014 – 18 January 2015: Rembrandt: The Late Works, The National Gallery, London.
+12 February 2015 – 17 May 2015: Late Rembrandt, The Rijksmuseum, Amsterdam.
+16 September 2018 – 6 January 2019: Rembrandt – Painter as Printmaker, Denver Art Museum, Denver.
+24 August 2019 – 1 December 2019: Leiden circa 1630: Rembrandt Emerges, Agnes Etherington Art Centre, Kingston, Ontario.
+4 October 2019 – 2 February 2020: Rembrandt's Light, Dulwich Picture Gallery, London.
+18 February 2020 – 30 August 2020: Rembrandt and Amsterdam portraiture, 1590–1670 , Museo Nacional Thyssen-Bornemisza, Madrid.
+10 August 2020 – 1 November 2020: Young Rembrandt, Ashmolean Museum, Oxford.
+
+Paintings
+Self-portraits
+Other major paintings
+Drawings and etchings
+Rembrandt drawings at the Albertina
+Rembrandt etchings at The Morgan Library & Museum
+
+See also
+Rembrandt's prints
+
+Notes
+References
+Works cited
+Further reading
+External links
+
+A biography of the artist Rembrandt Harmensz. van Rijn from the National Gallery, London
+Works and literature on Rembrandt from Pubhist.com
+The Drawings of Rembrandt: a revision of Otto Benesch's catalogue raisonné by Martin Royalton-Kisch (in progress)
+Rembrandt's house in Amsterdam Site of the Rembrandt House Museum in Amsterdam, with images of many of his etchings
+114 artworks by or after Rembrandt at the Art UK site
+Works by or about Rembrandt at the Internet Archive
+Rembrandt van Rijn, General Resources
+The transparent connoisseur 3: the 30 million pound question by Gary Schwartz
+Rembrandt
+The Rembrandt Database research data on the paintings, including the full contents of the first volumes of A Corpus of Rembrandt Paintings by the Rembrandt Research Project
+Die Urkunden über Rembrandt by C. Hofstede de Groot (1906).
+Processing row:  20
+generated_description:  This painting, "Toreador," by Ioșif Iser, reflects the Expressionist movement, which emerged in the early 20th century, emphasizing emotional and psychological themes over realistic depictions. The vibrant colors and distorted forms suggest a focus on inner emotions rather than external reality, typical of Expressionism. The timeframe of 1900-1950 places it within the broader context of modernist art, where artists sought to break away from traditional styles to convey personal experiences and societal issues.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  21
+generated_description:  The painting "Landscape" by Ilya Mashkov, created in 1914, reflects the Post-Impressionist movement, which emerged in the early 20th century. This style, influenced by artists like Paul Cézanne and Vincent van Gogh, emphasized personal expression and emotional content over realistic representation. The vibrant colors and simplified forms in Mashkov's work capture the essence of rural life and natural beauty, embodying the era's focus on individual artistic vision and the exploration of color and form.
+retrieved_context: 
+Processing row:  22
+generated_description:  Parmigianino's "Holy Family with Shepherds and Angels" reflects the late Renaissance period, characterized by Mannerism, which emphasized emotional intensity and dramatic contrasts. The artist's use of light and shadow, along with the elongated figures and dynamic poses, aligns with Mannerist aesthetics. The painting's focus on the Holy Family, a central Christian theme, underscores the religious devotion prevalent during this era. The inclusion of shepherds and angels adds layers of mythological and spiritual significance, connecting the divine with the earthly.
+retrieved_context: 
+Processing row:  23
+generated_description:  This painting, "La Favorite" by Raphael Kirchner, reflects the Art Nouveau movement, characterized by its emphasis on organic forms and decorative lines. Created between 1900-1950, it captures a female portrait with a modern, sketch-like style, resonating with the era's focus on individuality and emotional expression.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  24
+generated_description:  The painting "The Apostle Paul" by Rembrandt, created in 1659 during the Baroque period, reflects the cultural emphasis on dramatic lighting and emotional intensity typical of the era. The dark, somber tones and the contemplative pose of the figure align with the Baroque style's focus on deep emotional expression and religious devotion. This work also resonates with the broader cultural context of the Dutch Golden Age, where religious themes were prevalent due to the country's strong Calvinist traditions.
+retrieved_context: 
+Processing row:  25
+generated_description:  The painting "Portrait of Mariana of Austria" by Diego Velázquez reflects the Baroque period's emphasis on realism and dramatic lighting. The grandeur of the subject's attire and the intricate details of her clothing highlight the opulence of Spanish royalty during the late 17th century. The style aligns with the cultural movement's focus on capturing the essence and personality of the sitter, showcasing the power and status of the queen.
+retrieved_context: 
+Processing row:  26
+generated_description:  This painting, "Fire Dancers" by Mark Tobey, reflects the abstract expressionist movement of the mid-20th century, characterized by spontaneous, gestural brushstrokes and a focus on emotional expression. The monochromatic palette and dynamic composition align with the era's interest in exploring the subconscious and the use of color and form to convey emotion and energy.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  27
+generated_description:  This painting, "Peeckelhaering" by Frans Hals, reflects the Baroque period's emphasis on dramatic lighting and realism. It was created during the 1600s, a time when Dutch Golden Age artists celebrated individuality and the human form. The skull symbolizes mortality, a common motif in Baroque still life paintings, reflecting the cultural preoccupation with death and transience.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  28
+generated_description:  This painting, "Dialogue" by Max Pechstein, reflects the Expressionist movement, which emerged in the early 20th century, emphasizing emotional and psychological themes over realistic depictions. The timeframe of 1900-1950 places it within the broader context of modernist art, where artists sought to convey inner experiences through bold colors and distorted forms. The focus on human figures aligns with the movement's interest in exploring the human condition.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  29
+generated_description:  This painting, "The Clearing," by Camille Pissarro, reflects the Impressionist movement, which emerged in the late 19th century, emphasizing light, color, and everyday scenes. The work captures a moment in nature, showcasing Pissarro's focus on capturing the fleeting effects of light and atmosphere, typical of the Impressionist style.
+retrieved_context: ard Books. ISBN 978-0-394-58497-3. LCCN 98-8028.
+Thorold, Anne, ed.: The letters of Lucien to Camille Pissarro 1883–1903, Cambridge University Press, Cambridge, New York & Oakleigh, 1993 ISBN 0-521-39034-6
+
+Further reading
+Baker, Kenneth (30 June 1981). "Pissarro in Perspective". The Boston Phoenix. Retrieved 6 April 2024.
+Carlson, Michael (12 May 1981). "The Painter's Painter: Pissarro Joins Impressionism's Pantheon". The Boston Phoenix. Retrieved 16 March 2024.
+Clement, Russell T. and Houze, Annick,  Neo-Impressionist Painters: A Sourcebook on Georges Seurat, Camille Pissarro, Paul Signac, Théo van Rysselberghe, Henri-Edmond Cross, Charles Angrand, Maximilien Luce, and Albert Dubois-Pillet (1999), Greenwood Press ISBN 0-313-30382-7
+Eitner, Lorenz, An Outline of 19th Century European Painting: From David through Cézanne (1992), HarperCollins Publishers, ISBN 0-06-430223-7
+Gopnik, Adam, "Winter Sun: How Camille Pissarro Went from Mediocrity to Magnificence", The New Yorker, 1 & 8 January 2024, pp. 53–57.
+Lloyd, Christopher (1981). Camille Pissarro. Skira Rizzoli.
+Nochlin, Linda, The Politics of Vision: Essays on Nineteenth-Century Art and Society (1991). Westview Press, ISBN 0-06-430187-7
+Muhlstein, Anka, Camille Pissarro: The Audacity of Impressionism (2023). New York: Other Press ISBN 978-1635421705 (Translation by Adriana Hunter of Camille Pissarro: Le Premier Impressionniste (2024). Paris: Plon ISBN 9782259319607)
+Pissarro, Joachim; Snollaerts, Claire Durand-Ruel (2006). Pissarro: Critical Catalogue of Paintings. Skira/Wildenstein. ISBN 88-7624-525-1.
+Rewald, John, The History of Impressionism (1961), Museum of Modern Art ISBN 0-8109-6035-4
+Stone, Irving, Depths of Glory: A Biographical Novel of Camille Pissarro (1985). Doubleday ISBN 0385120656
+Tabarant, Adolphe, Pissarro (1925), John Lane the Bodley Head Ltd., translated by J. Lewis May
+
+External links
+
+Camille Pissarro Protests Alfred Dreyfus' Conviction: Original Letter Archived 20 June 2014 at the Wayback Machine Shapell Manuscript Foundation
+Photograph of Pissarro's mausoleum at Cimetière Père Lachaise, Paris (JPG)
+Pissarro's People, exhibition held at the Sterling and Francine Clark Art Institute, Williamstown MA, 12 June – 2 October 2011 Archived 23 September 2015 at the Wayback Machine
+Union List of Artist Names, Getty Vocabularies. ULAN Full Record Display for Camille Pissarro. Getty Vocabulary Program, Getty Research Institute. Los Angeles, California.
+54 artworks by or after Camille Pissarro at the Art UK site: works in public British collections
+Exhibition Pissarro dans les ports, 2013, Museum of modern art André Malraux – MuMa
+Camille Pissarro Personal Manuscripts
+Camille Pissarro at The Jewish Museum
+Pissarro Paintings and Works on Paper at the Art Institute of Chicago, one of the Art Institute of Chicago's digital scholarly catalogues
+Jennifer A. Thompson, "L’île Lacroix, Rouen (The Effect of Fog) by Camille Pissarro (cat. 1060)," in The John G. Johnson Collection: A History and Selected Works, a Philadelphia Museum of Art free digital publication
+An artwork by Camille Pissarro at the Ben Uri site
+Pissarro: Father of Impressionism Exhibition at Ashmolean Museum, Oxford, 18 February - 12 June, 2022.
+Processing row:  30
+generated_description:  This painting, "Horse and Butterfly," by Walter Battiss, reflects the Pop Art movement of the 1950s-2000s, characterized by its use of bold colors and simplified forms, drawing inspiration from everyday objects and media imagery.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  31
+generated_description:  This painting, "Chartres Cathedral" by Maurice Utrillo, reflects the Post-Impressionist movement, which emerged in the early 20th century. It captures the grandeur of Gothic architecture, emphasizing the spiritual and cultural significance of the cathedral as a place of worship and a landmark. The style and composition highlight the intricate details and verticality of the spires, reflecting the era's fascination with the sublime and the divine.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  32
+generated_description:  This painting, "Swallow and Begonia and Strawberry Pie" by Katsushika Hokusai, reflects the Edo period's (1603-1868) Japanese culture, specifically the ukiyo-e style that flourished during the 1800s. It showcases Hokusai's mastery of nature and his appreciation for everyday life, capturing the beauty of flora and fauna. The use of vibrant colors and detailed brushwork is characteristic of ukiyo-e, which often depicted scenes from daily life and nature. The inclusion of Japanese text adds to its cultural significance, reflecting the importance of calligraphy and poetry in Japanese art.
+retrieved_context: 
+Processing row:  33
+generated_description:  This painting, "Santa Fe II" by Helen Frankenthaler, reflects the post-war Abstract Expressionism movement, characterized by its focus on color fields and spontaneous brushstrokes. It aligns with the broader cultural shift towards modernist art in the mid-20th century, emphasizing emotional expression and abstract forms. The style and timeframe suggest influences from the 1950s to 2000s, a period marked by significant social and artistic changes.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  34
+generated_description:  The painting "Untitled (1)" by Jiro Yoshihara reflects the minimalist movement of the mid-20th century, characterized by simplicity and abstraction. This style emerged in response to post-war disillusionment and a desire for clarity and order. The stark contrast between the bold red shape and the black background aligns with the minimalist focus on essential forms and colors.
+retrieved_context: 
+Processing row:  35
+generated_description:  This painting, "Still Life with Newspaper" by Juan Gris, reflects the Cubist movement, which emerged in the early 20th century, influenced by the rise of modernism and the desire to break away from traditional representational art. The fragmented forms and geometric shapes symbolize the fragmentation of reality and the influence of scientific thought on art.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  36
+generated_description:  The painting "Walk in the Park" by Ivan Vladimirov, created in 1905, reflects the Impressionist movement's focus on capturing light and atmosphere. The scene depicts a leisurely stroll in a park, typical of the late 19th century when such activities were popular among the middle and upper classes. The soft brushstrokes and natural lighting emphasize the transient beauty of everyday life, aligning with Impressionism's emphasis on fleeting moments and the effects of light.
+retrieved_context: 
+Processing row:  37
+generated_description:  This painting by Alfred Sisley reflects the Impressionist movement, which emerged in the late 19th century, emphasizing light and color over precise detail. The scene captures the tranquil beauty of the Seine River, typical of Sisley's work, showcasing his focus on natural landscapes and the changing effects of light. The timeframe of 1850-1900 aligns with the period when Impressionism was gaining prominence, reflecting a cultural shift towards modernity and individual expression.
+retrieved_context: 
+Processing row:  38
+generated_description:  The painting "They Were in Forty Pairs" by Marc Chagall, created in 1948, reflects the post-war era's emotional and spiritual turmoil. Influenced by the Naive Art and Primitivism movements, Chagall's work often explores themes from folklore and dreams, symbolizing hope and renewal amidst hardship. The vibrant orange hues and dreamlike figures align with the post-war search for new beginnings and the celebration of life.
+retrieved_context: 
+Processing row:  39
+generated_description:  This painting, created by Maurice Esteve in 1972, reflects the post-war era's focus on abstract expressionism and color field painting. It aligns with mid-20th-century movements emphasizing bold colors and geometric abstraction, influenced by artists like Jackson Pollock and Mark Rothko. The vibrant hues and dynamic composition suggest a celebration of modernity and a departure from traditional representational art.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  40
+generated_description:  Theodoros Stamos's "Infinity Field Lefkada Series" (1983) reflects post-war abstract expressionism, emphasizing color fields and atmospheric effects. It aligns with mid-20th-century interest in abstract art and the exploration of natural phenomena through color and form.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  41
+generated_description:  This diptych by Lorenzo Lotto, "Sts. Thomas Aquinas and Flavian Sts. Peter the Martyr and Vitus," was created during the High Renaissance (1500-1550). The style reflects the era's focus on realism and humanism, emphasizing detailed observation and emotional depth. The inclusion of saints and apostles aligns with the Catholic Church's emphasis on veneration and the importance of religious devotion during this period. The painting's composition and use of light and shadow (chiaroscuro) are characteristic of the High Renaissance, reflecting the influence of artists like Leonardo da Vinci and Raphael.
+retrieved_context: 
+Processing row:  42
+generated_description:  The painting "Portrait of F.P. Makerovskiy in Masquerade Costume" by Dmitry Levitzky reflects the Rococo style prevalent during the 1750-1800 timeframe. This period was marked by a celebration of luxury, elegance, and lightness, often depicted through elaborate costumes and playful themes. The masquerade costume and the child's pose suggest a festive and whimsical atmosphere typical of Rococo portraiture.
+retrieved_context: 
+Processing row:  43
+generated_description:  The painting "Exit of Tsar Ivan the Terrible" by Boris Kustodiev, created in 1900, reflects the Realism movement's focus on depicting contemporary life and historical events. The artist's portrayal of Ivan the Terrible amidst his subjects captures the tension and drama of the moment, aligning with the era's interest in social realism and historical accuracy. The setting and attire reflect the late 16th-century Russian context, while the painting's style and composition emphasize the emotional and political significance of the tsar's actions.
+retrieved_context: 
+Processing row:  44
+generated_description:  This painting, "Die Schwalben sammeln sich" by Max Pechstein, reflects the Expressionist movement, which emerged in the early 20th century, emphasizing emotional and subjective experience over realistic representation. The vibrant colors and distorted forms capture the artist's emotional state during the post-World War II era, reflecting the turmoil and introspection of the time. The presence of a windmill adds a rural, nostalgic element, contrasting with the modernity suggested by the power lines.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  45
+generated_description:  This painting, "St. Jerome in a Landscape" by Cima da Conegliano, reflects the High Renaissance period (1500-1550) when artists sought to blend classical ideals with Christian themes. The serene landscape and detailed naturalism align with the Renaissance focus on realism and perspective, while the depiction of St. Jerome, a hermit saint, underscores the religious devotion common during this era.
+retrieved_context: .
+
+Selected works
+See also Category:Paintings by Girolamo Savoldo
+The Temptation of Saint Anthony (c. 1515–1520), Timken Museum of Art, San Diego, CA, USA
+The Temptation of Saint Jerome (c. 1515–1530), Pushkin Museum, Moscow
+Elijah in the Desert (c. 1520), National Gallery of Art, Washington, USA
+Saint Anthony and Saint Paul as Hermits (c. 1520), Gallerie dell'Accademia, Venice
+Saint Matthew and the Angel (1534), Metropolitan Museum of Art, New York, USA
+San Domenico di Pesaro Altarpiece (1524–1526), Pinacoteca di Brera, Milan
+Tobias and the Angel (c. 1527), Galleria Borghese, Rome
+Portrait of a Clad Warrior (c. 1529), Louvre Museum, Paris
+Transfiguration (c. 1530), Uffizi Gallery, Florence
+Adoration of the Shepherds (c. 1540), Pinacoteca Tosio Martinengo, Brescia
+Portrait of a Young Flautist (c. 1540), Pinacoteca Tosio Martinengo, Brescia
+Mary Magdalene (1535–1540), Getty Center, Los Angeles; National Gallery, London; Contini-Bonacossi Collection/Uffizi, Florence; Gemäldegalerie, Berlin
+
+References
+Sources
+Bayer, A., & Metropolitan Museum of Art (New York, N.Y.). (2005). North of the Apennines: Sixteenth-century Italian painting in Venice and the Veneto. New York: Metropolitan Museum of Art. OCLC 62121606
+Cristiani, Federico Nicoli (1807). Della Vita delle pitture di Lattanzio Gambara; Memorie Storiche aggiuntevi brevi notizie intorno a' più celebri ed eccelenti pittori Bresciani. Spinelli e Valgiti, Brescia. pp. 186–187.
+Freedberg, Sydney J. (1993). Pelican History of Art (ed.). Painting in Italy, 1500–1600. Penguin Books Ltd. pp. 340–344.
+Gilbert, Creighton. "Savoldo, Giovanni Girolamo." Grove Art Online. Oxford Art Online. Oxford University Press. Web. Retrieved June 13, 2013.
+Hartt, Frederick, History of Italian Renaissance Art, (2nd edn.)1987, Thames & Hudson (US Harry N Abrams), ISBN 0500235104
+Penny, Nicholas,  National Gallery Catalogues (new series): The Sixteenth Century Italian Paintings, Volume I, 2004, National Gallery Publications Ltd, ISBN 1857099087
+
+External links
+Giovanni Girolamo Savoldo, Encyclopaedia Britannica
+Web Gallery of Art Biography and Images
+Timken Museum of Art –  Torment of St Anthony
+Painters of reality: the legacy of Leonardo and Caravaggio in Lombardy, an exhibition catalog from The Metropolitan Museum of Art (fully available online as PDF), which contains material on Savoldo (see index)
+Processing row:  46
+generated_description:  Vincent van Gogh's "Woman Spreading Out Laundry on a Field" (1882) reflects the Realism movement, which emerged in the mid-19th century, emphasizing everyday life and direct observation. The painting captures a simple, domestic scene, reflecting the artist's interest in capturing the mundane aspects of rural life during the late 19th century.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  47
+generated_description:  This painting, "Anemones" by Raoul Dufy, reflects the Post-Impressionist movement, which emerged in the early 20th century, influenced by Impressionism but with a more structured approach to color and form. The vibrant colors and bold brushstrokes capture the essence of flowers, emphasizing personal expression and emotional content over realistic representation.
+retrieved_context: is the extensive research of Byzantine architecture, clothing and decoration made in Parisian museums and libraries by Moreno Carbonero for his masterwork The Entry of Roger de Flor in Constantinople. The provision of examples and expertise for artists, as well as revivalist industrial designers, was one of the motivations for the establishment of museums like the Victoria and Albert Museum in London.
+New techniques of printmaking such as the chromolithograph made good quality reproductions both relatively cheap and very widely accessible, and also hugely profitable for artist and publisher, as the sales were so large.  Historical painting often had a close relationship with Nationalism, and painters like Matejko in Poland could play an important role in fixing the prevailing historical narrative of national history in the popular mind.  In France, L'art Pompier ("Fireman art") was a derisory term for official academic historical painting, and in a final phase, "History painting of a debased sort, scenes of brutality and terror, purporting to illustrate episodes from Roman and Moorish history, were Salon sensations.  On the overcrowded walls of the exhibition galleries, the paintings that shouted loudest got the attention".  Orientalist painting was an alternative genre that offered similar exotic costumes and decor, and at least as much opportunity to depict sex and violence.
+
+Gallery
+See also
+Classicism
+Genre painting
+History of painting
+List of Orientalist artists
+
+Notes
+References
+Barlow, Paul, "The Death of History Painting in Nineteenth-Century Art?" PDF, Visual Culture in Britain, Volume 6, Number 1, Summer 2005, pp. 1–13(13)
+Blunt, Anthony, Artistic Theory in Italy, 1450-1660, 1940 (refs to 1985 edn), OUP, ISBN 0-19-881050-4
+Bull, Malcolm, The Mirror of the Gods, How Renaissance Artists Rediscovered the Pagan Gods, Oxford UP, 2005, ISBN 0195219236
+Green, David and Seddon, Peter, History Painting Reassessed: The Representation of History in Contemporary Art, 2000, Manchester University Press, ISBN 9780719051685, google books
+Harding, James. Artistes pompiers: French academic art in the 19th century, 1979, New York: Rizzoli
+Harrison, Charles, An Introduction to Art, 2009, Yale University Press, ISBN 9780300109153, google books
+Rothenstein, John, An Introduction to English Painting, 2002 (reissue), I.B.Tauris, ISBN 9781860646782
+Strong, Roy. And when did you last see your father? The Victorian Painter and British History, 1978, Thames and Hudson, ISBN 0500271321
+White, Harrison C., Canvases and Careers: Institutional Change in the French Painting World, 1993 (2nd edn), University of Chicago Press, ISBN 9780226894874, google books
+Wright, Beth Segal, Scott's Historical Novels and French Historical Painting 1815-1855, The Art Bulletin, Vol. 63, No. 2 (Jun., 1981), pp. 268–287,  JSTOR
+
+Further reading
+Ayers, William (ed.), Picturing History: American Painting 1770–1903, ISBN 0-8478-1745-8.
+
+
+== External links ==
+Processing row:  48
+Traceback (most recent call last):
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/scripts/inference_eval.py", line 241, in <module>
+    generated_descriptions_file = run_ArtRAG_inference(args.working_dir, args.mdoel_name, args)
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/scripts/inference_eval.py", line 116, in run_ArtRAG_inference
+    generated_description, retrieved_context, rerank_context = rag.query(
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/lightrag/lightrag.py", line 254, in query
+    return loop.run_until_complete(self.aquery(query, param))
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/lightrag/lightrag.py", line 269, in aquery
+    response,context = await naive_query(
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/lightrag/operate.py", line 735, in naive_query
+    response = await use_model_func(
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/lightrag/utils.py", line 94, in wait_func
+    result = await func(*args, **kwargs)
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/lightrag/llm.py", line 406, in hf_model_complete
+    return await hf_model_if_cache(
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
+    return await copy(fn, *args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
+    do = await self.iter(retry_state=retry_state)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
+    result = await action(retry_state)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/tenacity/_utils.py", line 99, in inner
+    return call(*args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/tenacity/__init__.py", line 398, in <lambda>
+    self._add_action_func(lambda rs: rs.outcome.result())
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/concurrent/futures/_base.py", line 439, in result
+    return self.__get_result()
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/concurrent/futures/_base.py", line 391, in __get_result
+    raise self._exception
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
+    result = await fn(*args, **kwargs)
+  File "/gpfs/work5/0/prjs0996/PolyArt/ArtRAG/lightrag/llm.py", line 271, in hf_model_if_cache
+    output = model.generate(
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/utils.py", line 2223, in generate
+    result = self._sample(
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/utils.py", line 3211, in _sample
+    outputs = self(**model_inputs, return_dict=True)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 1795, in forward
+    image_embeds = self.visual(pixel_values, grid_thw=image_grid_thw)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 558, in forward
+    hidden_states = blk(hidden_states, cu_seqlens=cu_seqlens_now, position_embeddings=position_embeddings)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 351, in forward
+    hidden_states = hidden_states + self.attn(
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/wangsh/.local/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/models/qwen2_5_vl/modeling_qwen2_5_vl.py", line 320, in forward
+    attn_output = F.scaled_dot_product_attention(q, k, v, attention_mask, dropout_p=0.0)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 62.50 GiB. GPU 0 has a total capacity of 93.11 GiB of which 47.38 GiB is free. Including non-PyTorch memory, this process has 45.72 GiB memory in use. Of the allocated memory 22.80 GiB is allocated by PyTorch, and 22.26 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+JOB STATISTICS
+==============
+Job ID: 11594806
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: FAILED (exit code 1)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:04:23
+CPU Efficiency: 8.10% of 00:54:08 core-walltime
+Job Wall-clock time: 00:03:23
+Memory Utilized: 6.23 GB
+Memory Efficiency: 10.38% of 60.00 GB (60.00 GB/node)

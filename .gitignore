@@ -1,3 +1,36 @@
-__pycache__
-slurm/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# SLURM logs (keep *.sh scripts)
+slurm/slurm_*.out
+
+# Large dataset files
+output/polyart_dataset*.json
+output/polyart_dataset*.jsonl
+output/polyart_dataset*.parquet
+output/phase4_checkpoint.json
+
+# Generated images (too large)
+output/regenerated_images/
+
+# Synthesis prompts (regenerable from scripts)
+output/synthesis_prompts/
+
+# Large per-painting raw results (summary + table are kept)
+output/phase3_results/results_raw.json
+
+# Model weights / HuggingFace cache
+*.bin
+*.safetensors
+*.gguf
+*.npz
+
+# Third-party model repos
 artemis-v2/dataset/
+GalleryGPT/
+
+# latex doc
+PolyArt_latex/

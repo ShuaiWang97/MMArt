@@ -1,0 +1,981 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11789343/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x14dabdb1bb80>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x14dabf251820>,
+  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x14daeed9d9d0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=0)
+Processing data from index 0 to 100
+Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Processing row:  0
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
+Loading checkpoint shards:  20%|██        | 1/5 [00:09<00:37,  9.30s/it][A
+Loading checkpoint shards:  40%|████      | 2/5 [00:16<00:24,  8.23s/it][A
+Loading checkpoint shards:  60%|██████    | 3/5 [00:24<00:15,  7.92s/it][A
+Loading checkpoint shards:  80%|████████  | 4/5 [00:31<00:07,  7.76s/it][A
+Loading checkpoint shards: 100%|██████████| 5/5 [00:32<00:00,  5.26s/it][ALoading checkpoint shards: 100%|██████████| 5/5 [00:32<00:00,  6.53s/it]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   1%|          | 1/100 [00:49<1:22:27, 49.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   2%|▏         | 2/100 [00:52<36:11, 22.16s/it]  INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   3%|▎         | 3/100 [00:56<22:32, 13.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 4/100 [01:00<15:39,  9.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   5%|▌         | 5/100 [01:04<12:05,  7.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 6/100 [01:07<09:48,  6.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   7%|▋         | 7/100 [01:11<08:22,  5.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 8/100 [01:15<07:30,  4.90s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   9%|▉         | 9/100 [01:18<06:52,  4.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 10/100 [01:21<06:04,  4.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  11%|█         | 11/100 [01:25<05:45,  3.88s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 12/100 [01:28<05:09,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  13%|█▎        | 13/100 [01:31<05:05,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 14/100 [01:35<05:07,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  15%|█▌        | 15/100 [01:38<05:03,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 16/100 [01:42<05:07,  3.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  17%|█▋        | 17/100 [01:46<04:56,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 18/100 [01:48<04:31,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  19%|█▉        | 19/100 [01:52<04:41,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 20/100 [01:55<04:35,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  21%|██        | 21/100 [02:00<04:46,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 22/100 [02:02<04:26,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  23%|██▎       | 23/100 [02:06<04:30,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 24/100 [02:10<04:31,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  25%|██▌       | 25/100 [02:13<04:14,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 26/100 [02:17<04:31,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  27%|██▋       | 27/100 [02:21<04:29,  3.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 28/100 [02:24<04:21,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  29%|██▉       | 29/100 [02:28<04:13,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 30/100 [02:32<04:16,  3.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  31%|███       | 31/100 [02:35<04:11,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 32/100 [02:39<04:07,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  33%|███▎      | 33/100 [02:42<03:55,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 34/100 [02:47<04:09,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  35%|███▌      | 35/100 [02:50<03:50,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 36/100 [02:53<03:44,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  37%|███▋      | 37/100 [02:56<03:37,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 38/100 [03:00<03:38,  3.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  39%|███▉      | 39/100 [03:03<03:23,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 40/100 [03:06<03:20,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  41%|████      | 41/100 [03:09<03:13,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 42/100 [03:13<03:08,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  43%|████▎     | 43/100 [03:16<03:04,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 44/100 [03:20<03:16,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  45%|████▌     | 45/100 [03:23<03:13,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 46/100 [03:28<03:20,  3.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  47%|████▋     | 47/100 [03:32<03:22,  3.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 48/100 [03:35<03:07,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  49%|████▉     | 49/100 [03:37<02:48,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 50/100 [03:41<02:42,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  51%|█████     | 51/100 [03:42<02:16,  2.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 52/100 [03:46<02:23,  2.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  53%|█████▎    | 53/100 [03:49<02:22,  3.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▍    | 54/100 [03:52<02:17,  2.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▌    | 55/100 [03:55<02:11,  2.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 56/100 [03:57<02:06,  2.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▋    | 57/100 [04:00<01:58,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 58/100 [04:03<02:02,  2.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  59%|█████▉    | 59/100 [04:06<02:02,  2.98s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 60/100 [04:09<01:58,  2.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  61%|██████    | 61/100 [04:12<01:55,  2.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 62/100 [04:15<01:54,  3.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  63%|██████▎   | 63/100 [04:19<02:00,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 64/100 [04:23<02:00,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  65%|██████▌   | 65/100 [04:26<01:54,  3.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 66/100 [04:29<01:51,  3.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  67%|██████▋   | 67/100 [04:33<01:54,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 68/100 [04:36<01:45,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  69%|██████▉   | 69/100 [04:40<01:48,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 70/100 [04:43<01:41,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  71%|███████   | 71/100 [04:46<01:38,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 72/100 [04:50<01:40,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  73%|███████▎  | 73/100 [04:54<01:34,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 74/100 [04:57<01:31,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  75%|███████▌  | 75/100 [05:01<01:29,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 76/100 [05:05<01:26,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  77%|███████▋  | 77/100 [05:08<01:19,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 78/100 [05:11<01:13,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  79%|███████▉  | 79/100 [05:14<01:11,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 80/100 [05:17<01:05,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  81%|████████  | 81/100 [05:21<01:07,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 82/100 [05:25<01:03,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  83%|████████▎ | 83/100 [05:28<00:58,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 84/100 [05:31<00:52,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  85%|████████▌ | 85/100 [05:35<00:51,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 86/100 [05:38<00:48,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  87%|████████▋ | 87/100 [05:41<00:42,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 88/100 [05:44<00:36,  3.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  89%|████████▉ | 89/100 [05:47<00:32,  3.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 90/100 [05:50<00:30,  3.08s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  91%|█████████ | 91/100 [05:53<00:28,  3.16s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 92/100 [05:56<00:24,  3.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  93%|█████████▎| 93/100 [05:59<00:21,  3.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 94/100 [06:03<00:19,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  95%|█████████▌| 95/100 [06:07<00:17,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 96/100 [06:10<00:14,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  97%|█████████▋| 97/100 [06:14<00:10,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 98/100 [06:17<00:06,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  99%|█████████▉| 99/100 [06:20<00:03,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|██████████| 100/100 [06:23<00:00,  3.26s/it]Processing rows: 100%|██████████| 100/100 [06:23<00:00,  3.84s/it]
+image_inputs [<PIL.Image.Image image mode=RGB size=504x504 at 0x14DAB4F17E80>]
+generated_description:  This painting, titled "Natura Morta," by Tano Festa, exemplifies Pop Art, a movement that emerged in the 1950s and 1960s, characterized by its use of everyday objects and mass media imagery. Created during the specified timeframe, the piece reflects the era's focus on consumer culture and the integration of commercial aesthetics into fine art. The vibrant colors and bold lines are hallmarks of Pop Art, while the subject matter—a bowl of fruit—bridges the gap between the mundane and the artistic, aligning with the movement's aim to democratize art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  1
+image_inputs [<PIL.Image.Image image mode=RGB size=644x476 at 0x14DAB69D5E50>]
+generated_description:  The painting "A Midsummer Night's Dream" by Valerio Adami, created in 1983, embodies Pop Art's vibrant style, reflecting the mid-20th-century cultural shift towards consumerism and mass media. This piece, inspired by Shakespeare's play, uses bold colors and simplified forms to reinterpret classical themes, aligning with the era's fascination with modernity and its critique of traditional narratives.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  2
+image_inputs [<PIL.Image.Image image mode=RGB size=476x364 at 0x14DAB4B69760>]
+generated_description:  This painting, "Coastal View with Barges" by Béla Czóbel, exemplifies the Post-Impressionist style prevalent in the early 20th century. Set against a backdrop of muted blues and greens, the composition captures a serene coastal scene with moored barges. The use of bold, expressive brushstrokes and vibrant colors reflects Czóbel's interest in capturing the essence of light and atmosphere, typical of the Post-Impressionist movement. This work likely reflects the artist's exploration of natural landscapes and his desire to convey emotional and spiritual experiences through his art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  3
+image_inputs [<PIL.Image.Image image mode=RGB size=420x476 at 0x14DAB4B69100>]
+generated_description:  The painting "Lights on the Riverside" by Bertalan Por, created in 1909, exemplifies Post-Impressionism. This style, prevalent during the early 20th century, emphasizes personal expression over realistic representation. The vibrant use of color and textured brushstrokes reflect the influence of Impressionism, while the focus on botanical elements suggests a connection to Symbolism, which often incorporated natural motifs to convey deeper meanings. The serene riverside scene likely symbolizes tranquility and the beauty of nature, resonating with the era's growing appreciation for the environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  4
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1008 at 0x14DAB4B690D0>]
+generated_description:  This painting, *The Harvest of Hay in Eragny* by Camille Pissarro, exemplifies Post-Impressionism, reflecting the artist's focus on capturing the essence of rural life and labor. Set in the 1880s, it showcases Pissarro's evolving style towards a more structured approach, influenced by Neo-Impressionism. The vibrant pointillist technique and the depiction of workers in a field highlight his commitment to realism and the beauty of everyday scenes. This work aligns with the broader movement's emphasis on individual expression and the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  5
+image_inputs [<PIL.Image.Image image mode=RGB size=812x952 at 0x14DAB4B69E50>]
+generated_description:  This painting, "Marusia by the Sea" by David Burliuk, created in 1949, embodies Post-Impressionist style, reflecting the artist's exploration of vibrant colors and expressive brushwork. Set against a backdrop of a serene seascape, the portrait integrates natural elements like flowers and fruit, symbolizing life and beauty. The inclusion of personal items and the artist's signature adds a layer of intimacy, capturing a moment of quiet reflection. This work reflects Burliuk's focus on personal expression and the interplay between human emotion and the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  6
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x784 at 0x14DAB4B69DF0>]
+generated_description:  This painting, "Bistri - a Valley" by Dumitru Ghiatza, exemplifies Post-Impressionism, reflecting the artist's exploration of natural landscapes. Created in the 1950s-2000s, it captures the serene beauty of rural areas with vibrant colors and textured brushstrokes, characteristic of the movement's emphasis on emotional expression and individual vision over strict realism. The depiction of hills, mountains, and a village evokes a sense of harmony with nature, resonating with the era's broader themes of human connection to the environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  7
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x14DAB4B691C0>]
+generated_description:  This painting, "Châtelet" by Edouard Cortès, captures a bustling urban evening scene in Paris, reflecting the vibrant city life of the early 20th century. The post-impressionist style emphasizes color and light, creating a lively atmosphere with figures and vehicles in motion. The Châtelet district, depicted here, was a hub of cultural activity, blending modernity with traditional architecture, as seen in the blend of classical buildings and the modern streetcar. The painting highlights the era's focus on capturing the essence of urban life and the interplay of natural and artificial light.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  8
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x14DAB48CC760>]
+generated_description:  This painting, "Place de l'Opéra" by Edouard Cortès, captures the vibrant urban life of early 20th-century Paris. The post-impressionist style emphasizes texture and color over precise detail, reflecting the bustling cityscape and the interplay of light and shadow. The Place de l'Opéra, a central square in Paris, serves as the focal point, symbolizing the city's cultural heart. The painting reflects the era's focus on modernity and the dynamic energy of urban life, capturing the essence of Parisian society during the early 1900s.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  9
+image_inputs [<PIL.Image.Image image mode=RGB size=840x588 at 0x14DAB01E6850>]
+generated_description:  This painting, *Place Pigalle in Winter* by Edouard Cortès, captures a bustling urban scene during a winter evening. The Post-Impressionist style emphasizes texture and light, with warm tones contrasting against the cool snow. It reflects the vibrant nightlife of Paris, with illuminated storefronts and street lamps creating a lively atmosphere amidst the cold weather. The depiction of everyday life in a snowy cityscape highlights the artist's focus on capturing the essence of urban winter scenes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  10
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x14DAB48CC490>]
+generated_description:  This painting, "Place Pigalle" by Edouard Cortès, captures a bustling urban scene during winter evening. The post-impressionist style emphasizes texture and color, with a focus on the interplay of light and shadow. The composition highlights the lively atmosphere of a city square, with figures walking and horse-drawn carriages moving amidst snow-covered streets. The warm glow of streetlights contrasts with the cool tones of the snowy landscape, creating a vivid depiction of a typical evening in a European city during the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  11
+image_inputs [<PIL.Image.Image image mode=RGB size=364x448 at 0x14DAB48CC1F0>]
+generated_description:  This painting, "Composição," by Eduardo Viana, created in 1947, exemplifies Post-Impressionism. Set in a room, the vibrant use of color and bold brushstrokes reflect the movement's focus on emotional expression and individuality. The floral arrangement and the abstracted figure suggest a blend of natural and symbolic elements, typical of Post-Impressionist works that often explore deeper meanings beyond mere representation.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  12
+image_inputs [<PIL.Image.Image image mode=RGB size=2632x1596 at 0x14DABC19B160>]
+generated_description:  This painting, "Forum Roman or Seen Close the Palatine One," by Félix Vallotton, exemplifies Post-Impressionism, reflecting the artist's interest in capturing the essence of the scene rather than its exact details. Set in Rome, the piece showcases the ruins and columns of ancient structures, blending natural and architectural elements. The muted colors and simplified forms evoke a contemplative mood, typical of the Post-Impressionist movement, emphasizing personal expression and emotional response to the subject matter.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  13
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x868 at 0x14DAB4893D30>]
+generated_description:  Félix Vallotton's "Lady at the Piano" (1904) exemplifies Post-Impressionism, reflecting the era's focus on personal expression and emotional depth. Set in a domestic interior, the painting captures a quiet, introspective moment, emphasizing the subject's engagement with music. The use of vibrant colors and textured brushstrokes highlights the artist's interest in capturing light and atmosphere, characteristic of the Post-Impressionist movement. This work reflects the broader cultural shift towards individualism and the celebration of everyday life in the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  14
+image_inputs [<PIL.Image.Image image mode=RGB size=644x1092 at 0x14DAB0203880>]
+generated_description:  This painting, "The Laundress" by Félix Vallotton, exemplifies the Post-Impressionist style prevalent in the late 19th century. Set against a muted urban backdrop, the work portrays a woman engaged in everyday activity, reflecting the artist's focus on ordinary life and the human form. The soft, textured brushwork and subdued color palette align with Post-Impressionist tendencies, emphasizing mood and atmosphere over precise detail. This piece captures a moment of quiet domesticity, resonating with the broader social and artistic movements of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  15
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x784 at 0x14DAB48CCB50>]
+generated_description:  This painting, "Evening at Balcic" by Francisc Sirato, exemplifies Post-Impressionism, characterized by its expressive brushstrokes and vibrant colors. Created in 1940, it reflects the artist's exploration of light and atmosphere, typical of the era's focus on capturing mood and emotion rather than strict realism. The depiction of a serene evening scene, with its soft blues and warm tones, showcases Sirato's ability to convey tranquility through abstract yet recognizable forms. This work aligns with broader trends in mid-20th-century European art, emphasizing personal expression and emotional resonance over precise representation.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  16
+image_inputs [<PIL.Image.Image image mode=RGB size=560x476 at 0x14DAB4893D60>]
+generated_description:  This painting, titled "Femeie ez-nd" by Francisc Sirato, exemplifies Post-Impressionism, a movement that emerged in the late 19th century, characterized by its emphasis on personal expression and emotional content over strict realism. Created between 1900 and 1950, it reflects the era's focus on subjective interpretation and the use of vibrant colors and expressive brushstrokes. The depiction of a lady in a relaxed pose suggests themes of introspection and the exploration of human emotion, typical of the Post-Impressionist style.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  17
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x14DAB0203280>]
+generated_description:  The painting "La Ogling" by Francisc Sirato, created between 1900-1950, embodies Post-Impressionist aesthetics. It reflects the era's focus on subjective expression and emotional depth, capturing a moment of introspection through soft brushstrokes and muted colors. This work likely explores themes of solitude and contemplation, common in late 19th and early 20th-century art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  18
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x812 at 0x14DAB4893B20>]
+generated_description:  This painting, "Boy with a Horse" by Georges Seurat, created in 1883, exemplifies Post-Impressionism. Set in a serene riverside scene, it showcases Seurat's meticulous pointillist technique, where small dots of color are used to create the overall image. The composition captures a moment of quiet contemplation, with the boy and horse as central figures against the backdrop of nature and distant structures. This work reflects the artist's interest in capturing everyday life and the interplay between human subjects and their environment, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  19
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x812 at 0x14DAB00C15E0>]
+generated_description:  This painting, *The English Channel at Grandcamp* by Georges Seurat, exemplifies Post-Impressionism, reflecting the artist's meticulous pointillist technique. Created in 1885, it captures the serene yet dynamic landscape of the English Channel from Grandcamp, Normandy, France. The composition emphasizes the interplay of light and color, showcasing Seurat's innovative approach to depicting nature. This work aligns with the broader movement's focus on structure and harmony, blending scientific observation with artistic expression.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  20
+image_inputs [<PIL.Image.Image image mode=RGB size=1092x700 at 0x14DAB4893B50>]
+generated_description:  This painting, *The Gardener* by Georges Seurat, created in 1884, exemplifies the Post-Impressionist style. Set in a garden, the work showcases Seurat's meticulous pointillist technique, using small, distinct brushstrokes of color to create a vibrant, textured surface. The subject, a gardener, is depicted in a contemplative pose amidst lush greenery, reflecting the artist's interest in nature and the harmony between human activity and the natural world. This piece aligns with the broader movement towards capturing everyday life with a focus on color and form, characteristic of the late 19th-century artistic landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  21
+image_inputs [<PIL.Image.Image image mode=RGB size=476x588 at 0x14DAB00C1CD0>]
+generated_description:  This painting, "Foxgloves Growing," by Grace Cossington Smith, exemplifies Post-Impressionism, reflecting the artist's interest in botanical subjects and the natural world. Created in 1929, it captures the intricate textures and colors of foxgloves, showcasing Smith's skill in rendering plant life with a vivid, almost abstract approach. This work aligns with the broader movement's emphasis on personal expression and the beauty of everyday subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  22
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x14DAB022ECD0>]
+generated_description:  This painting, "Pumpkin Leaves Drooping" by Grace Cossington Smith, exemplifies Post-Impressionism with its vibrant, textured brushwork and emphasis on pattern and color. Created in 1926, it reflects the artist's interest in nature and her use of bold, stylized forms. The style aligns with broader trends in early 20th-century art, where artists sought to convey emotion and personal vision through abstracted natural forms. The painting's focus on leaves and flowers, combined with its geometric patterns, suggests a connection to the decorative arts and the influence of Post-Impressionism on later movements like Art Deco.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  23
+image_inputs [<PIL.Image.Image image mode=RGB size=504x588 at 0x14DAB48935E0>]
+generated_description:  This painting, "Sea Wave" by Grace Cossington Smith, exemplifies Post-Impressionism, reflecting the artist's exploration of texture and color to convey natural phenomena. Created in 1931, it aligns with the early 20th-century movement that sought to break free from strict realism, focusing instead on personal expression and emotional response. The use of earthy tones and textured brushstrokes captures the dynamic energy of waves, showcasing Smith's innovative approach to depicting nature. The painting's geological themes suggest an interest in the natural world's forms and processes, resonating with broader artistic and scientific interests of the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  24
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x14DAB022E070>]
+generated_description:  Grace Cossington Smith's "The Curve of the Bridge" (1929) exemplifies Post-Impressionism, reflecting the era's focus on personal expression and emotional content. Set against the backdrop of early 20th-century Australia, the painting captures the dynamic interplay between industrial progress and natural beauty, symbolizing the tension between tradition and modernity. The vibrant colors and bold brushstrokes convey a sense of energy and movement, characteristic of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  25
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x952 at 0x14DAB01E6F10>]
+generated_description:  This painting, *Jetty at Fécamp* by Gustave Loiseau, exemplifies Post-Impressionism, a movement that emerged in the late 19th century. Set in Normandy, France, it captures the serene coastal landscape of Fécamp, showcasing the artist's use of vibrant colors and expressive brushstrokes characteristic of the Post-Impressionist style. The focus on everyday scenes and the interplay of light and color reflect the movement's emphasis on personal expression and emotional content over strict realism. The painting's tags—houses and buildings, Normandy, Fécamp, sky—highlight its depiction of a tranquil seaside town, blending natural and architectural elements harmoniously.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  26
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x14DAB48CC700>]
+generated_description:  This painting, "Landscape in Autumn" by Gustave Loiseau, exemplifies Post-Impressionism, characterized by vibrant colors and expressive brushwork. Created in 1909, it reflects the artist's interest in capturing the essence of nature and urban landscapes. The use of bold colors and dynamic compositions aligns with the movement's focus on personal expression and emotional response to the world. The autumnal hues and detailed depiction of trees and buildings showcase Loiseau's skill in blending natural and urban elements, typical of the Post-Impressionist era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  27
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x14DAB022AB50>]
+generated_description:  This painting, "Near Saint-Cyr" by Gustave Loiseau, exemplifies Post-Impressionism, characterized by its vibrant colors and textured brushwork. Created in 1895, it reflects the artist's interest in natural landscapes and trees, capturing the serene beauty of a forested area near Saint-Cyr. The use of light and color evokes a sense of tranquility and the changing seasons, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  28
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x1092 at 0x14DAB00C1A90>]
+generated_description:  This painting, "Place de la Bastille" by Gustave Loiseau, captures the bustling urban life of Paris during the early 20th century. The post-impressionist style emphasizes vibrant colors and textured brushstrokes, reflecting the city's dynamic energy. The prominent column symbolizes the historical significance of Place de la Bastille, a site of revolution and modernity. Loiseau's depiction highlights the interplay between architecture and everyday life, showcasing the era's urban landscape and its cultural importance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  29
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x840 at 0x14DAB4B69460>]
+generated_description:  This painting, "Spring Landscape" by Gustave Loiseau, exemplifies Post-Impressionism, characterized by vibrant colors and expressive brushwork. Created in 1907, it reflects the artist's interest in nature and the changing seasons, capturing the essence of spring through its warm hues and dynamic composition. Loiseau's work often emphasizes the interplay of light and color, reflecting the influence of Impressionism while exploring more structured forms and patterns. The painting's focus on trees and open landscapes aligns with the broader Post-Impressionist movement's celebration of natural beauty and personal expression.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  30
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1064 at 0x14DAB0242040>]
+generated_description:  This painting, "The Auxerre Cathedral," by Gustave Loiseau, exemplifies Post-Impressionism, a movement that emerged in the late 19th century. Created in 1907, it reflects the artist's interest in capturing the essence of light and color through bold brushstrokes and vibrant hues. The cathedral, a prominent building, dominates the composition, while the waterway in the foreground adds depth and a sense of tranquility. The overall impression is one of serene beauty and the interplay between man-made structures and nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  31
+image_inputs [<PIL.Image.Image image mode=RGB size=924x756 at 0x14DAB0203F40>]
+generated_description:  This painting, "The House," by Gustave Loiseau, exemplifies Post-Impressionism, reflecting the artist's focus on capturing the essence of a scene rather than precise detail. Set in the early 20th century, the work showcases a simplified, almost abstract representation of a house, emphasizing color and form over realism. Loiseau's use of vibrant hues and expressive brushstrokes aligns with the movement's aim to convey emotion and personal vision. The painting captures a tranquil rural setting, typical of Loiseau's exploration of everyday life and landscapes during this period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  32
+image_inputs [<PIL.Image.Image image mode=RGB size=840x560 at 0x14DAB00C1A90>]
+generated_description:  This painting, "Village in Spring" by Gustave Loiseau, exemplifies Post-Impressionism, reflecting the artist's interest in capturing the essence of nature and everyday life. Painted in 1916, it showcases vibrant colors and textured brushstrokes typical of the movement, emphasizing the interplay of light and color to evoke the atmosphere of springtime in a rural setting. The composition highlights the harmony between man-made structures and the natural environment, a common theme in Post-Impressionist works.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  33
+image_inputs [<PIL.Image.Image image mode=RGB size=1596x2352 at 0x14DAB0253190>]
+generated_description:  This painting, "Dorelia in a Black Dress," by Gwen John, exemplifies Post-Impressionism, a movement that emerged in the late 19th and early 20th centuries. John, a British artist, was known for her intimate and emotional portraits. The dark tones and expressive brushwork reflect the movement's focus on personal expression and individuality. The subject's pose and attire suggest a contemplative mood, typical of John's style, which often depicted women in quiet, introspective moments. The timeframe places the painting within the broader context of early 20th-century art, where artists were exploring new ways to convey emotion and personality through their subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  34
+image_inputs [<PIL.Image.Image image mode=RGB size=924x560 at 0x14DAB02420D0>]
+generated_description:  Henri-Edmond Cross's "Lavender" exemplifies Post-Impressionism, characterized by vibrant colors and expressive brushstrokes. Created between 1900-1950, this work reflects the artist's interest in nature and landscapes, capturing the essence of lavender fields through bold, abstract forms. The painting aligns with the broader Post-Impressionist movement, which sought to convey emotion and personal vision rather than strict realism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  35
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x924 at 0x14DAB00B27F0>]
+generated_description:  Henri-Edmond Cross's "Regatta" exemplifies Post-Impressionism, characterized by its vibrant colors and textured brushwork. Created around 1895, it reflects the artist's interest in capturing the interplay of light and color, typical of the period. The painting showcases a serene seascape with sailboats, emphasizing the harmony between nature and human activity. Cross's use of bold strokes and vivid hues aligns with the movement's focus on personal expression and emotional content over realistic representation.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  36
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1120 at 0x14DAB00B2520>]
+generated_description:  This painting, "Study for the Clearing" by Henri-Edmond Cross, exemplifies Post-Impressionism, characterized by its vibrant colors and textured brushwork. Created between 1900 and 1950, it captures the essence of a forest clearing, focusing on the interplay of light and shadow through the trees. The use of bold colors and patterns reflects the artist's interest in nature and his exploration of color theory, aligning with broader trends in Post-Impressionism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  37
+image_inputs [<PIL.Image.Image image mode=RGB size=1232x1036 at 0x14DAB02532B0>]
+generated_description:  This painting, *The Beach Evening* by Henri-Edmond Cross, exemplifies Post-Impressionism, characterized by its vibrant color palette and textured brushwork. Created during the early 20th century, it reflects the artist's interest in nature and the interplay of light and color. The use of dots and small strokes (pointillism) creates a vivid, almost mosaic-like effect, capturing the serene beauty of a lavender field at dusk. This work aligns with the broader Post-Impressionist movement, which sought to convey emotion and personal vision through art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  38
+image_inputs [<PIL.Image.Image image mode=RGB size=812x532 at 0x14DAB02540A0>]
+generated_description:  Henri-Edmond Cross's "The Grape Harvest" (1900-1950) exemplifies Post-Impressionism, capturing the rural life and labor of the countryside. The painting reflects the artist's interest in the natural world and human activity, rendered through a textured, pointillist technique. It showcases the harmony between humans and nature, emphasizing the simplicity and beauty of rural life during the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  39
+image_inputs [<PIL.Image.Image image mode=RGB size=504x644 at 0x14DAB02542B0>]
+generated_description:  This painting, "Portrait of the Poet Georges Bonnamour" by Henri Le Fauconnier, exemplifies Post-Impressionism, a movement that emerged in the early 20th century. Set in the 1900-1950 timeframe, the work reflects the era's focus on personal expression and emotional depth. Le Fauconnier's use of vibrant colors and bold brushstrokes captures the poet's personality and the intimate atmosphere of his surroundings, highlighting the artist's ability to convey character through vivid imagery.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  40
+image_inputs [<PIL.Image.Image image mode=RGB size=924x1176 at 0x14DAB0242400>]
+generated_description:  This painting, "Garden at Labastide-du-Vert" by Henri Martin, exemplifies Post-Impressionism, characterized by its vibrant colors and textured brushwork. Created between 1900 and 1950, it captures a serene garden scene with lush vegetation and a prominent tree, reflecting the artist's interest in natural landscapes. The style emphasizes personal expression and emotional response to nature, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  41
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1092 at 0x14DAB00B2FA0>]
+generated_description:  Henri Martin's "Garden of Luxembourg" (1931) exemplifies Post-Impressionism, capturing the serene beauty of a garden with vibrant, textured brushstrokes. The painting reflects the artist's interest in nature and urban landscapes, showcasing the interplay of light and shadow through rich greens and yellows. It embodies the era's focus on personal expression and the natural world, resonating with the post-war optimism and cultural revival of the 1930s.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  42
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x14DAB02542B0>]
+generated_description:  This painting, *Labastide-du-Vert* by Henri Martin, exemplifies Post-Impressionism, characterized by its vibrant colors and textured brushwork. Created between 1900-1950, it captures a serene rural landscape, featuring houses, forests, and cliffs, reflecting the artist's interest in natural beauty and everyday life. The style emphasizes personal expression and emotional response to nature, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  43
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1008 at 0x14DAB48CC700>]
+generated_description:  This painting, *Saint-Cirq-Lapopie* by Henri Martin, exemplifies Post-Impressionism, characterized by its vibrant colors and textured brushwork. Created around 1900-1950, it reflects the artist's interest in capturing the essence of rural life and medieval architecture. The scene depicts a picturesque village with traditional houses and a prominent tower, set against a backdrop of rolling hills and a river, embodying the beauty and tranquility of the countryside. The use of bold colors and distinct brush strokes aligns with the Post-Impressionist movement's focus on personal expression and emotional response to the subject matter.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  44
+image_inputs [<PIL.Image.Image image mode=RGB size=672x672 at 0x14DAB02403A0>]
+generated_description:  This post-impressionist still life by Ion Pacea, dated 1950-2000, features a fruit stand, a fried egg, and other food items, reflecting a focus on everyday subjects typical of the genre. The vibrant colors and expressive brushstrokes capture the textures and forms of the objects, emphasizing the artist's personal vision and emotional connection to the mundane. The inclusion of a meal and a fried egg suggests themes of nourishment and domesticity, resonating with the post-war era's emphasis on rebuilding and returning to normalcy.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  45
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x14DAB0240340>]
+generated_description:  This painting, "Ion-Theodorescu-Sion at Rest," by Ion-Theodorescu-Sion, exemplifies Post-Impressionism, a style that emerged in the early 20th century. Created in 1912, it reflects the artist's interest in capturing the emotional and psychological states of individuals, as seen through the somber tones and expressive features of the subject. The setting, possibly aboard a ship, suggests themes of travel, introspection, and the passage of time, resonating with broader societal concerns of the era. The muted palette and textured brushwork align with the movement's focus on personal expression and the interplay between form and color.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  46
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x812 at 0x14DAB024CFA0>]
+generated_description:  This painting, "Composition with Peasant Motifs" by Ion Theodorescu-Sion, created in 1936, exemplifies Post-Impressionism. Set in a rural setting, the work captures a group of women in traditional attire, engaging in leisurely activities. The vibrant colors and expressive brushstrokes reflect the artist's focus on capturing the essence and mood of the scene rather than precise detail, typical of the Post-Impressionist style. This piece likely reflects the artist's interest in Romanian peasant life and culture, aligning with broader trends in European art that emphasized local traditions and landscapes during the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  47
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x14DAB00DB190>]
+generated_description:  This painting, "Portrait of a Young Mpondo," by Irma Stern, reflects the post-impressionist style prevalent in the early 20th century. Created in 1935, it captures a young woman with vibrant colors and expressive brushstrokes, characteristic of the movement. Stern's work often focused on African subjects, showcasing her interest in cultural representation and her skill in capturing the essence of her subjects. The painting's focus on the subject's cheek highlights Stern's attention to detail and emotional depth.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  48
+image_inputs [<PIL.Image.Image image mode=RGB size=336x420 at 0x14DAB00DB640>]
+generated_description:  This painting, "Portrait of Helene Kriel" by Irma Stern, exemplifies Post-Impressionist style, reflecting the artist's focus on capturing the essence and personality of her subjects through expressive brushwork and vibrant colors. Created in the 1950s, it aligns with the era's emphasis on individuality and emotional depth, showcasing Stern's skill in rendering human features with sensitivity and realism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  49
+image_inputs [<PIL.Image.Image image mode=RGB size=588x476 at 0x14DAA9D62F40>]
+generated_description:  This painting, "La Ferme de la Bendelire" by Jacques Villon, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created in 1905, it reflects the artist's exploration of rural landscapes and the interplay of light and shadow, typical of the era's focus on personal expression and emotional depth. The depiction of the farmhouse and surrounding greenery captures the essence of the countryside, resonating with the broader movement's interest in nature and everyday life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  50
+image_inputs [<PIL.Image.Image image mode=RGB size=504x420 at 0x14DAB0240760>]
+generated_description:  This painting, "Summer Storm" by Kazuo Nakamura, exemplifies Post-Impressionism with its vibrant turquoise sky and textured, swirling landscape, capturing the dynamic interplay of light and atmosphere characteristic of the movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  51
+image_inputs [<PIL.Image.Image image mode=RGB size=812x952 at 0x14DAB0240BE0>]
+generated_description:  This painting, *A Woman's Portrait* by Kees van Dongen, exemplifies Post-Impressionism, characterized by its expressive brushwork and vibrant colors. Created in 1909, it reflects the era's focus on individual expression and emotional depth. The artist's use of bold colors and dynamic brushstrokes captures the subject's personality and mood, aligning with the movement's emphasis on subjective interpretation. The painting's intimate portrayal of a woman's face and hair highlights van Dongen's skill in capturing human emotion and beauty.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  52
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1036 at 0x14DAB02401C0>]
+generated_description:  This painting, *L'Ecuyère* by Kees van Dongen, exemplifies Post-Impressionism, reflecting the era's focus on bold colors and expressive brushwork. Created in 1920, it captures a woman in vibrant green attire, embodying the fashion and sensuality of the Roaring Twenties. The style and composition highlight van Dongen's interest in modernity and the female form, aligning with the broader artistic trends of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  53
+image_inputs [<PIL.Image.Image image mode=RGB size=420x560 at 0x14DAA9D621C0>]
+generated_description:  This painting, "Paris la Nuit" by Kees van Dongen, captures the moody ambiance of a rainy night in Paris. Post-impressionism, its style, emphasizes emotional expression over realistic representation. The interplay of light and shadow, along with the reflective wet pavement, evokes a sense of mystery and introspection, characteristic of the era's focus on subjective experience. The urban setting and nocturnal mood reflect the modern city's allure and the artist's exploration of contemporary life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  54
+image_inputs [<PIL.Image.Image image mode=RGB size=392x560 at 0x14DAA9D62D90>]
+generated_description:  This painting, titled "le-pho_fleurs," by Le Pho, exemplifies Post-Impressionist style, created between 1950 and 2000. It features vibrant irises in a vase, rendered with expressive brushstrokes and vivid colors, capturing the essence of botany and still-life photography. The artwork reflects a blend of natural beauty and artistic interpretation typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  55
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14DAA9D622E0>]
+generated_description:  This painting, "Flower Composition," by Le Pho, exemplifies Post-Impressionism, reflecting the artist's exploration of vibrant colors and floral themes. Created between 1950 and 2000, it captures the beauty of cut flowers and wildflowers, blending traditional botanical subjects with modern artistic techniques. The work showcases Le Pho's mastery of color and composition, emphasizing the natural world's intricate details and textures.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  56
+image_inputs [<PIL.Image.Image image mode=RGB size=392x476 at 0x14DAA9D61A30>]
+generated_description:  This painting, "Girl with Green Scarf" by Le Pho, exemplifies Post-Impressionism, reflecting the artist's exploration of color and form. Created in 1982, it captures a serene moment, blending traditional Vietnamese aesthetics with modern artistic techniques. The muted palette and stylized forms evoke a sense of quiet contemplation, characteristic of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  57
+image_inputs [<PIL.Image.Image image mode=RGB size=448x560 at 0x14DAA9D61C40>]
+generated_description:  This painting, "Mother and Child" by Le Pho, exemplifies Post-Impressionist influences, reflecting a blend of traditional Vietnamese themes and Western artistic techniques. Created between 1950 and 2000, it captures a serene maternal moment, blending simplicity with emotional depth. The soft, muted colors and gentle brushstrokes evoke a sense of tranquility, characteristic of Le Pho's style, which often incorporated elements of folk art and everyday life. This work resonates with themes of family and nurturing, universal across cultures.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  58
+image_inputs [<PIL.Image.Image image mode=RGB size=392x560 at 0x14DAA9D616A0>]
+generated_description:  This painting, "Portrait of a Beauty Among Peonies" by Le Pho, created in 1958, exemplifies Post-Impressionism. Set against a soft, impressionistic backdrop of peonies, it captures a serene and contemplative mood. The artist's use of muted colors and loose brushstrokes reflects the Post-Impressionist focus on emotional expression and personal vision rather than strict realism. This work likely draws inspiration from the artist's Vietnamese heritage, blending traditional themes with modern artistic techniques.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  59
+image_inputs [<PIL.Image.Image image mode=RGB size=532x812 at 0x14DAA9D56850>]
+generated_description:  This painting, "Flowers" by Martiros Saryan, created in 1908, exemplifies Post-Impressionism. Saryan's use of vibrant colors and expressive brushstrokes reflects the movement's focus on personal expression and emotional content. Set against a warm, textured background, the bouquet of flowers in a simple vase highlights the artist's interest in everyday subjects, blending naturalism with a subjective, emotive approach characteristic of the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  60
+image_inputs [<PIL.Image.Image image mode=RGB size=560x812 at 0x14DAA9D56970>]
+generated_description:  This painting, "Flowers" by Martiros Saryan, created in 1912, exemplifies Post-Impressionism. Saryan's vibrant use of color and expressive brushstrokes captures the lively essence of the bouquet, reflecting the movement's focus on personal expression and emotional content rather than strict realism. The piece aligns with the broader context of early 20th-century art, where artists sought to convey emotion and individuality through their work.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  61
+image_inputs [<PIL.Image.Image image mode=RGB size=896x756 at 0x14DAA9D56160>]
+generated_description:  This painting, "Sailboats at Chatou" by Maurice de Vlaminck, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created around 1900-1950, it captures a serene riverside scene with sailboats under a bridge, reflecting the artist's fascination with nature and urban landscapes. The use of bold colors and dynamic forms aligns with the movement's emphasis on emotional expression and individuality.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  62
+image_inputs [<PIL.Image.Image image mode=RGB size=952x868 at 0x14DAA9D48970>]
+generated_description:  This painting, *The Clearing at Valmondois* by Maurice de Vlaminck, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created between 1900 and 1950, it captures the natural environment, focusing on the interplay of light and shadow in a forest clearing. De Vlaminck's bold strokes and vivid hues reflect his fascination with the raw beauty of nature, typical of the Post-Impressionist movement. The work celebrates the dynamic energy of the outdoors, showcasing the artist's ability to convey emotion through color and form.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  63
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1008 at 0x14DAA9D487C0>]
+generated_description:  This painting, "The Visitation," by Maurice Denis, exemplifies Post-Impressionism, characterized by its emphasis on geometric forms and symbolic themes. Created in 1894, it reflects the artist's interest in spirituality and the spiritual connection between individuals, as suggested by the title. The use of vibrant colors and simplified forms aligns with the movement's focus on subjective expression and the emotional impact of art. The painting's style and themes resonate with the broader cultural shift towards modernity and introspection in the late 19th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  64
+image_inputs [<PIL.Image.Image image mode=RGB size=924x672 at 0x14DAA9D482E0>]
+generated_description:  This painting, "Autumn in New England" by Maurice Prendergast, exemplifies Post-Impressionism, characterized by vibrant colors and expressive brushwork. Created between 1900-1950, it captures the essence of autumn in the countryside, reflecting Prendergast's interest in capturing fleeting moments of light and color. His use of bold, contrasting hues and loose, gestural strokes aligns with the movement's emphasis on personal expression and emotional response to nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  65
+image_inputs [<PIL.Image.Image image mode=RGB size=896x644 at 0x14DAB024C0D0>]
+generated_description:  This painting, *Country Road, New Hampshire* by Maurice Prendergast, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created between 1900-1950, it reflects the artist's interest in capturing the essence of the countryside through bold, abstract forms and a dynamic use of color. Prendergast's style, influenced by Impressionism, emphasizes the play of light and atmosphere over precise detail, creating a lively and atmospheric depiction of a rural landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  66
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1120 at 0x14DAA9D480A0>]
+generated_description:  This watercolor painting by Maurice Prendergast, titled "Holiday Headlands," exemplifies Post-Impressionism, capturing a serene seaside scene with leisurely figures enjoying the coast. The style emphasizes color and form over precise detail, reflecting the era's focus on personal expression and emotional response to nature. The relaxed atmosphere and casual attire suggest a leisurely holiday vibe, typical of the early 20th-century beach culture. Prendergast's use of vibrant blues and greens evokes the natural beauty of the coastal environment, while the loose brushwork adds a sense of spontaneity and immediacy to the scene.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  67
+image_inputs [<PIL.Image.Image image mode=RGB size=728x924 at 0x14DAA9D28CA0>]
+generated_description:  This painting, "Idyllic Landscape" by Maurice Prendergast, exemplifies Post-Impressionism, characterized by vibrant colors and expressive brushwork. Created between 1900-1950, it reflects leisure and tranquility, capturing a serene moment with figures resting and a horse in motion against a lush, impressionistic backdrop. The style aligns with the era's focus on personal expression and natural beauty.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  68
+image_inputs [<PIL.Image.Image image mode=RGB size=1960x1512 at 0x14DAA9D28D90>]
+generated_description:  This painting, "In Luxembourg Gardens" by Maurice Prendergast, captures the vibrant atmosphere of a bustling park scene in the early 20th century. Prendergast's Post-Impressionist style, characterized by bold colors and expressive brushstrokes, emphasizes the lively energy of the garden setting. The composition, filled with figures in colorful attire, reflects the leisurely social life of the era, while the use of light and color conveys a sense of joy and vitality. This work exemplifies Prendergast's exploration of urban landscapes and his ability to capture the essence of everyday life through his unique artistic vision.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  69
+image_inputs [<PIL.Image.Image image mode=RGB size=924x784 at 0x14DAA9D48760>]
+generated_description:  This painting, "New England Village" by Maurice Prendergast, exemplifies Post-Impressionism, characterized by vibrant colors and bold brushstrokes. Created around 1900-1950, it captures a lively countryside scene with cottages and farmhouses, reflecting Prendergast's fascination with the American landscape. His use of color and light evokes a sense of warmth and tranquility, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  70
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x756 at 0x14DAB02614F0>]
+generated_description:  This painting, "On the Rocks, North Shore," by Maurice Prendergast, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created between 1900 and 1950, it captures a leisure scene, reflecting the artist's interest in capturing everyday moments with a mythological touch. Prendergast's use of bold colors and simplified forms evokes a sense of tranquility and escape, resonating with the era's focus on personal expression and the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  71
+image_inputs [<PIL.Image.Image image mode=RGB size=868x728 at 0x14DAA9D28310>]
+generated_description:  This painting, "Picking Strawberries," by Maurice Prendergast, exemplifies Post-Impressionism, reflecting the artist's interest in capturing the vibrant textures and colors of rural life. Set in the early 20th century, it showcases Prendergast's use of bold, flat colors and simplified forms, characteristic of the movement. The scene depicts a tranquil countryside setting, focusing on the simple act of harvesting strawberries, which aligns with the genre painting tradition of depicting everyday life. The painting's emphasis on the natural environment and the leisurely activity of picking strawberries highlights Prendergast's appreciation for the beauty of rural landscapes and the simplicity of human interaction with nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  72
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1176 at 0x14DAB0249580>]
+generated_description:  This painting, "Portrait of a Young Girl" by Maurice Prendergast, exemplifies Post-Impressionist style from the early 20th century. Prendergast's use of vibrant colors and textured brushstrokes captures the innocence and vitality of the subject, reflecting the movement's focus on personal expression and emotional depth. The work aligns with the broader trend of female portraiture during this period, showcasing Prendergast's skill in rendering human emotion and character.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  73
+image_inputs [<PIL.Image.Image image mode=RGB size=1764x1400 at 0x14DAB0261880>]
+generated_description:  This painting, "Study St. Malo No. 11" by Maurice Prendergast, exemplifies Post-Impressionism, characterized by vibrant colors and expressive brushstrokes. Created between 1900 and 1950, it captures a bustling coastal scene, reflecting Prendergast's fascination with light and color. His style, influenced by Impressionism, emphasizes the emotional impact of the environment over precise detail, creating a dynamic and lively depiction of the seaside town of St. Malo.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  74
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x756 at 0x14DAB0225370>]
+generated_description:  This painting, *The Cove* by Maurice Prendergast, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created between 1900 and 1950, it captures a serene seaside scene, reflecting leisure activities and the tranquil beauty of coastal life. Prendergast's style emphasizes the interplay of light and color, creating a vivid yet dreamlike atmosphere typical of the era. The painting aligns with the broader Post-Impressionist movement, which sought to convey emotion and personal vision through art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  75
+image_inputs [<PIL.Image.Image image mode=RGB size=1176x812 at 0x14DAA9D41CA0>]
+generated_description:  This painting, *The Hay Cart* by Maurice Prendergast, exemplifies Post-Impressionism, capturing a lively rural scene with vibrant colors and loose brushstrokes characteristic of the style. Set in the countryside, it depicts a bustling village road with hay carts and figures, reflecting Prendergast's interest in everyday life and his innovative use of color and form. Created between 1900-1950, it aligns with the broader movement towards modernizing art by focusing on naturalistic depictions with expressive, abstract qualities.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  76
+image_inputs [<PIL.Image.Image image mode=RGB size=924x756 at 0x14DAA9D412B0>]
+generated_description:  This painting, *The Point, Gloucester* by Maurice Prendergast, exemplifies Post-Impressionism through its vibrant color palette and expressive brushwork. Set against the backdrop of Gloucester, Massachusetts, it captures a serene seaside scene with people leisurely enjoying the beach and ocean. The style reflects the era's focus on capturing the essence of light and atmosphere rather than precise detail, aligning with the broader movement's emphasis on individual expression and emotional response to nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  77
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x14DAA9D41700>]
+generated_description:  This painting, *The Promenade* by Maurice Prendergast, exemplifies Post-Impressionism, capturing a vibrant scene of leisure in a park. Prendergast's use of bold colors and distinct brushstrokes reflects the movement's focus on personal expression and the beauty of everyday life. Set in the early 20th century, the work celebrates the joy of outdoor recreation and social interaction, embodying the era's shift towards modernity and individualism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  78
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x840 at 0x14DAB0225CD0>]
+generated_description:  This painting, *The Shore* by Maurice Prendergast, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created between 1900 and 1950, it captures a lively seaside scene, reflecting leisure activities and the natural beauty of the ocean. Prendergast's style emphasizes the interplay of light and color, creating a dynamic and immersive atmosphere typical of the era. The painting aligns with the broader Post-Impressionist movement, which sought to convey emotion and individuality through art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  79
+image_inputs [<PIL.Image.Image image mode=RGB size=952x728 at 0x14DAA9D28E50>]
+generated_description:  This painting, "Seine," by Maurice Utrillo, exemplifies Post-Impressionism, capturing the Seine River in Paris with a focus on texture and color. Utrillo's depiction of the river and surrounding urban landscape reflects the vibrant yet somber atmosphere of Paris in the early 20th century, blending natural and urban elements. The style emphasizes personal expression over strict realism, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  80
+image_inputs [<PIL.Image.Image image mode=RGB size=560x728 at 0x14DAB02496A0>]
+generated_description:  This painting, "Vase with Flowers" by Maurice Utrillo, exemplifies Post-Impressionism, characterized by its vibrant colors and expressive brushwork. Created between 1900 and 1950, it reflects the artist's interest in capturing the beauty of everyday objects, focusing on the interplay of light and shadow. The bold use of color and loose, dynamic brushstrokes convey a sense of spontaneity and emotional intensity, typical of the Post-Impressionist movement. The subject matter, a still life of flowers, underscores the artist's appreciation for nature and the simple pleasures of life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  81
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x896 at 0x14DAB024B5E0>]
+generated_description:  This painting, "Brittany: A Hamlet," by Maxime Maufra, exemplifies Post-Impressionism, capturing a serene rural landscape in Brittany, France, during the late 19th century. The soft brushwork and muted colors reflect the artist's focus on natural light and atmosphere, typical of the movement. The scene depicts a tranquil hamlet with cottages and farmhouses, set against a calm lake, embodying the pastoral charm and simplicity of rural life in Brittany.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  82
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1036 at 0x14DAB024B040>]
+generated_description:  This painting, "Morning in the Oasis of Alkantra" by Maxime Maufra, exemplifies Post-Impressionism, reflecting the artist's interest in capturing the essence of natural landscapes through vibrant colors and textured brushstrokes. Set in the early 20th century, it showcases Maufra's exploration of the rugged beauty of mountainous regions and the lush vegetation of oases, typical of the post-impressionist focus on personal expression and emotional response to nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  83
+image_inputs [<PIL.Image.Image image mode=RGB size=896x700 at 0x14DAB0249A30>]
+generated_description:  This painting, *Quayside in Le Havre* by Maxime Maufra, created in 1905, reflects the Post-Impressionist style. Set in Normandy, it captures the bustling activity of a harbor, blending industrial elements with human labor. The scene highlights the intersection of traditional handwork and modern industry, showcasing the era's transition through Maufra's expressive brushwork and muted color palette.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  84
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x14DAB0128130>]
+generated_description:  This painting, *The Retreating Fog, Morning, Les Andelys* by Maxime Maufra, exemplifies Post-Impressionism, reflecting the artist's focus on natural landscapes and atmospheric effects. Set in Normandy, the work captures the serene yet dynamic interplay between light, fog, and water, characteristic of the region. Maufra's use of color and texture conveys the morning mist's subtle retreat, creating a tranquil yet contemplative mood. This piece aligns with the broader movement's emphasis on personal expression and the beauty of everyday scenes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  85
+image_inputs [<PIL.Image.Image image mode=RGB size=840x700 at 0x14DAA9D62610>]
+generated_description:  This painting, *The Village on the River Bozel* by Maxime Maufra, exemplifies Post-Impressionism, reflecting the artist's interest in capturing the essence of rural life through vibrant colors and textured brushstrokes. Set in a mountain village, it showcases Maufra's appreciation for folk architecture and the natural landscape, typical of the Post-Impressionist movement's focus on personal expression and emotional response to nature. The scene captures a serene, pastoral moment, emphasizing the harmony between human habitation and the surrounding environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  86
+image_inputs [<PIL.Image.Image image mode=RGB size=756x504 at 0x14DAA9D489D0>]
+generated_description:  This still-life painting by Meijer-de-Haan, dated 1850-1900, embodies Post-Impressionist sensibilities through its textured brushwork and vibrant colors. It features everyday objects like onions, bread, and apples, reflecting the artist's focus on ordinary subjects. The composition and use of light suggest a celebration of nature and the simple pleasures of life, typical of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  87
+image_inputs [<PIL.Image.Image image mode=RGB size=728x504 at 0x14DAA9D63130>]
+generated_description:  This painting, "Portrait of Ekaterina Nesterova" by Mikhail Nesterov, exemplifies Post-Impressionism, reflecting the artist's focus on capturing the inner life of his subjects through expressive brushwork and vibrant colors. Set against a serene domestic backdrop, the portrait emphasizes the subject's contemplative mood, aligning with Nesterov's exploration of human psychology and emotional depth during the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  88
+image_inputs [<PIL.Image.Image image mode=RGB size=336x448 at 0x14DAB024B4C0>]
+generated_description:  This painting, "Panier de Fleurs" by Mily Possoz, created in 1920, embodies Post-Impressionist aesthetics. Possoz, a Belgian artist, uses vibrant colors and expressive brushstrokes to depict a scene of women arranging flowers, reflecting the movement's focus on personal expression and emotional content. The work captures a moment of domestic tranquility, showcasing the artist's interest in everyday life and the beauty of simple activities.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  89
+image_inputs [<PIL.Image.Image image mode=RGB size=476x588 at 0x14DAA9D63E50>]
+generated_description:  The painting "Senhoras no Jardim" by Mily Possoz, created in 1930, exemplifies Post-Impressionism. Set in a garden, the piece captures a serene, intimate moment among women, reflecting the artist's focus on personal and emotional themes. The vibrant yet subdued palette and expressive brushwork align with the movement's emphasis on individuality and emotional depth. This work likely resonates with the broader cultural shift towards modernism and the exploration of personal narratives in art during the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  90
+image_inputs [<PIL.Image.Image image mode=RGB size=1708x1372 at 0x14DAA9D28E50>]
+generated_description:  This painting, "Still Life," by Moise Kisling, exemplifies Post-Impressionism, a movement that emerged in the early 20th century. Set against a muted background, the composition features a wooden table laden with fruits, vegetables, and dishware, rendered with vibrant colors and expressive brushstrokes characteristic of the style. The focus on everyday objects and the use of bold hues reflect the Post-Impressionist interest in capturing the emotional and subjective experience of the world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  91
+image_inputs [<PIL.Image.Image image mode=RGB size=644x420 at 0x14DAA9D62EE0>]
+generated_description:  This painting, "Constanta" by Nicolae Darascu, exemplifies Post-Impressionism, reflecting the artist's exploration of vibrant colors and textured brushstrokes. Created between 1900-1950, it captures a galleon in a harbor, emphasizing the interplay of light and shadow. The style suggests a focus on personal expression and emotional resonance rather than strict realism, characteristic of the Post-Impressionist movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  92
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x14DAB0128580>]
+generated_description:  This painting, "Back Nude," by Nicolae Tonitza, exemplifies Post-Impressionism, reflecting the artist's exploration of human form and texture. Created in 1929, it captures the nude figure from behind, emphasizing the interplay of light and shadow on the skin. The style, with its textured brushstrokes and focus on the human body, aligns with the broader movement's emphasis on personal expression and emotional content.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  93
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1680 at 0x14DAA9D62610>]
+generated_description:  This watercolor painting by Nikola Tanev, titled "Monastery of St. John of Lake Ohrid," exemplifies Post-Impressionist style, characterized by its expressive brushwork and vibrant colors. Created in the early 20th century, the artwork captures the serene beauty of a lakeside monastery, blending natural elements with spiritual symbolism. The use of water and light reflects Tanev's focus on capturing the essence of the landscape rather than precise realism, typical of the Post-Impressionist movement. The painting likely draws inspiration from the picturesque landscapes of the Balkans, where Tanev lived and worked.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  94
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x980 at 0x14DAB0249A30>]
+generated_description:  This painting, "Winter in Innsbruck" by Nikola Tanev, exemplifies Post-Impressionism, reflecting the artist's exploration of light and texture through thick impasto brushstrokes. Set in a winter forest, the scene captures the serene yet somber mood of the season, with muted colors and a focus on the interplay of light filtering through bare trees. This work likely draws inspiration from the natural landscapes of Innsbruck, showcasing Tanev's interest in capturing the essence of the environment rather than precise detail.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  95
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1204 at 0x14DAA9D489D0>]
+generated_description:  This painting, "Butterflies" by Odilon Redon, exemplifies Post-Impressionism, reflecting the artist's fascination with the natural world and his exploration of the subconscious. Created around 1900-1950, it embodies Redon's interest in dreamlike imagery and the mystical qualities of nature, capturing the ethereal beauty of butterflies in a dreamy, impressionistic style. The vibrant colors and fluid brushstrokes evoke a sense of wonder and the transient nature of life, aligning with the broader Symbolist movement's themes of the unconscious and the spiritual.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  96
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1204 at 0x14DAA9D3AA30>]
+generated_description:  This painting by Odilon Redon, titled "Butterflies," exemplifies his post-impressionist style, reflecting his fascination with nature and the subconscious. Created between 1900 and 1950, it showcases vibrant, dreamlike depictions of insects, particularly butterflies and moths, capturing their intricate patterns and vivid colors. Redon's use of brushstrokes and expressive forms aligns with his exploration of the mystical and the unseen, blending realism with surrealism. The piece reflects his interest in Hindu and Buddhist themes, evident in the symbolic and ethereal quality of the subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  97
+image_inputs [<PIL.Image.Image image mode=RGB size=504x504 at 0x14DAA9D63610>]
+generated_description:  This painting, "Portrait of the Painter Burdanov" by Oleksandr Bogomazov, created in 1912, exemplifies Post-Impressionism. Set against a textured background, the artist uses bold colors and expressive brushstrokes to capture the subject's intense gaze and contemplative mood. The style reflects the movement's focus on subjective expression and emotional depth, characteristic of the early 20th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  98
+image_inputs [<PIL.Image.Image image mode=RGB size=560x392 at 0x14DAA9D28940>]
+generated_description:  This painting, *Dutch Landscape with Windmills* by Pablo Picasso, created in 1905, is a prime example of Post-Impressionism. Set during Picasso's Blue Period, it reflects his exploration of muted colors and somber themes. The windmills and fields evoke a sense of rural simplicity and melancholy, typical of the period's focus on emotional expression rather than naturalistic representation. This work showcases Picasso's transition towards more abstract and symbolic forms, laying groundwork for his future Cubist innovations.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  99
+image_inputs [<PIL.Image.Image image mode=RGB size=756x980 at 0x14DAA9D63610>]
+generated_description:  This painting, "Harlequin's Head," by Pablo Picasso, exemplifies his early post-impressionist style from the 1900s. It showcases a simplified, almost mask-like representation of a young man, reflecting the influence of African art and the emerging Cubist movement. The dark background and muted colors emphasize the subject's face and attire, capturing a moment of introspection. This work is part of Picasso's exploration of identity and the human form, themes central to his artistic evolution.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_184422_job_0.json'.
+
+JOB STATISTICS
+==============
+Job ID: 11789343
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:09:51
+CPU Efficiency: 8.94% of 01:50:08 core-walltime
+Job Wall-clock time: 00:06:53
+Memory Utilized: 4.50 GB
+Memory Efficiency: 2.50% of 180.00 GB (180.00 GB/node)

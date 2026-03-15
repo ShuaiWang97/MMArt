@@ -1,0 +1,981 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11789348/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x1502e90beb80>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x1502ea7ed820>,
+  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x15031a3389d0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=5)
+Processing data from index 500 to 600
+Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Processing row:  500
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:03,  1.30it/s][A
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.33it/s][A
+Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.35it/s][A
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.36it/s][A
+Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.65it/s][ALoading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.50it/s]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   1%|          | 1/100 [00:12<21:22, 12.96s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   2%|▏         | 2/100 [00:15<11:34,  7.09s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   3%|▎         | 3/100 [00:19<08:48,  5.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 4/100 [00:22<07:15,  4.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   5%|▌         | 5/100 [00:26<06:52,  4.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 6/100 [00:29<06:09,  3.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   7%|▋         | 7/100 [00:32<05:36,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 8/100 [00:36<05:38,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   9%|▉         | 9/100 [00:39<05:15,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 10/100 [00:42<05:10,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  11%|█         | 11/100 [00:45<04:54,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 12/100 [00:49<05:04,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  13%|█▎        | 13/100 [00:53<04:56,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 14/100 [00:56<04:44,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  15%|█▌        | 15/100 [00:58<04:27,  3.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 16/100 [01:02<04:25,  3.16s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  17%|█▋        | 17/100 [01:05<04:26,  3.21s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 18/100 [01:08<04:28,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  19%|█▉        | 19/100 [01:10<03:56,  2.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 20/100 [01:14<04:11,  3.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  21%|██        | 21/100 [01:18<04:16,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 22/100 [01:21<04:18,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  23%|██▎       | 23/100 [01:24<04:17,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 24/100 [01:27<04:00,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  25%|██▌       | 25/100 [01:30<03:59,  3.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 26/100 [01:34<03:54,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  27%|██▋       | 27/100 [01:37<03:58,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 28/100 [01:40<03:47,  3.16s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  29%|██▉       | 29/100 [01:44<03:56,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 30/100 [01:47<03:55,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  31%|███       | 31/100 [01:50<03:46,  3.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 32/100 [01:54<03:52,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  33%|███▎      | 33/100 [01:57<03:37,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 34/100 [02:01<03:56,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  35%|███▌      | 35/100 [02:05<04:03,  3.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 36/100 [02:09<03:52,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  37%|███▋      | 37/100 [02:13<03:55,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 38/100 [02:16<03:41,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  39%|███▉      | 39/100 [02:19<03:36,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 40/100 [02:22<03:23,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  41%|████      | 41/100 [02:26<03:18,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 42/100 [02:29<03:11,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  43%|████▎     | 43/100 [02:33<03:17,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 44/100 [02:36<03:07,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  45%|████▌     | 45/100 [02:41<03:29,  3.81s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 46/100 [02:43<03:06,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  47%|████▋     | 47/100 [02:47<03:00,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 48/100 [02:50<03:00,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  49%|████▉     | 49/100 [02:53<02:46,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 50/100 [02:56<02:42,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  51%|█████     | 51/100 [03:01<02:55,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 52/100 [03:04<02:57,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  53%|█████▎    | 53/100 [03:08<02:44,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▍    | 54/100 [03:11<02:40,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▌    | 55/100 [03:14<02:28,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 56/100 [03:17<02:22,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▋    | 57/100 [03:20<02:20,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 58/100 [03:23<02:14,  3.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  59%|█████▉    | 59/100 [03:27<02:21,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 60/100 [03:31<02:18,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  61%|██████    | 61/100 [03:33<02:02,  3.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 62/100 [03:36<01:53,  2.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  63%|██████▎   | 63/100 [03:38<01:44,  2.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 64/100 [03:41<01:41,  2.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  65%|██████▌   | 65/100 [03:45<01:48,  3.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 66/100 [03:50<02:02,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  67%|██████▋   | 67/100 [03:53<01:56,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 68/100 [03:57<01:55,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  69%|██████▉   | 69/100 [04:01<01:55,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 70/100 [04:05<01:52,  3.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  71%|███████   | 71/100 [04:08<01:45,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 72/100 [04:12<01:41,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  73%|███████▎  | 73/100 [04:15<01:36,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 74/100 [04:19<01:35,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  75%|███████▌  | 75/100 [04:23<01:37,  3.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 76/100 [04:27<01:28,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  77%|███████▋  | 77/100 [04:30<01:22,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 78/100 [04:34<01:20,  3.65s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  79%|███████▉  | 79/100 [04:37<01:13,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 80/100 [04:40<01:08,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  81%|████████  | 81/100 [04:44<01:05,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 82/100 [04:48<01:06,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  83%|████████▎ | 83/100 [04:52<01:04,  3.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 84/100 [04:55<00:57,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  85%|████████▌ | 85/100 [04:59<00:55,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 86/100 [05:03<00:54,  3.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  87%|████████▋ | 87/100 [05:08<00:51,  4.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 88/100 [05:12<00:47,  3.95s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  89%|████████▉ | 89/100 [05:15<00:42,  3.88s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 90/100 [05:19<00:37,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  91%|█████████ | 91/100 [05:22<00:33,  3.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 92/100 [05:26<00:28,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  93%|█████████▎| 93/100 [05:29<00:25,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 94/100 [05:32<00:20,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  95%|█████████▌| 95/100 [05:37<00:18,  3.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 96/100 [05:40<00:14,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  97%|█████████▋| 97/100 [05:43<00:10,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 98/100 [05:46<00:06,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  99%|█████████▉| 99/100 [05:50<00:03,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|██████████| 100/100 [05:54<00:00,  3.62s/it]Processing rows: 100%|██████████| 100/100 [05:54<00:00,  3.54s/it]
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x1502E4426F40>]
+generated_description:  This painting, "Man Head" by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It features a male portrait with expressive hair and a contemplative expression, reflecting the era's focus on emotional depth and individualism. The use of rich, textured brushstrokes captures the subject's character, aligning with Romantic ideals of naturalism and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  501
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x1502E5FB7A30>]
+generated_description:  This painting, "Portrait," by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It features a female subject adorned with intricate hairstyles and elegant attire, reflecting the era's fascination with beauty and the idealized portrayal of women. The soft brushstrokes and warm color palette contribute to the romantic sentiment, capturing the essence of feminine grace and elegance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  502
+image_inputs [<PIL.Image.Image image mode=RGB size=756x1008 at 0x1502E4077A60>]
+generated_description:  This painting, "Portrait of Artist Alexander Popov" by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It captures a gentleman in a contemplative pose, holding a palette, suggesting his profession as an artist. The use of rich, textured brushstrokes and dramatic lighting highlights the subject's thoughtful expression, reflecting the Romantic emphasis on individual emotion and the sublime. The setting and attire further emphasize the artist's identity within a specific cultural and historical context.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  503
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x1502E4426F70>]
+generated_description:  This portrait by Konstantin Makovsky, painted in the 1870s, exemplifies the Romanticism style prevalent during the timeframe. It depicts a gentleman, likely an elder, with a contemplative expression against a dark, somber background. The use of rich, warm colors and dramatic lighting emphasizes the subject's character and emotional depth, reflecting the Romantic emphasis on individualism and introspection.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  504
+image_inputs [<PIL.Image.Image image mode=RGB size=924x1204 at 0x1502E40776A0>]
+generated_description:  This painting, "Portrait of Princess Zinaida Yusupova," by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the late 19th and early 20th centuries. Commissioned during a period of cultural revival and imperial grandeur, the portrait celebrates aristocratic elegance and the beauty of traditional Russian attire. The rich colors and intricate details reflect the artist's focus on capturing the essence of his subjects, while the formal pose and ornate costume emphasize the subject's status and cultural heritage. This work aligns with the broader trend of celebrating Russian nobility and tradition during the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  505
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1008 at 0x1502DDDB5760>]
+generated_description:  This painting, "Portrait of V. Bahrushina" by Konstantin Makovsky, exemplifies the romanticism style prevalent in the late 19th and early 20th centuries. It showcases a female subject adorned in elegant fashion, reflecting the era's fascination with beauty and elegance. The soft lighting and detailed textures highlight the subject's grace and the luxurious materials of her attire, capturing a moment of refined beauty within a naturalistic setting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  506
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x1502DDDB5940>]
+generated_description:  This portrait, "Portrait of V. Makovsky, Artist's Brother," by Konstantin Makovsky, exemplifies the Romantic style prevalent in the 1850-1900 timeframe. It captures a gentleman with a gentle demeanor, characteristic of the era's focus on individual expression and emotional depth. The soft lighting and detailed rendering of the subject's features reflect Makovsky's skill in portraying human emotion and personality.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  507
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x1502DDC94DF0>]
+generated_description:  This painting, "Prince Oscar Bernadotte, Duke of Ostgotlandiya," by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It portrays a male figure in formal military attire, adorned with medals and insignia, reflecting the grandeur and authority of the subject. The dark background and detailed rendering of the uniform emphasize the subject's importance, aligning with Romanticism's focus on emotion and the sublime. This piece likely served as a formal portrait meant to convey the dignity and power of the nobleman depicted.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  508
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x1502E4077E80>]
+generated_description:  This painting, "Romeo and Juliet," by Konstantin Makovsky, depicts a romanticized scene inspired by William Shakespeare's play. Set in a dimly lit room with a view of the sea, the couple's intimate moment suggests themes of love and tragedy, characteristic of the Romantic movement. The soft lighting and detailed costumes reflect the artist's focus on emotion and atmosphere, aligning with the Romantic emphasis on individual expression and the sublime.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  509
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x1502E5FB7160>]
+generated_description:  This painting, "The Transfer of the Sacred Carpet from Mecca to Cairo," by Konstantin Makovsky, depicts a significant historical event from the 19th century. Set in a romanticized Middle Eastern setting, the scene illustrates the transfer of a sacred carpet from Mecca to Cairo, reflecting the cultural and religious exchange between Islamic communities. The richly adorned camel and the ceremonial attire of the figures highlight the importance of the event, capturing a moment of reverence and tradition within the context of 19th-century romanticism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  510
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x1502E4426CD0>]
+generated_description:  This painting, "Ukrainian Lady" by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It portrays a woman adorned in traditional Ukrainian attire, reflecting the artist's focus on national identity and cultural heritage. The use of rich colors and detailed textures captures the essence of the subject, emphasizing the beauty and dignity of the individual within a broader cultural context.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  511
+image_inputs [<PIL.Image.Image image mode=RGB size=728x896 at 0x1502DDC94D90>]
+generated_description:  This painting, "An Old Tree" by Lev Lagorio, exemplifies Romanticism's focus on nature and the sublime. Created in 1859, during the mid-19th century, it captures the grandeur and age of a tree within a lush forest setting. The artist's use of rich, textured brushstrokes and vibrant greens evokes a sense of awe and reverence for the natural world, reflecting the Romantic era's deep appreciation for the beauty and power of nature. The tree's gnarled trunk and surrounding foliage symbolize endurance and the passage of time, themes central to Romantic thought.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  512
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x1502DDC94D90>]
+generated_description:  This painting, "Landscape with Trees, Houses, and River," by Lev Lagorio, exemplifies Romanticism, a movement prevalent from the 1850s to 1900. It depicts a serene countryside scene with cottages, trees, and a river, reflecting the Romantic fascination with nature and the sublime. The lush vegetation and soft lighting evoke a sense of tranquility and harmony with the natural world, typical of the era's emphasis on emotional expression and the beauty of the untamed landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  513
+image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x1502D53B9B50>]
+generated_description:  The painting "Wedding in Kiev Province" by Mykola Pymonenko, created between 1900 and 1950, exemplifies Romanticism, capturing a vibrant rural wedding scene. Set in Ukraine, the artwork reflects the artist's focus on traditional customs and the beauty of rural life, resonating with the Romantic era's emphasis on emotion and the sublime. The warm colors and dynamic composition evoke a sense of joy and community, highlighting the cultural richness of Ukrainian weddings.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  514
+image_inputs [<PIL.Image.Image image mode=RGB size=448x532 at 0x1502DDD4A9D0>]
+generated_description:  This portrait, likely depicting Alexander Pushkin, is a romanticist work by Orest Kiprensky, created around 1827. The style emphasizes emotional intensity and individuality, characteristic of the Romantic era. The subject's contemplative expression and formal attire reflect the period's focus on personal character and literary themes. The inscription suggests it was engraved by Ivan Utkin in 1847, indicating its enduring importance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  515
+image_inputs [<PIL.Image.Image image mode=RGB size=1204x1484 at 0x1502DDC94FD0>]
+generated_description:  This painting, "Equestrian Portrait of Alexander I," by Orest Kiprensky, reflects the Romanticism era's focus on grandeur and heroism. Commissioned during the 1820s, it portrays Tsar Alexander I on horseback, symbolizing power and military prowess. The detailed uniform and surrounding soldiers emphasize authority, while the dramatic landscape and smoke suggest recent battle, aligning with the Romantic emphasis on emotion and the sublime.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  516
+image_inputs [<PIL.Image.Image image mode=RGB size=392x532 at 0x1502D53D1D30>]
+generated_description:  This painting, "Peter the Great," by Paul Delaroche, depicts Peter the Great in a romanticized style typical of the 1800s. Set against a dramatic sky, the portrait emphasizes Peter's regal attire and military bearing, reflecting the Romantic emphasis on emotion and historical grandeur. The artist's use of rich colors and detailed textures aligns with the Academicism and Neoclassicism trends of the era, aiming to glorify historical figures. The painting captures Peter's authority and modernity, blending historical accuracy with artistic idealization.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  517
+image_inputs [<PIL.Image.Image image mode=RGB size=812x644 at 0x1502D53B96A0>]
+generated_description:  The painting "St. Thomas More" by Paul Delaroche, created during the Romanticism era (1800-1850), depicts the execution of St. Thomas More, a prominent figure in English history. Delaroche's work reflects the Romantic movement's emphasis on emotion and drama, capturing the moment of More's martyrdom with intense detail and a somber atmosphere. The painting aligns with the Romantic ideal of depicting historical events with emotional depth and realism, resonating with contemporary audiences seeking to connect with the past.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  518
+image_inputs [<PIL.Image.Image image mode=RGB size=308x392 at 0x1502D53B91C0>]
+generated_description:  This painting, "The Temptation of St. Anthony," by Paul Delaroche, reflects the Romantic era's fascination with mythology and spiritual struggles. Delaroche's use of dramatic lighting and expressive figures captures the intense temptation experienced by St. Anthony, blending historical and mythological themes within a Romantic framework.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  519
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x1502D53B9700>]
+generated_description:  This painting, "Merry-Making at the Wayside Inn," by Pavel Svinyin, depicts a lively scene from the early 19th century, reflecting the Romantic era's focus on everyday life and natural settings. Set in a rustic tavern, the artwork captures the joyous atmosphere of social gatherings, with patrons enjoying music and conversation. The attire and setting suggest a rural or semi-rural environment, typical of the period's interest in authenticity and pastoral themes. The painting's vibrant colors and dynamic composition emphasize the energy and camaraderie of the scene, aligning with Romantic ideals of emotional expression and the celebration of human connection.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  520
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x588 at 0x1502DDD4A220>]
+generated_description:  This painting, "The Road in the Mountains" by Pavel Svinyin, exemplifies the Romanticism movement prevalent in the 1800s. It captures the grandeur and majesty of mountainous landscapes, emphasizing nature's power and beauty. The artist uses dramatic lighting and a dynamic composition to evoke emotion and awe, reflecting the Romantic ideal of the sublime. The scene highlights the rugged terrain and geological formations, showcasing the raw and untamed aspects of nature. This work aligns with the Romantic fascination with the natural world and its emotional impact.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  521
+image_inputs [<PIL.Image.Image image mode=RGB size=504x364 at 0x1502D53B92E0>]
+generated_description:  This painting, "The Traveler's First View of New York: The Battery and Flagstaff," by Pavel Svinyin, captures the romanticized vision of New York in the early 19th century. Set during the Romantic era, the artwork reflects a fascination with the city's natural beauty and urban development. The spire and flagstaff symbolize both the city's growth and its connection to national identity. The moles and embankments suggest the transformation of the waterfront, highlighting the city's expansion and modernization. This piece embodies the Romantic ideal of nature and urban progress coexisting harmoniously.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  522
+image_inputs [<PIL.Image.Image image mode=RGB size=728x504 at 0x1502E5F35EE0>]
+generated_description:  This painting, "Boulogne Sands" by Richard Parkes Bonington, exemplifies Romanticism, a movement prevalent in the 1800s that emphasized emotion, individualism, and nature's sublime power. Set against a dramatic sky, the scene captures the raw beauty and vastness of the seaside, reflecting the Romantic fascination with the sublime and the untamed. Bonington's use of light and color conveys a sense of awe and the transient nature of the landscape, aligning with Romantic ideals of the sublime and the picturesque.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  523
+image_inputs [<PIL.Image.Image image mode=RGB size=672x476 at 0x1502E5F35EE0>]
+generated_description:  This painting, "Green Fields at the Boards of Rio das Velhas," by Richard Parkes Bonington, exemplifies Romanticism, a movement prevalent between 1800-1850. It showcases the artist's fascination with jungles and tropics, capturing lush landscapes and emphasizing the beauty and grandeur of nature. The scene reflects the Romantic idealization of the untamed wilderness and the emotional connection to the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  524
+image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x1502DA066D90>]
+generated_description:  This painting, *Mount Etna from Taormina* by Thomas Cole, exemplifies the Romanticism movement of the 1800s. It showcases the artist's fascination with nature's grandeur and the sublime, capturing the majestic Mount Etna in Sicily. The scene reflects the Romantic ideal of nature's power and beauty, emphasizing the awe-inspiring presence of the mountain against the soft morning sky. Cole's work aligns with the Hudson River School tradition, highlighting the unique American landscape and its spiritual significance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  525
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x588 at 0x1502DA066340>]
+generated_description:  This painting, "Study for Two Youths Entering Upon a Pilgrimage," by Thomas Cole, exemplifies Romanticism, reflecting the era's fascination with nature's power and human渺小ness. The dramatic cliffs, turbulent waves, and expansive sky symbolize the sublime and the sublime's potential to inspire awe and contemplation. Cole's use of light and shadow enhances the scene's emotional intensity, aligning with Romantic ideals of the sublime and the beauty of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  526
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x1502D53D1100>]
+generated_description:  This painting, *Sunrise in the Catskill Mountains* by Thomas Cole, exemplifies the Romanticism movement of the 1800s. It showcases Cole's fascination with the untamed American landscape, emphasizing nature's power and grandeur. The scene captures the serene beauty of the Catskill Mountains, reflecting the era's appreciation for the sublime and the sublime's ability to inspire awe and contemplation. Cole's use of light and shadow highlights the majesty of the mountains, aligning with Romantic ideals of nature's dominance over human constructs.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  527
+image_inputs [<PIL.Image.Image image mode=RGB size=1204x868 at 0x1502DDD4A160>]
+generated_description:  This painting, *The Clove, Catskills* by Thomas Cole, exemplifies the Romanticism movement of the 1800s. It showcases a dramatic natural landscape with vibrant autumn foliage, emphasizing the sublime power of nature. Cole's use of light and shadow highlights the wilderness, reflecting the era's fascination with untamed American landscapes and the Romantic ideal of nature's grandeur.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  528
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x784 at 0x1502DDC94130>]
+generated_description:  Thomas Cole's "The Course of Empire: The Consummation of the Empire" (1836) is a quintessential example of Romanticism, reflecting the era's fascination with nature's power and human ambition. Set in a grand, classical city, the painting symbolizes the decline of civilization, culminating in a scene of opulence and excess. The waterway and holy places suggest themes of celebration and festivity, yet the overall tone hints at the inevitable fall of man's achievements. This work encapsulates the Romantic ideal of nature's dominance over human constructs.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  529
+image_inputs [<PIL.Image.Image image mode=RGB size=364x1008 at 0x1502DDD4AB20>]
+generated_description:  This painting, "Nestor the Chronicler," by Viktor Vasnetsov, depicts the medieval Russian monk Nestor, a key figure in Russian history and culture. Created in 1893, it reflects the Romanticism movement's focus on national identity and historical themes. The halo signifies his saintly status, while the setting and attire evoke a sense of historical authenticity, blending religious reverence with a romanticized view of the past. This work aligns with the broader Russian cultural revival of the late 19th century, emphasizing spiritual and national heritage.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  530
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x1502DDC94130>]
+generated_description:  This painting, "Nina-Slobodka-Berendeevka" by Viktor Vasnetsov, exemplifies the Romanticism movement of the late 19th century. Set in a rustic village, the scene captures the idyllic and picturesque qualities of rural life, reflecting Vasnetsov's interest in folklore and traditional Russian culture. The vibrant colors and detailed depiction of wooden structures highlight his focus on capturing the essence of the past, aligning with the Romantic ideal of preserving and celebrating national heritage.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  531
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x588 at 0x1502D53B9E80>]
+generated_description:  This painting, "Three Princesses of the Underworld" by Viktor Vasnetsov, created in 1884, is a prime example of Russian Symbolist and Romanticist art. Set against a dramatic, fantastical backdrop, the piece draws from Slavic mythology, portraying three princesses in elaborate, ornate attire. The rich colors and intricate costumes reflect the artist's fascination with traditional Slavic fashion and folklore, while the dark, moody setting evokes a sense of mystery and otherworldliness. This work exemplifies the Romantic movement's emphasis on emotion, imagination, and the beauty of the past.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  532
+image_inputs [<PIL.Image.Image image mode=RGB size=2240x1652 at 0x1502D5381880>]
+generated_description:  This painting, "Our English Coasts" by William Holman Hunt, exemplifies Romanticism, capturing a serene coastal landscape with sheep grazing. It reflects the era's appreciation for nature and pastoral life, emphasizing harmony between humans and the environment. Hunt's meticulous detail and vivid colors evoke a sense of tranquility and the beauty of rural England.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  533
+image_inputs [<PIL.Image.Image image mode=RGB size=1512x1064 at 0x1502D5381B80>]
+generated_description:  This painting, "Rienzi Vowing to Obtain Justice for the Death of His Young Brother Slain in a Skirmish Between Pilgrims," by William Holman Hunt, reflects the Romanticism movement of the 1800s. Set in a mythological context, it depicts a dramatic scene of justice and revenge, emphasizing emotional intensity and detailed realism characteristic of the era. Hunt's meticulous attention to detail and symbolic elements, such as the figures and their expressions, convey a powerful narrative about honor and retribution. The timeframe places it within the period of significant social and political upheaval, where themes of justice and national identity were prevalent.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  534
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x840 at 0x1502D53578B0>]
+generated_description:  This painting, "At the Bell Inn Cadnam, New Forest," by William Shayer, exemplifies Romanticism, a style prevalent from the 1800s to 1850. Set in the New Forest, it captures a tranquil rural scene with figures interacting near a tavern, reflecting themes of community and nature. The lush forest backdrop and pastoral setting evoke a sense of escape and connection to the natural world, typical of Romantic ideals. The presence of animals and vehicles adds to the depiction of everyday life in the countryside. This work aligns with the Romantic movement's focus on emotion, individualism, and the sublime beauty of nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  535
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x1502D53A2A90>]
+generated_description:  This painting, "Harvesters Resting," by William Shayer, exemplifies the Romanticism movement of the 1800s. Set in a pastoral landscape, it captures a moment of rest during harvest, reflecting themes of rural life and the connection between humans and nature. The serene setting and the figures' interaction with the environment evoke a sense of harmony and tranquility, typical of Romantic art. The inclusion of animals and the natural surroundings further emphasize the idyllic, bucolic ideal of the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  536
+image_inputs [<PIL.Image.Image image mode=RGB size=952x700 at 0x1502D53A28B0>]
+generated_description:  This painting, "Herders Resting at Lunch," by William Shayer, exemplifies Romanticism, a movement prevalent in the 1800s that emphasized emotion, individualism, and a return to nature. Set in a rural landscape, the artwork captures a serene moment of pastoral life, focusing on the harmony between humans and animals. The inclusion of a drover and his cattle highlights themes of rural livelihood and the beauty of the countryside, reflecting the Romantic fascination with nature and simple living. The painting's style and subject matter align with the era's appreciation for the sublime and the picturesque, celebrating the tranquility and simplicity of rural existence.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  537
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x840 at 0x1502D53A26A0>]
+generated_description:  This painting, "Departure of the Fleet" by William Turner, exemplifies Romanticism, capturing a dramatic scene with vivid colors and atmospheric effects. Set in a historical context, it likely depicts a naval departure, blending realism with emotional intensity. The swirling sky and distant cityscape evoke a sense of grandeur and foreboding, characteristic of Turner's style. The use of light and shadow creates a dynamic interplay, emphasizing the tumultuous nature of the moment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  538
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x784 at 0x1502D538EE80>]
+generated_description:  This painting, *The Lake of Thun, Switzerland* by William Turner, exemplifies Romanticism, capturing the grandeur of nature and the human interaction within it. Set in the 1800s, it showcases Turner's mastery of light and atmosphere, emphasizing the sublime beauty of the Swiss Alps. The scene reflects the Romantic fascination with the sublime and the dramatic, as seen through the dynamic sky and the rugged mountains. It highlights the era's appreciation for natural landscapes and the emotional impact of the environment on humanity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  539
+image_inputs [<PIL.Image.Image image mode=RGB size=1092x840 at 0x1502D538EF70>]
+generated_description:  This painting, *The Pantheon: The Morning After the Fire* by William Turner, depicts the aftermath of a fire in the Pantheon, a historic building in London. The scene captures the dramatic moment following the fire, with smoke still rising and people gathered around, reflecting the Romantic era's fascination with the sublime and the transient beauty of decay. The painting highlights Turner's skill in capturing atmospheric effects and the emotional impact of historical events.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  540
+image_inputs [<PIL.Image.Image image mode=RGB size=532x812 at 0x1502D538EDF0>]
+generated_description:  This painting, *The Passage of the St. Gothard* by William Turner, exemplifies Romanticism's fascination with nature's grandeur and geological phenomena. Set in the Swiss Alps, it captures the dramatic and awe-inspiring landscape, emphasizing the sublime power of nature. Turner's use of light and color conveys the raw energy of the mountainous terrain, reflecting the Romantic era's appreciation for the sublime and the untamed. The painting reflects the Romantic movement's exploration of the natural world and its emotional impact on the viewer.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  541
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x840 at 0x1502D53BEB20>]
+generated_description:  This painting, *Windsor Castle from the Thames* by William Turner, exemplifies the Romantic era's fascination with nature and the sublime. Set in the 1800s, it captures the serene beauty of Windsor Castle along the Thames, blending human activity with the natural world. The lush forest, tranquil river, and distant castle evoke a sense of peace and grandeur, reflecting Romantic ideals of nature's power and human connection to the environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  542
+image_inputs [<PIL.Image.Image image mode=RGB size=532x812 at 0x1502D53BE070>]
+generated_description:  This ukiyo-e print by Hiroshige, titled "Drum Bridge and Setting Sun Hill Meguro," depicts a serene winter scene in the Meguro district of Edo (modern-day Tokyo). Created between 1850-1900, it exemplifies the ukiyo-e style, characterized by vibrant colors and detailed landscapes. The snow-covered trees and bridge evoke a sense of tranquility and seasonal beauty, reflecting the artist's mastery of capturing everyday life and natural scenery. The setting sun adds a warm glow, contrasting with the cool tones of the snow, creating a harmonious balance typical of this period's aesthetic.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  543
+image_inputs [<PIL.Image.Image image mode=RGB size=756x504 at 0x1502D53BEA90>]
+generated_description:  This ukiyo-e print by Hiroshige depicts Hodogaya-Shinkame-bashi Station, part of the famous Tokaido Road. Created between 1800-1850, it showcases traditional Japanese architecture and daily life along the route. The artwork reflects the Edo period's focus on landscape and travel, capturing the serene beauty of the countryside and the bustling activity of travelers crossing the bridge. The use of color and composition highlights the harmony between human activity and nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  544
+image_inputs [<PIL.Image.Image image mode=RGB size=2408x5264 at 0x1502D537AF70>]
+generated_description:  This ukiyo-e woodblock print by Hiroshige, titled "Hydrangea and Kingfisher," exemplifies the Japanese aesthetic of nature and harmony with the environment. Created between 1800-1850, it showcases the vibrant colors and intricate details characteristic of the ukiyo-e style. The hydrangea and kingfisher symbolize beauty and tranquility, reflecting the Edo period's appreciation for natural motifs. The inclusion of text adds a poetic dimension, typical of Japanese art, enhancing the viewer's connection to the scene. This piece embodies the cultural emphasis on nature and seasonal beauty prevalent during this era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  545
+image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x1502D537A0D0>]
+generated_description:  This ukiyo-e print by Hiroshige, titled "Kameyama," depicts a serene winter landscape with snow-covered mountains and trees. Created between 1800-1850, it reflects the Edo period's fascination with nature and seasonal beauty. The use of white ink for snow highlights the contrast with the darker tones of the trees and mountains, capturing the essence of winter in Japan.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  546
+image_inputs [<PIL.Image.Image image mode=RGB size=980x1456 at 0x1502D537A2E0>]
+generated_description:  This ukiyo-e print by Hiroshige, titled "Prune Orchard," from the series "One Hundred Famous Views of Edo," captures a serene winter scene in Edo-era Japan. The blossoming plum trees and the soft pink sky evoke the beauty of nature and seasonal change, reflecting the cultural appreciation for landscape and the seasons. The print exemplifies the ukiyo-e style, known for its vivid colors and detailed depictions of everyday life and scenery.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  547
+image_inputs [<PIL.Image.Image image mode=RGB size=2828x1820 at 0x1502D53BEEE0>]
+generated_description:  This ukiyo-e print by Hiroshige, titled "Shrines in Snowy Mountains," captures a serene winter scene with snow-covered peaks, shrines, and a tranquil sea. Created between 1800-1850, it reflects the Edo period's fascination with nature and religious sites. The use of blue and white evokes a sense of calm and spirituality, typical of Japanese landscape art. The depiction of shrines highlights the importance of nature and religion in everyday life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  548
+image_inputs [<PIL.Image.Image image mode=RGB size=308x560 at 0x1502D537AEB0>]
+generated_description:  This painting, "White Elephant and Animals," by Ito Jakuchu, is a prime example of the ukiyo-e style, flourishing during the late Edo period (1750-1800). It showcases traditional Japanese themes, focusing on animals and patterns, reflecting the era's interest in nature and craftsmanship. The use of textile-like textures and vibrant colors highlights the artist's mastery in capturing the essence of everyday life and natural beauty.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  549
+image_inputs [<PIL.Image.Image image mode=RGB size=588x448 at 0x1502D5381D00>]
+generated_description:  This painting, "Morning at Kambayashi" by Ito Shinsui, exemplifies the ukiyo-e style, capturing a serene mountainous landscape. Created in 1948, it reflects the artist's mastery of natural scenery, emphasizing the harmony between humans and nature. The soft morning light and detailed depiction of the valley and distant peaks evoke a sense of tranquility and the beauty of rural life. This work aligns with the Edo period's appreciation for landscapes and the influence of traditional Japanese aesthetics.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  550
+image_inputs [<PIL.Image.Image image mode=RGB size=4004x2884 at 0x1502DA0478B0>]
+generated_description:  This ukiyo-e print by Katsushika Hokusai, titled "A Bride Is on Her Way with Her Maid," depicts a scene from the Edo period (1800-1850). It showcases Hokusai's mastery of composition and detail, capturing a moment of transition and elegance. The bride's attire and the maid's activity reflect traditional Japanese customs, while the natural setting and stylized brushwork highlight Hokusai's innovative approach to ukiyo-e. The timeframe places the work within the late Edo period, a time of cultural and artistic flourishing in Japan.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  551
+image_inputs [<PIL.Image.Image image mode=RGB size=4060x2884 at 0x1502DA047100>]
+generated_description:  This ukiyo-e print by Katsushika Hokusai, titled "A Woman in a Shinto Shrine Has a Stick with a Lot of Paper Leaves," likely dates from the 1800-1850 timeframe. It exemplifies Hokusai's exploration of genre scenes and religious settings, reflecting the cultural and spiritual practices of Edo-period Japan. The detailed depiction of the shrine and the interaction between the figures highlights the artist's mastery of composition and his focus on everyday life within a sacred context.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  552
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1036 at 0x1502DA047640>]
+generated_description:  This ukiyo-e woodblock print by Keisai Eisen, titled "Two of the Six Immortal Poets," depicts two figures engaged in scholarly pursuits, likely referencing classical Chinese poetry. Created during the 1800-1850 timeframe, it reflects the Edo period's fascination with traditional literature and culture. The style and composition highlight the artist's mastery of ukiyo-e techniques, emphasizing narrative and expressive detail.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  553
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x1502D53A1040>]
+generated_description:  This ukiyo-e print by Keisai Eisen, likely from the mid-19th century, depicts a vibrant temple scene with Mount Fuji in the background. It showcases the artist's mastery of perspective and composition, typical of the ukiyo-e style, which flourished during the Edo period. The detailed depiction of the temple and its surroundings reflects the cultural importance of religious sites and nature in Japanese society. The presence of Mount Fuji emphasizes the artist's focus on iconic Japanese landscapes and the harmonious blend of human activity and natural beauty.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  554
+image_inputs [<PIL.Image.Image image mode=RGB size=1344x1512 at 0x1502D53A1670>]
+generated_description:  This ukiyo-e print by Keisai Eisen depicts two women in traditional attire, likely geisha, engaging in a leisurely activity. Created between 1800-1850, it reflects the vibrant social life and fashion of Edo-period Japan. The detailed costumes and setting highlight the artist's focus on capturing everyday moments with elegance and precision.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  555
+image_inputs [<PIL.Image.Image image mode=RGB size=588x952 at 0x1502D538EA00>]
+generated_description:  This ukiyo-e print by Kitagawa Utamaro, titled "Beauty at Toilet," depicts a woman applying makeup, a common theme in Japanese portraiture. Created between 1750-1800, it reflects the Edo period's fascination with beauty and daily rituals. The use of mirrors and the focus on delicate facial features highlight the importance of appearance in Japanese culture. The black hair and traditional attire emphasize the artist's attention to detail and cultural specificity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  556
+image_inputs [<PIL.Image.Image image mode=RGB size=532x812 at 0x1502DA047A00>]
+generated_description:  This ukiyo-e painting by Kitagawa Utamaro, created between 1750 and 1800, depicts three women in traditional attire, showcasing the elegance and beauty of Edo-period Japanese society. The use of vibrant colors and delicate brushwork highlights the cultural emphasis on aesthetics and social status. The setting, likely a balcony or veranda, suggests leisure and refinement, reflecting the refined lifestyle of the upper class. The presence of fans and decorative elements further underscores the focus on beauty and social interaction.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  557
+image_inputs [<PIL.Image.Image image mode=RGB size=532x812 at 0x1502D537A490>]
+generated_description:  This ukiyo-e painting by Kitagawa Utamaro, titled "Reading a Letter," depicts a woman in traditional attire, engaging with a letter. Created between 1750-1800, it exemplifies the genre of female portraits within the ukiyo-e style, reflecting the cultural emphasis on women's roles and leisure activities during the Edo period. The intricate details and delicate brushwork highlight the artist's mastery and the societal values of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  558
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x476 at 0x1502DA047BB0>]
+generated_description:  This triptych, titled "Ushiwaka Maru Training with the Tengu," by Utagawa Kunisada II, is a classic example of ukiyo-e woodblock prints from the mid-19th century. It depicts a legendary tale involving Ushiwaka Maru, a samurai, and the tengu, mythical creatures from Japanese folklore. The artwork reflects the Edo period's fascination with folklore and the blending of reality with supernatural elements, typical of ukiyo-e. The detailed depiction of characters and landscapes showcases the artist's skill in storytelling through visual means, capturing a moment of interaction between humans and the supernatural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  559
+image_inputs [<PIL.Image.Image image mode=RGB size=1736x2576 at 0x1502D53547C0>]
+generated_description:  This ukiyo-e print, attributed to Utagawa Kunisada, likely dates from the 1800-1850 timeframe. It portrays a woman in elaborate traditional attire, holding a folding fan, characteristic of fashion illustrations from the Edo period. The vibrant colors and detailed patterns reflect the artistic style of ukiyo-e, focusing on beauty and elegance. The inclusion of a landscape in the background suggests a connection to everyday life and seasonal themes prevalent in this genre.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  560
+image_inputs [<PIL.Image.Image image mode=RGB size=588x420 at 0x1502D5354F70>]
+generated_description:  This ukiyo-e painting, attributed to Utagawa Kunisada, likely dates from the 1800-1850 timeframe. It depicts a couple in intimate repose, characteristic of the genre's focus on everyday life and relationships. The vibrant colors and detailed costumes reflect the ukiyo-e style, emphasizing beauty and social commentary.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  561
+image_inputs [<PIL.Image.Image image mode=RGB size=588x420 at 0x1502D5354700>]
+generated_description:  This ukiyo-e print, likely by Utagawa Kunisada, depicts a couple in intimate poses, characteristic of the genre's exploration of everyday life and relationships. Created between 1800-1850, it reflects the vibrant social scenes and cultural themes prevalent during the Edo period, showcasing the artist's skill in capturing human emotions and interactions through bold colors and dynamic compositions.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  562
+image_inputs [<PIL.Image.Image image mode=RGB size=588x924 at 0x1502D53BEA90>]
+generated_description:  This ukiyo-e print by Utagawa Kunisada, likely from the 1800-1850 timeframe, depicts a scene of intimate interaction between a couple, with text providing narrative context. The style is characteristic of the genre, focusing on everyday life and relationships, reflecting the cultural and social norms of the Edo period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  563
+image_inputs [<PIL.Image.Image image mode=RGB size=672x504 at 0x1502D53866A0>]
+generated_description:  This ukiyo-e print by Utagawa Kuniyoshi, dated between 1800-1850, depicts a whimsical scene involving animated gourds and supernatural figures. It reflects the playful and fantastical nature of ukiyo-e, blending everyday objects with mythical elements typical of the genre. The vibrant colors and dynamic composition are characteristic of the ukiyo-e style, aimed at capturing the viewer's imagination.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  564
+image_inputs [<PIL.Image.Image image mode=RGB size=2156x3108 at 0x1502D537AEB0>]
+generated_description:  This ukiyo-e print by Utagawa Kuniyoshi, created between 1800-1850, depicts a male figure with exaggerated facial features, including a prominent cheek and forehead, characteristic of the style. The artwork reflects the cultural context of Edo-period Japan, where ukiyo-e prints often portrayed idealized or comical characters. The text and style suggest it may be a caricature or a portrayal of a person known for their appearance, blending humor with cultural commentary.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  565
+image_inputs [<PIL.Image.Image image mode=RGB size=2716x1932 at 0x1502D53BEA90>]
+generated_description:  This ukiyo-e print by Utagawa Kuniyoshi, titled "At the Shore of the Sumida River," captures a rainy scene in Edo (Tokyo). Created between 1800-1850, it reflects the Edo period's fascination with nature and everyday life. The vibrant yellow parasols contrast with the cool blue tones of the rain-soaked river and sky, emphasizing the season's mood. The figures, dressed in traditional attire, add a human element, showcasing the interplay between humans and nature. The text provides context, likely naming the location and adding a narrative layer typical of ukiyo-e prints. This work exemplifies the genre's focus on capturing fleeting moments and the beauty of urban landscapes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  566
+image_inputs [<PIL.Image.Image image mode=RGB size=1176x3528 at 0x1502D536EB50>]
+generated_description:  This ukiyo-e painting by Utagawa Kuniyoshi, dated between 1800-1850, showcases a catfish and smaller fish against a simple blue background. It exemplifies the ukiyo-e style's focus on everyday life and nature, reflecting the Edo period's appreciation for detailed depictions of animals and aquatic life. The serene composition and use of color highlight the artist's skill in capturing the essence of marine creatures.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  567
+image_inputs [<PIL.Image.Image image mode=RGB size=2072x3108 at 0x1502D536E4C0>]
+generated_description:  This ukiyo-e print by Utagawa Kuniyoshi, dated between 1800-1850, depicts Hotei, a popular god of good fortune and prosperity in Japanese folklore. The artwork reflects the Edo period's cultural fascination with deities and lucky charms, typical of the ukiyo-e style that aimed to bring joy and good fortune to viewers. The vibrant colors and expressive features of Hotei highlight the artist's skill in capturing the essence of this beloved figure.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  568
+image_inputs [<PIL.Image.Image image mode=RGB size=1204x1876 at 0x1502D53AF880>]
+generated_description:  This ukiyo-e print by Utagawa Kuniyoshi, titled "Osho Catches Fish for His Stepmother," likely dates from the 1800-1850 timeframe. It depicts a scene from Japanese folklore, where a young man, Osho, is shown kneeling by a stream, catching fish to feed his stepmother. The artwork reflects the ukiyo-e style's focus on storytelling and everyday life, capturing a moment of filial piety. The inclusion of text above the figure suggests it is part of a series or narrative, typical of ukiyo-e prints.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  569
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x1988 at 0x1502D53C7C40>]
+generated_description:  This painting, "Family of a Milk Seller," by the Le Nain brothers, captures a moment in rural life during the Baroque period. Set in the 17th century, it portrays a family with a donkey, reflecting themes of everyday life and social realism. The muted colors and detailed depiction of the figures and setting emphasize the simplicity and dignity of peasant existence, typical of the genre paintings of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  570
+image_inputs [<PIL.Image.Image image mode=RGB size=2240x1848 at 0x1502D53C7CD0>]
+generated_description:  This painting, "Four Figures at a Table," by the Le Nain brothers, captures a moment of domestic life in the Baroque period, reflecting the genre painting tradition of depicting everyday scenes. The dark, dramatic lighting and somber expressions highlight themes of realism and social commentary, typical of the Le Nain brothers' work, which often focused on peasant life in 17th-century France. The setting in the countryside underscores the focus on rural life and the family unit.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  571
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1904 at 0x1502D537AC70>]
+generated_description:  This painting, "Landscape with an Old Woman," by the Le Nain brothers, captures a serene rural scene from the Baroque period (1600-1650). It showcases a tranquil countryside with fields and plains, reflecting the genre painting style prevalent during this time. The inclusion of children and an elderly woman highlights themes of family and community life, typical of the Le Nain brothers' focus on everyday scenes. The muted colors and detailed rendering of the landscape emphasize the natural beauty and simplicity of rural life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  572
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1792 at 0x1502D53A5700>]
+generated_description:  This painting, "Landscape with Peasants and a Chapel," by the Le Nain brothers, captures a serene rural scene typical of the Baroque period. Set in the countryside, it showcases everyday life with figures engaged in simple tasks, reflecting the genre painting style prevalent during the 17th century. The inclusion of a chapel suggests themes of faith and community, while the overall composition and muted colors emphasize the naturalistic approach characteristic of the Le Nain brothers' work.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  573
+image_inputs [<PIL.Image.Image image mode=RGB size=2268x1680 at 0x1502D53AF880>]
+generated_description:  This Baroque painting, *Nativity with the Torch* by the Le Nain brothers, likely dates to the 17th century. It depicts the Nativity scene with a focus on realism and dramatic lighting, typical of the Baroque style. The presence of the torch adds a sense of mystery and reverence, emphasizing the miraculous nature of the event. The figures, including the Virgin Mary, St. Anne, and Joseph, are rendered with attention to detail and emotion, reflecting the religious devotion of the period. The painting aligns with Christian themes of faith and the divine birth of Jesus Christ.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  574
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x1904 at 0x1502D53F8490>]
+generated_description:  This painting, "Peasants at Their Cottage Door," by the Le Nain brothers, captures a moment of rural life in the 17th century. Set in a rustic, sunlit courtyard, the scene reflects the Baroque style's focus on realism and emotional depth. The figures, dressed in simple, earth-toned clothing, depict everyday peasant life, highlighting themes of poverty and community. The architecture and clothing suggest a setting in the French countryside, typical of the Le Nain brothers' genre paintings that often portrayed the lives of ordinary people. The warm lighting and intimate composition emphasize the human element, aligning with the Baroque emphasis on drama and emotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  575
+image_inputs [<PIL.Image.Image image mode=RGB size=2240x1988 at 0x1502D53DA820>]
+generated_description:  This painting, "Peasants in the Cave House" by the Le Nain brothers, is a Baroque genre scene from the 17th century. It showcases the everyday lives of peasants in a rustic setting, reflecting the era's focus on realism and capturing the simplicity and dignity of rural life. The cave-like architecture adds a sense of intimacy and authenticity, typical of the Le Nain's approach to depicting humble subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  576
+image_inputs [<PIL.Image.Image image mode=RGB size=2436x1904 at 0x1502D53C7430>]
+generated_description:  This painting, "Portrait in an Interior," by the Le Nain brothers, captures a moment of everyday life within a family setting, characteristic of the Baroque period. The focus on familial interaction and the inclusion of pets and household items reflect the genre painting style prevalent during the 17th century, emphasizing realism and capturing the essence of contemporary life. The attire and interior details suggest a middle-class household, highlighting the artists' keen observation of social and domestic scenes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  577
+image_inputs [<PIL.Image.Image image mode=RGB size=3080x3416 at 0x1502D53AF880>]
+generated_description:  This portrait, attributed to the Le Nain brothers, captures a knight of Saint Michael, reflecting the Baroque period's emphasis on realism and dramatic lighting. The subject's attire and beard symbolize nobility and valor, typical of the genre of male portraits in the 17th century. The use of lace and dark clothing underscores the social status and the formal nature of the subject. The painting exemplifies the Le Nain brothers' focus on everyday life and their ability to convey character through subtle details.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  578
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x2492 at 0x1502D53A5730>]
+generated_description:  This Baroque painting by the Le Nain brothers depicts the Holy Family, showcasing a serene and intimate moment between the Virgin Mary, Jesus Christ, and Joseph. The use of soft lighting and rich colors reflects the Baroque emphasis on emotion and drama, while the inclusion of Joseph underscores the familial aspect of the scene. This work likely draws inspiration from traditional religious iconography, aiming to evoke a sense of piety and devotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  579
+image_inputs [<PIL.Image.Image image mode=RGB size=1568x2996 at 0x1502D53AF880>]
+generated_description:  This Baroque painting by the Le Nain brothers depicts Saint Michael dedicating his weapons to the Virgin Mary, a scene rooted in Christian iconography. It reflects the Baroque emphasis on dramatic emotion and divine intervention, with Saint Michael kneeling in reverence while angels and the Virgin Mary hold the infant Jesus. The painting likely served as a devotional piece, emphasizing themes of protection and spiritual devotion during the 17th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  580
+image_inputs [<PIL.Image.Image image mode=RGB size=2268x1960 at 0x1502D53DA8B0>]
+generated_description:  The painting "Smokers in an Interior" by the Le Nain brothers, dated 1643, is a Baroque genre scene. Set in a dimly lit interior, it captures a moment of leisure and camaraderie among men engaged in smoking. The use of chiaroscuro highlights the figures against the dark background, emphasizing their expressions and interactions. This work reflects the 17th-century fascination with everyday life and social dynamics, typical of the Baroque period's focus on realism and dramatic lighting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  581
+image_inputs [<PIL.Image.Image image mode=RGB size=2352x1960 at 0x1502D53AF880>]
+generated_description:  This painting, "The Academy," by the Le Nain brothers, depicts a group of men in a dimly lit interior setting, likely representing scholars or intellectuals. The Baroque style emphasizes dramatic lighting and rich textures, reflecting the period's focus on realism and emotional intensity. The attire and setting suggest a scholarly or academic environment, capturing a moment of intellectual engagement. The use of chiaroscuro highlights the figures' faces and hands, drawing attention to their expressions and activities, such as writing and playing music. This work exemplifies the Le Nain brothers' approach to genre painting, focusing on everyday life with a keen observation of character and atmosphere.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  582
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x1876 at 0x1502D51553A0>]
+generated_description:  This painting, *The Artist's Studio* by the Le Nain brothers, depicts a Baroque scene within a studio setting, showcasing the artists at work alongside their tools and materials. The use of chiaroscuro highlights the contrast between light and shadow, typical of the Baroque period, emphasizing the textures and details of the objects and figures. The inclusion of a musician, a dog, and various artistic paraphernalia reflects the multifaceted nature of artistic life and the importance of the studio as a creative space. The painting captures the essence of the 17th-century artistic milieu, blending realism with a sense of intimacy and everyday activity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  583
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x1960 at 0x1502D5155520>]
+generated_description:  The painting "The Concert" by the Le Nain brothers, created between 1600-1650, exemplifies the Baroque style. It depicts a lively scene of musicians engaged in a performance, showcasing the vibrant energy and realism characteristic of the period. The use of chiaroscuro and detailed depictions of musical instruments highlight the artists' focus on capturing everyday life with a dramatic flair.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  584
+image_inputs [<PIL.Image.Image image mode=RGB size=2268x1960 at 0x1502D4C21D00>]
+generated_description:  This painting, *The Family Meal* by the Le Nain brothers, captures a moment of everyday life within a peasant household during the Baroque period. Set against a rustic backdrop, the scene emphasizes familial bonds and communal dining, reflecting the artists' focus on realism and the human condition. The warm lighting and intimate composition highlight the textures of clothing and food, underscoring the simplicity and dignity of rural life. This work aligns with the broader trend in 17th-century art of depicting ordinary people in their natural settings, a departure from the idealized subjects of earlier periods.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  585
+image_inputs [<PIL.Image.Image image mode=RGB size=2240x1596 at 0x1502D533E9D0>]
+generated_description:  The painting "The Family of the Peasants" by the Le Nain brothers, created between 1600-1650, exemplifies Baroque genre painting. Set in a rustic interior, it depicts a peasant family in a moment of quiet domesticity. The subdued lighting and intimate setting reflect the Le Nain's focus on everyday life, capturing the dignity and simplicity of rural existence. The inclusion of children and animals adds warmth and a sense of familial bonds, typical of the genre. This work aligns with the broader trend of depicting ordinary people in the 17th century, reflecting a shift towards realism and a humanist approach to art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  586
+image_inputs [<PIL.Image.Image image mode=RGB size=2380x2996 at 0x1502D5155D90>]
+generated_description:  This painting, *The Forging* by the Le Nain brothers, is a prime example of Baroque genre painting from the 17th century. Set in a dimly lit forge, the scene captures the laborious and communal nature of blacksmithing, reflecting the social and economic realities of rural life during the period. The warm glow of the fire contrasts with the cool shadows, highlighting the central figure of the blacksmith and his family, emphasizing themes of hard work and family bonds. This work aligns with the broader European trend of depicting everyday life with dramatic lighting and emotional depth, characteristic of the Baroque style.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  587
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1820 at 0x1502D53C71F0>]
+generated_description:  The painting "The Happy Family" by the Le Nain brothers, created around 1642, exemplifies Baroque genre painting. Set in a dimly lit interior, the scene captures a moment of domestic harmony, with figures engaged in everyday activities. The warm lighting highlights familial bonds and the simple pleasures of life, reflecting the Le Nain brothers' focus on realism and the human condition. This work aligns with the broader 17th-century trend of depicting ordinary people in intimate, anecdotal scenes, capturing the essence of family life during the Baroque period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  588
+image_inputs [<PIL.Image.Image image mode=RGB size=2408x1904 at 0x1502D53DAA30>]
+generated_description:  This painting, "The Last Supper" by the Le Nain brothers, is a Baroque work from the 17th century. It depicts the biblical scene of Jesus sharing the Last Supper with his disciples, rendered with dramatic lighting and intense emotional expression typical of the Baroque style. The focus on realism and the inclusion of a crowd reflect the Le Nain brothers' approach to capturing everyday life, blending religious themes with contemporary settings. The painting emphasizes the intimate and communal aspect of the event, highlighting the emotional gravity of the moment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  589
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1988 at 0x1502D53DA8B0>]
+generated_description:  This painting, *The Musical Meeting* by the Le Nain brothers, is a Baroque group portrait from the 17th century. It depicts a gathering of musicians and spectators, reflecting the cultural emphasis on music and social interaction during the period. The use of chiaroscuro and detailed attire highlights the Baroque style's focus on dramatic lighting and realism. The scene captures a moment of leisure and entertainment, showcasing the social dynamics of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  590
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1680 at 0x1502D4C21B80>]
+generated_description:  This painting, *The Old Player of Flageolet* by the Le Nain brothers, captures a moment of everyday life in the Baroque period, focusing on the interaction between an older man and children. The scene reflects the genre painting style prevalent in 17th-century France, emphasizing realism and capturing the emotional and social dynamics of the depicted characters. The use of subdued lighting and detailed observation of clothing and expressions highlights the Le Nain brothers' commitment to portraying authentic peasant life, a hallmark of their work.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  591
+image_inputs [<PIL.Image.Image image mode=RGB size=2240x1764 at 0x1502D533E6D0>]
+generated_description:  This painting, *The Peasant's Meal* by the Le Nain brothers, captures a moment of everyday life in the 17th century, reflecting the Baroque style's focus on realism and dramatic lighting. Set in a rustic interior, the scene portrays a simple meal shared among peasants, highlighting themes of community and the mundane aspects of rural life. The subdued palette and attention to detail in clothing and expressions emphasize the artists' commitment to depicting authentic human experiences.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  592
+image_inputs [<PIL.Image.Image image mode=RGB size=2184x1960 at 0x1502D53DA580>]
+generated_description:  This painting, *The Pontifical Mass* by the Le Nain brothers, depicts a ceremonial scene within the Catholic Church during the Baroque period. The richly dressed figures represent priests and other religious officials, emphasizing the grandeur and solemnity of the mass. The Baroque style is evident in the dramatic lighting and detailed textures, reflecting the era's focus on emotional intensity and religious devotion. This work likely served as a record of a specific liturgical event, showcasing the hierarchical structure and ceremonial practices of the Catholic Church.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  593
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1932 at 0x1502D5155BB0>]
+generated_description:  This painting, "The Rest of the Rider," by the Le Nain brothers, captures a rustic scene of rural life in the Baroque period. The focus on everyday figures and their interactions reflects the genre painting style popular in 17th-century France, emphasizing realism and capturing the essence of peasant life. The inclusion of children and animals underscores themes of innocence and simplicity, typical of the Le Nain's depictions of ordinary people.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  594
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1876 at 0x1502D53C7430>]
+generated_description:  This painting, "The Supper at Emmaus" by the Le Nain brothers, created around 1645, is a Baroque masterpiece reflecting Christian themes. It depicts the biblical scene where Jesus appears to two disciples, St. Luke and St. Cleopas, during a meal. The intimate setting and dramatic lighting emphasize the miraculous encounter, capturing the emotional and spiritual essence of the event. The figures' expressions and gestures convey a sense of awe and recognition, typical of Baroque art's focus on human emotion and realism. This work exemplifies the Le Nain brothers' ability to blend religious narrative with everyday life, creating a powerful and moving depiction of faith.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  595
+image_inputs [<PIL.Image.Image image mode=RGB size=2324x1820 at 0x1502D53F8280>]
+generated_description:  This painting, *The Well* by the Le Nain brothers, depicts a rural scene from the 17th century, capturing everyday life in the countryside. The Baroque style emphasizes realism and dramatic lighting, highlighting the simplicity and labor of rural existence. The presence of cows and the well symbolize sustenance and community, reflecting the agricultural foundation of life during this period. The muted colors and detailed textures convey a sense of quiet dignity and the hard work of the peasants.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  596
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1064 at 0x1502D4C212E0>]
+generated_description:  This painting, titled "Two Girls," by the Le Nain brothers, is a Baroque-era work from the 17th century, reflecting the genre painting tradition popular in France. It portrays two young girls in a domestic setting, capturing their innocence and natural expressions. The use of soft lighting and realistic details highlights the Le Nains' focus on everyday life and human emotion, typical of the Baroque period's emphasis on realism and drama.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  597
+image_inputs [<PIL.Image.Image image mode=RGB size=756x952 at 0x1502D535CB50>]
+generated_description:  This Baroque painting, "Adoration of the Magi in a Garland of Flowers" by Mario Nuzzi (1654), reflects the period's emphasis on dramatic contrasts and rich detail. The floral frame symbolizes the divine beauty and abundance associated with the event, while the figures within represent the traditional Nativity scene. This style, common in the late 17th century, combines religious devotion with ornate, decorative elements characteristic of Baroque art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  598
+image_inputs [<PIL.Image.Image image mode=RGB size=560x672 at 0x1502D533E5B0>]
+generated_description:  This Baroque still life painting, "Fruit Garland Encircling a Relief," by Mario Nuzzi, created between 1650-1700, showcases a rich array of fruits against a dark background, emphasizing vibrant colors and intricate textures typical of the Baroque period. It reflects the era's focus on realism and dramatic contrasts, often used to highlight the beauty and abundance of nature. The dark background enhances the vividness of the fruits, creating a sense of depth and richness. This style was prevalent during the Baroque era, reflecting a shift towards more dynamic and expressive art forms.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  599
+image_inputs [<PIL.Image.Image image mode=RGB size=504x672 at 0x1502D4C21DC0>]
+generated_description:  This painting, "Glowers in a Sculpted Vase on a Stone Plinth," by Mario Nuzzi, exemplifies the Baroque style prevalent between 1650-1700. It features a still-life arrangement of vibrant flowers in a sculpted vase, set against a dark background, typical of Baroque aesthetics emphasizing drama and realism. The use of light and shadow (chiaroscuro) highlights the textures and colors of the flowers and vase, reflecting the period's focus on dramatic effects. This work likely reflects the Baroque interest in nature and the beauty of everyday objects, showcasing Nuzzi's skill in capturing intricate details and creating a sense of depth and realism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_185417_job_5.json'.
+
+JOB STATISTICS
+==============
+Job ID: 11789348
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:09:26
+CPU Efficiency: 9.51% of 01:39:12 core-walltime
+Job Wall-clock time: 00:06:12
+Memory Utilized: 3.56 GB
+Memory Efficiency: 1.98% of 180.00 GB (180.00 GB/node)

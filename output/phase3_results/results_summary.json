@@ -1,0 +1,326 @@
+{
+  "N": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.5764,
+        "std": 0.0971,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.3547,
+        "std": 0.1761,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.228,
+        "std": 0.4195,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.5805,
+        "std": 0.0967,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.3329,
+        "std": 0.1817,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.22,
+        "std": 0.4142,
+        "n": 1000
+      }
+    }
+  },
+  "F": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.6357,
+        "std": 0.1009,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.3802,
+        "std": 0.1889,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.374,
+        "std": 0.4839,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.6471,
+        "std": 0.0996,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4217,
+        "std": 0.21,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.311,
+        "std": 0.4629,
+        "n": 1000
+      }
+    }
+  },
+  "E": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.6112,
+        "std": 0.1021,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4096,
+        "std": 0.1768,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.277,
+        "std": 0.4475,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.613,
+        "std": 0.1117,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4231,
+        "std": 0.1964,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.236,
+        "std": 0.4246,
+        "n": 1000
+      }
+    }
+  },
+  "H": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.5772,
+        "std": 0.1304,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.3777,
+        "std": 0.1979,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.686,
+        "std": 0.4641,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.6283,
+        "std": 0.1031,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.3783,
+        "std": 0.2085,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.661,
+        "std": 0.4734,
+        "n": 1000
+      }
+    }
+  },
+  "NFE": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.6365,
+        "std": 0.1007,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4447,
+        "std": 0.1835,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.339,
+        "std": 0.4734,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.6575,
+        "std": 0.1036,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4676,
+        "std": 0.2064,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.301,
+        "std": 0.4587,
+        "n": 1000
+      }
+    }
+  },
+  "NFH": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.6828,
+        "std": 0.0949,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4951,
+        "std": 0.1781,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.502,
+        "std": 0.5,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.6999,
+        "std": 0.0978,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.5144,
+        "std": 0.2072,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.412,
+        "std": 0.4922,
+        "n": 1000
+      }
+    }
+  },
+  "NEH": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.6725,
+        "std": 0.1011,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4881,
+        "std": 0.1876,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.481,
+        "std": 0.4996,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.6924,
+        "std": 0.102,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.507,
+        "std": 0.2124,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.396,
+        "std": 0.4891,
+        "n": 1000
+      }
+    }
+  },
+  "FEH": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.6784,
+        "std": 0.0964,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4641,
+        "std": 0.1856,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.517,
+        "std": 0.4997,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.7064,
+        "std": 0.0939,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4942,
+        "std": 0.2073,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.464,
+        "std": 0.4987,
+        "n": 1000
+      }
+    }
+  },
+  "NFEH": {
+    "flux2_klein": {
+      "clip_sim": {
+        "mean": 0.678,
+        "std": 0.0946,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.4938,
+        "std": 0.1857,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.462,
+        "std": 0.4986,
+        "n": 1000
+      }
+    },
+    "qwen_image": {
+      "clip_sim": {
+        "mean": 0.6989,
+        "std": 0.0968,
+        "n": 1000
+      },
+      "dino_sim": {
+        "mean": 0.5126,
+        "std": 0.2077,
+        "n": 1000
+      },
+      "emotion_agree": {
+        "mean": 0.4,
+        "std": 0.4899,
+        "n": 1000
+      }
+    }
+  }
+}

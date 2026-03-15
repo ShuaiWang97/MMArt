@@ -1,0 +1,2682 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job12162393/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x14dd7943f940>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x14dd0b691310>,
+  llm_model_name = Qwen/Qwen2.5-VL-72B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x14dd3fdd6af0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-72B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../wikiart_balanced_200.csv', question_type='cultural&histroical', job_id=0)
+Processing data from index 0 to 10000
+Loaded 5 existing results from ./art_context/output_sample_200_WikiArt_10000data/generated_descriptions_naive_job_0.json
+Processing rows:   0%|          | 0/200 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Skipping already processed image: kay-nielsen_old-luk-oie.jpg
+Skipping already processed image: vincent-van-gogh_basket-of-sprouting-bulbs-1887(1).jpg
+Skipping already processed image: joshua-reynolds_the-infant-samuel-at-prayer.jpg
+Skipping already processed image: genevieve-asse_rouge-gris-2009.jpg
+Skipping already processed image: chronis-botsoglou_untitled-1.jpg
+Processing row:  5
+
+Loading checkpoint shards:   0%|          | 0/38 [00:00<?, ?it/s][A
+Loading checkpoint shards:   3%|▎         | 1/38 [00:07<04:33,  7.38s/it][A
+Loading checkpoint shards:   5%|▌         | 2/38 [00:10<03:04,  5.14s/it][A
+Loading checkpoint shards:   8%|▊         | 3/38 [00:14<02:32,  4.37s/it][A
+Loading checkpoint shards:  11%|█         | 4/38 [00:17<02:13,  3.94s/it][A
+Loading checkpoint shards:  13%|█▎        | 5/38 [00:21<02:03,  3.74s/it][A
+Loading checkpoint shards:  16%|█▌        | 6/38 [00:24<01:58,  3.71s/it][A
+Loading checkpoint shards:  18%|█▊        | 7/38 [00:27<01:50,  3.57s/it][A
+Loading checkpoint shards:  21%|██        | 8/38 [00:31<01:46,  3.56s/it][A
+Loading checkpoint shards:  24%|██▎       | 9/38 [00:36<01:58,  4.09s/it][A
+Loading checkpoint shards:  26%|██▋       | 10/38 [00:40<01:49,  3.91s/it][A
+Loading checkpoint shards:  29%|██▉       | 11/38 [00:43<01:40,  3.71s/it][A
+Loading checkpoint shards:  32%|███▏      | 12/38 [00:47<01:35,  3.68s/it][A
+Loading checkpoint shards:  34%|███▍      | 13/38 [00:50<01:29,  3.60s/it][A
+Loading checkpoint shards:  37%|███▋      | 14/38 [00:54<01:27,  3.66s/it][A
+Loading checkpoint shards:  39%|███▉      | 15/38 [00:57<01:22,  3.57s/it][A
+Loading checkpoint shards:  42%|████▏     | 16/38 [01:01<01:18,  3.56s/it][A
+Loading checkpoint shards:  45%|████▍     | 17/38 [01:04<01:14,  3.55s/it][A
+Loading checkpoint shards:  47%|████▋     | 18/38 [01:08<01:11,  3.57s/it][A
+Loading checkpoint shards:  50%|█████     | 19/38 [01:11<01:06,  3.50s/it][A
+Loading checkpoint shards:  53%|█████▎    | 20/38 [01:15<01:03,  3.51s/it][A
+Loading checkpoint shards:  55%|█████▌    | 21/38 [01:18<00:59,  3.48s/it][A
+Loading checkpoint shards:  58%|█████▊    | 22/38 [01:22<00:56,  3.52s/it][A
+Loading checkpoint shards:  61%|██████    | 23/38 [01:25<00:52,  3.50s/it][A
+Loading checkpoint shards:  63%|██████▎   | 24/38 [01:29<00:48,  3.44s/it][A
+Loading checkpoint shards:  66%|██████▌   | 25/38 [01:32<00:45,  3.52s/it][A
+Loading checkpoint shards:  68%|██████▊   | 26/38 [01:36<00:42,  3.55s/it][A
+Loading checkpoint shards:  71%|███████   | 27/38 [01:39<00:38,  3.50s/it][A
+Loading checkpoint shards:  74%|███████▎  | 28/38 [01:43<00:35,  3.54s/it][A
+Loading checkpoint shards:  76%|███████▋  | 29/38 [01:47<00:32,  3.63s/it][A
+Loading checkpoint shards:  79%|███████▉  | 30/38 [01:51<00:29,  3.70s/it][A
+Loading checkpoint shards:  82%|████████▏ | 31/38 [01:54<00:25,  3.63s/it][A
+Loading checkpoint shards:  84%|████████▍ | 32/38 [01:58<00:22,  3.67s/it][A
+Loading checkpoint shards:  87%|████████▋ | 33/38 [02:02<00:18,  3.70s/it][A
+Loading checkpoint shards:  89%|████████▉ | 34/38 [02:05<00:14,  3.73s/it][A
+Loading checkpoint shards:  92%|█████████▏| 35/38 [02:09<00:10,  3.63s/it][A
+Loading checkpoint shards:  95%|█████████▍| 36/38 [02:12<00:07,  3.56s/it][A
+Loading checkpoint shards:  97%|█████████▋| 37/38 [02:14<00:03,  3.09s/it][A
+Loading checkpoint shards: 100%|██████████| 38/38 [02:15<00:00,  2.50s/it][ALoading checkpoint shards: 100%|██████████| 38/38 [02:15<00:00,  3.57s/it]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   3%|▎         | 6/200 [02:37<1:24:58, 26.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▎         | 7/200 [02:54<1:18:28, 24.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 8/200 [03:10<1:12:37, 22.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 9/200 [03:23<1:05:10, 20.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   5%|▌         | 10/200 [03:41<1:02:30, 19.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 11/200 [03:59<1:00:27, 19.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 12/200 [04:13<55:43, 17.78s/it]  INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▋         | 13/200 [04:27<52:47, 16.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   7%|▋         | 14/200 [04:43<51:40, 16.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 15/200 [04:58<49:50, 16.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 16/200 [05:14<49:04, 16.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 17/200 [05:29<47:42, 15.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   9%|▉         | 18/200 [05:42<45:18, 14.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|▉         | 19/200 [05:58<45:38, 15.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 20/200 [06:11<44:01, 14.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 21/200 [06:28<45:10, 15.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  11%|█         | 22/200 [06:42<44:33, 15.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 23/200 [06:57<43:43, 14.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 24/200 [07:11<43:22, 14.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▎        | 25/200 [07:26<42:53, 14.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  13%|█▎        | 26/200 [07:40<42:26, 14.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▎        | 27/200 [07:56<42:54, 14.88s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 28/200 [08:10<41:57, 14.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 29/200 [08:23<40:28, 14.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  15%|█▌        | 30/200 [08:38<41:19, 14.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 31/200 [08:48<36:38, 13.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 32/200 [09:03<38:26, 13.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▋        | 33/200 [09:19<40:17, 14.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  17%|█▋        | 34/200 [09:33<39:13, 14.18s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 35/200 [09:48<39:34, 14.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 36/200 [10:01<37:59, 13.90s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 37/200 [10:14<37:17, 13.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  19%|█▉        | 38/200 [10:31<39:47, 14.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|█▉        | 39/200 [10:45<38:55, 14.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 40/200 [11:00<39:26, 14.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 41/200 [11:16<39:34, 14.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  21%|██        | 42/200 [11:31<39:42, 15.08s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 43/200 [11:47<40:15, 15.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 44/200 [12:03<40:13, 15.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▎       | 45/200 [12:15<37:11, 14.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  23%|██▎       | 46/200 [12:30<37:24, 14.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▎       | 47/200 [12:44<37:14, 14.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 48/200 [13:01<38:33, 15.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 49/200 [13:15<37:12, 14.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  25%|██▌       | 50/200 [13:29<36:45, 14.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 51/200 [13:42<34:59, 14.09s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 52/200 [13:57<35:20, 14.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▋       | 53/200 [14:09<33:21, 13.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  27%|██▋       | 54/200 [14:22<32:46, 13.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 55/200 [14:37<33:55, 14.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 56/200 [14:51<33:31, 13.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 57/200 [15:06<33:35, 14.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  29%|██▉       | 58/200 [15:20<33:28, 14.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|██▉       | 59/200 [15:35<33:42, 14.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 60/200 [15:49<33:46, 14.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 61/200 [16:02<31:56, 13.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  31%|███       | 62/200 [16:16<32:11, 14.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 63/200 [16:31<32:25, 14.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 64/200 [16:45<32:26, 14.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▎      | 65/200 [17:01<33:21, 14.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  33%|███▎      | 66/200 [17:16<32:51, 14.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▎      | 67/200 [17:32<33:21, 15.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 68/200 [17:45<32:10, 14.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 69/200 [18:04<34:41, 15.89s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  35%|███▌      | 70/200 [18:20<34:34, 15.96s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 71/200 [18:37<34:57, 16.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 72/200 [18:51<33:11, 15.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▋      | 73/200 [19:07<33:10, 15.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  37%|███▋      | 74/200 [19:24<34:01, 16.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 75/200 [19:37<31:23, 15.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 76/200 [19:51<30:38, 14.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 77/200 [20:06<30:22, 14.81s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  39%|███▉      | 78/200 [20:22<30:52, 15.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|███▉      | 79/200 [20:38<31:15, 15.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 80/200 [20:51<29:40, 14.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 81/200 [21:06<29:05, 14.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  41%|████      | 82/200 [21:21<29:03, 14.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 83/200 [21:32<26:58, 13.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 84/200 [21:47<27:02, 13.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▎     | 85/200 [22:02<27:28, 14.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  43%|████▎     | 86/200 [22:16<27:05, 14.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▎     | 87/200 [22:30<26:51, 14.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 88/200 [22:43<25:53, 13.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 89/200 [22:57<25:29, 13.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  45%|████▌     | 90/200 [23:12<25:51, 14.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 91/200 [23:26<25:29, 14.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 92/200 [23:40<25:16, 14.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▋     | 93/200 [23:56<26:20, 14.77s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  47%|████▋     | 94/200 [24:13<27:21, 15.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 95/200 [24:28<26:32, 15.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 96/200 [24:44<26:44, 15.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 97/200 [24:57<25:21, 14.77s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  49%|████▉     | 98/200 [25:12<25:23, 14.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|████▉     | 99/200 [25:26<24:36, 14.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 100/200 [25:39<23:26, 14.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 101/200 [25:42<18:00, 10.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  51%|█████     | 102/200 [25:56<19:02, 11.65s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 103/200 [26:11<20:28, 12.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 104/200 [26:24<20:40, 12.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▎    | 105/200 [26:39<21:08, 13.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  53%|█████▎    | 106/200 [26:56<22:36, 14.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▎    | 107/200 [27:09<21:46, 14.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▍    | 108/200 [27:24<22:12, 14.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▍    | 109/200 [27:36<20:47, 13.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▌    | 110/200 [27:53<21:55, 14.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 111/200 [28:08<21:38, 14.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 112/200 [28:21<20:57, 14.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▋    | 113/200 [28:35<20:45, 14.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▋    | 114/200 [28:50<20:26, 14.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▊    | 115/200 [29:05<20:30, 14.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 116/200 [29:18<19:58, 14.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 117/200 [29:33<19:48, 14.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  59%|█████▉    | 118/200 [29:47<19:43, 14.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|█████▉    | 119/200 [30:03<19:53, 14.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 120/200 [30:17<19:11, 14.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 121/200 [30:30<18:45, 14.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  61%|██████    | 122/200 [30:46<19:05, 14.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 123/200 [30:57<17:23, 13.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 124/200 [31:08<16:12, 12.80s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▎   | 125/200 [31:21<15:56, 12.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  63%|██████▎   | 126/200 [31:35<16:09, 13.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▎   | 127/200 [31:48<16:09, 13.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 128/200 [32:07<17:50, 14.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 129/200 [32:22<17:34, 14.85s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  65%|██████▌   | 130/200 [32:36<17:03, 14.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 131/200 [32:45<15:05, 13.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 132/200 [33:02<16:02, 14.16s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▋   | 133/200 [33:15<15:33, 13.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  67%|██████▋   | 134/200 [33:30<15:38, 14.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 135/200 [33:46<15:44, 14.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 136/200 [34:01<15:51, 14.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 137/200 [34:17<15:58, 15.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  69%|██████▉   | 138/200 [34:32<15:33, 15.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|██████▉   | 139/200 [34:47<15:18, 15.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 140/200 [35:03<15:28, 15.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 141/200 [35:16<14:14, 14.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  71%|███████   | 142/200 [35:31<14:18, 14.81s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 143/200 [35:46<13:59, 14.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 144/200 [36:01<13:50, 14.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▎  | 145/200 [36:09<11:45, 12.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  73%|███████▎  | 146/200 [36:25<12:28, 13.85s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▎  | 147/200 [36:39<12:19, 13.96s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 148/200 [36:52<11:39, 13.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 149/200 [37:08<12:02, 14.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  75%|███████▌  | 150/200 [37:22<12:00, 14.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 151/200 [37:38<12:01, 14.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 152/200 [37:52<11:32, 14.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▋  | 153/200 [38:05<11:03, 14.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  77%|███████▋  | 154/200 [38:20<10:56, 14.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 155/200 [38:37<11:16, 15.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 156/200 [38:55<11:52, 16.18s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 157/200 [39:08<10:51, 15.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  79%|███████▉  | 158/200 [39:23<10:31, 15.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|███████▉  | 159/200 [39:36<09:51, 14.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 160/200 [39:49<09:25, 14.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 161/200 [40:03<09:10, 14.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  81%|████████  | 162/200 [40:19<09:12, 14.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 163/200 [40:34<09:01, 14.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 164/200 [40:48<08:42, 14.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▎ | 165/200 [41:02<08:18, 14.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  83%|████████▎ | 166/200 [41:19<08:36, 15.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▎ | 167/200 [41:32<07:58, 14.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 168/200 [41:49<08:12, 15.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 169/200 [42:04<07:45, 15.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  85%|████████▌ | 170/200 [42:19<07:33, 15.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 171/200 [42:33<07:10, 14.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 172/200 [42:47<06:49, 14.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▋ | 173/200 [43:03<06:46, 15.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  87%|████████▋ | 174/200 [43:18<06:27, 14.89s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 175/200 [43:31<06:00, 14.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 176/200 [43:44<05:36, 14.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 177/200 [43:59<05:27, 14.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  89%|████████▉ | 178/200 [44:14<05:17, 14.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|████████▉ | 179/200 [44:24<04:37, 13.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 180/200 [44:39<04:33, 13.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 181/200 [44:53<04:20, 13.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  91%|█████████ | 182/200 [45:08<04:13, 14.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 183/200 [45:23<04:05, 14.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 184/200 [45:39<03:58, 14.90s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▎| 185/200 [45:53<03:39, 14.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  93%|█████████▎| 186/200 [46:09<03:28, 14.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▎| 187/200 [46:18<02:51, 13.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 188/200 [46:30<02:36, 13.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 189/200 [46:46<02:32, 13.85s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  95%|█████████▌| 190/200 [47:00<02:20, 14.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 191/200 [47:16<02:11, 14.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 192/200 [47:31<01:56, 14.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▋| 193/200 [47:46<01:43, 14.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  97%|█████████▋| 194/200 [48:01<01:28, 14.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 195/200 [48:10<01:05, 13.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 196/200 [48:23<00:52, 13.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 197/200 [48:38<00:40, 13.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  99%|█████████▉| 198/200 [48:53<00:28, 14.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|█████████▉| 199/200 [49:08<00:14, 14.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|██████████| 200/200 [49:23<00:00, 14.34s/it]Processing rows: 100%|██████████| 200/200 [49:23<00:00, 14.82s/it]
+image_inputs [<PIL.Image.Image image mode=RGB size=252x364 at 0x14DD0A70ABB0>]
+generated_description:  Brunelleschi's sketch illustrates early Renaissance engineering, showcasing a horse-powered mechanical system. Reflecting the era's burgeoning interest in mechanics and innovation, it combines practical design with artistic precision. The drawing highlights the period's transition towards empirical observation and technical mastery, aligning with Brunelleschi's role as a pioneer in architecture and engineering. The inclusion of a horse underscores the reliance on animal labor during this time.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  6
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x868 at 0x14DD0A70AF10>]
+generated_description:  Jan Steen's "Lean Kitchen" (c. 1650-1700) captures a bustling domestic scene, reflecting Baroque-era Dutch life. The crowded, dimly lit interior, filled with activity, humorously critiques societal excesses. Steen uses light and detail to emphasize textures and expressions, creating a lively atmosphere. This genre painting, typical of Steen's work, employs subtle moral undertones, possibly referencing proverbs about household management. The scene's chaos and characters' interactions highlight the artist's skill in portraying everyday life with wit and social commentary.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  7
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x2688 at 0x14DD7943BFD0>]
+generated_description:  Lucas Cranach the Elder's "Judgment of Paris" (1527) reflects Northern Renaissance interest in classical mythology. It depicts Paris choosing Aphrodite over Hera and Athena, symbolizing beauty triumphing over power and wisdom. The presence of Cupid underscores love's role. Cranach's work, influenced by humanism, blends mythological themes with contemporary aesthetics, reflecting the era's fascination with antiquity and its moral lessons. The painting serves as a commentary on human desires and divine intervention in earthly affairs.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  8
+image_inputs [<PIL.Image.Image image mode=RGB size=1176x784 at 0x14DD0A70ACD0>]
+generated_description:  This 1518 Northern Renaissance painting by Lucas Cranach the Elder depicts a reclining female nude, symbolizing a nymph. Set against a serene landscape, the fountain and inscription evoke themes of purity and rest. Reflecting the era's fascination with classical mythology, the work blends pagan motifs with contemporary ideals of beauty, showcasing Cranach's skill in portraiture and his embrace of mythological subjects during the Protestant Reformation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  9
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1008 at 0x14DD0A70AEE0>]
+generated_description:  Konstantin Makovsky's "Girl with Jug" (c. 1850-1900) exemplifies Romanticism's focus on emotion and individuality. The painting captures a young girl in traditional attire, symbolizing rural simplicity and innocence. The jug signifies daily life and labor, reflecting 19th-century Russian societal values. Makovsky's use of vibrant colors and soft brushstrokes enhances the subject's expressive gaze, bridging the gap between the viewer and the portrayed moment. This work celebrates the beauty of everyday life, aligning with Romantic ideals of finding the sublime in the ordinary.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  10
+image_inputs [<PIL.Image.Image image mode=RGB size=1344x1120 at 0x14DD0A70AD60>]
+generated_description:  This Baroque painting by Theodoor van Thulden, circa 1650-1700, depicts Scipio Africanus, a Roman general, embodying virtue and heroism. The scene likely illustrates a mythological or allegorical moment, emphasizing themes of power, morality, and divine favor. The rich colors, dramatic lighting, and dynamic composition reflect the Baroque style's emphasis on emotional intensity and grandeur. The presence of cherubs and allegorical figures underscores the painting's symbolic depth, celebrating Scipio's legendary status within a cultural framework that revered classical ideals.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  11
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x14DD092D1D90>]
+generated_description:  This Fauvist-inspired painting by Carlos Botelho captures Lisbon's vibrant urban landscape circa 1900-1950. The bold colors and simplified forms reflect the era's modernist shift. The Tejo River and Arco da Rua Augusta symbolize Lisbon's historical and cultural identity. The palm tree adds a touch of exoticism, hinting at Portugal's colonial past. This artwork embodies the transition from traditional to modern Portuguese art, mirroring societal changes during this period.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  12
+image_inputs [<PIL.Image.Image image mode=RGB size=504x504 at 0x14DD0A70AF10>]
+generated_description:  David Burliuk's "Ploughing the Field," created between 1900-1950, embodies Naïve Art Primitivism. It captures rural life, emphasizing handwork and harmony with nature. The vibrant colors and expressive brushstrokes reflect early 20th-century Russian artistic experimentation. Horses and farmers symbolize traditional agrarian values amidst industrialization. This piece celebrates the simplicity and resilience of countryside living, resonating with post-revolutionary nostalgia for a perceived idyllic past.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  13
+image_inputs [<PIL.Image.Image image mode=RGB size=756x812 at 0x14DD0A70AF10>]
+generated_description:  Mark Rothko's *Yellow Band* exemplifies his mature Color Field style, emerging in the 1950s. This era marked a shift towards abstraction, reflecting post-war existential concerns. The soft, luminous bands evoke emotional depth, inviting contemplation. The orange hues symbolize warmth and vitality, contrasting with the somber undertones of the period. Rothko's work aimed to connect viewers with primal emotions, transcending cultural and temporal boundaries. This piece embodies the essence of mid-20th-century abstract expressionism.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  14
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x896 at 0x14DD63806640>]
+generated_description:  August Macke's "On the Street" (c. 1910) embodies Fauvism's bold use of color and form. Set in early 20th-century Germany, it captures urban life with vibrant hues and flattened perspectives, reflecting the era's modernity and dynamism. The figures and buildings, rendered in non-naturalistic colors, symbolize the bustling energy of city streets. This work highlights Fauvism's departure from traditional realism, emphasizing emotional expression over accurate representation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  15
+image_inputs [<PIL.Image.Image image mode=RGB size=2996x1876 at 0x14DD092D1E80>]
+generated_description:  Albrecht Dürer's "Martyrdom of the Ten Thousand" (1507) reflects Northern Renaissance piety and humanism. The scene depicts the mass martyrdom of Christian soldiers, emphasizing faith and sacrifice. Dürer's detailed, dynamic composition and use of perspective showcase his mastery. The work serves as a moral and religious exemplar, resonating with the era's focus on Christian virtues and the afterlife, while also demonstrating the artist's engagement with complex narratives and human emotion.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  16
+image_inputs [<PIL.Image.Image image mode=RGB size=588x420 at 0x14DD092D1AC0>]
+generated_description:  This Utagawa Kunisada ukiyo-e print from 1800-1850 depicts intimate scenes, reflecting Edo-period societal norms and the genre's focus on everyday life. The vibrant textiles and detailed expressions highlight the era's aesthetic values. Such artworks catered to a growing urban audience seeking depictions of beauty, love, and sensuality, while also showcasing the artist's skill in capturing human emotion and intricate patterns. The inclusion of text suggests narrative or poetic elements, common in ukiyo-e.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  17
+image_inputs [<PIL.Image.Image image mode=RGB size=560x420 at 0x14DD09277670>]
+generated_description:  David Batchelor's "Hackney Road Drawing" (2004) exemplifies Minimalism's focus on simplicity and abstraction. The black rectangles on graph paper create a stark contrast, emphasizing form and space. The gradient hues suggest light interaction, hinting at urban environments. This piece reflects contemporary art's exploration of everyday materials and digital influences, bridging analog and modern aesthetics within a minimalist framework. No specific cultural or symbolic elements are evident beyond these general themes.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  18
+image_inputs [<PIL.Image.Image image mode=RGB size=784x672 at 0x14DD74FC7AC0>]
+generated_description:  Cy Twombly's *Untitled* (c. 1950-2000) embodies Abstract Expressionism's focus on spontaneous gesture and subconscious expression. The blackboard-like canvas and scribbled white lines evoke a sky filled with celestial motion, reflecting post-war existential exploration. Twombly's work bridges action painting and lyrical abstraction, emphasizing process over form. This piece captures the era's tension between chaos and order, mirroring societal shifts and inner turmoil. The simplicity of its elements—black and white, line and void—resonates with universal human experience.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  19
+image_inputs [<PIL.Image.Image image mode=RGB size=1232x1008 at 0x14DD75180A60>]
+generated_description:  Insufficient context provided for detailed analysis. The painting depicts Jacob blessing Joseph's children, reflecting Baroque drama and emotional depth. Rembrandt's use of chiaroscuro emphasizes the spiritual moment, aligning with 17th-century religious themes. The rich textures and intimate portrayal highlight familial bonds, resonating with contemporary values. Symbolically, the scene underscores divine favor and lineage, pivotal in Christian narratives. Without specific details, further interpretation is limited.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  20
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x14DD0A70ABB0>]
+generated_description:  This Expressionist portrait by Iosif Iser, circa 1900-1950, captures a gentleman in vibrant, traditional attire, possibly a toreador. The bold colors and loose brushwork reflect early 20th-century artistic rebellion against realism. Symbolically, the figure's confident pose and elaborate costume suggest themes of identity and cultural heritage. The artwork likely resonates with the era's fascination with exoticism and individuality, aligning with broader modernist explorations of self-expression and cultural diversity. Contextual details on Iser's biography or specific influences are lacking.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  21
+image_inputs [<PIL.Image.Image image mode=RGB size=448x308 at 0x14DD7943BF40>]
+generated_description:  Ilya Mashkov's 1914 post-impressionist landscape captures a vibrant rural village nestled against mountains. Reflecting early 20th-century Russian art, it emphasizes expressive color and form over realism. The scene evokes a sense of community and harmony with nature, resonating with the era's focus on national identity and the beauty of the Russian countryside. The painting's bold hues and dynamic composition highlight the artist's departure from traditional styles, aligning with the post-impressionist movement's innovative spirit.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  22
+image_inputs [<PIL.Image.Image image mode=RGB size=364x504 at 0x14DD74FC7B20>]
+generated_description:  Parmigianino's "Holy Family with Shepherds and Angels," a late Renaissance/Mannerist work (1500-1550), embodies Christian themes through its depiction of the Holy Family surrounded by adoring figures. The elongated forms and dynamic composition reflect Mannerist tendencies, emphasizing emotional intensity and spiritual devotion. This drawing likely served as a preparatory sketch, showcasing Parmigianino's skill in capturing complex interactions within a religious narrative. The inclusion of angels and shepherds underscores the divine recognition of Christ's birth.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  23
+image_inputs [<PIL.Image.Image image mode=RGB size=980x1540 at 0x14DD0A70AD30>]
+generated_description:  This Art Nouveau sketch by Raphael Kirchner, titled "La Favorite," captures the essence of early 20th-century aestheticism. The soft lines and romantic motifs reflect the era's fascination with femininity and sensuality. The heart shapes symbolize love and desire, aligning with the period's emphasis on emotional expression. Kirchner's work epitomizes the blend of modernity and nostalgia characteristic of the time, appealing to contemporary tastes while evoking a sense of timeless allure.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  24
+image_inputs [<PIL.Image.Image image mode=RGB size=476x560 at 0x14DD7943B9D0>]
+generated_description:  Rembrandt's "The Apostle Paul" (1659) reflects Baroque introspection and spiritual depth. The subdued palette and chiaroscuro highlight Paul's contemplative state, aligning with 17th-century religious devotion. The tactile brushwork and rich textures evoke a sense of presence, while the halo subtly underscores Paul's sanctity. This work exemplifies Rembrandt's mature style, emphasizing psychological insight over dramatic action, resonating with the era's focus on personal faith and inner reflection. No additional tags provided.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  25
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1064 at 0x14DD0A70ABE0>]
+generated_description:  This 1657 Baroque portrait by Diego Velázquez depicts Mariana of Austria, Queen of Spain. It exemplifies Velázquez's mastery in capturing regal dignity with restrained elegance. The soft brushwork and muted palette highlight the queen's serene expression and elaborate attire, reflecting the Spanish court's restrained opulence. The painting underscores Velázquez's role as the leading court artist during the Spanish Golden Age, emphasizing his ability to convey power and grace subtly.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  26
+image_inputs [<PIL.Image.Image image mode=RGB size=1204x868 at 0x14DCFBF66DF0>]
+generated_description:  Mark Tobey's "Fire Dancers" (1957) exemplifies Abstract Expressionism's exploration of human emotion through non-representational forms. The monochromatic palette and dynamic brushstrokes evoke the primal energy of fire dancers, reflecting post-war America's search for spiritual renewal. Influenced by Eastern philosophies, Tobey's work bridges Western abstraction with Eastern calligraphy, symbolizing interconnectedness. The painting captures the era's tension between chaos and order, mirroring societal shifts towards individual expression and global interconnectedness.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  27
+image_inputs [<PIL.Image.Image image mode=RGB size=700x924 at 0x14DD092D1FD0>]
+generated_description:  This Baroque-era detail by Frans Hals depicts a skull, a potent memento mori symbolizing mortality. Created between 1600-1650, it reflects the period's fascination with life's transience. The dark, dramatic lighting enhances the skull's ominous presence, aligning with Baroque themes of contrast and emotional depth. This motif underscores the era's religious and philosophical contemplation of death, resonating with viewers' existential reflections. Insufficient context precludes further specifics.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  28
+image_inputs [<PIL.Image.Image image mode=RGB size=308x420 at 0x14DD092B6FD0>]
+generated_description:  Max Pechstein's "Dialogue" (1920) embodies Expressionism's emotional intensity and distortion. Reflecting post-WWI disillusionment, it portrays two figures in stark, angular forms, suggesting communication breakdown. The muted palette and fragmented composition mirror societal fragmentation. Pechstein's focus on human interaction critiques modern alienation, aligning with Expressionist themes of existential angst and the search for meaning amid chaos. This work captures the era's psychological turbulence and artistic rebellion against traditional norms.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  29
+image_inputs [<PIL.Image.Image image mode=RGB size=952x728 at 0x14DD092D1F10>]
+generated_description:  This Impressionist work by Camille Pissarro captures a fleeting moment in a sunlit clearing, reflecting the era's fascination with natural light and atmosphere. Painted between 1850-1900, it embodies the movement's rejection of traditional styles, emphasizing spontaneous brushwork and real-life scenes. The trees and figures evoke a sense of tranquility and harmony with nature, aligning with the period's cultural shift towards appreciating the beauty of the everyday. The scene's simplicity challenges conventional artistic norms, championing a new aesthetic vision.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  30
+image_inputs [<PIL.Image.Image image mode=RGB size=560x420 at 0x14DD092D1AC0>]
+generated_description:  Insufficient context to analyze Walter Battiss's "Horse and Butterfly" within Pop Art. The timeframe and style suggest post-war modernism, but specific historical, cultural, or symbolic significance is unclear without additional details about the artist's intent, the work's reception, or its relation to broader artistic movements of the era.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  31
+image_inputs [<PIL.Image.Image image mode=RGB size=560x812 at 0x14DD092D1F40>]
+generated_description:  Maurice Utrillo's "Chartres Cathedral" captures the Gothic landmark's grandeur in Post-Impressionist style. Painted between 1900-1950, it reflects early 20th-century fascination with medieval architecture. The spires dominate, symbolizing spiritual aspiration. Utrillo's muted palette and soft brushstrokes evoke a serene, contemplative atmosphere, emphasizing the cathedral's timeless presence amidst urban surroundings. This work celebrates Chartres as a cultural and religious icon, bridging past and present.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  32
+image_inputs [<PIL.Image.Image image mode=RGB size=476x644 at 0x14DCF860D8E0>]
+generated_description:  Hokusai's *Swallow and Begonia and Strawberry Pie* exemplifies ukiyo-e's shift towards nature studies. Created between 1800-1850, it reflects the Edo period's fascination with botany and wildlife. Swallows symbolize spring renewal, while strawberries and begonias highlight seasonal beauty. This work showcases Hokusai's mastery in capturing natural harmony, blending Eastern aesthetics with emerging Western influences. It underscores the artist's innovative approach, expanding ukiyo-e beyond traditional themes to celebrate the intricate details of the natural world.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  33
+image_inputs [<PIL.Image.Image image mode=RGB size=448x336 at 0x14DD092B6FD0>]
+generated_description:  Frankenthaler's "Santa Fe II" (1986) exemplifies Color Field painting, emphasizing vast, flat areas of color to evoke emotion. The soft, atmospheric hues suggest a sky, reflecting the artist's inspiration from nature. Created during a period of abstraction dominance, it challenges traditional composition, focusing instead on the interplay of color and space. This work highlights Frankenthaler's role in shaping post-war American art through innovative use of color and form.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  34
+image_inputs [<PIL.Image.Image image mode=RGB size=336x280 at 0x14DD092D1D60>]
+generated_description:  This minimalist work by Jiro Yoshihara, created between 1950-2000, exemplifies post-war abstraction. The bold red form against a black void reflects existential themes and the search for identity in a fragmented world. Influenced by Zen philosophy, the simplicity and balance evoke contemplation. The solitary red dot symbolizes the essence of life amidst emptiness, resonating with the era's exploration of inner spirituality and modernity's complexities. Minimalist art challenges viewers to find meaning in simplicity and negative space.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  35
+image_inputs [<PIL.Image.Image image mode=RGB size=1092x868 at 0x14DD0A70ABE0>]
+generated_description:  This 1918 Cubist still life by Juan Gris reflects the post-WWI return to order, emphasizing clarity and structure. The fragmented forms and overlapping planes challenge traditional perspective, while the inclusion of newspaper text introduces a modern, everyday element. Gris's use of muted colors and geometric shapes aligns with the movement's focus on abstraction and intellectual engagement, mirroring the era's evolving artistic and cultural landscapes.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  36
+image_inputs [<PIL.Image.Image image mode=RGB size=616x476 at 0x14DCFBF66580>]
+generated_description:  This Impressionist scene by Ivan Vladimirov captures a leisurely stroll in a park circa 1905. The soft brushstrokes and muted palette evoke the transient light of a winter day. Women in fashionable attire suggest societal norms of the early 20th century. The painting reflects the era's fascination with capturing everyday life and the fleeting beauty of nature, aligning with Impressionism's focus on light and atmosphere. The park setting underscores the growing urban leisure culture of the time.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  37
+image_inputs [<PIL.Image.Image image mode=RGB size=812x672 at 0x14DD092D1CD0>]
+generated_description:  Alfred Sisley's "Saint-Cloud, Banks of the Seine" (1879) captures the tranquil essence of Impressionism. Set against the backdrop of late 19th-century France, the painting reflects the era's fascination with light and color. Sisley's use of soft hues and loose brushstrokes evokes the fleeting beauty of nature. The scene, with its boats and waterway, symbolizes the harmony between man and environment, a hallmark of Impressionist landscapes. This work exemplifies Sisley's dedication to plein air painting, capturing the serene atmosphere of Saint-Cloud.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  38
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DD7943BF40>]
+generated_description:  Chagall's "They Were in Forty Pairs" (1948) reflects post-war existential themes through vibrant primitivism. The orange palette and allegorical figures evoke chaos and rebirth, mirroring Europe's turmoil. Drawing from "The Arabian Nights," the queen atop signifies authority amidst male nudes, symbolizing vulnerability. This work captures Chagall's exploration of identity and resilience during a transformative era, blending personal and universal narratives. Key details are absent, limiting deeper symbolic interpretation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  39
+image_inputs [<PIL.Image.Image image mode=RGB size=308x476 at 0x14DD092773D0>]
+generated_description:  Maurice Estève's "Trigourec" (1972) exemplifies Color Field painting, a mid-20th-century movement emphasizing color and form over narrative. Estève's vibrant hues and geometric shapes reflect post-war optimism and abstraction's rise. The title hints at a Breton village, suggesting a personal connection yet maintaining abstraction's focus on pure visual experience. This work bridges European tradition with modernist innovation, showcasing Estève's contribution to the evolving art landscape of the 1950s-2000s.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  40
+image_inputs [<PIL.Image.Image image mode=RGB size=392x476 at 0x14DD092D1D90>]
+generated_description:  Theodoros Stamos's "Infinity Field" (1983) exemplifies Color Field painting, emphasizing vast, atmospheric expanses. The muted blues evoke sky and sea, suggesting geological and atmospheric phenomena. Created during a period of abstraction's dominance, it reflects post-war existential themes and a search for spiritual transcendence. Stamos's work bridges nature and abstraction, inviting viewers to contemplate the infinite and the sublime within a minimalist framework. The Lefkada series likely draws inspiration from the Greek island's natural beauty, infusing the piece with a sense of place.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  41
+image_inputs [<PIL.Image.Image image mode=RGB size=728x840 at 0x14DD092D1EE0>]
+generated_description:  Lorenzo Lotto's 1508 diptych depicts saints Thomas Aquinas and Flavian alongside Peter Martyr and Vitus, reflecting High Renaissance piety and humanism. The detailed vestments and solemn poses highlight their roles as spiritual and moral exemplars. Set in a classical architectural space, the painting underscores the era's reverence for antiquity and Christian heritage. Lotto's nuanced portrayal captures the saints' individuality, aligning with the period's focus on human character and divine connection. This work exemplifies the integration of faith and artistry in Renaissance Italy.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  42
+image_inputs [<PIL.Image.Image image mode=RGB size=588x812 at 0x14DD092D1C40>]
+generated_description:  Dmitry Levitzky's 1789 portrait of F.P. Makerovskiy in masquerade costume exemplifies Rococo elegance. The vibrant attire and playful pose reflect 18th-century aristocratic leisure and theatrical fashion. Levitzky's skillful brushwork captures youthful charm, aligning with the era's fascination with childhood innocence. The masquerade theme symbolizes social fluidity and the performative nature of identity in pre-revolutionary Russia. This piece bridges the gap between formal portraiture and the lighthearted spirit of the Rococo movement.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  43
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x14DD7943B9D0>]
+generated_description:  Kustodiev's "Exit of Tsar Ivan the Terrible" (1900) captures the tension of Ivan IV's reign, blending realism with historical drama. Set against a backdrop of Russian Orthodox architecture, the painting reflects the autocratic power and fear of the era. The Tsar's imposing figure contrasts with the subdued crowd, symbolizing his control. This work exemplifies the Russian realist tradition, emphasizing historical narrative and cultural identity amidst political turmoil. The artist's attention to detail in costume and setting underscores the painting's authenticity and thematic depth.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  44
+image_inputs [<PIL.Image.Image image mode=RGB size=560x448 at 0x14DD092D1EE0>]
+generated_description:  Max Pechstein's 1949 Expressionist work captures post-war rural life in Pomerania. Birds gathering on power lines symbolize renewal amidst industrialization. The windmill, a traditional motif, contrasts with modernity. Pechstein's vibrant colors and dynamic lines reflect the era's tension between nature and progress. This piece embodies the artist's exploration of human connection to the environment during Germany's reconstruction period. Key details are absent, limiting deeper analysis.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  45
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x1596 at 0x14DD09277130>]
+generated_description:  Cima da Conegliano's "St. Jerome in a Landscape" (c. 1500-1550) embodies High Renaissance ideals, blending Christian themes with serene landscapes. Jerome, a hermit saint, is depicted in contemplation, symbolizing penance and devotion. The lion, a mythical companion, represents his humility and faith. Set against a tranquil backdrop, the painting reflects the period's focus on harmony between humanity, nature, and spirituality, emphasizing the saint's inner peace amidst worldly isolation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  46
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x672 at 0x14DD092770D0>]
+generated_description:  This 1882 Van Gogh work captures a woman performing laundry in a rural setting, reflecting Realism's focus on everyday life. The stark black-and-white palette and solitary figure evoke the harsh realities of 19th-century domestic labor. Trees frame the scene, emphasizing isolation. This piece highlights the artist's early exploration of social issues and foreshadows his later vivid style. The image underscores the mundane yet essential nature of handwork in a pre-industrial era. Context is limited; further details are unavailable.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  47
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x1456 at 0x14DD092D1D60>]
+generated_description:  Raoul Dufy's "Anemones," a Post-Impressionist still life from 1900-1950, captures vibrant flowers against a bold blue backdrop. Reflecting Fauvism's influence, it emphasizes color and emotion over realism. The bouquet symbolizes beauty and transience, while the vivid palette evokes joy and modernity. Dufy's work celebrates everyday objects, aligning with early 20th-century artistic shifts towards expressive abstraction and personal interpretation. Context lacks specific historical events but embodies the era's artistic rebellion and celebration of color.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  48
+image_inputs [<PIL.Image.Image image mode=RGB size=2996x2996 at 0x14DCF860D8E0>]
+generated_description:  This painting by Paolo Veronese, created during the late Renaissance, embodies Mannerist elegance and mythological themes. It depicts Cupid and Psyche, symbolizing love and beauty. The rich colors and dynamic composition reflect Veronese's mastery. Set against a serene landscape, the scene conveys emotional depth and allegorical meaning, resonating with the period's fascination with classical narratives and human emotion. The inclusion of allegorical figures enhances its symbolic richness.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  49
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x14DD092776A0>]
+generated_description:  This Abstract Expressionist work, "Blood Wedding" (1958) by Richard Pousette-Dart, embodies post-war existential angst through vibrant, chaotic brushstrokes. The title suggests themes of passion and violence, reflecting mid-20th-century societal tensions. The abstract forms and intense colors evoke emotional intensity, aligning with the era's exploration of inner consciousness and the human condition. The painting captures the dynamism and psychological depth characteristic of the Abstract Expressionist movement.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  50
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x756 at 0x14DD09277550>]
+generated_description:  Jacopo Bellini's Nativity sketch exemplifies Early Renaissance interest in perspective and landscape. Created between 1400-1450, it integrates linear perspective with Venetian decorative richness. The scene blends sacred narrative with everyday life, reflecting humanist ideals. The detailed background and architectural elements showcase Bellini's innovative approach, bridging medieval traditions with emerging Renaissance techniques. This sketch underscores his role in advancing Venetian painting toward greater realism and spatial depth.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  51
+image_inputs [<PIL.Image.Image image mode=RGB size=1456x1708 at 0x14DD63806640>]
+generated_description:  This fragment from Albrecht Altdorfer's "Battle of Issus" (1529) captures a knight in armor, reflecting Northern Renaissance interest in historical events and chivalry. The detailed armor and horse signify nobility and warfare, aligning with the era's fascination with battles and mythology. Altdorfer's work exemplifies the period's blend of realism and symbolic grandeur, emphasizing the human role in epic narratives. Context is insufficient for deeper symbolic analysis.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  52
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DD092D1F10>]
+generated_description:  Insufficient context to analyze the painting historically or symbolically. The provided metadata does not offer enough information about the cultural, historical, or thematic elements specific to Edward Ruscha's "Noose Around Your Neck" within the Country Cityscapes series. Further details on the artist's intent, the series' themes, or the cultural backdrop of the early 2000s would be required for a comprehensive analysis.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  53
+image_inputs [<PIL.Image.Image image mode=RGB size=644x868 at 0x14DD09277E80>]
+generated_description:  Kirchner's "Street Scene" (c. 1913) embodies Expressionism's emotional intensity and urban alienation. Set in Berlin, it captures the era's social dynamics and modernity. Figures merge with vibrant, clashing colors, reflecting anxiety and isolation amidst bustling city life. The distorted forms and sharp angles convey psychological tension, mirroring the cultural upheaval of pre-WWI Germany. This work critiques societal norms, emphasizing individual experience over objective reality, a hallmark of Expressionist art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  54
+image_inputs [<PIL.Image.Image image mode=RGB size=644x924 at 0x14DD092770D0>]
+generated_description:  This detail from Pietro Perugino's "The Pazzi Crucifixion" (c. 1490) exemplifies Early Renaissance piety. The saint, depicted with a halo and modest attire, embodies Christian humility and devotion. Her clasped hands signify prayer, reflecting the era's focus on personal spirituality. The muted colors and serene expression align with the period's emphasis on religious contemplation, while the landscape hints at the divine presence in nature. This work underscores the artist's role in bridging medieval traditions with emerging Renaissance humanism.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  55
+image_inputs [<PIL.Image.Image image mode=RGB size=448x364 at 0x14DD092D1AC0>]
+generated_description:  Sam Francis's *Untitled* (1965) exemplifies Color Field painting, emphasizing color and space. Created during the mid-20th century, it reflects post-war abstraction trends. The sparse composition and vibrant edges contrast with the central void, symbolizing existential exploration. Francis's work bridges Abstract Expressionism and Color Field, showcasing the era's focus on emotional depth and visual impact. The painting's simplicity and boldness capture the cultural shift towards minimalism and personal expression in art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  56
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x14DCF860D760>]
+generated_description:  Correggio's "Madonna del Latte" (1524) exemplifies Mannerist elegance, blending Renaissance naturalism with expressive distortion. Set against a dark backdrop, the Virgin's tender embrace and the child's playful interaction with the angel evoke divine intimacy. The soft sfumato and luminous flesh tones reflect Correggio's mastery, while the composition's dynamic asymmetry and emotional depth capture the era's evolving spiritual and artistic sensibilities. This work underscores the period's focus on human emotion and divine connection within religious art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  57
+image_inputs [<PIL.Image.Image image mode=RGB size=504x532 at 0x14DD092D1370>]
+generated_description:  This Art Nouveau piece by Edmund Dulac, circa 1900-1950, depicts Psyche confronting Cerberus, blending mythological themes with modern aesthetics. The soft lines and vibrant colors reflect the era's fascination with classical stories reimagined through contemporary lenses. Psyche's calm demeanor amidst the monstrous Cerberus symbolizes courage and purity, resonating with the period's emphasis on female empowerment and the revival of ancient narratives in modern art. The scene captures a pivotal moment in mythology, interpreted through Dulac's unique style.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  58
+image_inputs [<PIL.Image.Image image mode=RGB size=588x812 at 0x14DD63806F10>]
+generated_description:  Martin Schongauer's "Doubting Thomas" (c. 1491) exemplifies Northern Renaissance devotion, blending Gothic and Netherlandish styles. The intimate scene captures Thomas touching Christ's wound, symbolizing faith and doubt. Schongauer's detailed textures and emotional depth reflect the period's focus on personal piety and biblical narratives. The flag hints at Christ's triumph over death, reinforcing the painting's spiritual message. This work highlights the era's transition towards humanism and individual experience in religious art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  59
+image_inputs [<PIL.Image.Image image mode=RGB size=672x896 at 0x14DD092D1F10>]
+generated_description:  Insufficient context provided for detailed analysis. However, Filipp Malyavin's "Two Girls" (1910) reflects early 20th-century Russian art, blending Art Nouveau with modernist influences. The vibrant colors and expressive brushstrokes capture the subjects' emotional depth, emphasizing individuality over type. This aligns with the era's focus on psychological realism and the evolving role of women in society. The painting likely explores themes of youth, identity, and social change within a cultural context transitioning from tradition to modernity.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  60
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14DD63806640>]
+generated_description:  Insufficient context for detailed analysis. However, Picasso's 1932 sketch reflects his fascination with female forms, likely inspired by his muse Marie-Thérèse Walter. The naive art primitivism style suggests a return to simplicity and raw emotion, common in early 20th-century modernism. The sketch captures intimate, serene moments, emphasizing sensuality and the female body's natural beauty within a personal, artistic exploration.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  61
+image_inputs [<PIL.Image.Image image mode=RGB size=392x812 at 0x14DD0A70ADC0>]
+generated_description:  Nicholas Roerich's "Young Men Successors" (1914) reflects Art Nouveau's modernist influence, blending spirituality with symbolism. The haloed figures suggest religious or mythological themes, possibly successors of a spiritual lineage. The prayerful gestures and vibrant colors evoke a sense of reverence and continuity. Created during a time of cultural shifts, the piece captures a longing for spiritual renewal amidst modernity's challenges. The floral motif reinforces Art Nouveau's organic aesthetic, symbolizing growth and interconnectedness.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  62
+image_inputs [<PIL.Image.Image image mode=RGB size=1624x1988 at 0x14DD63806640>]
+generated_description:  This Rococo-era portrait by Vladimir Borovikovsky depicts Grand Duchess Alexandra, showcasing the opulence and elegance of late 18th-century aristocracy. The soft pastels, floral crown, and delicate jewelry reflect the period's fascination with beauty and grace. The miniature portrait pinned to her dress symbolizes familial ties and loyalty. The style captures the era's emphasis on charm and sophistication, aligning with the cultural ideals of the Russian nobility during this timeframe.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  63
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x14DD092776D0>]
+generated_description:  Ferdynand Ruszczyc's "Obłok" (Cloud), circa 1902, exemplifies Post-Impressionism's focus on emotional expression through bold colors and simplified forms. The solitary cloud against a deep blue sky evokes introspection and solitude, reflecting the era's fascination with nature's psychological impact. Ruszczyc's work captures the fin-de-siècle mood, blending Symbolist themes with modernist techniques, emphasizing the spiritual and emotional resonance of the natural world.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  64
+image_inputs [<PIL.Image.Image image mode=RGB size=2044x1428 at 0x14DD092D1F70>]
+generated_description:  Tiepolo's *The Banquet of Cleopatra* (1744) epitomizes Rococo opulence, blending historical narrative with lavish detail. Set in a grand, classical space, the scene celebrates Cleopatra's legendary feast, symbolizing luxury and power. The vibrant colors and dynamic composition reflect 18th-century fascination with antiquity and theatricality. As Neoclassicism emerged, this work stands as a pinnacle of Rococo's decorative exuberance, capturing a moment of imperial splendor and cultural exchange.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  65
+image_inputs [<PIL.Image.Image image mode=RGB size=364x504 at 0x14DD08F99A30>]
+generated_description:  This detail from Piero della Francesca's "Constantine's Victory Over Maxentius" (c. 1450-1500) captures a pivotal moment in Christian history. The early Renaissance style emphasizes clarity and narrative. The scene depicts Constantine's triumph, symbolizing divine favor and the spread of Christianity. Knights and warriors reflect the era's chivalric ideals, while the composition underscores the artist's mastery of perspective and human emotion. The painting serves as a visual testament to faith and power dynamics in medieval Europe.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  66
+image_inputs [<PIL.Image.Image image mode=RGB size=2632x1792 at 0x14DD08F85C40>]
+generated_description:  Sir Lawrence Alma-Tadema's "Ask Me No More" (1906) epitomizes Romanticism's fascination with classical antiquity. Set against a serene Mediterranean backdrop, the painting captures a tender moment between a couple, reflecting Victorian ideals of love and beauty. The luxurious fabrics and detailed setting showcase Alma-Tadema's mastery of texture and light, while the intimate pose hints at a narrative of romance and longing. This work exemplifies the artist's ability to blend historical accuracy with emotional depth, appealing to contemporary tastes for idealized pasts.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  67
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x14DD092D1370>]
+generated_description:  Mary Fedden's "Zebra" (2007) blends Fauvist bold colors with still-life and animal imagery. The vibrant red backdrop contrasts starkly with the zebra, symbolizing nature's wildness amidst domesticity. The fruit and bottle foreground evoke traditional still-life themes, yet the zebra introduces an unexpected, surreal element. This juxtaposition reflects contemporary art's exploration of nature and human environments, challenging conventional boundaries. Fedden's work captures a modern sensibility within a historical artistic framework.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  68
+image_inputs [<PIL.Image.Image image mode=RGB size=1932x2408 at 0x14DD63806F10>]
+generated_description:  This Aubrey Beardsley illustration, "Sir Launcelot and the Witch Hellawes," embodies Art Nouveau's sinuous lines and medieval revival themes. Created between 1850-1900, it draws from Thomas Malory's "Le Morte d'Arthur," reflecting the era's fascination with chivalric romance. The ornate frame and intricate patterns highlight the movement's emphasis on decorative arts. The scene captures a pivotal moment, blending fantasy with the period's aesthetic ideals. Beardsley's work here bridges the gap between literature and visual art, showcasing his mastery of line and narrative.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  69
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x1036 at 0x14DD08F99640>]
+generated_description:  Renoir's "Essoyes Landscape" (1884) captures a rural French village under a dynamic sky, reflecting Impressionism's focus on light and atmosphere. The loose brushstrokes and vibrant colors convey the fleeting effects of weather, aligning with the era's emphasis on natural observation. This work bridges Impressionism and Renoir's later classical phase, showcasing his evolving style while maintaining the movement's core principles. The scene evokes a sense of tranquility and connection to nature, characteristic of late 19th-century art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  70
+image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14DD08F99880>]
+generated_description:  This ukiyo-e print by Keisai Eisen, circa 1800-1850, depicts a scene from the Tōkaidō Road's Shimada station. The artwork captures the vibrancy of Edo-era travel and commerce, with a woman observing travelers below. The detailed landscape and figures reflect the period's fascination with everyday life and travel culture. The style embodies ukiyo-e's focus on beauty and transience, resonating with the era's aesthetic values and societal shifts. The print's composition and color palette highlight the artist's skill in capturing dynamic human interactions within a serene natural setting.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  71
+image_inputs [<PIL.Image.Image image mode=RGB size=1204x924 at 0x14DCF860D760>]
+generated_description:  Ernst Ludwig Kirchner's "Railway Underpass in Dresden" (1926) captures the urban dynamism of early 20th-century Germany through Expressionist lens. Bold colors and distorted perspectives reflect the era's social upheaval and modernity. The underpass, a symbol of industrial progress, contrasts with the human figures, highlighting alienation. This work embodies the tension between urban development and individual experience in post-WWI Dresden, reflecting Kirchner's response to the changing world around him.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  72
+image_inputs [<PIL.Image.Image image mode=RGB size=1372x952 at 0x14DD08F85A00>]
+generated_description:  Maria Primachenko's "Magpie in Roses" (1983) exemplifies Ukrainian naive art primitivism. The vibrant yellow backdrop and bold floral patterns reflect traditional folk aesthetics. The central magpie, adorned with intricate dots, symbolizes nature's harmony. This piece celebrates rural life and the artist's personal connection to her environment during the mid-to-late 20th century, showcasing a timeless appreciation for simplicity and natural beauty. The work lacks historical or cultural specificity beyond its stylistic roots in primitivism.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  73
+image_inputs [<PIL.Image.Image image mode=RGB size=1316x1680 at 0x14DD092D1F10>]
+generated_description:  Gustave Doré's "The Two Goats" (c. 1850-1900) illustrates Jean de La Fontaine's fable, embodying Romanticism's focus on nature and morality. The precarious bridge symbolizes human folly and conflict, while the monochrome palette enhances the dramatic tension. Reflecting 19th-century interest in folklore and allegory, the artwork critiques societal greed and cooperation failures, resonating with contemporary anxieties about progress and harmony. Doré's intricate detailing underscores the Romantic fascination with both the sublime and the moral lessons of nature.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  74
+image_inputs [<PIL.Image.Image image mode=RGB size=532x756 at 0x14DD092D1F70>]
+generated_description:  This early Renaissance portrait by Domenico Veneziano captures Matteo Olivieri in profile, reflecting the humanist focus on individual identity. The red chaperon and clothing signify status, while the inscription identifies the sitter. Created around 1450, it exemplifies the period's interest in realism and portraiture, bridging medieval traditions with emerging Renaissance ideals of human dignity and personal expression. The dark background isolates the figure, emphasizing his presence and social standing.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  75
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1148 at 0x14DD08F85F10>]
+generated_description:  Jacopo Bellini's "Virgin with Child" (c. 1450-1500) exemplifies Early Renaissance devotion, blending Gothic spirituality with emerging naturalism. The Virgin's serene expression and the Christ Child's playful gesture reflect humanist ideals. The book symbolizes divine wisdom, while the ornate frame and halos emphasize sacredness. This work bridges medieval traditions with the vibrant color and perspective innovations of the Venetian Renaissance, showcasing Bellini's pivotal role in shaping the era's artistic evolution.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  76
+image_inputs [<PIL.Image.Image image mode=RGB size=392x308 at 0x14DD092D1370>]
+generated_description:  Ion Andreescu's "Leafless Forest," painted between 1850-1900, embodies Realism's focus on nature's raw beauty. Set in a barren woodland, the leafless trees symbolize winter's starkness, reflecting the era's fascination with natural cycles. This scene captures the quiet solitude of the Romanian countryside, emphasizing the artist's commitment to portraying the unembellished truth of the natural world. The muted palette and detailed brushwork highlight the era's dedication to realism and environmental observation. Context is limited; further details are unavailable.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  77
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x616 at 0x14DCF860D760>]
+generated_description:  This 1915 Impressionist work by Pierre-Auguste Renoir, "Nude on the Grass," reflects his late-career focus on sensuous nudes. The soft brushstrokes and warm tones evoke a mythological, timeless atmosphere. Renoir's departure from strict realism aligns with Impressionism's emphasis on capturing fleeting impressions. The figure's relaxed pose and natural setting celebrate the beauty of the female form, a recurring theme in his art. This piece embodies the artist's mature style, blending classical influences with modern sensibilities.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  78
+image_inputs [<PIL.Image.Image image mode=RGB size=2044x1596 at 0x14DD092D1AC0>]
+generated_description:  Max Weber's "Russian Ballet," a cubist piece from 1900-1950, captures the dynamism of modern dance through fragmented forms and vibrant colors. Reflecting early 20th-century fascination with non-Western cultures, it merges European cubism with Russian folk art. The painting symbolizes cultural exchange and the avant-garde spirit of the era, challenging traditional perspectives and celebrating artistic innovation. Weber's work embodies the era's embrace of abstraction and global influences. Context insufficient for deeper symbolic analysis.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  79
+image_inputs [<PIL.Image.Image image mode=RGB size=980x896 at 0x14DD08F85070>]
+generated_description:  This Early Renaissance fresco by Domenico Ghirlandaio depicts Roman heroes Decius, Scipio, and Cicero, symbolizing virtues esteemed in Renaissance humanism. Set against a classical architectural backdrop, it reflects the period's revival of antiquity and emphasis on civic duty. The Latin inscription below extols their deeds, linking past glory to contemporary ideals. This work exemplifies the integration of classical themes with Christian values prevalent in 15th-century Florence.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  80
+image_inputs [<PIL.Image.Image image mode=RGB size=224x504 at 0x14DD08F85E80>]
+generated_description:  Lourdes Castro's "Ver-O" (1991) exemplifies Pop Art's fascination with everyday objects and minimalism. The stylized legs, rendered in bold blue against a neutral backdrop, challenge traditional figuration. Created in the 1990s, it reflects postmodern themes of deconstruction and abstraction. The simplicity and focus on limbs evoke a sense of anonymity and universality, inviting viewers to contemplate the human form's essence beyond conventional representation. The date and signature affirm its authenticity and artistic intent.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  81
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14DD63806640>]
+generated_description:  This untitled work by Helen Frankenthaler exemplifies Color Field painting, emphasizing large, flat areas of color and the canvas's integrity. Created between 1950-2000, it reflects post-war abstraction trends, stripping away imagery for pure visual experience. The blue hues evoke vastness and emotion, aligning with Frankenthaler's exploration of color as a primary means of expression. The painting's simplicity and scale invite contemplation, embodying the era's shift towards minimalism and abstraction. Contextual details about specific influences or events are unavailable.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  82
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x3108 at 0x14DD08F85250>]
+generated_description:  Insufficient context for historical or symbolic analysis. John Constable is primarily known for his landscape paintings, not still lifes. This work, "Flowers in a Glass Vase," does not align with his typical themes or the Romantic movement's emphasis on nature's grandeur. Without further details on its creation or intent, its specific historical or cultural significance remains unclear.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  83
+image_inputs [<PIL.Image.Image image mode=RGB size=1540x1932 at 0x14DD7943BFD0>]
+generated_description:  Max Weber's "Chinese Bowl," painted during the Fauvism era (1900-1950), exemplifies the movement's bold use of color and form. This still life, featuring vibrant fruits and dishware, reflects early 20th-century modernism's departure from realism. Fauvists like Weber sought to evoke emotion through intense hues and simplified shapes, challenging traditional artistic conventions. The painting captures a moment of domestic tranquility while embodying the cultural and artistic shifts of its time.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  84
+image_inputs [<PIL.Image.Image image mode=RGB size=644x980 at 0x14DD08F85C40>]
+generated_description:  This 1505 High Renaissance altarpiece by Lorenzo Lotto depicts the Virgin and Child enthroned with saints Peter, Christine, Liberale, and Jerome. Reflecting the era's religious devotion, it combines sacred narrative with human emotion. The upper lunette shows Christ's entombment, emphasizing mortality and salvation. Lotto's use of light and color highlights the figures' spiritual significance, while the inclusion of saints connects viewers to their intercessory roles. The painting underscores the period's focus on faith and the divine in daily life.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  85
+image_inputs [<PIL.Image.Image image mode=RGB size=448x560 at 0x14DD7943BFD0>]
+generated_description:  Milton Resnick's "Flag" (1963) embodies Abstract Expressionism's post-war ethos, reflecting existential angst and creative freedom. Its textured, layered surface and muted palette evoke natural decay and renewal, mirroring mid-20th-century societal shifts. Resnick's technique challenges traditional representation, emphasizing process over form. This work captures the era's tension between chaos and order, resonating with contemporaneous philosophical and artistic explorations of human experience and the sublime. Context insufficient for deeper symbolic analysis.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  86
+image_inputs [<PIL.Image.Image image mode=RGB size=420x560 at 0x14DD09277E80>]
+generated_description:  This Fernand Léger piece from 1950 exemplifies naive art primitivism, reflecting post-war optimism and simplicity. The abstracted figure with a hat suggests a circus performer, aligning with Léger's fascination with modern life and entertainment. Its bold lines and minimal color evoke a childlike perspective, emphasizing form over detail. This style challenges traditional art norms, mirroring mid-20th-century societal shifts towards abstraction and new forms of expression. The work's playful nature underscores Léger's belief in art's accessibility and universal appeal.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  87
+image_inputs [<PIL.Image.Image image mode=RGB size=588x728 at 0x14DD08F859A0>]
+generated_description:  This Rococo-era portrait by Allan Ramsay depicts William Colyear, Viscount Milsington, reflecting 18th-century aristocratic fashion and status. The vibrant red coat symbolizes wealth and power, while the books suggest intellectual pursuits. The soft lighting and elegant pose exemplify the period's emphasis on grace and refinement. This work captures the societal values and individual prominence of a notable figure during a time of cultural and political transition in Britain.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  88
+image_inputs [<PIL.Image.Image image mode=RGB size=1540x1820 at 0x14DD7943B9D0>]
+generated_description:  This High Renaissance fresco by Pietro Perugino depicts the martyrdom of St. Sebastian, a Christian saint revered for his faith. Set against a classical architectural backdrop, the scene combines religious fervor with humanist ideals. The arch symbolizes triumph and divine presence, while the angels and God above emphasize celestial approval. Perugino's use of perspective and detailed figures reflects the era's focus on realism and spiritual depth, aligning with the Christian themes prevalent in 16th-century art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  89
+image_inputs [<PIL.Image.Image image mode=RGB size=2492x2968 at 0x14DD09277220>]
+generated_description:  This Baroque portrait by Cornelis de Vos, dated 1633, captures an eleven-year-old girl in Spanish fashion, reflecting the cultural exchange and fashion trends of the 17th century. The inclusion of a dog symbolizes loyalty and status. The dark background and rich textures highlight the subject's elegance, aligning with the Baroque emphasis on drama and detail. The inscription marks her age and year, underscoring the importance of documenting youth and lineage in portraiture of this era.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  90
+image_inputs [<PIL.Image.Image image mode=RGB size=588x896 at 0x14DD08F85A00>]
+generated_description:  This 1869 Vanity Fair caricature by James Tissot depicts Archibald Campbell Tait, Archbishop of Canterbury, reflecting the era's fascination with prominent figures. The realistic style captures Tait's earnest demeanor, aligning with Victorian values of seriousness and duty. The caption underscores his liberal views, highlighting the tension between tradition and reform in 19th-century Britain. Tissot's work exemplifies the period's blend of satire and respect for influential statesmen.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  91
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DD08F85C40>]
+generated_description:  This Mannerist portrait by Giorgio Vasari depicts Lorenzo de' Medici, a key figure in Renaissance Florence. The refined attire and contemplative pose reflect his status as a patron of arts and culture. The background inscriptions and objects symbolize his legacy and intellectual pursuits. Created between 1500-1550, it captures the era's emphasis on individualism and humanism, showcasing Vasari's skill in blending realism with symbolic elements. The painting underscores Lorenzo's enduring influence on Renaissance society.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  92
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x1792 at 0x14DD08F85F10>]
+generated_description:  Fernand Léger's "The Breakfast" (1921) embodies Cubism's fragmented perspective, reflecting early 20th-century industrialization and mechanization. The stylized figures and geometric forms symbolize modernity's dehumanizing effects. Set during mealtimes, the painting juxtaposes human interaction with mechanical precision, mirroring societal shifts towards urbanization. Léger's bold colors and shapes challenge traditional representation, emphasizing the era's evolving artistic and cultural landscape. This work captures the tension between humanity and the machine age, a hallmark of its time.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  93
+image_inputs [<PIL.Image.Image image mode=RGB size=532x672 at 0x14DD0A70AD00>]
+generated_description:  Dmitry Levitzky's "Natalia Melgunova," painted circa 1750-1800, exemplifies Rococo elegance. The subject's elaborate hairstyle and attire reflect the period's fashion, emphasizing femininity and grace. Levitzky's soft brushwork and pastel palette capture the sitter's delicate features, aligning with Rococo ideals of beauty. This portrait highlights the cultural shift towards individual expression and the burgeoning importance of women in aristocratic society during the Enlightenment. The painting serves as a testament to Levitzky's skill in capturing the essence of his subjects within the artistic conventions of his time.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  94
+image_inputs [<PIL.Image.Image image mode=RGB size=784x672 at 0x14DD08F85F10>]
+generated_description:  Maurice Utrillo's "The Maquis of Montmartre Under the Snow" captures a serene winter scene in Paris, reflecting Post-Impressionism's focus on everyday life. Painted between 1900-1950, it evokes the charm of Montmartre's streets, with snow-covered buildings and pedestrians. The artist's use of muted colors and soft brushstrokes conveys a quiet, contemplative mood, highlighting the cultural and historical significance of this iconic Parisian neighborhood during the early 20th century.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  95
+image_inputs [<PIL.Image.Image image mode=RGB size=868x980 at 0x14DD08F99640>]
+generated_description:  This fragment from Raphael's Baronci Altarpiece (circa 1500-1550) exemplifies High Renaissance ideals. The angel's serene expression and soft curls reflect humanist values, while the rich red drapery and delicate lace highlight the era's attention to texture and detail. As part of a religious altarpiece, it underscores the period's devotion and the artist's mastery in blending spiritual themes with earthly beauty. The fragment's focus on a female figure aligns with Renaissance interest in idealized femininity.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  96
+image_inputs [<PIL.Image.Image image mode=RGB size=588x420 at 0x14DD08F99EE0>]
+generated_description:  Helio Oiticica's "Grand Núcleo" (1966) exemplifies Brazilian Neo-Concrete minimalism. Its vibrant orange geometric forms create a dynamic, immersive environment challenging traditional art-object boundaries. Reflecting post-war modernity and urbanization, it invites interaction, merging art with architecture and everyday life. This piece critiques rigid formalism, promoting sensory engagement and participatory experiences within the evolving cultural and architectural landscape of mid-20th century Brazil.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  97
+image_inputs [<PIL.Image.Image image mode=RGB size=364x476 at 0x14DD08F85B80>]
+generated_description:  Peter Max's "Better World" (1993) embodies the vibrant optimism of Pop Art, using bold colors and simplified forms to evoke harmony and renewal. The majorelle blue sky and radiant sunset symbolize hope and transformation, reflecting post-war aspirations for peace. Max's style, influenced by 1960s counterculture, blends cosmic imagery with spiritual undertones, celebrating unity and interconnectedness in a visually striking manner. The painting captures a universal longing for a better future, resonating with the era's cultural shifts towards positivity and global consciousness.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  98
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x14DD092776D0>]
+generated_description:  This 1896 realist painting by Ilya Repin captures a moment of social interaction, reflecting late 19th-century Russian society. The dimly lit room and intimate gathering suggest a private, possibly intellectual or artistic circle. Repin's use of light and shadow emphasizes the characters' expressions, conveying a sense of drama and emotional depth. The scene likely mirrors the artist's interest in portraying contemporary life and the complexities of human relationships during a period of social change in Russia.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  99
+image_inputs [<PIL.Image.Image image mode=RGB size=504x504 at 0x14DD08F99790>]
+generated_description:  Jean-Paul Lemieux's "Julie et l'univers" (1950-2000) reflects mid-20th-century Canadian expressionism. The figure's vintage outerwear and headgear evoke post-war fashion, symbolizing societal shifts. The muted palette and stark composition convey a sense of isolation, resonating with existential themes prevalent in the era. This work captures a transitional period in art and culture, blending individual identity with broader societal changes. Contextual details are limited; further analysis requires additional information.
+Progress saved: 100 images processed
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  100
+image_inputs [<PIL.Image.Image image mode=RGB size=336x644 at 0x14DD08F99490>]
+generated_description:  Insufficient context to explain the painting historically or symbolically.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  101
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1512 at 0x14DD08F85B80>]
+generated_description:  This 1778 Rococo portrait by Benjamin West depicts Princes William and Edward, emphasizing their royal lineage and future roles. The globe and naval imagery symbolize Britain's maritime power, while their attire reflects aristocratic fashion. The painting captures the era's fascination with childhood innocence and the importance of educating future leaders. West's technique showcases the period's attention to detail and use of light to convey status and character.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  102
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x14DD0A70AD00>]
+generated_description:  Jacopo Pontormo's "Portrait of a Young Woman" (c. 1525) exemplifies Mannerist portraiture with its elongated forms and subtle emotional depth. Set against a dark backdrop, the subject's poised demeanor and rich attire reflect Renaissance ideals of beauty and status. The small dog symbolizes fidelity, while the intricate netted hairpiece hints at contemporary fashion trends. This work captures the transitional period between High Renaissance clarity and Mannerist complexity, showcasing Pontormo's mastery in capturing psychological nuance.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  103
+image_inputs [<PIL.Image.Image image mode=RGB size=504x644 at 0x14DD092776A0>]
+generated_description:  This El Greco portrait exemplifies Mannerist elegance, blending Byzantine influences with Venetian techniques. The lady's poised demeanor and ornate attire reflect 16th-century Spanish nobility. The flower in her hair symbolizes beauty and virtue, while the dark background isolates her figure, emphasizing her ethereal presence. This work captures the transitional period between Renaissance and Baroque, showcasing El Greco's unique style and cultural synthesis. The inscription adds personal significance, likely identifying the sitter.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  104
+image_inputs [<PIL.Image.Image image mode=RGB size=364x448 at 0x14DD08F85670>]
+generated_description:  Willi Baumeister's "Swimmers on the Ladder" (1929) embodies Cubism's fragmented perspective, reflecting early 20th-century modernity. The abstract forms and geometric shapes challenge traditional representation, mirroring societal shifts post-WWI. Baumeister's work critiques conventional aesthetics, aligning with avant-garde movements. The ladder symbolizes progress and transition, resonating with the era's evolving cultural and technological landscapes. This piece captures the dynamic tension between human form and abstract structure, emblematic of Cubism's revolutionary impact on art.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  105
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x1008 at 0x14DD0A70AD00>]
+generated_description:  This Mannerist fresco by Paolo Veronese, depicting Hyman, Juno, and Venus, exemplifies the late Renaissance fascination with Greek and Roman mythology. Created between 1550-1600, it showcases Veronese's mastery of vibrant colors and dynamic compositions. The gods and goddesses, rendered with idealized beauty, reflect the era's revival of classical themes and humanist ideals, emphasizing divine harmony and celestial grandeur. The inclusion of cherubs adds a playful, yet reverent tone to the divine gathering.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  106
+image_inputs [<PIL.Image.Image image mode=RGB size=588x560 at 0x14DD08F854F0>]
+generated_description:  This post-impressionist still life by Constantin Piliuta, created between 1950-2000, reflects a modernist fascination with nature and form. The soft, muted tones and delicate rendering of flowers evoke a sense of tranquility and introspection. Influenced by botany, the artwork captures the ephemeral beauty of flora, symbolizing life's fleeting moments. The minimalist composition aligns with mid-20th-century artistic trends, emphasizing simplicity and emotional resonance over realism.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  107
+image_inputs [<PIL.Image.Image image mode=RGB size=924x1008 at 0x14DD08F99EE0>]
+generated_description:  This Baroque etching by Rembrandt, "Portrait of Cornelis Claesz," from 1640, captures a Dutch gentleman in opulent attire, reflecting the era's social hierarchy. The fur-lined cloak and hat signify wealth and status. The document and quill suggest literacy and involvement in commerce or governance. The chiaroscuro technique emphasizes the subject's presence, aligning with the Baroque emphasis on drama and realism. This piece exemplifies Rembrandt's mastery in portraying the character and identity of his subjects within their historical context.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  108
+image_inputs [<PIL.Image.Image image mode=RGB size=560x588 at 0x14DD08F97AC0>]
+generated_description:  Paolo Uccello's "Adoration of the Magi" (c. 1435) exemplifies Early Renaissance focus on perspective and narrative depth. Set against a detailed landscape, the scene blends sacred and secular elements, reflecting humanist ideals. The Magi's journey symbolizes the convergence of diverse cultures toward Christian salvation. Uccello's meticulous attention to detail and spatial arrangement underscores the era's transition from medieval flatness to a more realistic representation of space and form.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  109
+image_inputs [<PIL.Image.Image image mode=RGB size=2996x2688 at 0x14DD0A70AE20>]
+generated_description:  Tintoretto's "The Origin of the Milky Way," painted between 1550-1600, embodies Mannerist dynamism and Late Renaissance mythology. It depicts Jupiter spilling milk from Hera's breast, forming the Milky Way—a blend of celestial grandeur and earthly sensuality. The dramatic lighting and swirling composition reflect Tintoretto's innovative style, while the mythological subject underscores Renaissance humanism's revival of classical themes. The painting's rich symbolism and vivid storytelling highlight Tintoretto's mastery in bridging divine and mortal realms.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  110
+image_inputs [<PIL.Image.Image image mode=RGB size=532x644 at 0x14DD08F979A0>]
+generated_description:  Chagall's "Three Angels Visit Abraham" reflects his deep connection to Jewish heritage and biblical narratives. Created between 1950-2000, this naive art piece captures the pivotal moment from Genesis XVIII, emphasizing faith and hospitality. The stark contrast and simplified forms highlight the spiritual encounter, blending Chagall's personal mysticism with universal religious themes. The work underscores his role as a bridge between Jewish tradition and modern art, resonating with post-war existential reflections.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  111
+image_inputs [<PIL.Image.Image image mode=RGB size=364x560 at 0x14DD08F972B0>]
+generated_description:  Charles Lapicque's "Tigre" (1961) blends pop art with expressionism, reflecting post-war artistic experimentation. Its vibrant colors and bold strokes capture the tiger's dynamism, symbolizing nature's power amidst mid-20th-century urbanization. Lapicque's unique style challenges traditional wildlife representation, merging animal imagery with contemporary abstraction. The piece resonates with the era's cultural shifts, emphasizing individuality and emotional expression in a rapidly changing world.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  112
+image_inputs [<PIL.Image.Image image mode=RGB size=840x980 at 0x14DCF8095790>]
+generated_description:  This Leonardo da Vinci sketch exemplifies High Renaissance mastery, focusing on anatomical precision and expressive subtlety. Created circa 1500-1550, it captures a serene female visage, showcasing his fascination with human emotion and form. The delicate lines and shading reflect his innovative sfumato technique, emphasizing naturalism. As a preparatory study, it underscores his commitment to understanding the human figure, aligning with the era's emphasis on realism and ideal beauty.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  113
+image_inputs [<PIL.Image.Image image mode=RGB size=392x392 at 0x14DD08F97970>]
+generated_description:  Robert Mangold's "Ring A Yellow" (2010) exemplifies Minimalism's focus on simplicity and geometric abstraction. The stark yellow circle and intersecting lines evoke a sense of balance and order, challenging viewers to find meaning in basic forms. Created in the 21st century, it reflects ongoing dialogues between color, shape, and space, continuing the legacy of Minimalist exploration initiated in the 1960s. The piece invites contemplation of form and perception in a modern context.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  114
+image_inputs [<PIL.Image.Image image mode=RGB size=364x476 at 0x14DD092D1CD0>]
+generated_description:  Gene Davis's "Lime Lemon" (1970) exemplifies Color Field painting, emphasizing color and form over narrative. Its vertical stripes of vibrant hues create a rhythmic, immersive experience, reflecting post-war optimism and the era's embrace of abstraction. The piece challenges traditional painting boundaries, inviting viewers to engage with color as a primary subject. Influenced by modernist principles, it embodies the 1960s-70s cultural shift towards minimalism and sensory exploration. The textile-like appearance hints at the era's fascination with pattern and materiality.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  115
+image_inputs [<PIL.Image.Image image mode=RGB size=308x448 at 0x14DD08F972B0>]
+generated_description:  This Expressionist work by Yiannis Tsaroychis, circa 1967, captures a male athlete adorned with a laurel wreath, symbolizing victory and classical ideals. The style reflects post-war modernism, emphasizing emotional intensity and individuality. The focus on the chin and forehead highlights the subject's strength and determination, resonating with Greek cultural reverence for athletic prowess and intellectual achievement. The muted palette and bold brushstrokes convey a sense of timelessness and introspection. Contextual details are limited.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  116
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1148 at 0x14DD08F99C40>]
+generated_description:  Jan Steen's *Supper at Emmaus* (1668) captures a pivotal moment from the New Testament, reflecting Baroque drama and emotion. Set in a rustic inn, the scene emphasizes human interaction and divine revelation. Steen's use of light and shadow highlights the central figures, while the background subtly includes a haloed Christ, reinforcing the spiritual narrative. This work exemplifies the Baroque era's focus on realism and religious storytelling within a domestic setting.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  117
+image_inputs [<PIL.Image.Image image mode=RGB size=532x644 at 0x14DD092776D0>]
+generated_description:  Géricault's 1819 portrait of Alfred and Elizabeth Dedreux exemplifies Romanticism's emotional depth. Set against a dramatic sky, the children's serious expressions and intertwined poses suggest familial bonds and vulnerability. The artist's focus on individuality within a group reflects Romantic ideals of personal experience and emotion. This intimate portrayal contrasts with the grandeur of history painting, showcasing Romanticism's shift towards capturing human essence and natural settings. The painting's simplicity underscores the era's fascination with childhood innocence and familial themes.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  118
+image_inputs [<PIL.Image.Image image mode=RGB size=392x280 at 0x14DD08F99C40>]
+generated_description:  David Burliuk's "Peasant Woman with Red and Green Cows" (c. 1900-1950) embodies Naïve Art Primitivism, reflecting rural life's simplicity. Its bold colors and childlike forms challenge traditional aesthetics, celebrating peasant culture. The cows symbolize sustenance, while the vibrant hues evoke the vibrancy of village life. This work critiques urbanization, idealizing a pastoral existence amidst early 20th-century industrialization. Burliuk's style bridges folk art and modernism, capturing the essence of pre-industrial Russia's agrarian society.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  119
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x14DD08F85850>]
+generated_description:  Vasily Surikov's study for "The Conquest of Siberia by Yermak" captures the rugged spirit of Cossacks navigating icy waters. Set in the late 19th century, the Realist style emphasizes the harshness of Siberian exploration. The armed men in traditional attire reflect the military and pioneering aspects of Russian expansion. The boat, a symbol of journey and conquest, underscores the historical narrative of territorial growth and the resilience of the Russian people.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  120
+image_inputs [<PIL.Image.Image image mode=RGB size=980x1288 at 0x14DD08F993A0>]
+generated_description:  This 1838 Romantic portrait by Vasily Tropinin depicts D.P. Tatishchev, a Russian nobleman. The ornate military uniform and medals signify his status and service during a period of significant political and social change in Russia. The somber palette and detailed rendering reflect Romanticism's focus on individual character and historical context, emphasizing Tatishchev's role within the aristocratic and military hierarchy of the era. Insufficient data limits further symbolic interpretation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  121
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x14DD08F854F0>]
+generated_description:  This sketch by Theo van Doesburg, titled "Composition: The Cow," exemplifies Cubist abstraction. Created between 1900-1950, it transforms a cow into geometric forms, challenging traditional representation. Reflecting early 20th-century avant-garde movements, it emphasizes structure over realism. The sketch's dynamic lines and fragmented shapes symbolize modernity and the breakdown of conventional perspectives, aligning with Cubism's revolutionary approach to visual art. Contextually, it bridges animal imagery with abstract experimentation, showcasing van Doesburg's pivotal role in art evolution.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  122
+image_inputs [<PIL.Image.Image image mode=RGB size=672x560 at 0x14DD08F99D30>]
+generated_description:  Insufficient context to analyze the painting historically or symbolically. The provided metadata does not offer specific historical, cultural, or thematic insights related to Luciano Bartolini's "Asterione" within the minimalism movement of 1950-2000. Further details on the artist's intentions, the piece's creation context, or any associated symbolism are required for a comprehensive analysis.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  123
+image_inputs [<PIL.Image.Image image mode=RGB size=504x308 at 0x14DD092D1CD0>]
+generated_description:  Insufficient context for historical or symbolic analysis. The artwork appears to belong to the Minimalist movement (1950-2000), focusing on simplicity and raw materials. Without specific details about Alberto Carneiro's intentions or the cultural milieu of 1970s Brazil, a deeper interpretation remains elusive. The piece likely explores themes of nature and urbanization through its arrangement of wooden logs.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  124
+image_inputs [<PIL.Image.Image image mode=RGB size=1176x1792 at 0x14DD08F97070>]
+generated_description:  Anders Zorn's "A Fisherman" (1888) captures a serene moment between a couple overlooking a coastal town at dusk. The realism style reflects late 19th-century interest in everyday life. Lanterns symbolize guidance and warmth, while the couple's attire suggests social norms of the era. The painting evokes a sense of calm and connection, highlighting the artist's skill in portraying human relationships within a specific historical and cultural context.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  125
+image_inputs [<PIL.Image.Image image mode=RGB size=504x308 at 0x14DD08F99D30>]
+generated_description:  Van Gogh's "Churchyard in Winter" (1883) captures a somber rural cemetery scene, reflecting the artist's early exploration of realism. Set in the Netherlands, the muted tones and stark composition evoke a sense of isolation and mortality. This work aligns with the 19th-century Realist movement, emphasizing ordinary subjects and emotional depth. The presence of water and tombs underscores themes of transience and reflection, resonant with Van Gogh's personal struggles and the era's contemplative mood.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  126
+image_inputs [<PIL.Image.Image image mode=RGB size=504x252 at 0x14DD09277E80>]
+generated_description:  Martiros Saryan's "Mules Laden with Hay" (1910) embodies Fauvism's bold use of color and simplified forms. Set against a vibrant yellow backdrop, the green hay and blue-clad figures evoke the sun-drenched landscapes of Armenia. This scene captures rural labor, reflecting early 20th-century agrarian life. Saryan's expressive palette and dynamic composition celebrate the region's cultural identity and natural beauty, aligning with Fauvism's emphasis on emotional intensity over realistic representation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  127
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1120 at 0x14DD08F993A0>]
+generated_description:  Tintoretto's "Miracle of the Loaves and Fishes" (1581) exemplifies Mannerist dynamism and Late Renaissance spirituality. Set in a tumultuous landscape, Jesus feeds the multitude, symbolizing divine provision. Tintoretto's dramatic lighting and swirling composition reflect his innovative style, emphasizing emotional intensity. This biblical scene underscores Renaissance humanism's focus on faith and miracles, resonating with 16th-century Venetian piety and the Counter-Reformation's emphasis on religious narratives. The painting's theatricality and vivid storytelling highlight Tintoretto's mastery within his era's artistic evolution.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  128
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14DD08F85B80>]
+generated_description:  Jack Tworkov's "June 21, 1964," an abstract expressionist piece, uses bold red and blue vertical lines against a muted gray backdrop. Reflecting mid-20th-century American art, it evokes the flag motif popularized by contemporaries like Jasper Johns. The lines suggest rhythm and structure, embodying the era's exploration of color and form. This work captures the tension between order and spontaneity, characteristic of abstract expressionism's evolution in the 1960s.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  129
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14DD08F99A90>]
+generated_description:  Bernardo Bellotto's 1761 "View of the Lobkowicz Palace in Vienna" captures the grandeur of the Rococo era. The painting showcases the palace's architectural elegance and the bustling town square, reflecting Vienna's cultural vibrancy. Bellotto's precise detail and use of light highlight the era's fascination with urban life and public spaces, while the scene's activity mirrors the social dynamics of 18th-century Europe. The work serves as a historical document of Vienna's urban landscape and the artistic trends of its time.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  130
+image_inputs [<PIL.Image.Image image mode=RGB size=504x252 at 0x14DD08F85850>]
+generated_description:  Insufficient context to analyze the painting historically or symbolically. The provided timeframe and style do not align with the painting's date. Without specific details about Grégoire-Michonze's life, influences, or the cultural setting of the depicted ecoregion, a meaningful historical and contextual analysis cannot be generated.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  131
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x840 at 0x14DD08F99C40>]
+generated_description:  This painting, "The Education of the Children of Clovis" by Sir Lawrence Alma-Tadema, reflects the 19th-century fascination with historical accuracy and classical themes. Created in 1861, it exemplifies Romanticism's interest in reviving past grandeur. The scene depicts a pivotal moment in Merovingian history, emphasizing education and power. Alma-Tadema's meticulous attention to detail in costumes and architecture underscores his commitment to authenticity, catering to Victorian tastes for historical narratives and opulent visuals. The artwork serves as a cultural artifact, bridging modern viewers with ancient civilizations.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  132
+image_inputs [<PIL.Image.Image image mode=RGB size=364x252 at 0x14DD08F85850>]
+generated_description:  Michel Simonidy's *The Ball* (1899) captures the opulence and social dynamics of late 19th-century Parisian nightlife. Art Nouveau's fluid lines and vibrant colors reflect the era's modernity and femininity. The painting highlights women's evolving roles, showcasing them as central figures in public life. The blurred background emphasizes the subjects, symbolizing their prominence amidst societal change. This work embodies the cultural shift towards celebrating female beauty and elegance during the Belle Époque.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  133
+image_inputs [<PIL.Image.Image image mode=RGB size=560x560 at 0x14DD08F99EE0>]
+generated_description:  Mario Schifano's *Untitled (1963)* exemplifies Minimalism's focus on simplicity and abstraction. The bold yellow rectangle challenges traditional art, emphasizing color and form over narrative. Created during the 1960s, it reflects post-war optimism and the era's embrace of modernity. The stark, unadorned canvas invites viewers to engage with the pure essence of art, mirroring Minimalism's rejection of excess and its quest for fundamental truths. This piece stands as a testament to Schifano's innovative approach within the broader context of 20th-century art movements.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  134
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1400 at 0x14DD08F97CD0>]
+generated_description:  Captain Hay of Spot, painted by Henry Raeburn in the Romantic era (1800-1850), captures a Scottish gentleman in military attire, reflecting the Napoleonic Wars' influence. The redcoat and bicorn hat signify British military pride. The moody landscape backdrop emphasizes Romanticism's focus on nature and emotion, while the subject's pose conveys authority and contemplation. This portrait celebrates Scottish heritage and the era's valorization of military service and aristocratic identity.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  135
+image_inputs [<PIL.Image.Image image mode=RGB size=1988x1428 at 0x14DD092D1CD0>]
+generated_description:  Claude Monet's "Shadows on the Sea at Pourville" (1882) exemplifies Impressionism's focus on light and color. Painted en plein air, it captures the fleeting effects of sunlight on the sea and cliffs. Monet's use of broken brushstrokes conveys the shimmering water, reflecting his fascination with natural phenomena. This work highlights his dedication to documenting the French coastline, emphasizing the transient beauty of nature during the late 19th century.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  136
+image_inputs [<PIL.Image.Image image mode=RGB size=728x2324 at 0x14DCF8095460>]
+generated_description:  R.B. Kitaj's "La Hispanista Nissa Torrents," a Pop Art piece from 1950-2000, blends surrealism with cultural commentary. The male portrait, seated and contemplative, juxtaposes with floating cats and a ghostly woman, symbolizing memory and identity. The vibrant colors and collage-like composition reflect post-war artistic experimentation. Kitaj explores Jewish heritage and diaspora, using fragmented imagery to convey complex narratives. The work challenges traditional portraiture, merging personal and historical elements within a modernist framework.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  137
+image_inputs [<PIL.Image.Image image mode=RGB size=644x1036 at 0x14DCF8095400>]
+generated_description:  This 1920 Cubist work by Pablo Picasso, "Guitar on Pedestal," reflects the post-WWI return to order and classicism. It combines fragmented geometric shapes with bold colors, typical of Synthetic Cubism. The guitar, a recurring motif, symbolizes creativity and modernity. The piece bridges the avant-garde with traditional forms, showcasing Picasso's innovation during a transformative period in art history. The stark contrasts and structured composition echo the era's search for stability amidst societal shifts.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  138
+image_inputs [<PIL.Image.Image image mode=RGB size=532x812 at 0x14DD08F85B80>]
+generated_description:  Kitagawa Utamaro's *Flower-Patterned Cotton* exemplifies Edo-period ukiyo-e, capturing everyday elegance. The woman's attire reflects 18th-century fashion, while the plant symbolizes domestic tranquility. Utamaro's focus on female beauty and intimate moments highlights the genre's celebration of feminine grace. The inclusion of a child suggests familial themes, resonating with societal values of the time. This piece embodies the artistic and cultural richness of its era, showcasing Utamaro's mastery in portraying subtle human emotions within a domestic setting.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  139
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x1036 at 0x14DD08F993A0>]
+generated_description:  Claude Monet's *Still Life with Pears and Grapes* (1880) embodies Impressionism's focus on light and color. The loose brushstrokes and vibrant hues capture the transient effects of light on fruit, reflecting the era's shift from precise realism to capturing sensory impressions. This work highlights Monet's exploration of everyday subjects, emphasizing mood over detail, a hallmark of late 19th-century artistic evolution. The painting celebrates nature's beauty, aligning with Impressionism's celebration of the ordinary.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  140
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14DD08F972B0>]
+generated_description:  Insufficient context provided for a detailed analysis. The painting appears to reflect Fauvist influences with its bold colors and abstract forms, possibly depicting nocturnal industrial activity. Created between 1950-2000, it may symbolize the era's technological advancements and urbanization. Without specific historical or biographical details about Charles Lapicque or the intended symbolism, a deeper interpretation remains speculative.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  141
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x868 at 0x14DCF8095490>]
+generated_description:  Joachim Patinir's "Landscape with the Rest on the Flight" (c. 1515-1524) exemplifies Northern Renaissance art, blending Christian narrative with expansive landscapes. It depicts the Holy Family resting during their escape to Egypt, surrounded by detailed, idyllic scenery. Patinir pioneered the "world landscape," emphasizing vast, panoramic views that reflect the era's growing interest in nature and exploration. The painting's intricate details and symbolic elements, like the distant cityscape, convey themes of pilgrimage and divine protection.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  142
+image_inputs [<PIL.Image.Image image mode=RGB size=1400x1064 at 0x14DD08F99A90>]
+generated_description:  William H. Johnson's "Female Nude Reclining on Blue Ground" (1940) embodies Fauvism's bold use of color and simplified forms. Reflecting early 20th-century modernism, it challenges traditional nude portrayals. The blue ground and earthy tones evoke emotional intensity, while the muscular figure celebrates the human form. Johnson's work, influenced by African art, integrates cultural identity within the avant-garde movement, bridging racial representation and artistic innovation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  143
+image_inputs [<PIL.Image.Image image mode=RGB size=896x616 at 0x14DD08F97070>]
+generated_description:  Albert Bierstadt's "Portrait of a Horse" (1869) exemplifies Romanticism's emphasis on nature's grandeur. Set against a backdrop of distant mountains and teepees, the horse symbolizes the untamed wilderness of the American West. Bierstadt's detailed realism and luminous light celebrate the region's beauty, reflecting the era's fascination with exploration and the sublime power of the natural world. The painting captures a moment of tranquility, bridging the gap between human civilization and the wild frontier.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  144
+image_inputs [<PIL.Image.Image image mode=RGB size=364x448 at 0x14DCF8095A00>]
+generated_description:  Insufficient context to analyze the painting historically or symbolically. The provided metadata does not offer specific historical, cultural, or thematic insights related to the artwork. Abstract expressionism generally emphasizes spontaneous, emotional expression through non-representational forms, but without further details, a deeper analysis cannot be conducted.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  145
+image_inputs [<PIL.Image.Image image mode=RGB size=1428x1988 at 0x14DD08F99C40>]
+generated_description:  This 1800 portrait of Paul I of Russia by Vladimir Borovikovsky exemplifies Rococo opulence. The emperor's elaborate attire and regalia symbolize his absolute power and divine right to rule. Set against a richly decorated backdrop, the painting underscores the grandeur of the Russian monarchy during a period of political turbulence. Borovikovsky's attention to detail and use of vibrant colors highlight the cultural and artistic sophistication of the era. The portrait serves as a historical document of imperial authority and artistic achievement.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  146
+image_inputs [<PIL.Image.Image image mode=RGB size=588x476 at 0x14DD08F97100>]
+generated_description:  Howard Hodgkin's "Girl on a Sofa" (1968) blends pop art with abstract expressionism, reflecting post-war modernity. The bold red backdrop and graphic stripes evoke consumer culture, while the abstract pink and gold forms suggest a seated figure. This juxtaposition challenges traditional portraiture, merging personal expression with contemporary design. Hodgkin's work captures the era's evolving aesthetic, bridging high art with popular imagery. The piece symbolizes the intersection of individual identity and societal trends during the mid-20th century.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  147
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DD08F99490>]
+generated_description:  This early Renaissance painting by Sandro Botticelli depicts Christ carrying the cross, a pivotal moment in Christian theology symbolizing sacrifice and redemption. Created between 1450-1500, it reflects the period's focus on religious themes and human emotion. The vivid red robe and serene expression convey Christ's humanity and divine purpose, aligning with the era's emphasis on spiritual narrative and emotional depth in art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  148
+image_inputs [<PIL.Image.Image image mode=RGB size=4844x1428 at 0x14DD08F97AC0>]
+generated_description:  Ferdinand Hodler's "Unity" (1911) embodies Art Nouveau's modernist spirit, blending ancient history with contemporary allegory. The raised hands signify collective action, reflecting early 20th-century social movements. Hodler uses mythological elements to evoke universal human themes, emphasizing unity and solidarity. The central figure commands attention, symbolizing leadership amidst a crowd of followers. This work captures the era's tension between individuality and communal identity, resonating with the period's socio-political climate.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  149
+image_inputs [<PIL.Image.Image image mode=RGB size=588x728 at 0x14DD08F99C40>]
+generated_description:  Jack Tworkov's "Pink Mississippi" (1954) embodies Abstract Expressionism's exploration of emotion and spontaneity. Created in the mid-20th century, it reflects post-war America's cultural shift towards individual expression. The vibrant pink hues and dynamic brushstrokes convey intensity and movement, mirroring the era's artistic rebellion against traditional forms. This piece highlights Tworkov's contribution to the New York School, emphasizing the power of color and gesture in conveying inner experiences. Contextual details are limited.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  150
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x14DD08F97070>]
+generated_description:  Martin Schongauer's "Madonna on the Turf Bench" (c. 1450-1500) exemplifies Northern Renaissance piety. The intimate portrayal of Mary and Christ, set against a serene landscape, reflects the era's focus on personal devotion. Schongauer's detailed engraving technique captures the tender bond between mother and child, emphasizing Christian themes of maternal care and salvation. The signature "M†S" confirms his authorship, showcasing his mastery in religious iconography and influencing later artists.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  151
+image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14DD08F99700>]
+generated_description:  This Fauvist portrait by Maurice de Vlaminck, circa 1900, captures the raw emotion and vibrant color characteristic of the movement. The bold brushstrokes and distorted features reflect the artist's focus on emotional expression over realism. Set against a chaotic backdrop, the smoking man embodies the era's rebellion against traditional norms, mirroring the cultural upheaval and artistic experimentation of the early 20th century. The painting lacks specific historical or symbolic references beyond its stylistic context.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  152
+image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14DD08F972B0>]
+generated_description:  Betty Parsons' untitled abstraction reflects mid-20th-century Abstract Expressionism, emphasizing spontaneous creativity and emotional expression. Her work, like her contemporaries', challenges traditional forms, using vibrant colors and dynamic shapes to evoke feelings rather than depict reality. Parsons' contributions highlight women's roles in shaping post-war American art, breaking gender barriers in a male-dominated movement. The painting captures the era's spirit of innovation and freedom, mirroring societal shifts towards individualism and experimentation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  153
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DD08F99C40>]
+generated_description:  Patrick Procktor's "Corfu" (1989) blends Pop Art with Mediterranean charm. The arch frames a lush landscape, symbolizing transition and escape. Procktor's vibrant palette and bold lines reflect post-war optimism and travel culture. Trees and foliage evoke Corfu's natural beauty, while the arch hints at classical influences. This work captures the era's fascination with leisure and exotic locales, merging contemporary style with timeless themes. Context is limited; further details on Procktor's intent or Corfu's specific cultural relevance are absent.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  154
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x14DD08F85850>]
+generated_description:  Gustave Loiseau's "Field and Hills," a Post-Impressionist work from 1850-1900, captures the serene beauty of the French countryside. The vibrant brushstrokes and vivid colors reflect the era's fascination with light and nature. This natural landscape, featuring trees and meadows, embodies the period's celebration of rural tranquility and the artist's personal connection to the environment. The painting highlights the harmony between humanity and nature, a central theme in late 19th-century art.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  155
+image_inputs [<PIL.Image.Image image mode=RGB size=4340x2940 at 0x14DD08F99700>]
+generated_description:  This ukiyo-e print by Hokusai, titled "Sazai Hall at the Five Hundred Rakan Temple," captures a serene moment of visitors admiring Mount Fuji. Created between 1800-1850, it reflects the Edo period's fascination with travel and natural beauty. The composition blends human activity with the tranquil landscape, emphasizing the cultural reverence for Mount Fuji. The temple setting suggests a spiritual dimension, aligning with the era's blend of art, religion, and nature appreciation. The absence of volcanic activity in the image focuses on peaceful observation rather than dramatic natural events.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  156
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1092 at 0x14DCF818A730>]
+generated_description:  This Northern Renaissance portrait by Lucas Cranach the Elder, circa 1530, exemplifies the era's focus on individuality and status. The subject's elaborate headpiece and jewelry reflect her high social standing. The detailed rendering of textures and the subdued color palette highlight Cranach's skill. This work aligns with the period's emphasis on portraiture as a means to convey identity and wealth within a burgeoning Protestant context.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  157
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x812 at 0x14DD08F99A90>]
+generated_description:  This Impressionist work by Ilya Mashkov, set in Alupka Park, captures the vibrant atmosphere of early 20th-century Crimea. The scene blends natural beauty with human activity, reflecting the era's fascination with travel and leisure. The soft brushstrokes and warm colors evoke a sense of tranquility and nostalgia, characteristic of the period's artistic exploration of light and mood. The painting highlights the intersection of nature, culture, and progress during a transformative time in Russian history.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  158
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x14DCF818AD30>]
+generated_description:  Edouard Vuillard's "My Grandmother" (1892) exemplifies Post-Impressionism's focus on emotional depth over realism. The vibrant orange and textured patterns reflect the era's fascination with domestic interiors and personal relationships. This intimate portrait captures familial bonds, aligning with late 19th-century art's shift towards psychological exploration. The painting's rich colors and intricate textiles highlight the artist's interest in the interplay of light and shadow, a hallmark of the period.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  159
+image_inputs [<PIL.Image.Image image mode=RGB size=588x588 at 0x14DCF80955B0>]
+generated_description:  Charles Hinman's *Untitled from the On the Bowery Portfolio* (1969) exemplifies Color Field painting, emphasizing flat color and geometric abstraction. The interplay of lines and construction paper creates a three-dimensional illusion, reflecting mid-20th-century experimentation with space and form. This work captures the era's shift towards minimalism and the exploration of visual perception, aligning with broader artistic trends of the time. Contextual details are limited.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  160
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1092 at 0x14DCF81AD190>]
+generated_description:  Mabuse's "Adam and Eve in Paradise" (c. 1500-1550) embodies Northern Renaissance humanism and Christian theology. Set in Eden, it depicts the moment of temptation, with Eve holding the forbidden fruit and Adam contemplating sin. The serpent, a symbol of evil, coils above them. The detailed landscape and anatomical precision reflect the era's focus on realism and biblical narratives. This work underscores the fall of humanity, a central theme in Christian doctrine during the Renaissance.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  161
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x14DCF81AD4F0>]
+generated_description:  Eugène Boudin's "Quittebeuf" (1893) captures a serene French countryside scene, reflecting Impressionism's focus on light and atmosphere. The painting showcases a tranquil waterway near a village, with a church tower anchoring the composition. Boudin's en plein air technique emphasizes the fleeting effects of light, capturing the essence of rural life. This work highlights the artist's mastery of sky and water, themes central to his oeuvre during the late 19th century.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  162
+image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14DCF818A6D0>]
+generated_description:  This Chagall work, reflecting his engagement with biblical narratives, depicts Joshua before the angel of the Lord, a scene from the Hebrew Bible. Created in the mid-20th century, it embodies Chagall's unique blend of naive art and primitivism. The angel, wielding a sword, symbolizes divine authority and protection. Chagall's Jewish heritage informs the piece, merging personal spirituality with universal themes of faith and leadership. The artwork captures a moment of reverence and awe, highlighting the intersection of human and divine realms.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  163
+image_inputs [<PIL.Image.Image image mode=RGB size=588x504 at 0x14DCF818A040>]
+generated_description:  Fikret Mualla Saygi's "Saygı Sar Elbise," painted in the Fauvist style between 1900-1950, uses bold colors and simplified forms to depict figures against a vibrant red backdrop. This reflects Fauvism's emphasis on emotional expression through color. The painting likely captures a social scene, possibly commenting on societal norms or personal relationships within the cultural context of the early 20th century. The lack of specific historical details limits further interpretation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  164
+image_inputs [<PIL.Image.Image image mode=RGB size=644x756 at 0x14DCF81AD250>]
+generated_description:  This fragment from Rembrandt's 1632 Baroque masterpiece depicts three gentlemen, likely members of the Amsterdam Surgeons' Guild. Their serious expressions and formal attire reflect the gravity of the anatomical lesson being conducted. The detailed rendering of facial features and clothing highlights Rembrandt's skill in capturing individuality and the era's emphasis on scientific inquiry and social status. The painting underscores the intersection of art, science, and societal roles in 17th-century Holland.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  165
+image_inputs [<PIL.Image.Image image mode=RGB size=1596x2324 at 0x14DCF81ADD00>]
+generated_description:  This Utagawa Kuniyoshi ukiyo-e print, circa 1800-1850, captures a male actor in a dynamic pose, reflecting the theatrical vibrancy of Edo-period Japan. The bold lines, vibrant colors, and expressive features exemplify the genre's focus on kabuki performers. The hawk and Mount Fuji in the background symbolize power and national pride, while the text highlights the actor's role and the artist's signature style. This piece celebrates the intersection of art, performance, and cultural identity in 19th-century Japan.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  166
+image_inputs [<PIL.Image.Image image mode=RGB size=420x560 at 0x14DCF81AD850>]
+generated_description:  Auguste Herbin's "Dessert" (1913) exemplifies Cubism's fragmentation of perspective, reflecting early 20th-century modernity. The overlapping planes and geometric forms challenge traditional representation, mirroring societal shifts towards abstraction. Herbin's use of vibrant colors and bold shapes conveys a dynamic energy, symbolizing the era's embrace of innovation. This artwork captures the cultural zeitgeist, blending artistic experimentation with the evolving urban landscape of the time.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  167
+image_inputs [<PIL.Image.Image image mode=RGB size=2184x3136 at 0x14DCF81AD4F0>]
+generated_description:  Utagawa Kuniyoshi's "Clearing Water at Horikawa" (c. 1800-1850) exemplifies ukiyo-e's dramatic flair, depicting a warrior amidst arrows, symbolizing chaos and valor. Set during Japan's feudal era, it reflects the cultural fascination with samurai heroism and martial prowess. The vibrant colors and dynamic composition capture the intensity of battle, resonating with contemporary audiences' appetite for epic narratives and historical drama. This piece underscores ukiyo-e's role in preserving and glorifying Japan's warrior heritage.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  168
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DD08F99A90>]
+generated_description:  Insufficient context for detailed analysis. Giorgione's "Portrait of a Young Man" (c. 1504) exemplifies High Renaissance portraiture, focusing on the subject's introspective expression and rich textures. The muted palette and soft modeling reflect Venetian techniques. Symbolism is ambiguous, typical of Giorgione's enigmatic style. The portrait likely commemorates a nobleman, aligning with the era's emphasis on individualism and humanism. Specific cultural or biographical details are lacking.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  169
+image_inputs [<PIL.Image.Image image mode=RGB size=364x504 at 0x14DCF81ADD00>]
+generated_description:  This ukiyo-e sketch by Hokusai, from his *Manga* series (1800s), showcases varied facial expressions and masks, reflecting Edo-period theatrical and cultural motifs. The text labels add context, emphasizing the expressive range in Japanese art. Hokusai's focus on diverse faces illustrates his interest in capturing human emotion and societal roles, aligning with the manga tradition's exploration of everyday life and humor. The piece highlights Hokusai's innovative approach to ukiyo-e beyond traditional portraiture.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  170
+image_inputs [<PIL.Image.Image image mode=RGB size=3192x1764 at 0x14DCF81AD8E0>]
+generated_description:  Monticelli's "Oriental Scene" (1876) embodies Romanticism's fascination with the exotic East. Set in a bustling street, the vibrant attire and archway evoke a sense of mystery and allure. Reflecting 19th-century European interest in Orientalism, the painting captures the era's cultural exchange and artistic exploration of foreign lands. Monticelli's use of bold colors and dynamic composition highlights the romanticized view of Eastern life during this period.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  171
+image_inputs [<PIL.Image.Image image mode=RGB size=588x588 at 0x14DCF81ADC10>]
+generated_description:  Sam Francis's "Light in Itself" (1979) exemplifies Abstract Expressionism's post-war exploration of color and gesture. The vibrant yellow field and dynamic splatters reflect the era's emphasis on spontaneity and emotional expression. Francis's work bridges East and West, incorporating Japanese calligraphy's fluid lines. This piece captures the optimism and energy of the late 20th century, celebrating individuality and the interplay of color within a structured yet freeform composition.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  172
+image_inputs [<PIL.Image.Image image mode=RGB size=756x1008 at 0x14DD08F99D30>]
+generated_description:  This 1902 self-portrait by Boris Kustodiev exemplifies early 20th-century Russian realism. It captures the artist's introspective gaze and detailed facial features, reflecting the era's focus on individuality and psychological depth. Created during Kustodiev's formative years, it showcases his skill in sketching and foreshadows his future contributions to Russian art. The portrait's simplicity underscores the artist's personal journey amidst the cultural shifts of pre-revolutionary Russia. Contextual details are limited without further specific information.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  173
+image_inputs [<PIL.Image.Image image mode=RGB size=644x420 at 0x14DCF80956A0>]
+generated_description:  This ukiyo-e print by Katsushika Hokusai depicts a serene springtime concert under wisteria, reflecting Edo period leisure and aesthetics. The scene captures figures in elegant attire, emphasizing textile beauty and seasonal harmony. Hokusai's work here showcases the era's appreciation for nature and refined social gatherings, aligning with ukiyo-e's focus on everyday life and landscapes. The tranquil setting and detailed clothing highlight the cultural values of elegance and seasonal celebration prevalent in 19th-century Japan.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  174
+image_inputs [<PIL.Image.Image image mode=RGB size=588x420 at 0x14DD092776D0>]
+generated_description:  Maria Primachenko's "Fairy Bird Peacock" (1936) exemplifies Ukrainian naive art primitivism. Its vibrant colors and stylized forms reflect rural traditions and folklore. The peacock, a symbol of beauty and immortality, merges with fantastical elements, showcasing the artist's imaginative vision. This work highlights the interplay between nature and fantasy, capturing the essence of early 20th-century folk art during a period of cultural revival and national identity exploration.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  175
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1036 at 0x14DCF81AD610>]
+generated_description:  "Giovanni Antonio Boltraffio's Madonna Litta (c. 1490) embodies High Renaissance ideals, reflecting Leonardo da Vinci's influence. The serene Madonna and Christ child, framed by arched windows, symbolize divine maternal love. Boltraffio's use of sfumato and balanced composition highlight humanism's focus on naturalism and emotion. This masterpiece, created during a pivotal era of artistic innovation, underscores the period's reverence for religious themes and technical mastery."
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  176
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x14DCF8095F70>]
+generated_description:  Mark Rothko's "Interior" (c. 1930s) reflects his early expressionist phase, capturing a somber, introspective mood. The painting's focus on doors and windows symbolizes transition and confinement, themes resonant with the era's social upheaval. The muted palette and distorted figures evoke a sense of isolation, mirroring the artist's personal and cultural displacement. This work bridges Rothko's early figuration with his later abstract explorations, highlighting his evolving engagement with existential concerns.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  177
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1876 at 0x14DCF81ADAC0>]
+generated_description:  This 1745 engraving by William Hogarth, titled "The Battle of the Pictures," satirizes the art world's obsession with classical and religious imagery. In Rococo style, it depicts paintings literally battling, reflecting Hogarth's critique of academic art hierarchies. The chaotic scene symbolizes the conflict between traditional art forms and Hogarth's advocacy for modern, moral subjects. It underscores his belief in art's role in social commentary during the 18th century.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  178
+image_inputs [<PIL.Image.Image image mode=RGB size=280x280 at 0x14DD08F97040>]
+generated_description:  The provided image does not appear to be a painting but rather a sculpture or installation. Without additional context or specific details about Daniel Dezeuze's "Par une for-t obscure III," a detailed historical and contextual analysis cannot be accurately provided. The tags and style suggest a minimalist approach, potentially exploring form and space through repetition and color.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  179
+image_inputs [<PIL.Image.Image image mode=RGB size=672x504 at 0x14DD08F99A90>]
+generated_description:  Leonardo da Vinci's "Drawing of a Flood" (c. 1500-1550) reflects High Renaissance fascination with nature's power. Inspired by Old Testament floods, it symbolizes divine wrath and renewal. Leonardo's intricate patterns capture water's chaotic force, merging scientific observation with artistic expression. This study aligns with Renaissance humanism, exploring natural phenomena through art. The drawing's dynamic swirls evoke both awe and fear, underscoring humanity's vulnerability to nature's fury within a Christian framework.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  180
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x14DCF8095370>]
+generated_description:  This vibrant pop art piece by Hiro Yamagata captures a whimsical Parisian scene, blending modern aviation with classic city charm. Set in the mid-20th century, it reflects post-war optimism and technological progress. Airplanes and hot air balloons soar above quaint buildings, symbolizing freedom and adventure. The bright colors and playful composition evoke a sense of joy and nostalgia, celebrating urban life and human ingenuity during a transformative era. The artwork lacks specific historical references but embodies the spirit of its time.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  181
+image_inputs [<PIL.Image.Image image mode=RGB size=560x756 at 0x14DD08F97070>]
+generated_description:  This ukiyo-e print by Katsushika Hokusai, titled "New Year's Days of the Teahouse Ogi-ya," captures the festive atmosphere of a New Year celebration in an Edo-period teahouse. The scene illustrates the social interactions and rituals of the time, reflecting the cultural importance of communal gatherings during holidays. Hokusai's detailed depiction of figures in traditional attire highlights the era's customs and the vibrant life of urban Japan in the early 19th century.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  182
+image_inputs [<PIL.Image.Image image mode=RGB size=504x448 at 0x14DD08F993A0>]
+generated_description:  Titian's "Perseus and Andromeda" (1556) embodies Mannerist drama and Late Renaissance mastery. Set against a tumultuous sea, Perseus rescues Andromeda, chained and vulnerable. This mythological scene reflects human heroism and divine intervention, resonating with Renaissance ideals of beauty and narrative depth. Titian's use of light and shadow enhances the emotional intensity, capturing a pivotal moment of salvation and triumph in Greek mythology. The painting exemplifies the artist's skill in blending classical themes with contemporary artistic techniques.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  183
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x952 at 0x14DD08F85850>]
+generated_description:  Renoir's *Woman with Parasol* (1873) embodies Impressionism's focus on light and atmosphere. Set in a sunlit meadow, the parasol casts dynamic shadows, reflecting contemporary leisure and fashion. The blurred background emphasizes the momentary, capturing modern life's fleeting beauty. Renoir's soft brushstrokes and vibrant colors celebrate femininity and nature, aligning with 19th-century ideals of domesticity and elegance. This work reflects the era's social shifts, portraying women in outdoor settings with newfound freedom.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  184
+image_inputs [<PIL.Image.Image image mode=RGB size=252x336 at 0x14DD08F99EE0>]
+generated_description:  This minimalist painting by Edward Corbett, titled "P-T-5," from 1970, embodies the era's focus on simplicity and abstraction. The bold orange and brown hues, intersected by a thin line, reflect the post-war shift towards pure forms and color fields. Minimalism emerged as a reaction against the gestural excess of Abstract Expressionism, emphasizing the canvas's flatness and the viewer's perceptual experience. Corbett's work captures this essence, stripping art to its fundamental elements.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  185
+image_inputs [<PIL.Image.Image image mode=RGB size=784x980 at 0x14DCF818A5E0>]
+generated_description:  Lentulov's self-portrait (1912) embodies Cubism's fragmented perspective, reflecting early 20th-century modernist ideals. The geometric abstraction challenges traditional portraiture, symbolizing a break from past conventions. Created during a period of artistic revolution, it captures Lentulov's identity through multifaceted planes, mirroring the complex, evolving Russian art scene. The vibrant palette and dynamic composition underscore the era's embrace of innovation and individual expression. This work highlights the artist's pivotal role in advancing avant-garde movements.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  186
+image_inputs [<PIL.Image.Image image mode=RGB size=392x588 at 0x14DCF818A4F0>]
+generated_description:  Insufficient context to analyze the painting historically or symbolically. The provided metadata does not offer specific details about the artwork's cultural, historical, or thematic elements. Without additional information on the artist's intentions, the painting's setting, or its relation to broader art movements, a detailed explanation cannot be generated.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  187
+image_inputs [<PIL.Image.Image image mode=RGB size=504x196 at 0x14DCF81AD190>]
+generated_description:  This early Renaissance painting by Sandro Botticelli depicts the Annunciation, a pivotal moment in Christian theology where the angel Gabriel announces to Mary her divine pregnancy. Created around 1490, it reflects the period's focus on religious themes and human emotion. Botticelli's use of vibrant colors and detailed landscapes showcases the transition from Gothic to Renaissance styles, emphasizing clarity and emotional depth. The work highlights the era's devotion and artistic innovation.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  188
+image_inputs [<PIL.Image.Image image mode=RGB size=420x560 at 0x14DCF8095370>]
+generated_description:  Sam Francis's *Untitled* (1964) exemplifies Abstract Expressionism's post-WWII emergence, reflecting existential angst and liberation. His vibrant splatters and bold strokes evoke spontaneity and emotional release, challenging traditional art forms. The work's dynamic energy mirrors the era's cultural shifts toward individualism and non-conformity. Francis's use of negative space and color contrasts highlights the tension between chaos and order, resonating with the period's complex social and political climate. This piece captures the essence of mid-20th-century artistic rebellion.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  189
+image_inputs [<PIL.Image.Image image mode=RGB size=504x420 at 0x14DCF818A670>]
+generated_description:  Olivier Debré's "Touraine Automne Jaune Rose" exemplifies Color Field painting, emphasizing color and form over narrative. Created between 1950-2000, it reflects post-war abstraction trends. Debré's use of vibrant yellows and pinks evokes autumnal warmth, while vertical brushstrokes suggest natural forms. This piece captures the era's shift towards emotional expression through color, aligning with mid-20th-century artistic exploration of non-representational forms and the psychological impact of color.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  190
+image_inputs [<PIL.Image.Image image mode=RGB size=812x364 at 0x14DD08F85850>]
+generated_description:  Konstantinos Parthenis's *Still Life with Bottles* (1900-1950) exemplifies Expressionism's focus on emotional intensity over realistic depiction. The sparse lines and muted palette evoke a sense of introspection and solitude. Reflecting early 20th-century European art trends, Parthenis uses abstraction to convey personal and cultural identity, blending Western influences with his Greek heritage. The bottles, central to the composition, symbolize everyday life's simplicity and complexity during a transformative era. The limited context precludes deeper symbolic interpretation.  
+
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  191
+image_inputs [<PIL.Image.Image image mode=RGB size=756x588 at 0x14DCF80956D0>]
+generated_description:  Michelangelo's depiction of Judith carrying Holofernes' head (1512) exemplifies High Renaissance mastery. This Old Testament scene, set within the Sistine Chapel ceiling, symbolizes divine justice and female virtue. The dynamic composition and anatomical precision reflect Michelangelo's study of classical forms. The painting's vivid narrative aligns with Renaissance humanism, celebrating biblical heroines. Its placement underscores the chapel's spiritual and artistic grandeur, embodying the era's synthesis of faith and artistry.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  192
+image_inputs [<PIL.Image.Image image mode=RGB size=532x672 at 0x14DD08F99A90>]
+generated_description:  Mikhail Nesterov's 1885 "A Girl with Kokoshnik" captures a young woman in traditional Russian attire, reflecting late 19th-century realism. The kokoshnik, a symbol of marital status and regional identity, highlights cultural heritage. Nesterov's focus on subtle expressions and textures conveys a sense of quiet dignity. This work aligns with the era's interest in national identity and the depiction of everyday life, showcasing the artist's skill in portraying the essence of Russian femininity within a historical context.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  193
+image_inputs [<PIL.Image.Image image mode=RGB size=1456x1120 at 0x14DCF80956D0>]
+generated_description:  Braque's "Landscape at La Ciotat" (1907) exemplifies Fauvism's bold use of non-naturalistic colors and dynamic brushstrokes. Painted during the early 20th century, it captures the vibrant energy of the Mediterranean landscape. The exaggerated reds and yellows reflect the era's liberation from traditional representation, emphasizing emotional expression over realism. This work bridges Impressionism and Cubism, showcasing Braque's pivotal role in modern art's evolution.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  194
+image_inputs [<PIL.Image.Image image mode=RGB size=336x448 at 0x14DD08F99D30>]
+generated_description:  Insufficient context to analyze the painting historically or symbolically. The provided metadata does not offer adequate historical, cultural, or thematic information to generate a meaningful explanation. The tags suggest a contemporary color field painting with a pink hue and a nose motif, but without further details, a deeper analysis cannot be conducted.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  195
+image_inputs [<PIL.Image.Image image mode=RGB size=532x476 at 0x14DCF8095370>]
+generated_description:  This 1934 Cubist work by Albert Gleizes, "Matière et Lumière ou le Christ au tétramorphe," integrates Christian iconography with abstract forms. The central figure, likely Christ, is surrounded by symbols of the four Evangelists, reflecting theological themes. Gleizes' use of overlapping planes and vibrant colors exemplifies Cubism's exploration of space and light, merging spiritual and modernist aesthetics within a post-WWI context. The piece underscores the era's search for new artistic languages to express traditional subjects.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  196
+image_inputs [<PIL.Image.Image image mode=RGB size=280x420 at 0x14DD08F99A90>]
+generated_description:  Jacques Villon's "The Violinist" (1899) captures the essence of Post-Impressionism, emphasizing form and structure over fleeting impressions. Set against a monochromatic red backdrop, the violinist embodies the era's fascination with music and performance. The sketch-like lines reflect the artist's interest in capturing movement and rhythm, resonating with the cultural vibrancy of late 19th-century Paris. The piece symbolizes the intersection of art and music, highlighting the period's artistic experimentation and cultural dynamism.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  197
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x14DCF818A3D0>]
+generated_description:  Ivan Bilibin's 1905 illustration for Pushkin's "Fairytale of Tsar Saltan" exemplifies Art Nouveau's influence on Russian modernism. It captures the opulence of a medieval feast, blending Slavic mythology with intricate patterns. The vibrant palette and stylized figures reflect the era's fascination with folklore and national identity. Bilibin's work bridges traditional Russian aesthetics with contemporary design, celebrating cultural heritage through a modern lens. The scene evokes a sense of grandeur and storytelling intrinsic to Russian literary tradition.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  198
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1288 at 0x14DD08F97070>]
+generated_description:  Hieronymus Bosch's "Triptych of the Temptation of St. Anthony" (c. 1506) reflects Northern Renaissance concerns with sin and redemption. The chaotic scene, filled with grotesque figures and symbolic objects, illustrates the saint's spiritual trials. Bosch's intricate details and imaginative creatures convey the era's fascination with moral allegory and the human struggle against temptation. This work exemplifies the artist's unique vision, blending Christian themes with fantastical elements to explore the complexities of faith and morality.
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Processing row:  199
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1008 at 0x14DCF818A940>]
+generated_description:  Picasso's "Matador" (1970) exemplifies his late-period Cubism, blending fragmented forms with vivid colors. Set against a backdrop of bullfighting motifs, the painting reflects Picasso's lifelong fascination with Spanish culture. The matador's distorted features and dynamic pose symbolize the intensity and drama of the sport. This work underscores Picasso's enduring exploration of identity and tradition within a modernist framework, capturing the essence of masculinity and cultural heritage.  
+
+Progress saved: 200 images processed
+
+GPU Memory Usage:
+GPU 0:
+  Allocated: 69040.14 MB
+  Cached: 69128.00 MB
+GPU 1:
+  Allocated: 71044.12 MB
+  Cached: 71046.00 MB
+Inference completed. Generated descriptions saved to './art_context/output_sample_200_WikiArt_10000data/generated_descriptions_naive_job_0.json'.
+
+JOB STATISTICS
+==============
+Job ID: 12162393
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 32
+CPU Utilized: 01:12:00
+CPU Efficiency: 4.52% of 1-02:34:40 core-walltime
+Job Wall-clock time: 00:49:50
+Memory Utilized: 6.28 GB
+Memory Efficiency: 1.75% of 360.00 GB (360.00 GB/node)

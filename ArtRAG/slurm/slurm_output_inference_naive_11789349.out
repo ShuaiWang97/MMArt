@@ -1,0 +1,981 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11789349/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x1533e0474b80>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x1533e1b8b820>,
+  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x1534116d79d0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=6)
+Processing data from index 600 to 700
+Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Processing row:  600
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.37it/s][A
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.41it/s][A
+Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.42it/s][A
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.43it/s][A
+Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.73it/s][ALoading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.58it/s]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   1%|          | 1/100 [00:16<26:25, 16.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   2%|▏         | 2/100 [00:18<13:32,  8.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   3%|▎         | 3/100 [00:22<09:45,  6.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 4/100 [00:25<08:09,  5.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   5%|▌         | 5/100 [00:30<07:54,  4.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 6/100 [00:33<06:43,  4.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   7%|▋         | 7/100 [00:37<06:12,  4.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 8/100 [00:39<05:22,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   9%|▉         | 9/100 [00:44<05:59,  3.95s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 10/100 [00:48<05:46,  3.85s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  11%|█         | 11/100 [00:51<05:27,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 12/100 [00:55<05:36,  3.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  13%|█▎        | 13/100 [00:59<05:38,  3.89s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 14/100 [01:03<05:29,  3.84s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  15%|█▌        | 15/100 [01:06<05:08,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 16/100 [01:09<04:54,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  17%|█▋        | 17/100 [01:12<04:36,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 18/100 [01:16<04:41,  3.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  19%|█▉        | 19/100 [01:19<04:41,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 20/100 [01:23<04:41,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  21%|██        | 21/100 [01:26<04:21,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 22/100 [01:29<04:18,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  23%|██▎       | 23/100 [01:32<04:16,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 24/100 [01:36<04:15,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  25%|██▌       | 25/100 [01:40<04:23,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 26/100 [01:43<04:10,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  27%|██▋       | 27/100 [01:47<04:19,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 28/100 [01:50<04:14,  3.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  29%|██▉       | 29/100 [01:53<03:58,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 30/100 [01:56<03:51,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  31%|███       | 31/100 [02:00<03:57,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 32/100 [02:04<03:55,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  33%|███▎      | 33/100 [02:08<04:00,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 34/100 [02:11<03:59,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  35%|███▌      | 35/100 [02:15<04:03,  3.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 36/100 [02:19<03:53,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  37%|███▋      | 37/100 [02:22<03:44,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 38/100 [02:25<03:26,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  39%|███▉      | 39/100 [02:29<03:37,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 40/100 [02:32<03:22,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  41%|████      | 41/100 [02:35<03:19,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 42/100 [02:39<03:16,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  43%|████▎     | 43/100 [02:42<03:09,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 44/100 [02:46<03:15,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  45%|████▌     | 45/100 [02:50<03:18,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 46/100 [02:54<03:19,  3.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  47%|████▋     | 47/100 [02:57<03:12,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 48/100 [03:00<03:05,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  49%|████▉     | 49/100 [03:04<03:00,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 50/100 [03:08<03:03,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  51%|█████     | 51/100 [03:11<02:56,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 52/100 [03:15<02:49,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  53%|█████▎    | 53/100 [03:19<02:50,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▍    | 54/100 [03:22<02:41,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▌    | 55/100 [03:25<02:36,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 56/100 [03:29<02:36,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▋    | 57/100 [03:31<02:14,  3.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 58/100 [03:35<02:25,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  59%|█████▉    | 59/100 [03:39<02:25,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 60/100 [03:42<02:19,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  61%|██████    | 61/100 [03:46<02:15,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 62/100 [03:49<02:10,  3.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  63%|██████▎   | 63/100 [03:53<02:08,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 64/100 [03:56<02:05,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  65%|██████▌   | 65/100 [03:59<01:55,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 66/100 [04:02<01:51,  3.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  67%|██████▋   | 67/100 [04:07<01:57,  3.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 68/100 [04:10<01:49,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  69%|██████▉   | 69/100 [04:14<01:54,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 70/100 [04:17<01:45,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  71%|███████   | 71/100 [04:21<01:42,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 72/100 [04:24<01:38,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  73%|███████▎  | 73/100 [04:27<01:30,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 74/100 [04:30<01:23,  3.21s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  75%|███████▌  | 75/100 [04:33<01:22,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 76/100 [04:37<01:23,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  77%|███████▋  | 77/100 [04:41<01:22,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 78/100 [04:45<01:22,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  79%|███████▉  | 79/100 [04:49<01:17,  3.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 80/100 [04:51<01:05,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  81%|████████  | 81/100 [04:55<01:03,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 82/100 [04:58<00:58,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  83%|████████▎ | 83/100 [05:01<00:55,  3.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 84/100 [05:04<00:51,  3.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  85%|████████▌ | 85/100 [05:07<00:48,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 86/100 [05:11<00:47,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  87%|████████▋ | 87/100 [05:15<00:47,  3.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 88/100 [05:19<00:44,  3.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  89%|████████▉ | 89/100 [05:22<00:39,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 90/100 [05:26<00:35,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  91%|█████████ | 91/100 [05:29<00:31,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 92/100 [05:32<00:26,  3.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  93%|█████████▎| 93/100 [05:36<00:24,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 94/100 [05:39<00:20,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  95%|█████████▌| 95/100 [05:42<00:15,  3.18s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 96/100 [05:46<00:13,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  97%|█████████▋| 97/100 [05:49<00:10,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 98/100 [05:52<00:06,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  99%|█████████▉| 99/100 [05:55<00:03,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|██████████| 100/100 [05:58<00:00,  3.19s/it]Processing rows: 100%|██████████| 100/100 [05:58<00:00,  3.59s/it]
+image_inputs [<PIL.Image.Image image mode=RGB size=448x532 at 0x1533D578DF10>]
+generated_description:  This Baroque painting by Mario Nuzzi, dated 1650-1700, features cherubs, floral motifs, and acanthus scrolls, reflecting the ornate and decorative style typical of the period. It likely served as a decorative element, possibly for a wealthy home or public space, emphasizing the luxurious and celebratory aspects of Baroque art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  601
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x1533DD36C190>]
+generated_description:  This painting, "Natura Morta con Tralcio di Fiori" by Mario Nuzzi, exemplifies the Baroque style prevalent between 1650-1700. It features a still life of vibrant cut flowers, reflecting the Baroque fascination with nature and the dramatic use of light and shadow. The rich colors and detailed textures highlight the artist's skill in capturing the beauty of everyday objects, typical of the period's focus on realism and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  602
+image_inputs [<PIL.Image.Image image mode=RGB size=588x868 at 0x1533D53FA880>]
+generated_description:  This Baroque still life painting, "Natura Morta di Fiori in un Vaso," by Mario Nuzzi, created between 1650-1700, showcases vibrant flora in a richly detailed vase. The dark, moody background contrasts with the vivid colors of the flowers, emphasizing their beauty and fragility. This style reflects the Baroque era's focus on dramatic lighting and realism, often used to convey themes of transience and the fleeting nature of life, as suggested by the "memento mori" motif.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  603
+image_inputs [<PIL.Image.Image image mode=RGB size=392x588 at 0x1533E01DCAC0>]
+generated_description:  This painting, "Roses, Tulips, Chrysanthemums, and Other Flowers in a Sculpted Urn on an Earthen Bank," by Mario Nuzzi, exemplifies the Baroque style prevalent between 1650-1700. It showcases the intricate detail and vibrant colors characteristic of Baroque still life paintings, reflecting the era's focus on realism and dramatic contrasts. The arrangement of flowers in a sculpted urn emphasizes the beauty and fragility of nature, a common motif in Baroque art. The dark background enhances the vividness of the floral hues, creating a striking visual impact typical of the period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  604
+image_inputs [<PIL.Image.Image image mode=RGB size=840x560 at 0x1533D512FEE0>]
+generated_description:  This self-portrait by Mario Nuzzi, created around 1640, exemplifies the Baroque style with its dramatic lighting and rich detail. Nuzzi, a 17th-century Italian painter, uses vibrant floral arrangements to symbolize the transient nature of life, aligning with the Baroque era's focus on grandeur and emotion. The dark background contrasts sharply with the vivid flowers, emphasizing the subject's presence and the fleeting beauty of nature. This work reflects the Baroque emphasis on realism and emotional depth, capturing both the artist's identity and the transient beauty of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  605
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x672 at 0x1533D53FA3D0>]
+generated_description:  This Baroque painting, *Spring* by Mario Nuzzi, created around 1660, depicts a mythological scene centered around the goddess Flora, symbolizing spring. The lush floral surroundings and playful cherubs reflect the Baroque emphasis on nature and human emotion, capturing the essence of renewal and vitality associated with the season. This work aligns with the broader Renaissance and Baroque traditions of mythological representations, blending classical themes with contemporary artistic techniques.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  606
+image_inputs [<PIL.Image.Image image mode=RGB size=644x896 at 0x1533D53FA880>]
+generated_description:  This Baroque still-life painting, *Still Life with a Vase of Flowers* by Mario Nuzzi, created between 1650-1700, exemplifies the period's focus on rich textures and dramatic lighting. The dark background enhances the vibrancy of the flowers, reflecting the Baroque emphasis on contrast and realism. Nuzzi's work captures the transient beauty of nature, aligning with the era's fascination with the fleeting moment. The detailed rendering of each petal and leaf showcases the artist's skill and the era's appreciation for naturalism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  607
+image_inputs [<PIL.Image.Image image mode=RGB size=560x812 at 0x1533D5058DF0>]
+generated_description:  This Baroque painting by Mario Nuzzi, dated 1650-1700, depicts an angel in a garland of flowers, a common motif in religious art symbolizing purity and divine beauty. The dark background emphasizes the vibrant floral wreath and the serene expression of the angel, reflecting the Baroque focus on dramatic contrasts and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  608
+image_inputs [<PIL.Image.Image image mode=RGB size=392x588 at 0x1533D5172C40>]
+generated_description:  This painting, "Tulips, Lilies, Irises, and Other Flowers in a Sculpted Urn with a Snake and a Moth," by Mario Nuzzi, exemplifies the Baroque style prevalent between 1650-1700. It features a rich still-life composition with vibrant flowers, reflecting the Baroque emphasis on realism and dramatic lighting. The inclusion of a snake and moth adds symbolic layers, possibly alluding to themes of mortality and the transient nature of beauty, common in Baroque still lifes. The dark background contrasts sharply with the vivid colors, enhancing the dramatic effect typical of the era. The sculpted urn serves as a central motif, symbolizing stability amidst change. This work showcases Nuzzi's skill in capturing the intricate details of flora and fauna, characteristic of Baroque still-life painting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  609
+image_inputs [<PIL.Image.Image image mode=RGB size=784x952 at 0x1533D51722E0>]
+generated_description:  This Baroque still life painting by Mario Nuzzi, created between 1650-1700, showcases a rich array of flowers and foliage, reflecting the Baroque era's emphasis on grandeur and detail. The vibrant colors and intricate compositions highlight the artist's skill in capturing light and texture, typical of the period. The inclusion of a bird adds a dynamic element, emphasizing nature's beauty and the transient nature of life, a common motif in Baroque art. This work exemplifies the transition from Mannerism to Baroque, focusing on realism and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  610
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x784 at 0x1533D53FA760>]
+generated_description:  This Baroque painting, "Montbéliard," by Nicolas Tournier, likely dates from the 17th century (1600-1650). It depicts a family scene with adults and children engaged in music-making, reflecting the cultural emphasis on education and leisure in the Baroque period. The attire and instruments suggest a noble or affluent setting, typical of the era's portraiture. The inclusion of a dog adds a touch of domesticity and warmth to the composition.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  611
+image_inputs [<PIL.Image.Image image mode=RGB size=2436x2016 at 0x1533D512F8E0>]
+generated_description:  The painting "The Concert" by Nicolas Tournier, dated to the Baroque period (1600-1650), depicts a group of musicians in a dimly lit interior setting. The use of chiaroscuro, a hallmark of Baroque art, emphasizes the figures and their instruments, creating a dramatic and intimate atmosphere. The attire and musical instruments suggest a wealthy, aristocratic setting, reflecting the social status and leisure activities of the time. This genre painting captures a moment of musical performance, highlighting the cultural importance of music in 17th-century society.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  612
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1176 at 0x1533D5172EB0>]
+generated_description:  This painting, "Bouquet in a Niche," by Osias Beert, exemplifies the Baroque style, created between 1600-1650. It features a vibrant still-life arrangement of flowers, including garden roses and lilies, set within a dark niche, highlighting the contrast and depth typical of Baroque compositions. The meticulous detail and realistic depiction of the flora reflect the era's fascination with nature and the pursuit of realism. This work aligns with the broader trend of still-life painting during the Baroque period, which often aimed to capture the beauty and transient nature of life through intricate and lifelike representations.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  613
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x924 at 0x1533D08C3EE0>]
+generated_description:  This painting, *Dishes with Oysters, Fruit, and Wine* by Osias Beert, exemplifies the Baroque period's focus on realism and detail. Created around 1625, it showcases a lavish spread of oysters, fruit, and wine, reflecting the opulence of the era. The meticulous depiction of textures and reflections, along with the use of light, aligns with the Baroque emphasis on drama and sensory experience. The inclusion of everyday objects like shells and a wine glass underscores the genre's shift towards capturing the mundane beauty of daily life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  614
+image_inputs [<PIL.Image.Image image mode=RGB size=1372x1064 at 0x1533D5079A90>]
+generated_description:  This still-life painting by Osias Beert, created during the Baroque period (1600-1650), showcases a meticulous representation of food and drink, reflecting the era's fascination with realism and detail. The inclusion of oysters, bread, and wine highlights the culinary sophistication and the social context of feasting during this time. The dark background emphasizes the textures and colors of the food, typical of Baroque still-life techniques.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  615
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1008 at 0x1533D5079130>]
+generated_description:  This Baroque still life by Osias Beert, dated 1600-1650, showcases a rich array of food items, reflecting the opulence and culinary sophistication of the period. The inclusion of a roasted chicken, ham, olives, bread, and wine highlights the importance of food in social and cultural contexts, emphasizing abundance and the pleasures of the senses. The meticulous detail and realistic rendering align with the Baroque emphasis on grandeur and sensory experience.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  616
+image_inputs [<PIL.Image.Image image mode=RGB size=952x672 at 0x1533D08C7F70>]
+generated_description:  This Baroque still life, "Still Life of Fruit" by Osias Beert from 1610, showcases a rich array of fruits and garnishes, reflecting the opulence and detail typical of the period. It emphasizes the beauty and variety of food, a common theme in Baroque art, symbolizing abundance and the pleasures of life. The dark background enhances the vibrancy of the colors and textures, highlighting the meticulous craftsmanship of the artist.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  617
+image_inputs [<PIL.Image.Image image mode=RGB size=448x280 at 0x1533D08C31C0>]
+generated_description:  This still-life painting by Osias Beert, dated 1600-1650, exemplifies the Baroque style, focusing on the intricate details and realistic textures of food items. The arrangement of fruits and oysters highlights the artist's skill in capturing light and shadow, reflecting the era's fascination with naturalism and the celebration of everyday luxuries. The inclusion of a glass of wine further emphasizes the opulence and refined tastes of the period. This type of painting was popular during the Baroque era, serving as a testament to the artist's ability to convey both the beauty and the sensory experience of the depicted objects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  618
+image_inputs [<PIL.Image.Image image mode=RGB size=924x756 at 0x1533D08C3FD0>]
+generated_description:  This still-life painting by Osias Beert, dated around 1610, exemplifies the Baroque style, focusing on detailed, realistic depictions of food and objects. The arrangement of artichokes, oysters, bread, and glassware highlights the era's fascination with naturalism and the celebration of everyday luxury. The dark background contrasts sharply with the vibrant textures and colors, emphasizing the tactile qualities of the subjects. This type of painting was popular during the 17th century, reflecting the growing interest in domestic life and the status symbols of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  619
+image_inputs [<PIL.Image.Image image mode=RGB size=1372x1008 at 0x1533D08C30A0>]
+generated_description:  This Baroque still life, "Still Life with Cherries and Strawberries in China Bowls," by Osias Beert from 1608, showcases the era's fascination with naturalism and detail. The rich textures and vibrant colors of the fruits and gilded objects reflect the Baroque emphasis on sensory experience and opulence. The inclusion of cherries and strawberries highlights the seasonal bounty and the artist's skill in capturing light and texture. This work exemplifies the genre's role in celebrating the beauty of everyday life during the 17th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  620
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x1533D5079220>]
+generated_description:  This Baroque still life, "Still Life with Oysters and Pastries" by Osias Beert from 1610, showcases the opulence and detail characteristic of the period. The rich textures and realistic depiction of food items reflect the era's fascination with naturalism and the celebration of culinary abundance. The inclusion of oysters and pastries highlights the diversity of cuisine and the social status implied by such a feast.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  621
+image_inputs [<PIL.Image.Image image mode=RGB size=980x560 at 0x1533D08C37F0>]
+generated_description:  This Baroque still-life painting by Osias Beert, dated 1600-1650, showcases a meticulous arrangement of food items, including a roasted bird, bread, cookies, and fruits, emphasizing realism and detail typical of the period. The dark background and dramatic lighting highlight the textures and colors of the subjects, reflecting the Baroque focus on grandeur and realism. This style was popular in the Netherlands during the 17th century, where still-life paintings often served as moral reminders or symbols of wealth and abundance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  622
+image_inputs [<PIL.Image.Image image mode=RGB size=952x644 at 0x1533D512F8B0>]
+generated_description:  This Baroque still life painting by Osias Beert, dated between 1600-1650, showcases a rich array of sweetmeats and chestnuts arranged on a table. The meticulous detail and realistic textures reflect the Baroque emphasis on sensory experience and the luxurious tastes of the period. The inclusion of everyday objects like glasses and a skull adds layers of symbolism, possibly hinting at themes of mortality and the transient nature of earthly pleasures. This work exemplifies the genre's focus on capturing the beauty and variety of food and objects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  623
+image_inputs [<PIL.Image.Image image mode=RGB size=868x644 at 0x1533D5079DF0>]
+generated_description:  This painting, "A Forest Pool" by Paul Bril, exemplifies the Baroque style prevalent in the 17th century. Created around 1600, it showcases Bril's mastery of botanical detail and atmospheric perspective, capturing the serene beauty of a forested landscape. The intricate rendering of trees and plants reflects the era's fascination with nature and the scientific advancements of the time. The tranquil scene, with a figure and dog near a pool, evokes a sense of harmony with nature, typical of the period's aesthetic and philosophical leanings.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  624
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1036 at 0x1533D5079DC0>]
+generated_description:  This painting, "A Wooded Landscape with a Bridge and Sportsmen at the Edge of the River," by Paul Bril, exemplifies the Baroque style prevalent in the 16th and early 17th centuries. Set in a lush, naturalistic landscape, the scene captures the serene beauty of nature, with figures engaging in leisurely activities like fishing and hunting. The use of light and shadow, along with the detailed depiction of trees and sky, reflects the Baroque emphasis on drama and realism. This work showcases Bril's skill in creating tranquil yet dynamic compositions, blending human interaction with the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  625
+image_inputs [<PIL.Image.Image image mode=RGB size=896x672 at 0x1533D5059970>]
+generated_description:  This painting, "An Extensive Landscape," by Paul Bril, exemplifies the Baroque style prevalent in the 17th century. Set in a rural area, it showcases Bril's mastery of landscape composition, blending classical influences with a serene pastoral scene. The use of light and shadow creates depth, while figures and animals populate the foreground, adding life to the tranquil countryside. This work reflects the era's fascination with nature and the idealized depiction of rural life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  626
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x700 at 0x1533D5079160>]
+generated_description:  This painting, "Coastal Landscape," by Paul Bril, exemplifies the Baroque style prevalent in the 16th and early 17th centuries. Set against a dramatic sky, the scene captures a serene coastal moment, blending natural elements with human activity. Bril's use of light and shadow, characteristic of the Baroque period, enhances the depth and atmosphere, reflecting the era's focus on grandeur and emotional intensity. The painting likely reflects Bril's influence from his time in Rome, where he absorbed classical and Renaissance traditions, adapting them to create a harmonious blend of nature and human presence.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  627
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x728 at 0x1533D08C7370>]
+generated_description:  This painting, "Diana and her Nymphs at the Hunt," by Paul Bril, exemplifies Baroque landscape painting, created around 1600. It depicts a serene natural scene with Diana, goddess of the hunt, and her nymphs in a lush, wooded landscape. The use of light and shadow, along with the detailed rendering of trees and sky, reflects the Baroque emphasis on drama and realism. The painting likely draws inspiration from classical mythology, blending nature with mythological themes to create a harmonious and idyllic setting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  628
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x756 at 0x1533D08C7370>]
+generated_description:  This painting, "Fantastic Mountain Landscape," by Paul Bril, exemplifies the Baroque style, created between 1550-1600. It features a natural landscape with a river and ruins, typical of the period's fascination with grandeur and dramatic contrasts. The inclusion of figures and architectural elements suggests a focus on harmony between nature and human presence, reflecting the Baroque era's emphasis on realism and emotional impact.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  629
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x728 at 0x1533D0731940>]
+generated_description:  This painting, "Jesus Walking on the Sea of Galilee," by Paul Bril, exemplifies the Baroque style, created around 1590. It depicts a biblical scene with Jesus walking on water, a miraculous event from the New Testament. The dramatic lighting and dynamic composition reflect the Baroque emphasis on emotion and movement. The setting, with its lush landscape and distant castle, suggests a mythological or allegorical interpretation, blending religious themes with classical elements typical of the period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  630
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x672 at 0x1533D07310A0>]
+generated_description:  This painting, "Landscape with Figures," by Paul Bril, exemplifies the Baroque style prevalent in the 17th century. Set in a Dutch landscape, it showcases the meticulous detail and dramatic use of light characteristic of the period. The scene depicts a bustling village with figures engaged in various activities, reflecting everyday life and the harmony between humans and nature. The inclusion of a windmill and traditional Dutch architecture underscores the artist's focus on capturing the essence of rural life during the Dutch Golden Age. This work is a testament to the Baroque era's emphasis on realism and the integration of human activity within a picturesque setting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  631
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x924 at 0x1533D5058F10>]
+generated_description:  This painting, "Landscape with a Hunting Party and Roman Ruins" by Paul Bril, exemplifies the Baroque style prevalent in the 17th century. Set against a backdrop of ancient ruins, the scene combines realistic landscape depiction with symbolic elements, reflecting the era's fascination with classical antiquity and the grandeur of nature. The inclusion of a hunting party suggests themes of leisure and the pursuit of pleasure amidst decay, aligning with the Baroque interest in dramatic contrasts and the interplay of light and shadow.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  632
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x1533D0731940>]
+generated_description:  This painting, "Landscape with a Marsh," by Paul Bril, exemplifies the Baroque style, created around 1595. It showcases a detailed natural landscape with lush vegetation and a serene marsh, reflecting the era's fascination with nature and the grandeur of the natural world. The meticulous depiction of trees and foliage highlights the Baroque emphasis on realism and the dramatic interplay of light and shadow, creating a sense of depth and tranquility. This work aligns with the broader trend of landscape painting gaining prominence during the Renaissance and Baroque periods, as religious themes declined and a focus on the beauty of nature emerged.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  633
+image_inputs [<PIL.Image.Image image mode=RGB size=1232x812 at 0x1533D07310D0>]
+generated_description:  This painting, "Landscape with Mercury and Argus," by Paul Bril, exemplifies the Baroque style, created around 1606. It depicts a serene natural landscape with a focus on the interaction between human figures and nature. The inclusion of mythological elements, such as Mercury and Argus, suggests a narrative or allegorical intent, blending classical themes with Baroque grandeur. The detailed rendering of the sky, trees, and rocky formations showcases Bril's mastery of landscape painting, reflecting the era's fascination with nature and its dramatic use of light and shadow.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  634
+image_inputs [<PIL.Image.Image image mode=RGB size=1176x812 at 0x1533D073A1C0>]
+generated_description:  This painting, *Landscape with Nymphs and Satyrs* by Paul Bril, created around 1623, exemplifies the Baroque style's emphasis on drama and grandeur. Set in a lush, wooded landscape, the scene depicts mythological figures engaging in a pastoral setting, reflecting the era's fascination with classical themes and the natural world. Bril's use of light and shadow, along with his detailed rendering of trees and foliage, showcases his mastery in creating a serene yet dynamic environment. This work aligns with the broader trend of Italianate landscape painting, which sought to evoke a sense of harmony and beauty through nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  635
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1036 at 0x1533D073A7F0>]
+generated_description:  This painting, "Landscape with Roman Ruins" by Paul Bril, created around 1580, exemplifies the Baroque period's fascination with classical antiquity. Set against a backdrop of Roman ruins, the scene reflects the era's scholarly interest in history and mythology, blending realism with idealized landscapes. The presence of figures and a carriage suggests themes of travel and exploration, common in Baroque art, while the ruins symbolize the passage of time and the enduring legacy of classical culture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  636
+image_inputs [<PIL.Image.Image image mode=RGB size=924x700 at 0x1533D5058F10>]
+generated_description:  This painting, *Landscape with Stag Hunt* by Paul Bril, created around 1595, exemplifies the Baroque style with its dramatic use of light and shadow, rich atmospheric effects, and detailed natural landscapes. Set in a serene yet dynamic rural scene, the painting captures a moment of hunting, blending human activity with the grandeur of nature. Bril's work reflects the Baroque era's focus on realism and emotional intensity, showcasing his skill in rendering the interplay of light and atmosphere, typical of the period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  637
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x1533D512F8B0>]
+generated_description:  This painting, "Landscape," by Paul Bril, exemplifies the Baroque style, created between 1600-1650. It features a natural landscape with a dramatic sky, mountains, and trees, capturing the wilderness and serene beauty of nature. The use of light and shadow highlights the rugged terrain and adds depth to the composition, reflecting the Baroque emphasis on realism and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  638
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x952 at 0x1533D08D6670>]
+generated_description:  This painting, *Landschaft mit Sibylletempel* by Paul Bril, created around 1595, exemplifies the Baroque style with its dramatic use of light and shadow. Set in a fantastical landscape, the scene combines classical architecture with mythological elements, reflecting the era's fascination with antiquity and the divine. The Sibyl temple, a central motif, symbolizes wisdom and prophecy, aligning with the Baroque's emphasis on grandeur and spiritual themes. The artist's meticulous attention to detail in the rocky terrain and the distant cityscape showcases his skill in creating depth and atmosphere, typical of the period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  639
+image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x1533D08D6580>]
+generated_description:  This Baroque painting by Paul Bril, titled "Mountain Scene," from the 1550-1600 timeframe, depicts a dramatic landscape with a bridge over a rocky formation, likely referencing geological features. The scene evokes themes of nature's power and beauty, common in Baroque art, reflecting the era's fascination with grandeur and the sublime. The inclusion of figures suggests a narrative, possibly allegorical, exploring human interaction with the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  640
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1008 at 0x1533D08CFC70>]
+generated_description:  This painting, "Römische Ruinenlandschaft" by Paul Bril, is a Baroque landscape featuring ancient ruins, likely inspired by the Roman ruins of Italy. It reflects the Baroque fascination with classical antiquity and the idealized representation of nature and history. The scene combines realistic details with symbolic elements, showcasing the artist's skill in blending the natural world with historical and mythological themes. The timeframe places it within the early Baroque period, emphasizing the era's focus on dramatic lighting and intricate composition.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  641
+image_inputs [<PIL.Image.Image image mode=RGB size=980x700 at 0x1533D0722100>]
+generated_description:  This painting, "Ruins and Figures," by Paul Bril, exemplifies the Baroque style prevalent in the 17th century. Created between 1600 and 1650, it showcases the artist's mastery of dramatic lighting and rich, detailed landscapes. The scene combines classical ruins with human figures, reflecting the Baroque fascination with the past and the interplay between nature and civilization. This work aligns with the broader trend of depicting historical and mythological themes through grand, atmospheric settings, typical of the period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  642
+image_inputs [<PIL.Image.Image image mode=RGB size=840x756 at 0x1533D0731940>]
+generated_description:  This self-portrait by Paul Bril, created around 1600, reflects the Baroque period's emphasis on dramatic lighting and rich detail. The artist's attire and the inclusion of a landscape painting suggest his dual roles as a painter and draftsman, highlighting the importance of landscape art in the 17th-century Dutch Golden Age. The painting captures the essence of the era's focus on realism and the artist's skill in both portraiture and landscape depiction.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  643
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x1533D0722BE0>]
+generated_description:  This painting, *The Campo Vaccino with a Gypsy Woman Reading a Palm*, by Paul Bril, exemplifies Baroque landscape painting, created around 1603. Set in a mythological or historical context, it depicts a bustling scene with ruins and figures engaging in various activities. The use of light and shadow, along with the detailed rendering of architectural ruins, reflects the Baroque emphasis on drama and grandeur. The inclusion of a gypsy woman reading palms adds a touch of exoticism and human interest, typical of the period's fascination with mythology and the supernatural.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  644
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x756 at 0x1533D073FB20>]
+generated_description:  This Baroque painting by Paul Bril, *The Port*, from 1611, depicts a bustling harbor scene with a large sailing ship, likely a frigate or fluyt, central to the composition. The detailed rendering of the ship and surrounding activity reflects the era's fascination with maritime exploration and trade. The use of light and shadow enhances the dramatic atmosphere, typical of Baroque art, emphasizing the grandeur and complexity of maritime life. The presence of smaller boats and figures engaged in various activities underscores the port's economic importance. This work exemplifies the Baroque style's focus on realism and dynamic composition.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  645
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x812 at 0x1533D073F700>]
+generated_description:  This painting, "View of a Port" by Paul Bril, created around 1607, exemplifies the Baroque style with its dramatic use of light and shadow. Set in a bustling harbor, the scene captures the maritime activity of the time, reflecting the importance of seafaring during the early 17th century. The detailed depiction of ships and figures highlights the artist's skill in portraying both the grandeur of maritime trade and the everyday life of port workers. The painting aligns with the broader cultural emphasis on realism and the glorification of nature and human endeavor characteristic of the Baroque period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  646
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x560 at 0x1533D073AC10>]
+generated_description:  Paul Bril's "View of Bracciano" (1620) exemplifies the Baroque style, characterized by dramatic lighting and dynamic compositions. Set in the early 17th century, the painting captures the grandeur of Bracciano, a town near Rome, showcasing its fortified castle and picturesque landscape. The scene reflects the era's fascination with natural beauty and urban life, blending architectural detail with pastoral elements. This work aligns with the Baroque trend towards realism and grandeur, emphasizing the harmony between human activity and the surrounding environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  647
+image_inputs [<PIL.Image.Image image mode=RGB size=700x896 at 0x1533D0722BE0>]
+generated_description:  The Adoration of the Magi by Peter Paul Rubens, created in 1629, exemplifies the Baroque style with its dynamic composition, rich colors, and dramatic lighting. Set in a rustic stable, the painting depicts the moment when the Magi present gifts to the infant Christ, surrounded by figures in elaborate attire. This scene reflects the religious devotion common in the Counter-Reformation era, emphasizing the divine birth and the reverence of the wise men. The artwork's vivid detail and emotional intensity highlight Rubens' mastery of Baroque aesthetics.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  648
+image_inputs [<PIL.Image.Image image mode=RGB size=560x784 at 0x1533D08CFCD0>]
+generated_description:  This painting, "Adoration of the Shepherds," by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set against a rustic backdrop, the scene captures the moment of the shepherds' adoration of the newborn Christ, blending biblical narrative with dynamic, emotive brushwork characteristic of Baroque art. The vibrant colors and dramatic lighting emphasize movement and emotion, reflecting the Counter-Reformation's emphasis on spiritual intensity and the human experience. This work showcases Rubens' ability to convey religious devotion through vivid, theatrical imagery.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  649
+image_inputs [<PIL.Image.Image image mode=RGB size=560x784 at 0x1533D08EA760>]
+generated_description:  This painting, "Adoration of the Shepherds," by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set in a rustic, dramatic landscape, the scene depicts the biblical moment of the shepherds visiting the newborn Christ. Rubens uses vibrant colors and dynamic brushstrokes to convey emotion and movement, reflecting the Baroque emphasis on drama and sensuality. The painting's rich symbolism, including the shepherds' humble attire and the serene expressions of the figures, underscores themes of faith and reverence. It was created during a period when religious art continued to hold significant cultural and spiritual importance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  650
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x1533D073F370>]
+generated_description:  This painting, "Aeneas and His Family Departing from Troy," by Peter Paul Rubens, depicts a scene from Roman mythology. Set in the Baroque period (1600-1650), the artwork reflects the era's emphasis on drama, movement, and color. It illustrates the myth of Aeneas fleeing Troy after the fall of the city, showcasing Rubens' ability to blend classical themes with emotional intensity. The painting's rich detail and dynamic composition highlight the Baroque style's focus on storytelling and grandeur.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  651
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1568 at 0x1533D072CF40>]
+generated_description:  This Baroque portrait by Peter Paul Rubens, dated 1627, depicts two young boys in elaborate 17th-century attire, reflecting the fashion of the time. The rich fabrics, fur-lined gloves, and ornate clothing highlight the opulence and social status of the subjects. The setting, with architectural elements, suggests a formal, aristocratic environment typical of the period. The painting exemplifies Rubens' ability to capture the elegance and detail of Baroque portraiture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  652
+image_inputs [<PIL.Image.Image image mode=RGB size=2828x3276 at 0x1533D072CA00>]
+generated_description:  This painting, *Alexander and Roxana*, by Peter Paul Rubens, depicts a mythological scene from the life of Alexander the Great and Roxana, his Persian queen. Set in a Baroque style, the artwork reflects the opulence and drama characteristic of the period. Rubens uses vibrant colors and dynamic compositions to convey the story of their union, blending classical themes with contemporary sensibilities. The painting was created during Rubens' mature career, showcasing his mastery of color and movement, typical of the Baroque era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  653
+image_inputs [<PIL.Image.Image image mode=RGB size=644x812 at 0x1533D073FAC0>]
+generated_description:  This painting, "Anna of Austria, Queen of France," by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Commissioned in 1625, it reflects the grandeur and opulence of the era, showcasing Anna's regal attire and the intricate details of her clothing, which symbolize her status and power. The use of rich colors and dramatic lighting emphasizes the subject's beauty and the cultural emphasis on portraiture as a means of conveying political and social prestige.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  654
+image_inputs [<PIL.Image.Image image mode=RGB size=896x784 at 0x1533D057BA60>]
+generated_description:  This Baroque painting, *The Beheading of St. John the Baptist* by Peter Paul Rubens (1610), depicts a biblical scene with dynamic movement and rich color. It reflects the Counter-Reformation's emphasis on drama and emotion, showcasing Rubens' mastery of light and shadow. The figures' expressions and gestures convey intense emotion, typical of the Baroque style. The painting's mythological subject matter aligns with Rubens' exploration of classical and religious themes, emphasizing the dramatic and emotional impact of the story.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  655
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x532 at 0x1533D057B4F0>]
+generated_description:  This painting, "Coronation of Marie de' Medici" by Peter Paul Rubens, depicts a grand Baroque scene celebrating the marriage of Marie de' Medici to King Henry IV of France. The composition, rich in detail and vibrant colors, reflects the opulence of the period. Mythological elements, such as the winged figures, enhance the divine and ceremonial nature of the event, aligning with the Baroque style's emphasis on drama and movement. The painting captures the political and cultural significance of the union, showcasing Rubens' ability to blend myth with historical events.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  656
+image_inputs [<PIL.Image.Image image mode=RGB size=812x420 at 0x1533D073FE80>]
+generated_description:  This Baroque relief depicts Cupid and Psyche, a mythological scene from Roman literature. Created by Peter Paul Rubens, it reflects the era's fascination with classical themes and romanticized love stories. The intricate details and dynamic poses showcase Rubens' mastery of Baroque style, emphasizing movement and emotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  657
+image_inputs [<PIL.Image.Image image mode=RGB size=700x672 at 0x1533D0217A60>]
+generated_description:  This painting, *Deborah Kip, Wife of Sir Balthasar Gerbier, and Her Children* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set against a dramatic backdrop, the work reflects the opulence and emotional intensity characteristic of the period. The figures are rendered with vibrant colors and dynamic poses, emphasizing movement and sensuality. The inclusion of classical elements, such as the draped columns and the cherub, suggests themes of divinity and nobility, aligning with the religious and cultural values of the time. The painting captures a moment of familial intimacy, showcasing Rubens' skill in portraying human emotion and the grandeur of aristocratic life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  658
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x812 at 0x1533D08EA760>]
+generated_description:  This triptych, "Descent from the Cross," by Peter Paul Rubens, created in 1614, exemplifies the Baroque style with its dynamic composition and vivid colors. Set within a religious context, it depicts the moment after Christ's crucifixion, focusing on the emotional and physical reactions of the mourners. The painting reflects the Counter-Reformation's emphasis on drama and emotion, aiming to evoke a visceral response from viewers. The detailed figures and rich textures highlight Rubens' mastery of Baroque aesthetics, making it a significant work in the history of art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  659
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1064 at 0x1533D08196A0>]
+generated_description:  This Baroque painting, "Descent from the Cross" by Peter Paul Rubens (1617), depicts a biblical scene with dynamic movement and rich color, reflecting the Counter-Reformation's emphasis on emotional engagement. The figures' expressions and gestures convey grief and reverence, capturing the moment of Jesus's removal from the cross. The painting's dramatic lighting and detailed drapery emphasize the sacred narrative, aligning with Rubens's Baroque style that aimed to evoke strong emotions and spiritual experiences.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  660
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1260 at 0x1533D057AE80>]
+generated_description:  This Baroque masterpiece, *Descent from the Cross* by Peter Paul Rubens (1618), depicts a pivotal moment in Christian mythology, emphasizing emotional intensity and dynamic movement. The painting reflects the Counter-Reformation's focus on dramatic religious narratives, showcasing Rubens' mastery of color and composition to evoke deep emotion and spiritual engagement. The figures' expressions and gestures convey grief and reverence, capturing the somber yet awe-inspiring atmosphere of the scene.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  661
+image_inputs [<PIL.Image.Image image mode=RGB size=952x1316 at 0x1533D057ADF0>]
+generated_description:  This Baroque masterpiece, "Descent from the Cross," by Peter Paul Rubens, created around 1614, vividly depicts the biblical scene of Christ being taken down from the cross. The dynamic composition, rich colors, and dramatic lighting reflect the Baroque style's emphasis on movement and emotion. It was commissioned for a church in Antwerp, showcasing Rubens' skill in religious art and his ability to convey intense emotional narratives through powerful imagery.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  662
+image_inputs [<PIL.Image.Image image mode=RGB size=588x1568 at 0x1533D08196A0>]
+generated_description:  This painting, "Descent from the Cross" by Peter Paul Rubens, exemplifies the Baroque style with its dynamic composition and dramatic use of light and shadow. Set against a dark background, the muscular figures emphasize the physicality and emotional intensity typical of the period. The scene depicts the moment following Christ's crucifixion, with figures in motion, conveying a sense of urgency and sorrow. The muscular depiction aligns with Rubens' focus on classical ideals and the human form, reflecting the era's fascination with strength and emotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  663
+image_inputs [<PIL.Image.Image image mode=RGB size=616x1596 at 0x1533D0819700>]
+generated_description:  This painting, "Descent from the Cross," by Peter Paul Rubens, exemplifies the Baroque style, characterized by dramatic lighting and dynamic composition. Created in 1614, it reflects the Counter-Reformation's emphasis on emotional intensity and religious fervor. The dark, moody setting and the figure's expressive gestures convey a sense of sorrow and contemplation, typical of Rubens' religious works. The painting's rich colors and detailed textures highlight the Baroque era's focus on sensory impact and grandeur.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  664
+image_inputs [<PIL.Image.Image image mode=RGB size=532x1456 at 0x1533D0819CA0>]
+generated_description:  This painting, "Descent from the Cross," by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. It depicts a religious scene, likely from the crucifixion of Christ, emphasizing dramatic lighting and dynamic movement to evoke emotion and convey the gravity of the event. The rich colors and intricate details reflect the Baroque focus on grandeur and theatricality, aimed at engaging viewers emotionally and spiritually.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  665
+image_inputs [<PIL.Image.Image image mode=RGB size=1232x504 at 0x1533D057A250>]
+generated_description:  This painting, *Diana and Her Nymphs Surprised by the Fauns* by Peter Paul Rubens, created around 1640, exemplifies the Baroque style with its dynamic composition and vivid colors. Set in a mythological scene, it depicts the sudden intrusion of fauns upon Diana and her nymphs, blending themes of nature, mythology, and human emotion. The artwork reflects the era's fascination with classical mythology and the Baroque emphasis on movement and drama.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  666
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x1533D0680CD0>]
+generated_description:  This painting, "Drunken Bacchus with Faun and Satyr," by Peter Paul Rubens, is a Baroque work from the 17th century. It depicts a mythological scene involving Bacchus, the god of wine, alongside fauns and satyrs, reflecting the Baroque style's emphasis on movement, color, and sensuality. The painting likely draws from classical mythology and the Renaissance revival of pagan themes, common in Rubens' works. The dynamic poses and expressive faces capture the revelry and excess associated with Bacchus, aligning with the Counter-Reformation's celebration of human emotion and the pleasures of life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16098.00 MB
+Processing row:  667
+image_inputs [<PIL.Image.Image image mode=RGB size=588x812 at 0x1533D0819C40>]
+generated_description:  This painting, *Education of Marie de' Medici* by Peter Paul Rubens, reflects the Baroque style with its dynamic composition and rich color palette. Set in a mythological context, it depicts the education of Marie de' Medici, the queen of France, through allegorical figures representing virtues and arts. The scene combines elements of classical mythology and Renaissance humanism, showcasing Rubens' ability to blend historical and mythological narratives with a focus on grandeur and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  668
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1260 at 0x1533D0819820>]
+generated_description:  This painting, *Equestrian Portrait of the Duke of Lerma* by Peter Paul Rubens, exemplifies the Baroque style with its dynamic composition and rich detail. The Duke, mounted on a majestic white horse, embodies power and authority, reflecting the era's emphasis on grandeur and heroism. The backdrop of a stormy sky and distant figures suggests themes of conflict and triumph, aligning with the Baroque focus on dramatic contrasts and narrative depth. The painting celebrates the Duke's military prowess and status, capturing the essence of the Spanish aristocracy during the early 17th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  669
+image_inputs [<PIL.Image.Image image mode=RGB size=1764x2716 at 0x1533D081AA00>]
+generated_description:  This drawing by Peter Paul Rubens, dated between 1600-1650, exemplifies the Baroque style with its dynamic composition and expressive use of light and shadow. The subject's pose and gaze suggest contemplation or prayer, reflecting themes common in religious and allegorical works of the period. The detailed rendering of the hair and hand highlights Rubens' mastery of anatomical detail and emotional expression.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  670
+image_inputs [<PIL.Image.Image image mode=RGB size=756x896 at 0x1533D081A910>]
+generated_description:  This painting, "Head of a Franciscan Friar" by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Created around 1617, it reflects the era's focus on dramatic lighting and intense emotional expression. The dark background and somber tones emphasize the subject's contemplative mood, typical of religious portraiture aimed at conveying spiritual depth and piety. The artist's mastery of chiaroscuro enhances the texture and realism, capturing the essence of the Franciscan friar's devotion and introspection.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  671
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1344 at 0x1533D0819610>]
+generated_description:  This painting, *Helene Fourment with Her Children* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set against a soft, atmospheric backdrop, it captures a candid moment of familial warmth. The rich textures and vibrant colors reflect the era's focus on movement and sensuality. Rubens' portrayal of Helene Fourment and her children highlights themes of domesticity and maternal love, resonating with the cultural emphasis on family values during the Baroque period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  672
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x1533D057A730>]
+generated_description:  This Baroque painting by Peter Paul Rubens, "Hercules as Heroic Virtue Overcoming Discord," created around 1633, depicts Hercules battling Discord, a figure representing chaos and discord. The scene reflects the Baroque emphasis on movement, drama, and emotional intensity, typical of the Counter-Reformation era. It symbolizes the triumph of order and virtue over disorder, aligning with Rubens' exploration of classical mythology and moral themes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  673
+image_inputs [<PIL.Image.Image image mode=RGB size=700x784 at 0x1533D0812E50>]
+generated_description:  This painting, *Holy Trinity* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 1600-1650 timeframe. It depicts the Holy Trinity, with the Father holding Christ's body, symbolizing the divine presence. Angels and a dove represent the Holy Spirit, emphasizing the spiritual and mystical themes central to Christian iconography. The dynamic composition and rich colors reflect the Baroque emphasis on movement and drama.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  674
+image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x1533D06805E0>]
+generated_description:  This painting, *Jupiter and Callisto* by Peter Paul Rubens, created around 1613, exemplifies the Baroque style with its dynamic composition and rich color palette. Set in a mythological context, it depicts Jupiter and Callisto, a story from Roman mythology involving Jupiter's seduction and subsequent betrayal. The scene reflects the era's fascination with classical themes and the dramatic, emotional intensity typical of Baroque art. The painting's focus on human emotion and mythological narratives aligns with the broader cultural and religious contexts of the Counter-Reformation, emphasizing divine intervention and human vulnerability.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  675
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1316 at 0x1533D081AC70>]
+generated_description:  This Baroque painting, "Lamentation of Christ on the Straw," by Peter Paul Rubens, created around 1618, depicts a somber scene of Christ's body being prepared for burial. The dramatic lighting and expressive figures reflect the emotional intensity typical of the Baroque period, emphasizing the piety and grief of the mourners. The dark background and the stark contrast highlight the central figure, underscoring the themes of death and resurrection. This work exemplifies Rubens' ability to convey deep emotion and religious devotion through vivid imagery and dynamic composition.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  676
+image_inputs [<PIL.Image.Image image mode=RGB size=1232x840 at 0x1533D08B01F0>]
+generated_description:  This triptych, "Lamentation of Christ," by Peter Paul Rubens, created in 1618, exemplifies the Baroque style with its dramatic use of light and shadow, dynamic composition, and emotional intensity. It reflects the Counter-Reformation's emphasis on religious devotion and the human experience of grief. The central figure of Christ, surrounded by mourners, conveys a profound sense of sorrow and piety, typical of Rubens' Baroque period. The painting's rich colors and detailed figures highlight the artist's mastery of technique and his ability to evoke deep emotional responses.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  677
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x812 at 0x1533D081ADC0>]
+generated_description:  This painting, *Landscape with a Rainbow* by Peter Paul Rubens, created around 1635, exemplifies the Baroque style with its dynamic composition and vibrant colors. Set in a pastoral landscape, the scene depicts a mythological or allegorical narrative involving shepherds and a rainbow, symbolizing hope and divine favor. The rainbow, a recurring motif in Baroque art, often signifies the covenant between God and humanity, reflecting the religious and mythological themes prevalent during the Counter-Reformation. The painting's serene yet dramatic atmosphere captures the essence of Rubens' ability to blend classical influences with contemporary religious and mythological narratives.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  678
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x784 at 0x1533D057A7F0>]
+generated_description:  This painting, *Landscape with an Avenue of Trees* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set in a serene landscape, the work reflects the Baroque emphasis on grandeur and movement, with dynamic clouds and a richly textured sky dominating the scene. The avenue of trees leads the viewer's eye into the distance, creating depth and perspective. This piece likely served as a backdrop for a larger composition, showcasing Rubens' skill in integrating natural elements with architectural or mythological themes typical of the period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  679
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x1533D082DD60>]
+generated_description:  This Baroque portrait by Peter Paul Rubens depicts Louis XIII of France, rendered in opulent attire and armor, symbolizing his power and authority. The rich colors and dynamic composition reflect the era's emphasis on grandeur and drama, typical of the Counter-Reformation. The cuirass and ornate details highlight the subject's military and royal status.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  680
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x1533D08B05E0>]
+generated_description:  This painting, "Marie de' Medici" by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Commissioned in 1622, it reflects the Counter-Reformation's emphasis on grandeur and religious devotion. The subject, Marie de' Medici, is portrayed with regal elegance, symbolizing her role as queen and mother of King Louis XIII. Her attire and pose convey power and piety, aligning with the era's artistic focus on capturing the essence of nobility and divine authority.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  681
+image_inputs [<PIL.Image.Image image mode=RGB size=252x504 at 0x1533D082DA00>]
+generated_description:  This painting, "Marie de' Medici as Bellona," by Peter Paul Rubens, depicts Marie de' Medici as the Roman goddess Bellona, symbolizing military power and victory. Created in the Baroque era (1600-1650), it reflects the Counter-Reformation's emphasis on grandeur and divine intervention. The presence of cherubs and the surrounding weaponry emphasize themes of strength and valor, aligning with the patron's political aspirations and the era's cultural values.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  682
+image_inputs [<PIL.Image.Image image mode=RGB size=532x784 at 0x1533D082D160>]
+generated_description:  This painting, "Miracle of St. Francis," by Peter Paul Rubens, depicts a Baroque scene emphasizing movement and drama. Set in a grand, ornate setting, it illustrates a miracle involving St. Francis, likely focusing on his healing powers. The vibrant colors and dynamic composition reflect the Baroque style, aiming to evoke emotion and convey religious fervor. The painting was created between 1600-1650, a period marked by the Counter-Reformation's emphasis on dramatic religious art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  683
+image_inputs [<PIL.Image.Image image mode=RGB size=644x812 at 0x1533D06805E0>]
+generated_description:  This painting, *Morning Toilet of Venus* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set in mythology, it depicts Venus preparing herself, surrounded by cherubs and a dark-skinned figure, reflecting themes of beauty, sensuality, and divine feminine power. The rich colors and dynamic composition highlight Rubens' mastery of light and movement, typical of the era's emphasis on drama and emotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  684
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x1533D057A7F0>]
+generated_description:  This painting, *Night Scene* by Peter Paul Rubens, created around 1617, exemplifies the Baroque style with its dramatic lighting and dynamic composition. Set in a dimly lit interior, the scene captures a moment of interaction between two figures, illuminated by candlelight, highlighting themes of mystery and intimacy. The Baroque period, marked by intense emotion and movement, reflects the Counter-Reformation's emphasis on drama and realism. This work showcases Rubens' ability to convey human emotion and narrative through vivid detail and expressive gestures.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  685
+image_inputs [<PIL.Image.Image image mode=RGB size=1260x1036 at 0x1533D080B9D0>]
+generated_description:  This painting, *Nymphs and Satyrs* by Peter Paul Rubens, created around 1640, exemplifies the Baroque style with its dynamic composition and vibrant colors. Set in a mythological scene, it reflects the era's fascination with classical themes and the celebration of nature and human beauty. The figures, depicted in a lush, forested setting, embody the playful and sensual aspects of mythological narratives, typical of Rubens' work during the late 17th century. The painting captures the essence of the Baroque movement, emphasizing movement and emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  686
+image_inputs [<PIL.Image.Image image mode=RGB size=532x784 at 0x1533D08B05E0>]
+generated_description:  This painting, "Old Woman" by Peter Paul Rubens, created around 1618, exemplifies the Baroque style with its dramatic use of light and shadow, emphasizing movement and sensuality. The subject's contemplative expression and the rich, textured brushwork reflect the era's focus on realism and emotional depth. The timeframe places it within the late Renaissance and early Baroque periods, a time marked by significant cultural and religious shifts, particularly in the Counter-Reformation. The painting's intimate portrayal of an older woman aligns with Rubens' exploration of human emotion and the human form, showcasing his ability to capture both the physical and psychological essence of his subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  687
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1260 at 0x1533D0757940>]
+generated_description:  This painting, "Pastoral Scene" by Peter Paul Rubens, created around 1638, exemplifies the Baroque style with its dynamic composition and vivid colors. Set in a pastoral landscape, the scene depicts a mythological or allegorical interaction between a muscular male figure and a woman, possibly representing themes of love, power, or nature. The figures' expressive poses and the lush, detailed background reflect Rubens' mastery of movement and color, typical of the Baroque period. The painting's mythological subject matter aligns with the era's fascination with classical and religious narratives.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  688
+image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x1533D08B0130>]
+generated_description:  This Baroque painting, *Perseus and Andromeda* by Peter Paul Rubens, created around 1640, depicts a mythological scene from Greek legend. Perseus, a hero, rescues Andromeda from a sea monster. The dynamic composition, vibrant colors, and dramatic lighting reflect Rubens' Baroque style, emphasizing movement and emotion. The painting celebrates themes of heroism, rescue, and divine intervention, resonating with the Counter-Reformation's emphasis on faith and moral lessons.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  689
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1036 at 0x1533D082D880>]
+generated_description:  This painting, *Portrait of a Woman* by Peter Paul Rubens, exemplifies the Baroque style prevalent between 1600-1650. The intimate portrayal focuses on the woman's face, highlighting her delicate features and soft expression, typical of Rubens' portraiture that elevates his subjects to dignified figures. The use of light and shadow, characteristic of Baroque techniques, adds depth and emotion to the subject's visage, reflecting the era's emphasis on drama and realism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  690
+image_inputs [<PIL.Image.Image image mode=RGB size=560x784 at 0x1533D06807F0>]
+generated_description:  This sketch by Peter Paul Rubens, titled "Portrait of a Young Woman," exemplifies the Baroque style prevalent in the 17th century. Created around 1635, it reflects the era's emphasis on movement, color, and sensuality. The figure's pose and the delicate rendering of light and shadow highlight Rubens' mastery of chiaroscuro, typical of the Baroque period. This sketch likely served as a preparatory study for a larger painting, showcasing Rubens' skill in capturing the essence of his subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  691
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1120 at 0x1533D0217F10>]
+generated_description:  This sketch by Peter Paul Rubens, titled "Portrait of a Young Woman," exemplifies the Baroque style prevalent between 1600-1650. It showcases Rubens' mastery of figure drawing and his ability to capture the subtle nuances of light and shadow, characteristic of the era. The sketch reflects the Baroque emphasis on movement, drama, and sensuality, typical of the period's artistic and cultural context.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  692
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1204 at 0x1533D08B0DF0>]
+generated_description:  This painting, *Portrait of Ambrogio Spinola* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Commissioned in 1628, it reflects the era's emphasis on grandeur and realism. Spinola, a prominent military leader, is depicted in elaborate armor, symbolizing power and valor. The rich colors and dynamic composition highlight Rubens' mastery of light and shadow, typical of the Baroque period. The painting captures the subject's strength and authority, aligning with the cultural and political values of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  693
+image_inputs [<PIL.Image.Image image mode=RGB size=980x1204 at 0x1533D080B400>]
+generated_description:  This Baroque portrait by Peter Paul Rubens, dated 1622, depicts Anne of Austria, the queen consort of France. The opulent attire, rich fabrics, and elaborate jewelry reflect the wealth and power of the royal court. The setting, with its ornate columns and draped red curtains, emphasizes grandeur and status. The painting aligns with the Baroque emphasis on drama, movement, and detail, capturing the elegance and sophistication of the subject.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  694
+image_inputs [<PIL.Image.Image image mode=RGB size=616x784 at 0x1533D0757E20>]
+generated_description:  This Baroque portrait by Peter Paul Rubens, dated 1626, depicts Isabella Brandt, a wealthy noblewoman. The opulent attire and rich colors reflect the wealth and status of the subject, typical of the era's portraiture. The architectural backdrop suggests a connection to grandeur and power, aligning with the Baroque emphasis on drama and movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  695
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1176 at 0x1533D080B910>]
+generated_description:  This painting, *Portrait of Isabella Brant* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set against a rich red backdrop, the portrait highlights Rubens' mastery of light and color, emphasizing the subject's elegance and grace. The dark attire and jewelry reflect the fashion of the era, while the subtle smile and direct gaze convey a sense of quiet confidence and dignity. This work showcases Rubens' ability to capture both the physical beauty and the inner essence of his subjects.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  696
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1232 at 0x1533D0757EB0>]
+generated_description:  This painting, *Portrait of Nicolas de Respaigne* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set against a dark background, the subject is adorned in rich, luxurious attire, reflecting the opulence of the era. The fur-lined coat and intricate patterns symbolize wealth and status, while the turban and cane suggest a connection to the Ottoman Empire, hinting at Rubens' interest in exotic cultures. The overall composition and use of light emphasize movement and drama, characteristic of Baroque portraiture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  697
+image_inputs [<PIL.Image.Image image mode=RGB size=1092x1092 at 0x1533D080B400>]
+generated_description:  This painting, *Romulus and Remus*, by Peter Paul Rubens, depicts the legendary twins from Roman mythology, raised by a she-wolf. Set in a lush, naturalistic landscape, the scene combines mythological storytelling with Rubens' Baroque style, emphasizing movement and color. It reflects the Counter-Reformation's interest in classical themes to reinforce Catholic values, showcasing Rubens' ability to blend myth with religious narratives.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  698
+image_inputs [<PIL.Image.Image image mode=RGB size=812x952 at 0x1533D082D400>]
+generated_description:  This self-portrait by Peter Paul Rubens, created around 1625, exemplifies the Baroque style with its dramatic lighting and rich, dark tones. Rubens, a prominent Flemish artist, uses chiaroscuro to highlight his features, emphasizing his confident and authoritative presence. The painting reflects the Baroque era's focus on grandeur and emotional intensity, capturing the artist's self-assuredness and the cultural emphasis on individualism and power during this period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  699
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x812 at 0x1533D0757400>]
+generated_description:  This Baroque painting by Peter Paul Rubens, dated around 1625, depicts a mythological scene, likely from Greek or Roman mythology, characterized by dynamic movement and vibrant color. The figures, rendered with Rubens's signature style, suggest themes of divine intervention or a celestial event, blending classical mythology with the Baroque emphasis on drama and emotion. The work reflects the period's fascination with mythological narratives and the grandeur of the divine.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_190155_job_6.json'.
+
+JOB STATISTICS
+==============
+Job ID: 11789349
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:09:11
+CPU Efficiency: 9.11% of 01:40:48 core-walltime
+Job Wall-clock time: 00:06:18
+Memory Utilized: 4.14 GB
+Memory Efficiency: 2.30% of 180.00 GB (180.00 GB/node)

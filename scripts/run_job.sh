@@ -16,7 +16,7 @@ cd ../../projects/0/prjs0996/PolyArt
 source activate LightRAG
 
 
-# job_id=$1
-# python scripts/MLLM_inference.py --model_name Qwen/Qwen2.5-VL-72B-Instruct --job_id $job_id 
+job_id=$1
+python scripts/MLLM_inference.py --model_name Qwen/Qwen2.5-VL-72B-Instruct --job_id $job_id 
 
-python scripts/MLLM_inference.py --model_name Qwen/Qwen2.5-VL-72B-Instruct --csv_path wikiart_balanced_200.csv
+# python scripts/MLLM_inference.py --model_name Qwen/Qwen2.5-VL-72B-Instruct --csv_path wikiart_balanced_200.csv

@@ -1,0 +1,982 @@
+============================================================================================== 
+Warning! Mixing Conda and module environments may lead to corruption of the
+user environment. 
+We do not recommend users mixing those two environments unless absolutely
+necessary. Note that 
+SURF does not provide any support for Conda environment.
+For more information, please refer to our software policy page:
+https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
+
+Remember that many packages have already been installed on the system and can
+be loaded using 
+the 'module load <package__name>' command. If you are uncertain if a package is
+already available 
+on the system, please use 'module avail' or 'module spider' to search for it.
+============================================================================================== 
+/var/spool/slurm/slurmd/job11789347/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
+INFO:lightrag:Logger initialized for working directory: ./art_context
+DEBUG:lightrag:LightRAG init with param:
+  working_dir = ./art_context,
+  chunk_token_size = 1200,
+  chunk_overlap_token_size = 100,
+  tiktoken_model_name = gpt-4o-mini,
+  entity_extract_max_gleaning = 1,
+  entity_summary_to_max_tokens = 500,
+  node_embedding_algorithm = node2vec,
+  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
+  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x15098ac20b80>},
+  embedding_batch_num = 32,
+  embedding_func_max_async = 16,
+  llm_model_func = <function hf_model_complete at 0x15098c33e820>,
+  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
+  llm_model_max_token_size = 32768,
+  llm_model_max_async = 16,
+  llm_model_kwargs = {},
+  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
+  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
+  vector_db_storage_cls_kwargs = {},
+  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
+  enable_llm_cache = True,
+  addon_params = {},
+  convert_response_to_json_func = <function convert_response_to_json at 0x1509bbe899d0>
+
+INFO:lightrag:Load KV full_docs with 1144 data
+INFO:lightrag:Load KV text_chunks with 4335 data
+INFO:lightrag:Load KV llm_response_cache with 0 data
+INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
+INFO:nano-vectordb:Load (0, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
+INFO:nano-vectordb:Load (4335, 384) data
+INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
+args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=4)
+Processing data from index 400 to 500
+Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Processing row:  400
+
+Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
+Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.38it/s][A
+Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.41it/s][A
+Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.43it/s][A
+Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.43it/s][A
+Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.74it/s][ALoading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.58it/s]
+/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
+  warnings.warn(
+Processing rows:   1%|          | 1/100 [00:16<26:52, 16.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   2%|▏         | 2/100 [00:20<14:43,  9.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   3%|▎         | 3/100 [00:23<10:28,  6.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   4%|▍         | 4/100 [00:27<08:32,  5.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   5%|▌         | 5/100 [00:30<06:59,  4.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   6%|▌         | 6/100 [00:33<06:14,  3.98s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   7%|▋         | 7/100 [00:36<06:05,  3.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   8%|▊         | 8/100 [00:40<05:47,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:   9%|▉         | 9/100 [00:44<05:46,  3.80s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  10%|█         | 10/100 [00:47<05:37,  3.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  11%|█         | 11/100 [00:51<05:33,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  12%|█▏        | 12/100 [00:55<05:22,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  13%|█▎        | 13/100 [00:59<05:26,  3.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  14%|█▍        | 14/100 [01:02<05:18,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  15%|█▌        | 15/100 [01:05<05:01,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  16%|█▌        | 16/100 [01:09<05:05,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  17%|█▋        | 17/100 [01:12<04:37,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  18%|█▊        | 18/100 [01:15<04:31,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  19%|█▉        | 19/100 [01:19<04:39,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  20%|██        | 20/100 [01:23<04:51,  3.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  21%|██        | 21/100 [01:26<04:41,  3.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  22%|██▏       | 22/100 [01:30<04:42,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  23%|██▎       | 23/100 [01:33<04:24,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  24%|██▍       | 24/100 [01:36<04:18,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  25%|██▌       | 25/100 [01:39<04:06,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  26%|██▌       | 26/100 [01:43<04:08,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  27%|██▋       | 27/100 [01:46<03:59,  3.28s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  28%|██▊       | 28/100 [01:49<03:54,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  29%|██▉       | 29/100 [01:53<04:06,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  30%|███       | 30/100 [01:56<03:38,  3.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  31%|███       | 31/100 [01:58<03:25,  2.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  32%|███▏      | 32/100 [02:01<03:26,  3.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  33%|███▎      | 33/100 [02:05<03:26,  3.09s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  34%|███▍      | 34/100 [02:08<03:34,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  35%|███▌      | 35/100 [02:12<03:38,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  36%|███▌      | 36/100 [02:16<03:44,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  37%|███▋      | 37/100 [02:19<03:40,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  38%|███▊      | 38/100 [02:23<03:43,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  39%|███▉      | 39/100 [02:26<03:31,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  40%|████      | 40/100 [02:30<03:32,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  41%|████      | 41/100 [02:34<03:31,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  42%|████▏     | 42/100 [02:37<03:30,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  43%|████▎     | 43/100 [02:41<03:20,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  44%|████▍     | 44/100 [02:44<03:18,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  45%|████▌     | 45/100 [02:48<03:14,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  46%|████▌     | 46/100 [02:51<03:08,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  47%|████▋     | 47/100 [02:55<03:05,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  48%|████▊     | 48/100 [02:58<02:54,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  49%|████▉     | 49/100 [03:01<02:51,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  50%|█████     | 50/100 [03:04<02:50,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  51%|█████     | 51/100 [03:08<02:50,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  52%|█████▏    | 52/100 [03:12<02:52,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  53%|█████▎    | 53/100 [03:15<02:43,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  54%|█████▍    | 54/100 [03:18<02:32,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  55%|█████▌    | 55/100 [03:21<02:28,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  56%|█████▌    | 56/100 [03:24<02:19,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  57%|█████▋    | 57/100 [03:27<02:15,  3.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  58%|█████▊    | 58/100 [03:30<02:10,  3.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  59%|█████▉    | 59/100 [03:33<02:03,  3.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  60%|██████    | 60/100 [03:37<02:09,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  61%|██████    | 61/100 [03:41<02:13,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  62%|██████▏   | 62/100 [03:44<02:07,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  63%|██████▎   | 63/100 [03:47<02:01,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  64%|██████▍   | 64/100 [03:51<02:01,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  65%|██████▌   | 65/100 [03:54<02:03,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  66%|██████▌   | 66/100 [03:58<01:59,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  67%|██████▋   | 67/100 [04:02<01:59,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  68%|██████▊   | 68/100 [04:06<01:59,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  69%|██████▉   | 69/100 [04:10<02:00,  3.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  70%|███████   | 70/100 [04:14<01:53,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  71%|███████   | 71/100 [04:17<01:44,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  72%|███████▏  | 72/100 [04:20<01:40,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  73%|███████▎  | 73/100 [04:24<01:35,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  74%|███████▍  | 74/100 [04:27<01:26,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  75%|███████▌  | 75/100 [04:31<01:27,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  76%|███████▌  | 76/100 [04:34<01:21,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  77%|███████▋  | 77/100 [04:37<01:17,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  78%|███████▊  | 78/100 [04:40<01:13,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  79%|███████▉  | 79/100 [04:44<01:12,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  80%|████████  | 80/100 [04:48<01:09,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  81%|████████  | 81/100 [04:52<01:11,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  82%|████████▏ | 82/100 [04:55<01:06,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  83%|████████▎ | 83/100 [04:59<01:03,  3.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  84%|████████▍ | 84/100 [05:02<00:53,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  85%|████████▌ | 85/100 [05:05<00:48,  3.21s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  86%|████████▌ | 86/100 [05:09<00:50,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  87%|████████▋ | 87/100 [05:13<00:48,  3.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  88%|████████▊ | 88/100 [05:17<00:44,  3.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  89%|████████▉ | 89/100 [05:20<00:38,  3.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  90%|█████████ | 90/100 [05:24<00:36,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  91%|█████████ | 91/100 [05:27<00:31,  3.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  92%|█████████▏| 92/100 [05:30<00:27,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  93%|█████████▎| 93/100 [05:34<00:23,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  94%|█████████▍| 94/100 [05:37<00:20,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  95%|█████████▌| 95/100 [05:41<00:17,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  96%|█████████▌| 96/100 [05:44<00:13,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  97%|█████████▋| 97/100 [05:47<00:10,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  98%|█████████▊| 98/100 [05:51<00:06,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows:  99%|█████████▉| 99/100 [05:54<00:03,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
+INFO:lightrag:Truncate 5 to 5 chunks
+Processing rows: 100%|██████████| 100/100 [05:57<00:00,  3.26s/it]Processing rows: 100%|██████████| 100/100 [05:57<00:00,  3.57s/it]
+image_inputs [<PIL.Image.Image image mode=RGB size=644x504 at 0x15098200EFA0>]
+generated_description:  This painting, "Revel Fight May 2, 1790," by Alexey Bogolyubov, depicts a naval battle scene from the late 18th century. Set in the Romanticism style, it captures the drama and intensity of maritime warfare. The timeframe aligns with the Romantic period, emphasizing emotion and historical events. The focus on boats and ships highlights the importance of naval power during this era, reflecting broader themes of exploration and conflict. The painting serves as a historical document, offering insight into naval tactics and the cultural significance of sea battles.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  401
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x15098200EB80>]
+generated_description:  This painting, "The Battle of Frigate Flora against Turkish Steamships near Pitsunda, November 11, 1853" by Alexey Bogolyubov, depicts a naval battle during the Crimean War. Set in 1853, it reflects the Romanticism style, emphasizing dramatic action and the grandeur of maritime conflict. The scene captures the tension and chaos of the battle, with ships engaged in combat amidst a serene seascape, highlighting the contrast between the violent event and the natural environment. The painting serves as a historical document, commemorating a significant naval engagement of the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  402
+image_inputs [<PIL.Image.Image image mode=RGB size=504x560 at 0x150981C6F2E0>]
+generated_description:  This painting, "Portrait of a Lady," by Alexey Venetsianov, exemplifies Romanticism, a movement prevalent in the 1800s, characterized by emotional intensity and a focus on individualism. Venetsianov, a Russian painter, captures a woman in a rich red dress, symbolizing warmth and vitality. Her composed pose and serene expression reflect the Romantic ideal of the sublime and the contemplative. The soft lighting and detailed textures emphasize the intimate and personal nature of the portrait, aligning with Romantic values of personal expression and emotional depth.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  403
+image_inputs [<PIL.Image.Image image mode=RGB size=308x532 at 0x1509819EABB0>]
+generated_description:  This painting, "Amy" by Arthur Hughes, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It depicts a female figure in a natural setting, reflecting themes of nature, introspection, and the idealization of the feminine. Hughes' use of soft colors and detailed textures captures the ethereal quality of the subject, aligning with Romantic ideals of the sublime and the sublime beauty of the natural world. The painting is a study, suggesting it served as a preparatory piece for a larger work, typical of Hughes' approach to portraiture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  404
+image_inputs [<PIL.Image.Image image mode=RGB size=420x532 at 0x1509819ACEB0>]
+generated_description:  The painting "The King's Orchard" by Arthur Hughes, created between 1850-1900, embodies Romanticism's focus on emotion and the natural world. Set in a lush orchard, the scene depicts a group of fictional characters, blending fantasy with pastoral beauty. Hughes' use of vibrant colors and detailed textures reflects the era's fascination with nature and storytelling, capturing a moment of serene interaction amidst a picturesque setting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  405
+image_inputs [<PIL.Image.Image image mode=RGB size=2548x1932 at 0x1509819D0130>]
+generated_description:  This painting, "Country Concert" by Camille Corot, exemplifies Romanticism, capturing a serene forest scene with figures enjoying music. Set in the mid-19th century, it reflects the era's appreciation for nature and the sublime, blending pastoral beauty with human interaction. The use of soft, diffused light and naturalistic details evokes a sense of tranquility and harmony with the environment.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  406
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x2940 at 0x1509819D0940>]
+generated_description:  This painting, *La Zingara* by Camille Corot, exemplifies Romanticism's emphasis on emotion and individuality. Created between 1850-1900, it portrays a woman in a natural setting, reflecting the era's fascination with the exotic and the sublime. Corot's soft brushwork and muted colors evoke a sense of melancholy and introspection, characteristic of the Romantic movement. The title suggests a gypsy theme, adding a layer of mystery and cultural exploration to the piece.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  407
+image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x1509818BDFD0>]
+generated_description:  This painting, "Louise-Laure Baudot at Nine Years," by Camille Corot, exemplifies Romanticism, a movement prevalent from the 1800s to 1850s. It depicts a young girl with a serene expression, capturing a moment of innocence and childhood. The soft brushwork and natural lighting reflect the Romantic emphasis on emotion and individuality, contrasting with the more formal styles of earlier periods. This portrait is part of Corot's exploration of children's portraits, showcasing his skill in rendering youthful innocence and personal space within the frame.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  408
+image_inputs [<PIL.Image.Image image mode=RGB size=616x952 at 0x1509819D0CD0>]
+generated_description:  This painting, *The Greek Girl* by Camille Corot, exemplifies Romanticism, a movement that flourished in the 19th century. Set against a muted background, the subject's vibrant attire and contemplative pose evoke a sense of mystery and emotional depth. Corot's meticulous attention to detail and soft brushwork highlight the subject's delicate features and the intricate patterns of her clothing, reflecting the Romantic emphasis on individual expression and the beauty of nature. The timeframe places it within the period when Corot was exploring themes of classical antiquity and the natural world, often blending these elements to create evocative scenes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  409
+image_inputs [<PIL.Image.Image image mode=RGB size=1316x1008 at 0x1509819ACF70>]
+generated_description:  This painting, "Fog in the Elbe Valley" by Caspar David Friedrich, exemplifies Romanticism, characterized by its focus on nature's sublime power and emotional responses. Created in 1821, it reflects the Romantic era's fascination with the natural world and its spiritual dimensions. The misty atmosphere and distant mountain evoke a sense of mystery and introspection, typical of Friedrich's work. The scene captures the serene yet awe-inspiring beauty of the Elbe Valley, emphasizing the sublime and the transient nature of the landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  410
+image_inputs [<PIL.Image.Image image mode=RGB size=1848x1176 at 0x1509819AC220>]
+generated_description:  This painting, "Morning in the Sudeten Mountains" by Caspar David Friedrich, exemplifies Romanticism, reflecting the era's fascination with nature and spirituality. Set in the early 19th century, it depicts a serene yet somber mountain landscape, with a solitary figure atop a peak, symbolizing humanity's渺小面对自然的宏伟。The misty atmosphere and distant horizon evoke a sense of mystery and introspection, characteristic of Friedrich's work. The cross on the summit suggests themes of faith and the sublime.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  411
+image_inputs [<PIL.Image.Image image mode=RGB size=560x812 at 0x1509818BD8E0>]
+generated_description:  This painting, *City at Moonrise* by Caspar David Friedrich, exemplifies the Romantic movement's focus on the sublime and the spiritual. Set during moonrise, the scene evokes a sense of mystery and introspection, with spires piercing the sky and a tranquil river foreground. The use of light and shadow highlights the tension between the natural world and the built environment, reflecting the Romantic era's deep appreciation for nature and its emotional impact. The painting captures a moment of transition, symbolizing the passage of time and the contemplative mood characteristic of Friedrich's work.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  412
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x700 at 0x1509818BDA60>]
+generated_description:  Christen Kobke's "Autumn Landscape: Frederiksborg Castle in the Middle Distance" (1838) exemplifies Romanticism's focus on nature and emotion. Set in the rural Danish landscape, the painting captures the serene yet melancholic essence of autumn. The foreground's bare trees contrast with the distant castle, symbolizing the passage of time and the transient nature of human endeavors. The soft, diffused light and atmospheric haze evoke a sense of introspection and the sublime, characteristic of the Romantic era. This work reflects the Romantic ideal of harmonizing humanity with nature, emphasizing the emotional and spiritual aspects of the landscape.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  413
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x728 at 0x15097C045D60>]
+generated_description:  This painting, "Street Scene with Figures" by Cornelis Springer, captures a tranquil moment in a Dutch town during the Romantic period (1850-1900). The artwork showcases a picturesque street lined with traditional folk architecture, reflecting the artist's appreciation for the charm and simplicity of rural life. The scene is imbued with a sense of community and daily activity, typical of Romanticism's focus on nature and human interaction. The soft lighting and detailed rendering of textures convey a serene atmosphere, emphasizing the beauty of everyday life in a small town.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  414
+image_inputs [<PIL.Image.Image image mode=RGB size=812x560 at 0x1509818E1B80>]
+generated_description:  This painting, *The Blind Fiddler* by David Wilkie, illustrates a scene of rural life, reflecting the Romantic movement's focus on emotion and the sublime. Set in a dimly lit interior, the artwork portrays a community gathering around a blind fiddler, emphasizing themes of empathy, shared experience, and the power of music. The painting captures a moment of communal warmth amidst hardship, resonating with the Romantic ideal of the common man and the beauty found in everyday life.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  415
+image_inputs [<PIL.Image.Image image mode=RGB size=728x588 at 0x1509818BD0D0>]
+generated_description:  This painting, "The Preaching of John Knox Before the Lords of Congregation," by David Wilkie, depicts a significant historical event from the Scottish Reformation. Set in 1559, it portrays John Knox, a prominent Protestant reformer, delivering a sermon to the Lords of Congregation, a group of Scottish nobles and church leaders. The scene captures the tension and drama of the Reformation, reflecting the religious and political upheaval of the time. The painting is part of the Romantic movement, emphasizing emotion and historical accuracy. It serves as a historical record and a tribute to Knox's role in shaping Scottish Protestantism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  416
+image_inputs [<PIL.Image.Image image mode=RGB size=532x644 at 0x15097C042E80>]
+generated_description:  This painting, "Retrato de D. João VI," by Domingos Sequeira, is a Romantic-era portrait of King João VI of Portugal and Brazil. Painted in the 1800s, it reflects the era's focus on national identity and the monarch's role in governance. The formal attire and regalia emphasize the king's authority and connection to tradition.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  417
+image_inputs [<PIL.Image.Image image mode=RGB size=476x700 at 0x15097C045FA0>]
+generated_description:  This stained glass window, "The Annunciation," by Edward Burne-Jones, created in 1860, reflects the Romanticism era's emphasis on emotion and spirituality. It depicts the biblical scene of the Annunciation, showcasing intricate detailing and vibrant colors typical of Gothic Revival style. The work highlights themes of faith and divine revelation, aligning with the religious and spiritual focus of the period. Burne-Jones' use of light and color creates a mystical atmosphere, emphasizing the sacred nature of the event.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  418
+image_inputs [<PIL.Image.Image image mode=RGB size=1932x1848 at 0x1509818E1C40>]
+generated_description:  This stained glass window, titled "David's Charge to Solomon," by Edward Burne-Jones, created in 1882, reflects the Romanticism era's fascination with biblical narratives and medieval aesthetics. The piece depicts a scene from the Old Testament, focusing on the transfer of power from David to Solomon, symbolizing wisdom and leadership. Burne-Jones' use of vibrant colors and intricate details aligns with the Aesthetic Movement's emphasis on beauty and craftsmanship. The window serves both as a decorative element and a religious artifact, blending art and faith.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  419
+image_inputs [<PIL.Image.Image image mode=RGB size=784x560 at 0x15097C045730>]
+generated_description:  This painting, *Dorigen of Britain Waiting for the Return of Her Husband* by Edward Burne-Jones, created in 1871, reflects the Romanticism era's focus on emotional depth and mythological themes. The scene captures a moment of longing and anticipation, typical of the Romantic movement's exploration of human emotions and the sublime. The figure's posture and the setting evoke a sense of solitude and contemplation, resonating with the Romantic ideal of individualism and the natural world's power. The painting's rich symbolism and detailed composition highlight Burne-Jones's skill in evoking complex human feelings through visual storytelling.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  420
+image_inputs [<PIL.Image.Image image mode=RGB size=1344x924 at 0x15097C042550>]
+generated_description:  This drawing, *Song of Love* by Edward Burne-Jones, exemplifies the Romanticism movement of the 1850s-1900s. It depicts a tender scene with a man, woman, and angel, symbolizing themes of love, spirituality, and the divine. Burne-Jones' intricate detailing and soft color palette reflect his fascination with medieval and mythological subjects, aligning with the Aesthetic Movement's emphasis on beauty and craftsmanship.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  421
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x2212 at 0x15097C042CA0>]
+generated_description:  The Annunciation (1879) by Edward Burne-Jones is a romanticist depiction of the biblical event, blending Christian themes with mythological and allegorical elements. Burne-Jones' use of soft, muted colors and intricate details reflects the Aesthetic Movement's focus on beauty and craftsmanship. The angel Gabriel and the Virgin Mary are portrayed in classical attire, emphasizing the spiritual and timeless nature of the scene. This painting exemplifies the artist's exploration of religious narratives through a romantic lens, resonating with the era's fascination with the past and the divine.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  422
+image_inputs [<PIL.Image.Image image mode=RGB size=756x448 at 0x15097C042D90>]
+generated_description:  This painting, "Scene from A Midsummer Night's Dream: Titania and Bottom," by Edwin Henry Landseer, reflects the Romantic era's fascination with mythology and nature. Set in a dreamlike forest, the scene depicts characters from Shakespeare's play, blending human and animal forms in a whimsical, imaginative setting. The soft lighting and detailed depiction of flora and fauna emphasize the romantic idealization of nature and the fantastical elements of the story.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  423
+image_inputs [<PIL.Image.Image image mode=RGB size=392x308 at 0x15097C045D00>]
+generated_description:  This painting, *Princess Victoria with Eos*, by Edwin Henry Landseer, exemplifies Romanticism's focus on emotion and nature. Created in the 1800s, it portrays Princess Victoria, later Queen Victoria, as a child, emphasizing innocence and the bond between humans and animals. The inclusion of a dog and a bird symbolizes loyalty and companionship, reflecting the Romantic ideal of nature's harmony. The opulent setting underscores the wealth and status of the royal family, typical of the era's portraiture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  424
+image_inputs [<PIL.Image.Image image mode=RGB size=364x504 at 0x1509818BD580>]
+generated_description:  This watercolor portrait by Fyodor Solntsev, titled "Kiev Province, from Village Kurenevka," depicts a woman from the 1800s, reflecting Romanticism's focus on individuality and emotion. The turban and headscarf suggest a specific regional or cultural identity, capturing a moment in Russian life during the early 19th century. The style emphasizes personal expression and detail, characteristic of the Romantic era's emphasis on naturalism and individual experience.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  425
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1624 at 0x1509819AF8E0>]
+generated_description:  This painting, *A Horse Frightened by a Lion* by George Stubbs, exemplifies the Romantic movement's emphasis on the sublime and the dramatic. Set against a rugged landscape, the scene captures a moment of intense struggle between nature's raw power and the vulnerability of the horse, reflecting themes of fear, survival, and the untamed wilderness. Stubbs's detailed rendering of the animals and the dramatic composition highlight the tension and drama typical of Romantic art, emphasizing the beauty and terror of nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  426
+image_inputs [<PIL.Image.Image image mode=RGB size=336x252 at 0x15097C0121C0>]
+generated_description:  This painting, "Diomed," by George Stubbs, exemplifies the Romantic movement's emphasis on the power and majesty of nature. Created between 1750 and 1800, it showcases a stallion named Diomed, a renowned racehorse, highlighting Stubbs's mastery of anatomy and the dramatic interplay between man and beast. The scene captures a moment of connection between the horse trainer and the powerful stallion, reflecting the Romantic ideal of harmony with nature and the sublime.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  427
+image_inputs [<PIL.Image.Image image mode=RGB size=924x616 at 0x1509819ABE20>]
+generated_description:  This painting, "Racehorses Belonging to the Duke of Richmond Exercising at Goodwood," by George Stubbs, captures the elegance and athleticism of horses during the 18th century. Set against a pastoral backdrop, it reflects the era's fascination with equestrian sports and the aristocratic lifestyle. Stubbs's attention to detail and realistic portrayal of horses align with the Romantic movement's emphasis on nature and emotion, showcasing the beauty and power of these animals.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  428
+image_inputs [<PIL.Image.Image image mode=RGB size=2016x1568 at 0x1509819AB8B0>]
+generated_description:  This painting, "Soldiers of the 10th Dragoon Regiment" by George Stubbs, exemplifies the Romantic movement's emphasis on dramatic and emotional expression. Created between 1750-1800, it showcases Stubbs's mastery of equestrianism and his ability to capture the grandeur of military life. The scene celebrates the discipline and elegance of cavalry, reflecting the era's fascination with military prowess and the beauty of animals. The use of light and shadow enhances the sense of motion and drama, aligning with Romantic ideals of nature's power and human achievement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  429
+image_inputs [<PIL.Image.Image image mode=RGB size=476x728 at 0x15097C12FF70>]
+generated_description:  The painting "Flor Reas" by Gheorghe Tattarescu, created between 1850-1900, exemplifies Romanticism. It depicts a woman in traditional attire, symbolizing rural life and national identity, reflecting the artist's focus on Romanian culture during the 19th century.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  430
+image_inputs [<PIL.Image.Image image mode=RGB size=392x504 at 0x15097C12F610>]
+generated_description:  This portrait, painted by Gheorghe Tattarescu in 1858, exemplifies Romanticism, reflecting the era's focus on emotion and individualism. The subject's attire and jewelry suggest wealth and status, while the soft lighting and intimate pose emphasize personal expression and the artist's skill in capturing personality. This work aligns with the broader Romantic movement's emphasis on the beauty of nature and human emotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  431
+image_inputs [<PIL.Image.Image image mode=RGB size=588x504 at 0x15097C12FF70>]
+generated_description:  The painting "Michael the Brave and His Troops" by Gheorghe Tattarescu, created during the Romanticism era (1850-1900), depicts a scene of Michael the Brave, a Moldavian prince, leading his troops. The style emphasizes dramatic emotion and historical accuracy, typical of Romanticism, aiming to evoke patriotic sentiments and celebrate national heroes. The presence of horses and soldiers underscores themes of valor and conquest, reflecting the artist's focus on heroic narratives and national identity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  432
+image_inputs [<PIL.Image.Image image mode=RGB size=700x532 at 0x15097C1486D0>]
+generated_description:  This painting, "Peisaj cu arbore frunțat" by Gheorghe Tattarescu, exemplifies Romanticism, a movement emphasizing emotion and individualism. Created between 1850-1900, it captures a natural landscape with a focus on the interplay of light and shadow, reflecting the Romantic appreciation for nature's beauty and grandeur. The detailed depiction of trees and sky evokes a sense of tranquility and the sublime, characteristic of the era's artistic expression.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  433
+image_inputs [<PIL.Image.Image image mode=RGB size=476x588 at 0x15097C148340>]
+generated_description:  This painting, "Bather Sleeping by a Brook" by Gustave Courbet, exemplifies the Romanticism movement of the 19th century. Set in a natural landscape, the work depicts a nude woman resting by a brook, embodying themes of nature, human vulnerability, and the sublime. The use of soft, atmospheric lighting and the intimate portrayal of the figure reflect Courbet's focus on realism and direct observation of the world, challenging traditional academic norms. The painting's mythological undertones and its depiction of a female nude align with the Romantic fascination with the idealized and the mysterious.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  434
+image_inputs [<PIL.Image.Image image mode=RGB size=868x1400 at 0x15097C148DF0>]
+generated_description:  This painting, "Captain Hay of Spot," by Henry Raeburn, exemplifies Romanticism through its focus on individual character and emotion. Set against a dramatic landscape, the portrait captures Captain Hay's stoic demeanor and military bearing, reflecting the Romantic ideal of the heroic individual. The use of rich, textured brushstrokes and subdued colors enhances the emotional depth, aligning with Romantic sensibilities. The timeframe places it within the period of Romanticism's peak influence, emphasizing the artist's ability to convey both the physical and psychological essence of his subject.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  435
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x15097C12F3A0>]
+generated_description:  This painting, "Battle of Chesma," by Ivan Aivazovsky, captures the chaotic and dramatic scene of a naval battle at night. The romanticism of the 19th century is evident in the vivid depiction of fire and smoke against the dark sky, emphasizing the intensity and emotion of the event. The artist's use of light and shadow creates a sense of heat and urgency, reflecting the tumultuous nature of the battle. This work is emblematic of the Romantic era's fascination with grand historical events and the sublime power of nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  436
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x15097C012310>]
+generated_description:  This painting, "Boat at Sea" by Ivan Aivazovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It captures the raw power of the sea and the vulnerability of humanity amidst nature, reflecting the Romantic fascination with the sublime and the dramatic. The stormy sky and turbulent waves evoke a sense of both awe and danger, emphasizing the Romantic ideal of nature's overwhelming force. The presence of the boat and its occupants highlights the human struggle against the elements, a common theme in Romantic art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  437
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x15097C133880>]
+generated_description:  This painting, "Calm Sea" by Ivan Aivazovsky, exemplifies Romanticism, a style prevalent from the 1850s to 1900. It depicts a serene seascape with a large cloud dominating the sky, symbolizing the sublime and the power of nature. The calm sea and distant ship evoke a sense of tranquility and introspection, characteristic of Romantic art, which often emphasized emotion and the sublime aspects of the natural world. The artist's focus on atmospheric effects and the vastness of the sea reflect the Romantic fascination with the sublime and the emotional impact of nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  438
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x616 at 0x15098199C310>]
+generated_description:  This painting, "Cloud Over the Calm Sea," by Ivan Aivazovsky, exemplifies Romanticism, a movement prevalent from the 1850s to 1900. It depicts a serene seascape with a dramatic cloud formation dominating the sky, symbolizing the sublime and the power of nature. The calm sea and solitary boat evoke a sense of introspection and solitude, characteristic of Romantic art, which often emphasized emotion and the sublime aspects of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  439
+image_inputs [<PIL.Image.Image image mode=RGB size=1064x812 at 0x15098199CE80>]
+generated_description:  This painting, "Fishermen on the Shore," by Ivan Aivazovsky, exemplifies Romanticism, a movement prevalent from the 1850s to 1900. Set against a dramatic sunset, the scene captures the serene yet dynamic interaction between humans and nature. The presence of ships and boats suggests themes of exploration and maritime adventure, resonating with the Romantic fascination for the sublime and the untamed. The artist's use of light and shadow enhances the emotional intensity, reflecting the era's emphasis on personal experience and emotion over rationalism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  440
+image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x1509819ABF40>]
+generated_description:  This painting, "Lunar Night at the Spring" by Ivan Aivazovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. Set against a backdrop of cliffs and rocks, the scene captures a serene twilight moment, blending natural elements with a mystical atmosphere. The interplay of light and shadow, along with the presence of figures, evokes a sense of quiet contemplation and the sublime beauty of nature. The artist's use of moonlight adds a dreamlike quality, reflecting the Romantic fascination with the supernatural and the emotional power of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  441
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x15097C133BB0>]
+generated_description:  This painting, "Moonlit Night Near Yalta" by Ivan Aivazovsky, exemplifies Romanticism, capturing the serene beauty of a moonlit night in Crimea. The artist masterfully blends natural elements with atmospheric effects, emphasizing the interplay of light and shadow. The scene evokes a sense of tranquility and awe, reflecting the Romantic fascination with nature's grandeur and the sublime. The inclusion of Yalta and Crimea situates the work within the broader context of 19th-century Russian landscape painting, showcasing the artist's skill in rendering the natural world with emotional intensity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  442
+image_inputs [<PIL.Image.Image image mode=RGB size=504x420 at 0x15097C133430>]
+generated_description:  This painting, "Night Near Yalta" by Ivan Aivazovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. Set in Yalta, Crimea, the scene captures the serene beauty of the sea and mountains under a dramatic sky, reflecting the Romantic fascination with nature's power and the sublime. The architectural elements and figures add a human element, emphasizing the interaction between humanity and the natural world. The use of light and shadow enhances the atmospheric mood, characteristic of Romantic landscape painting.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  443
+image_inputs [<PIL.Image.Image image mode=RGB size=1708x1400 at 0x15098198AC10>]
+generated_description:  This painting, "Ox-Cart Crossing a Flooded Plain" by Ivan Aivazovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. Set in a rural landscape, it captures the serene yet somber mood of a countryside scene, emphasizing the interplay of light and atmosphere. The tree and atmospheric phenomenon add depth and emotional resonance, reflecting the Romantic fascination with nature and the sublime.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  444
+image_inputs [<PIL.Image.Image image mode=RGB size=1904x1204 at 0x15098199CCA0>]
+generated_description:  This painting, "Russian Squadron on the Raid of Sevastopol," by Ivan Aivazovsky, captures a scene from the Crimean War (1853-1856). Set against the backdrop of Sevastopol, the painting depicts a naval fleet, likely celebrating a victory or significant event. The romanticism style emphasizes emotion and imagination, reflecting the patriotic sentiment of the time. The presence of numerous ships and the crowd suggests a moment of national pride and celebration amidst the conflict.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  445
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x15098199CD00>]
+generated_description:  This painting, "Sea" by Ivan Aivazovsky, exemplifies Romanticism, a style prevalent from the 1850s to 1900. It depicts a sailboat battling turbulent seas, capturing the Romantic ideal of nature's power and the human struggle against it. The dramatic sky and dynamic waves evoke emotion and a sense of awe, reflecting the Romantic fascination with the sublime. The painting aligns with the Romantic movement's emphasis on individualism, emotion, and the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  446
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x1509818E1D60>]
+generated_description:  This painting, "Sea at Night" by Ivan Aivazovsky, exemplifies Romanticism, a movement prevalent from the 1850s to 1900. It depicts a serene night scene with a full moon illuminating the sea, evoking a sense of tranquility and mystery. The inclusion of a ship and the play of light and shadow highlight the artist's skill in capturing the mood of twilight and night, reflecting the Romantic fascination with nature's power and beauty.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  447
+image_inputs [<PIL.Image.Image image mode=RGB size=1036x812 at 0x15097C0ADA60>]
+generated_description:  This painting, "Seascape" by Ivan Aivazovsky, exemplifies Romanticism, a style prevalent from the 1850s to 1900. It captures a serene sunrise or sunset, emphasizing the sublime power of nature. The inclusion of boats and ships suggests themes of exploration and the human relationship with the sea. The mountains and sky contribute to the dramatic and emotional atmosphere characteristic of Romantic art.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  448
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x644 at 0x15097C0ADD60>]
+generated_description:  This painting, "Ship at Sea" by Ivan Aivazovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It captures the grandeur and drama of maritime life, emphasizing the power of nature and the solitary journey of ships. The artist's use of light and shadow, along with the dynamic waves, conveys a sense of adventure and the sublime. This work reflects the Romantic fascination with the sea as both a symbol of exploration and a force of nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  449
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x15097C0ADB20>]
+generated_description:  This painting, "Yalta" by Ivan Aivazovsky, exemplifies Romanticism, capturing the dramatic beauty of the Crimean Mountains and the sea. Painted in 1878, it reflects the artist's fascination with natural landscapes and the emotional power of the sea, typical of the Romantic era's emphasis on nature's sublime and untamed aspects. The inclusion of boats and ships adds a human element, suggesting exploration and the allure of coastal life. The scene evokes a sense of adventure and the grandeur of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  450
+image_inputs [<PIL.Image.Image image mode=RGB size=560x812 at 0x15097C09FCD0>]
+generated_description:  This painting, "Battle of Grunwald," by Jan Matejko, depicts a pivotal moment in the Battle of Grunwald (1410), a significant conflict between the Polish-Lithuanian forces and the Teutonic Knights. The scene captures the intensity and drama of the battle, emphasizing the valor of knights and warriors. Matejko's romanticism style enhances the emotional impact, portraying the figures with exaggerated heroism and grandeur. The painting reflects the artist's commitment to Polish history and national identity, aligning with the Romantic era's focus on nationalistic themes.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  451
+image_inputs [<PIL.Image.Image image mode=RGB size=588x812 at 0x15097C09FA60>]
+generated_description:  This painting, "Battle of Grunwald," by Jan Matejko, depicts a dramatic scene from the 1410 Battle of Grunwald, a pivotal moment in Polish and Lithuanian history. The artwork, part of a larger series, showcases knights and warriors in dynamic combat, emphasizing the epic scale and heroism of the event. Matejko's romanticism style captures the intensity and emotion of the battle, reflecting the nationalistic fervor prevalent in 19th-century Poland. The painting serves as a powerful symbol of Polish resistance against the Teutonic Knights, celebrating national identity and historical memory.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  452
+image_inputs [<PIL.Image.Image image mode=RGB size=616x812 at 0x15097C09F5E0>]
+generated_description:  This painting, "Bona Ossowiecka" by Jan Matejko, exemplifies Romanticism, a movement emphasizing emotion and individualism. Created in the 1850-1900 timeframe, it portrays a lady in a dark, elegant gown, reflecting the era's fascination with historical and national identity. Matejko's style, rooted in historical painting, captures the subject's dignity and the period's fashion, aligning with the Romantic focus on the past and the dramatic.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  453
+image_inputs [<PIL.Image.Image image mode=RGB size=812x532 at 0x15097C0A5A30>]
+generated_description:  The painting "Congress of the Kings" by Jan Matejko, created between 1850-1900, exemplifies Romanticism through its dramatic depiction of knights and warriors in a grand, historical setting. It reflects the era's fascination with medieval chivalry and the romanticized notion of kingship, capturing a moment of political intrigue and military power. The rich costumes and dynamic composition emphasize the heroic and epic qualities typical of the Romantic movement.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  454
+image_inputs [<PIL.Image.Image image mode=RGB size=504x364 at 0x15097C0A5160>]
+generated_description:  This painting, "The Death of King Przemysł II," by Jan Matejko, depicts a dramatic scene from medieval Polish history. Set in the Middle Ages, it portrays the violent death of King Przemysł II, reflecting the tumultuous political and social conditions of the era. The style of romanticism emphasizes emotion and grandeur, capturing the chaos and intensity of the moment. Matejko's work serves to honor the king and celebrate Polish history, aligning with the Romantic movement's focus on national identity and heroic narratives.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  455
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x15097C0A5FD0>]
+generated_description:  This painting, "John Albert," by Jan Matejko, is a male portrait from the Romanticism era, likely created between 1850-1900. It reflects the Romantic movement's focus on emotion and individualism, capturing a moment of contemplation or introspection. The subject's attire and pose suggest a connection to historical or national figures, aligning with Matejko's work that often depicted significant moments in Polish history.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  456
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x15097C09F520>]
+generated_description:  This painting, "John Casimir," by Jan Matejko, is a male portrait from the Romanticism period (1850-1900). It showcases Matejko's focus on historical and nationalistic themes, reflecting the Romantic era's emphasis on individualism and the glorification of the past. The subject's attire and expression highlight Matejko's attention to detail and his role in promoting Polish history and national identity during a time of partitions and lack of political autonomy.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  457
+image_inputs [<PIL.Image.Image image mode=RGB size=504x448 at 0x15097C09F880>]
+generated_description:  This painting, "Krakow Morgue," by Jan Matejko, captures a scene from 19th-century Kraków, reflecting the Romanticism era's focus on historical and cultural themes. The detailed architectural representation and the solitary figure evoke a sense of nostalgia and the passage of time, aligning with the Romantic movement's emphasis on the sublime and the past. The morgue, a significant historical site, underscores Matejko's commitment to documenting Polish history and identity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  458
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x15097C0AD070>]
+generated_description:  This black-and-white portrait, "Mieszko II Lambert," by Jan Matejko, reflects the Romanticism movement prevalent in the 1850-1900 timeframe. It portrays a male figure in regal attire, symbolizing historical importance, likely a Polish king, aligning with Matejko's focus on national history and identity. The style emphasizes dramatic lighting and detailed costume, capturing the grandeur of the subject.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  459
+image_inputs [<PIL.Image.Image image mode=RGB size=2296x1288 at 0x15097C0A5FD0>]
+generated_description:  This painting, "Dante and Virgil in Hell," by Jean-Léon Gérôme, reflects the Romantic era's fascination with the supernatural and dramatic narratives. Set in the Inferno of Dante's "Divine Comedy," the scene captures the moment when Dante encounters Virgil, his guide through Hell. The dark, atmospheric setting and the figures' somber expressions emphasize the gravity of their journey. Gérôme's use of light and shadow creates a sense of depth and foreboding, aligning with Romantic themes of emotion and the sublime.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  460
+image_inputs [<PIL.Image.Image image mode=RGB size=812x504 at 0x15097C0A25B0>]
+generated_description:  This painting, "Shipwreck on the Coast of Norway" by Johan Christian Dahl, exemplifies Romanticism, a movement prevalent in the 1800s. Set against a dramatic sky and turbulent sea, the work captures the raw power of nature and human vulnerability. The shipwreck symbolizes the struggle between humanity and the elements, reflecting the Romantic fascination with the sublime and the untamed. The artist's use of light and shadow enhances the emotional intensity, emphasizing the drama of the scene. This piece aligns with the Romantic era's emphasis on emotion, individualism, and the beauty of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  461
+image_inputs [<PIL.Image.Image image mode=RGB size=560x420 at 0x15097C0A5FD0>]
+generated_description:  This painting, "View of Fortundalen," by Johan Christian Dahl, exemplifies Romanticism, a movement prevalent from the 1800s to the 1850s. It showcases the artist's fascination with nature's grandeur and wilderness, capturing the rugged beauty of mountainous landscapes. The scene reflects the Romantic ideal of nature as sublime and awe-inspiring, emphasizing the sublime power of the natural world. The painting's focus on untouched wilderness aligns with Romantic themes of escape and emotional connection to the untamed outdoors.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  462
+image_inputs [<PIL.Image.Image image mode=RGB size=616x588 at 0x15097C0A28E0>]
+generated_description:  The painting "Eve with a Pomegranate" by Johann Kölner, created around 1880, embodies Romanticism's emphasis on emotion and the sublime. Set in a lush, natural environment, the work symbolizes temptation and the forbidden fruit, referencing biblical themes. The artist's use of soft lighting and rich colors evokes a sense of mystery and allure, reflecting the Romantic fascination with the divine and the human. The circular frame enhances the intimate and timeless quality of the scene.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  463
+image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x15097C1271C0>]
+generated_description:  This painting, "Faithful Guardian" by Johann Kölner, exemplifies Romanticism, a movement prevalent from the mid-18th to the mid-19th century. Set in a pastoral scene, the work celebrates the bond between humans and animals, reflecting the Romantic idealization of nature and the sublime. The serene setting and the intimate interaction between the girl and her dog evoke themes of innocence and loyalty, resonating with the era's focus on emotional depth and natural beauty. The painting captures a moment of quiet companionship, embodying the Romantic sentiment of cherishing simple, heartfelt connections.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  464
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x150978F0D760>]
+generated_description:  This painting, *A Lane in Headingley, Leeds* by John Atkinson Grimshaw, exemplifies the Romanticism movement of the 1850-1900 timeframe. It depicts a solitary figure walking along a dimly lit lane at night, illuminated by the moonlight filtering through bare trees. The atmospheric rendering captures the mood of mystery and solitude, typical of Grimshaw's work, reflecting the Romantic fascination with nature and the sublime. The use of light and shadow, along with the muted color palette, evokes a sense of quiet contemplation amidst the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  465
+image_inputs [<PIL.Image.Image image mode=RGB size=560x700 at 0x15097C0A25B0>]
+generated_description:  This painting, *A Moonlit Lane* by John Atkinson Grimshaw, exemplifies the Romanticism movement of the 1850-1900 timeframe. It depicts a serene night scene with a mother and child walking along a dimly lit lane, surrounded by trees and a stone wall. The moon casts a soft glow, creating an atmosphere of quiet contemplation and solitude, reflecting the Romantic emphasis on nature and the sublime. The use of atmospheric lighting and the intimate portrayal of the figures evoke a sense of mystery and emotional depth characteristic of the era.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  466
+image_inputs [<PIL.Image.Image image mode=RGB size=588x700 at 0x150978F172B0>]
+generated_description:  This painting, "Lea Hurst, Kent," by John Atkinson Grimshaw, exemplifies Romanticism, capturing a moody, atmospheric scene. Set in the 1850s-1900s, it depicts a rainy, foggy street at night, evoking solitude and mystery. The use of muted colors and dramatic lighting creates a somber mood, reflecting Grimshaw's fascination with nature and the sublime. The lone figure adds to the sense of isolation, while the tree and sky emphasize the power of nature. This work aligns with the Romantic movement's emphasis on emotion and the beauty of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  467
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x15097C09A400>]
+generated_description:  This painting, "Moonlight" by John Atkinson Grimshaw, exemplifies the Romanticism movement of the 1850-1900 timeframe. It depicts a solitary figure walking along a dimly lit street at night, illuminated by the moon and streetlights, creating an atmosphere of mystery and solitude. The use of atmospheric lighting and the focus on natural phenomena like the moon reflect Grimshaw's interest in capturing the mood and ambiance of nighttime scenes. The painting's tags—such as "lonely figures," "night," and "atmospheric phenomenon"—highlight its exploration of human emotion and the sublime power of nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  468
+image_inputs [<PIL.Image.Image image mode=RGB size=588x700 at 0x15097C145970>]
+generated_description:  This painting, "Moonlight on the Lake, Roundhay Park, Leeds," by John Atkinson Grimshaw, exemplifies Romanticism, a movement prevalent from the 1850s to 1900. It captures the serene beauty of nature under moonlight, reflecting Grimshaw's fascination with atmospheric effects and the interplay of light and shadow. The scene evokes a sense of mystery and tranquility, characteristic of the Romantic era's emphasis on emotion and the sublime. The use of muted colors and the depiction of the lake and surrounding trees highlight Grimshaw's skill in rendering atmospheric phenomena, creating a dreamlike quality that resonates with the Romantic ideal of nature's power and beauty.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  469
+image_inputs [<PIL.Image.Image image mode=RGB size=1092x700 at 0x150978F17400>]
+generated_description:  This painting, *Sixty Years Ago* by John Atkinson Grimshaw, exemplifies Romanticism, capturing a serene autumnal scene. Set in the 1850s-1900 timeframe, it portrays a solitary figure walking along a tree-lined street, evoking nostalgia and introspection. The use of warm, golden hues and atmospheric effects reflects Grimshaw's mastery of light and mood, typical of the Romantic era's focus on nature and emotion. The composition and color palette evoke a sense of quiet contemplation amidst the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  470
+image_inputs [<PIL.Image.Image image mode=RGB size=700x364 at 0x15097C0A25B0>]
+generated_description:  This painting, *Waterloo Lake, Roundhay Park, Leeds* by John Atkinson Grimshaw, exemplifies the Romanticism movement prevalent in the 1850-1900 timeframe. Grimshaw's use of atmospheric lighting and muted colors evokes a sense of solitude and introspection, characteristic of Romantic landscape painting. The lone figure amidst the natural landscape and the misty atmosphere reflect themes of contemplation and the sublime, capturing the essence of the Romantic era's fascination with nature and human emotion.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  471
+image_inputs [<PIL.Image.Image image mode=RGB size=476x1036 at 0x15098198A9A0>]
+generated_description:  The painting "Priestess of Delphi" by John Collier, created in 1891, exemplifies the Romanticism movement prevalent in the 1850-1900 timeframe. Set in ancient Greece, the artwork portrays a priestess, likely representing the Oracle of Delphi, with symbolic elements such as smoke and laurel branches, reflecting the mystical and spiritual atmosphere of the Delphic oracle. The rich reds and dramatic lighting enhance the mystical and sacred mood, aligning with Romantic ideals of the sublime and the divine.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  472
+image_inputs [<PIL.Image.Image image mode=RGB size=1120x784 at 0x15097C145FA0>]
+generated_description:  This painting, *Hampstead Heath* by John Constable, exemplifies the Romantic movement's emphasis on nature and emotion. Created in the 1820s, it captures the serene beauty of the English countryside, reflecting Constable's deep connection to his local environment. The expansive sky and tranquil landscape evoke a sense of awe and contemplation, characteristic of Romanticism. The work celebrates the natural world and its emotional power, resonating with the era's appreciation for the sublime and the picturesque.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  473
+image_inputs [<PIL.Image.Image image mode=RGB size=672x980 at 0x15097C145460>]
+generated_description:  This sketch, "Self-Portrait," by John Constable, reflects the Romantic era's emphasis on individuality and emotion. Created between 1800-1850, it showcases Constable's introspective nature and his dedication to capturing personal expression. The sketch's simplicity and direct gaze highlight his commitment to realism and direct observation, aligning with Romantic ideals of authenticity and connection to nature.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  474
+image_inputs [<PIL.Image.Image image mode=RGB size=1232x868 at 0x15098198A9A0>]
+generated_description:  The painting "The Hay Wain" by John Constable, created in 1821, exemplifies the Romantic movement's appreciation for nature and rural life. Set in the countryside, it showcases Constable's mastery of light and atmosphere, capturing the tranquility and beauty of the English landscape. The scene, with its hay cart crossing a river, evokes a sense of everyday life and the harmony between humans and nature. This work reflects the Romantic era's focus on emotion, individualism, and the sublime, celebrating the natural world as a source of inspiration and solace.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  475
+image_inputs [<PIL.Image.Image image mode=RGB size=1540x2044 at 0x15097C115130>]
+generated_description:  John Everett Millais's "Waiting" (1854) exemplifies Romanticism, capturing a serene, pastoral scene with a woman seated by a rustic gate. The painting reflects the era's fascination with nature and the sublime, emphasizing the quiet contemplation of rural life. The vivid greenery and soft lighting evoke a sense of peace and introspection, typical of the Romantic movement's focus on emotional and spiritual experiences.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  476
+image_inputs [<PIL.Image.Image image mode=RGB size=1288x1568 at 0x15097C115220>]
+generated_description:  This painting, "Mary Robinson as Perdita," by John Hoppner, exemplifies the Romanticism movement of the late 18th century. Set against a dramatic red backdrop, the subject's elaborate hairstyle and vibrant attire reflect the fashion of the era. The romantic idealization of beauty and the focus on individual expression align with the Romantic ethos, capturing a moment of serene elegance.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  477
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x700 at 0x15097C1151C0>]
+generated_description:  This painting, "Miranda" by John William Waterhouse, created in 1916, reflects the Romanticism movement's fascination with mythology and the sublime. Inspired by William Shakespeare's "The Tempest," it portrays Miranda, the daughter of Prospero, gazing out at the tempestuous sea, evoking themes of isolation, longing, and the power of nature. The dramatic composition and rich, atmospheric colors capture the essence of the Romantic era's exploration of the human condition through mythological narratives.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  478
+image_inputs [<PIL.Image.Image image mode=RGB size=420x588 at 0x15097C1111C0>]
+generated_description:  This painting, "Ophelia" by John William Waterhouse, created in 1910, reflects the Romanticism movement's focus on emotion and the sublime. Set against a backdrop of nature, the figure of Ophelia, a fictional character from William Shakespeare's "Hamlet," embodies the Romantic ideal of the tragic beauty of the soul. The painting captures Ophelia's vulnerability and despair, aligning with Romantic themes of nature's power and the fragility of human emotion. The Victorian fashion and setting further contextualize the work within its era, emphasizing the intersection of literature, art, and societal values of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  479
+image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x15097C09F340>]
+generated_description:  This painting, *Penelope and the Suitors* by John William Waterhouse, created in 1912, reflects the Romanticism movement's fascination with Greek and Roman mythology. Set during the Odyssey, it depicts Penelope, wife of Odysseus, weaving and unweaving her web to delay marrying suitors while Odysseus is away. The scene captures the tension and beauty of mythological storytelling, blending historical accuracy with artistic license. The painting's rich colors and detailed composition highlight Waterhouse's skill in evoking the atmosphere of ancient Greece.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  480
+image_inputs [<PIL.Image.Image image mode=RGB size=1512x1148 at 0x15097C111550>]
+generated_description:  This painting, *The Lady of Shalott* by John William Waterhouse, created in 1888, is a romantic depiction inspired by Alfred Tennyson's poem. Set in a moody, atmospheric landscape, the painting portrays the titular lady in a boat, gazing out over water, embodying themes of fate, enchantment, and the allure of the unknown. The romanticism of the era is evident through the use of soft lighting, rich colors, and a focus on the emotional and mystical aspects of the story. The setting and costume reflect medieval and Arthurian themes, aligning with the broader interest in these narratives during the late Victorian period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  481
+image_inputs [<PIL.Image.Image image mode=RGB size=1148x700 at 0x15097C0B1B80>]
+generated_description:  This painting, "The Merman," by John William Waterhouse, reflects the Romanticism movement of the late 19th century. Inspired by Alfred Tennyson's poem "The Mermaid," it portrays a mythological merman resting on a rock in a serene coastal setting. The work captures a blend of fantasy and natural beauty, typical of Romantic art, emphasizing emotion and the sublime. The painting's focus on a fictional character and mythological theme aligns with the era's fascination with the supernatural and the past.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  482
+image_inputs [<PIL.Image.Image image mode=RGB size=756x560 at 0x15097C0B1730>]
+generated_description:  This painting, "An Eruption of Mount Vesuvius with the Procession of St. Januarius's Head," by Joseph Wright, captures the dramatic eruption of Mount Vesuvius in 1779. Set within the Romantic era, it reflects the fascination with nature's power and the sublime. Wright's use of light and shadow emphasizes the heat and intensity of the volcanic eruption, while the procession of St. Januarius's head adds a layer of historical and religious significance, blending natural spectacle with human devotion. The painting exemplifies the Romantic movement's focus on the awe-inspiring forces of nature and their impact on human experience.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  483
+image_inputs [<PIL.Image.Image image mode=RGB size=756x560 at 0x15097C111640>]
+generated_description:  This painting, "Brooke Boothby" by Joseph Wright, exemplifies the Romantic era's focus on nature and individualism. Set in a forested landscape, the subject reclines leisurely, embodying the Romantic ideal of harmony with nature. The soft lighting and intimate setting suggest a moment of quiet contemplation, reflecting the era's emphasis on personal experience and emotional depth.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  484
+image_inputs [<PIL.Image.Image image mode=RGB size=756x588 at 0x150978E28A30>]
+generated_description:  This painting, *Dovedale by Moonlight* by Joseph Wright, exemplifies the Romanticism movement of the late 18th and early 19th centuries. Wright's use of dramatic lighting and natural scenery reflects the Romantic fascination with the sublime and the power of nature. The moonlit landscape evokes a sense of mystery and awe, typical of the era's emphasis on emotion and the beauty of the natural world.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  485
+image_inputs [<PIL.Image.Image image mode=RGB size=1092x1092 at 0x150978F176D0>]
+generated_description:  This painting, *Lake with Castle on a Hill* by Joseph Wright, exemplifies the Romanticism movement of the late 18th and early 19th centuries. Settled in Derby, Wright was influenced by the Enlightenment and the Lunar Society, reflecting a fascination with science and nature. The scene combines elements of the sublime, with its dramatic lighting and vast landscapes, alongside a sense of mystery and melancholy, typical of Romanticism. The castle and the moon suggest themes of history and the passage of time, while the serene lake and forest evoke a connection to nature. This work captures the era's appreciation for the beauty and power of the natural world, often tinged with a sense of solitude and introspection.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  486
+image_inputs [<PIL.Image.Image image mode=RGB size=1008x1484 at 0x15097C0B1E20>]
+generated_description:  This black-and-white etching by Karl Bodmer, dated 1850-1900, embodies Romanticism's appreciation for nature and wildlife. The scene depicts a cat interacting with a snake, capturing a moment of tension in a natural setting. Bodmer's detailed rendering highlights the textures of the cat's fur and the snake's scales, reflecting his focus on the beauty and intricacy of the natural world. This piece aligns with the Romantic era's fascination with the untamed and the sublime, emphasizing the coexistence of life forms in harmony yet fraught with potential conflict.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  487
+image_inputs [<PIL.Image.Image image mode=RGB size=2156x1680 at 0x150978DB3160>]
+generated_description:  This painting, "Fort Clark on the Missouri," by Karl Bodmer, captures a winter scene along the Missouri River in 1834. Bodmer, a Swiss artist, documented Native American life and the American West during the 19th century. The romanticism style emphasizes emotion and imagination, reflecting the era's fascination with the untamed wilderness. The depiction of horsemen and Native Americans highlights the cultural interactions and the harsh winter conditions of the region. This work provides insight into the daily life and environment of the time.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  488
+image_inputs [<PIL.Image.Image image mode=RGB size=812x1148 at 0x150978E28DC0>]
+generated_description:  This painting, "Indians Hunting the Bison," by Karl Bodmer, captures the romanticism of the 1800s, reflecting the fascination with Native American life and the vanishing frontier. Set in the American West, it showcases horsemen in action, emphasizing the dynamic movement and the harsh beauty of the landscape. The scene evokes themes of adventure and the untamed wilderness, resonating with the era's exploration and cultural curiosity.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  489
+image_inputs [<PIL.Image.Image image mode=RGB size=784x952 at 0x150978DB3FA0>]
+generated_description:  This portrait by Karl Bryullov, titled "Portrait of I.A. Krylov," exemplifies the Romanticism movement of the 1800s. Painted during the timeframe of 1800-1850, it captures the essence of Romantic portraiture, focusing on emotional depth and individual expression. The subject, Ivan Krylov, a renowned Russian writer, is depicted with a contemplative pose against a dramatic red backdrop, emphasizing his intellectual character. This work reflects the Romantic ideal of portraying the inner life of the subject, aligning with the broader cultural emphasis on individualism and emotion during this period.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  490
+image_inputs [<PIL.Image.Image image mode=RGB size=896x1008 at 0x15097C0A85B0>]
+generated_description:  This painting, "Portrait of Maria Kikina as a Child" by Karl Bryullov, exemplifies the Romantic era's focus on emotional depth and individual expression. Created in 1820, it captures the innocence and vitality of a child, reflecting the Romantic ideal of capturing fleeting moments and personal character. The sketchy style and expressive brushwork emphasize the artist's ability to convey the subject's personality and emotions, aligning with Romantic principles of emotional intensity and realism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  491
+image_inputs [<PIL.Image.Image image mode=RGB size=756x896 at 0x150978DB36A0>]
+generated_description:  This painting, "Portrait of S.A. Schubert," by Karl Bryullov, exemplifies Romanticism's focus on emotional intensity and individualism. Created between 1800-1850, it captures a woman in elegant attire, reflecting the era's fascination with portraiture and the human form. The soft, expressive brushwork and the subject's contemplative pose highlight Bryullov's skill in conveying personality and mood, characteristic of Romantic portraiture.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  492
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x150978E285E0>]
+generated_description:  This painting, "Portrait of Singer A.Ya Petrova" by Karl Bryullov, exemplifies the Romantic period's emphasis on emotional intensity and individualism. Set against a dark, somber background, the subject's vibrant expression and flowing hair contrast with the muted tones, highlighting her dynamic personality. The romantic style is evident in the dramatic lighting and the artist's focus on capturing the subject's inner life, reflecting the era's fascination with emotion and personal experience.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  493
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x15097C0BAB50>]
+generated_description:  This portrait by Karl Bryullov, titled "Portrait of the Actor A.N. Ramazanov," exemplifies the Romantic period's emphasis on individual expression and emotional depth. Painted in the 1800s, it captures Ramazanov with a contemplative gaze, reflecting the Romantic fascination with introspection and the human condition. The style, with its soft lighting and detailed rendering, aligns with Bryullov's blend of neoclassical precision and romantic sentimentality.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  494
+image_inputs [<PIL.Image.Image image mode=RGB size=1400x1876 at 0x15097C0B1E20>]
+generated_description:  This painting, "Portrait of the Shishmariov Sisters," by Karl Bryullov, exemplifies the Romanticism movement of the 1800s. Set against a lush, natural backdrop, the work captures the sisters in elegant attire, reflecting their social standing. The use of vibrant colors and dramatic lighting enhances the emotional depth, characteristic of Romantic portraiture. This piece highlights Bryullov's skill in blending realism with a sense of grandeur, typical of the era's artistic trends.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  495
+image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x15098200EDF0>]
+generated_description:  This painting, "Female Portrait," by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It showcases a woman in elegant attire, reflecting the era's fascination with beauty and the idealized portrayal of femininity. The use of rich colors and detailed textures highlights Makovsky's skill in capturing the subject's grace and poise, aligning with Romantic ideals of emotional intensity and naturalism.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  496
+image_inputs [<PIL.Image.Image image mode=RGB size=784x1008 at 0x15097C115130>]
+generated_description:  This painting, "Female Portrait" by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It features a woman in vintage clothing, capturing a serene and contemplative mood characteristic of the period. The use of soft colors and detailed textures reflects the Romantic emphasis on emotion and individual expression. The subject's gentle gaze and the delicate floral bouquet suggest themes of femininity and grace, aligning with Romantic ideals of beauty and sentimentality.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  497
+image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x15097C0B1A30>]
+generated_description:  This painting, "Flirt," by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It depicts a female portrait with a soft, intimate atmosphere, characteristic of the era's focus on emotional and psychological depth. The use of rich colors and detailed textures reflects the Romantic emphasis on individual expression and the beauty of the human form. The setting and props suggest a private moment, adding to the intimate and personal tone of the work.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  498
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1008 at 0x15097C0BAEE0>]
+generated_description:  This painting, "Girl with Jug" by Konstantin Makovsky, exemplifies the Romanticism style prevalent in the 1850-1900 timeframe. It portrays a young girl in traditional attire, holding a jug, capturing a moment of rural life. The soft colors and emotional expression reflect the Romantic idealization of the past and the natural world. This work aligns with the broader trend of depicting children and everyday life in a sentimental and picturesque manner.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Processing row:  499
+image_inputs [<PIL.Image.Image image mode=RGB size=700x1008 at 0x15097C0B17C0>]
+generated_description:  This painting, "Head," by Konstantin Makovsky, exemplifies the romanticism style prevalent in the late 19th and early 20th centuries. It captures a female portrait with a focus on delicate hair and expressive facial features, reflecting the era's emphasis on beauty and emotional depth. The soft brushstrokes and warm tones highlight the subject's gentle demeanor, aligning with romantic ideals of femininity and sensuality.
+
+GPU Memory Usage:
+Allocated: 15897.97 MB
+Cached: 16096.00 MB
+Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_185420_job_4.json'.
+
+JOB STATISTICS
+==============
+Job ID: 11789347
+Cluster: snellius
+User/Group: wangsh/wangsh
+State: RUNNING
+Nodes: 1
+Cores per node: 16
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 01:40:48 core-walltime
+Job Wall-clock time: 00:06:18
+Memory Utilized: 0.00 MB
+Memory Efficiency: 0.00% of 180.00 GB (180.00 GB/node)
+WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

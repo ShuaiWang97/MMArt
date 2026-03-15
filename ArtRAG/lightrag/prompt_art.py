@@ -185,6 +185,17 @@ Detailed Markdown
 
 """
 
+PROMPTS["no-rag_zero-shot_response"] = """---Goal---
+
+Generate a description of the target length and format that responds to the user's question, s
+
+---Target response length and format---
+
+{response_type}
+
+
+"""
+
 
 PROMPTS["rag_SemArtv2_1-shot_incontext_response"] = """---Role---
 
