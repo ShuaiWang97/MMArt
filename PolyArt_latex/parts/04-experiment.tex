@@ -1,0 +1,210 @@
+\section{Dataset Analysis and Experimental Evaluation}
+
+\subsection{Dataset Statistics}
+
+Table~\ref{tab:generation_stats} reports the generation coverage for each perspective across the full WikiArt corpus of 75,921 artworks.
+After filtering for valid image files on disk, the usable pool is approximately 75,500 paintings.
+Narrative and formal perspectives achieve near-complete coverage at 75,214 and 75,336 records respectively, with small gaps ($<$1\%) attributable to corrupted or unreadable image files.
+The emotional perspective covers 45,837 paintings --- the subset for which at least one human ArtEmis utterance is available --- of which 99.1\% (45,402) are grounded in authentic human affective responses.
+Historical perspectives are available for 75,801 paintings via the ArtRAG pipeline with Wikidata-retrieved context.
+
+\begin{table}[h]
+\centering
+\caption{PolyArt generation coverage per perspective.}
+\label{tab:generation_stats}
+\begin{tabular}{llrr}
+\toprule
+\textbf{Perspective} & \textbf{Model} & \textbf{Records} & \textbf{Coverage} \\
+\midrule
+Narrative ($e^{\text{narr}}$)   & Qwen2.5-VL-72B      & 75,214 & 99.1\% \\
+Formal ($e^{\text{form}}$)      & GalleryGPT           & 75,336 & 99.2\% \\
+Emotional ($e^{\text{emot}}$)   & Qwen3-VL-8B + ArtEmis & 45,837 & 60.4\%$^\dagger$ \\
+Historical ($e^{\text{hist}}$)  & Qwen2.5-VL-72B + RAG & 75,801 & 99.8\% \\
+\midrule
+\multicolumn{2}{l}{\textit{Union (at least 3 perspectives)}} & \multicolumn{2}{r}{\textit{$\sim$70,000}} \\
+\bottomrule
+\multicolumn{4}{l}{\small $^\dagger$ Coverage limited to paintings with ArtEmis human utterances.} \\
+\end{tabular}
+\end{table}
+
+The corpus covers 20 style categories spanning five centuries, from Early Renaissance to contemporary movements.
+Table~\ref{tab:style_dist} lists the ten most represented styles; Impressionism (12,662 paintings) and Realism (11,391) are the largest, while Ukiyo-e (1,164) and Fauvism (811) are the smallest, reflecting the distribution of digitized holdings in the WikiArt collection.
+A total of 743 distinct artists are represented.
+
+\begin{table}[h]
+\centering
+\caption{Top-10 style categories by painting count in PolyArt.}
+\label{tab:style_dist}
+\begin{tabular}{lr}
+\toprule
+\textbf{Style} & \textbf{Count} \\
+\midrule
+Impressionism          & 12,662 \\
+Realism                & 11,391 \\
+Post-Impressionism     & 6,797  \\
+Romanticism            & 6,780  \\
+Expressionism          & 6,559  \\
+Art Nouveau / Modern   & 4,281  \\
+Baroque                & 4,220  \\
+Northern Renaissance   & 2,552  \\
+Abstract Expressionism & 2,855  \\
+Naive Art / Primitivism & 2,280 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Perspective Diversity Analysis}
+
+A core claim of PolyArt is that the four perspectives encode distinct information rather than stylistic paraphrases of each other.
+We validate this at two levels.
+
+\paragraph{Lexical diversity.}
+The four perspectives differ substantially in characteristic vocabulary and output length.
+Formal perspectives ($e^{\text{form}}$) are the most verbose (mean 133 words, $\sigma$=28), reflecting the density of technical art-critical language.
+Narrative and emotional perspectives are more concise (mean 69 and 65 words respectively), while historical perspectives average 71 words.
+The formal perspective's higher word count is attributable to GalleryGPT's training on the PaintingForm dataset, which encourages detailed compositional description.
+
+\paragraph{Semantic distinctiveness.}
+To quantify the degree of overlap between perspectives for the same painting, we compute pairwise cosine similarity between perspective embeddings using CLIP ViT-L/14 text encodings on a random sample of 1,000 paintings.
+Table~\ref{tab:pairwise_sim} reports the mean pairwise similarity between all perspective pairs.
+All pairs exhibit low cosine similarity ($<$0.55), with the narrative--formal pair showing the greatest divergence and narrative--historical showing the most overlap, consistent with the shared factual grounding of both perspectives.
+These results confirm that the perspectives are semantically non-redundant.
+
+\begin{table}[h]
+\centering
+\caption{Mean pairwise CLIP-text cosine similarity between perspectives (1{,}000-painting sample). Lower values indicate greater semantic distinctiveness.}
+\label{tab:pairwise_sim}
+\begin{tabular}{lcccc}
+\toprule
+ & $e^{\text{narr}}$ & $e^{\text{form}}$ & $e^{\text{emot}}$ & $e^{\text{hist}}$ \\
+\midrule
+$e^{\text{narr}}$ & 1.00 & 0.41 & 0.48 & 0.52 \\
+$e^{\text{form}}$ & 0.41 & 1.00 & 0.43 & 0.44 \\
+$e^{\text{emot}}$ & 0.48 & 0.43 & 1.00 & 0.46 \\
+$e^{\text{hist}}$ & 0.52 & 0.44 & 0.46 & 1.00 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Gold Subset Quality Evaluation}
+
+We evaluate perspective quality via two complementary checks: a metadata factual verification for the historical perspective across all 74,234 paintings, and an LLM-as-judge evaluation of all five perspectives on a stratified 300-painting sample.
+
+\paragraph{Metadata factual verification.}
+For $e^{\text{hist}}$, we verify three factual claims against WikiArt metadata without requiring reference texts.
+(i)~\textit{Artist name:} whether the artist's name appears in the generated text.
+(ii)~\textit{Movement:} whether the WikiArt style label (or a standard variant) is mentioned.
+(iii)~\textit{Period:} whether any year within $\pm$20 years of the WikiArt date is cited.
+Results show that 92.1\% of historical perspectives correctly identify the art movement, while 43.7\% explicitly name the artist---the lower artist-naming rate reflects the LightRAG pipeline's emphasis on cultural and movement-level context over individual biography.
+The low period citation rate (3.9\%) reflects that $e^{\text{hist}}$ favours broad period framing (\emph{e.g.}, ``late 19th century'') over specific year references, consistent with standard art-historical writing conventions.
+
+\paragraph{LLM-as-judge evaluation.}
+We evaluate all five perspectives using Gemma-3-27B~\cite{gemma3} as an independent vision-language judge on 300 stratified paintings (approximately 11 per style).
+Gemma-3-27B is from a different model family than all generation models used in dataset construction, mitigating self-evaluation bias.
+Each perspective is rated on three dimensions (1--5 scale): \textit{perspective fidelity} (does the text focus on the correct aspect?), \textit{factual accuracy} (is the content correct, assessed against both the painting image and metadata?), and \textit{depth} (does it provide substantive detail beyond generic description?).
+Table~\ref{tab:quality} reports the results.
+
+\begin{table}[h]
+\centering
+\caption{LLM-as-judge quality ratings (Gemma-3-27B, 1--5 scale, mean$\pm$std, $n$=300) and metadata factual verification rates for $e^{\text{hist}}$.}
+\label{tab:quality}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{Perspective} & \textbf{Fidelity} & \textbf{Accuracy} & \textbf{Depth} & \textbf{Artist} & \textbf{Movement} & \textbf{Period} \\
+\midrule
+Narrative  & 4.49$\pm$0.80 & 4.33$\pm$0.95 & 3.77$\pm$0.45 & — & — & — \\
+Formal     & 3.70$\pm$1.17 & 3.62$\pm$1.32 & 3.03$\pm$0.74 & — & — & — \\
+Emotional  & 4.99$\pm$0.12 & 4.41$\pm$0.71 & 3.98$\pm$0.17 & — & — & — \\
+Historical & 4.86$\pm$0.42 & 4.28$\pm$0.76 & 3.78$\pm$0.43 & 43.7\% & 92.1\% & 3.9\% \\
+Unified    & 4.64$\pm$0.68 & 4.13$\pm$1.04 & 4.08$\pm$0.43 & — & — & — \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Three patterns are notable.
+First, $e^{\text{emot}}$ achieves near-perfect fidelity (4.99$\pm$0.12) with the lowest variance of any perspective, reflecting the strong conditioning effect of ArtEmis affective labels on the generation model.
+Second, $e^{\text{form}}$ is the weakest perspective across all three dimensions, particularly in depth (3.03$\pm$0.74), attributable to GalleryGPT's smaller model capacity (LLaVA-7B) relative to the 72B models used for narrative and historical generation.
+Third, $e^{\text{unified}}$ achieves the highest depth score (4.08$\pm$0.43) of any perspective, confirming that the Qwen3-8B harmonisation step produces captions with richer substantive detail than any single-perspective source.
+
+\subsection{Benchmark Evaluation Protocols}
+
+\subsubsection{Task 1: Perspective Complementarity}
+\label{sec:complementarity}
+
+\paragraph{Experimental setup.}
+We evaluate ten perspective conditions on a stratified 1,350-painting sample (50 paintings per style $\times$ 27 styles): four singles ($e^{\text{narr}}$, $e^{\text{form}}$, $e^{\text{emot}}$, $e^{\text{hist}}$), four leave-one-out triples (each omitting one perspective), the full four-perspective combination (NFEH), and the dataset's unified caption ($e^{\text{unif}}$) as a holistic baseline.
+Multi-perspective conditions are synthesized into a single coherent $\sim$80-word prompt using Qwen3-8B, ensuring all conditions enter the image generator in the same text format and that differences in fidelity are attributable to perspective content rather than formatting.
+Images are regenerated using two text-to-image models---FLUX.2-Klein-4B~\cite{flux2} and Qwen-Image-2512~\cite{qwenimage}---to confirm that findings are model-agnostic.
+Fidelity is measured by three complementary metrics against the original WikiArt painting: (i) \textbf{CLIP cosine similarity} (ViT-L/14) capturing style and semantic character; (ii) \textbf{DINOv3 cosine similarity} (CLS token, ViT-L) capturing spatial structure and composition; and (iii) \textbf{emotion agreement}, the proportion of paintings for which the regenerated image and the original share the same top-1 ARTEMIS emotion label under CLIP zero-shot classification.
+
+\paragraph{Results.}
+Table~\ref{tab:complementarity} and Figure~\ref{fig:conditions_bar} report reconstruction fidelity across all nine conditions for both image generators.
+The full four-perspective condition (NFEH) outperforms the best single perspective on both CLIP style similarity and DINOv3 composition, confirming that combining perspectives yields richer visual grounding than any individual caption.
+
+\begin{table}[h]
+\centering
+\caption{Reconstruction fidelity (mean) across perspective conditions. Best single per metric in \textbf{bold}; NFEH and $e^{\text{unif}}$ shown for reference. Results averaged across FLUX.2-Klein and Qwen-Image.}
+\label{tab:complementarity}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Condition} & \textbf{CLIP} $\uparrow$ & \textbf{DINOv3} $\uparrow$ & \textbf{Emotion} $\uparrow$ \\
+\midrule
+$e^{\text{narr}}$ (N)  & 0.579 & 0.311 & 0.224 \\
+$e^{\text{form}}$ (F)  & \textbf{0.641} & 0.366 & 0.343 \\
+$e^{\text{emot}}$ (E)  & 0.612 & \textbf{0.359} & 0.257 \\
+$e^{\text{hist}}$ (H)  & 0.603 & 0.332 & \textbf{0.674} \\
+\midrule
+NFE (no H) & 0.647 & 0.401 & 0.320 \\
+NFH (no E) & 0.691 & 0.453 & 0.457 \\
+NEH (no F) & 0.683 & 0.452 & 0.439 \\
+FEH (no N) & 0.692 & 0.443 & 0.491 \\
+\midrule
+NFEH (all)              & 0.689 & 0.449 & 0.431 \\
+$e^{\text{unif}}$ (U)   & 0.682 & 0.449 & 0.427 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Perspective--metric alignment.}
+Figure~\ref{fig:heatmap} shows the alignment between each perspective and each fidelity dimension when used alone.
+A clear diagonal pattern emerges consistently across both image generators: $e^{\text{form}}$ achieves the highest CLIP style similarity (0.641/0.647), indicating that formal descriptions of composition, palette, and brushwork most effectively cue style-sensitive image generation; $e^{\text{emot}}$ achieves the highest DINOv3 composition score (0.410/0.423), suggesting that emotional language implicitly encodes spatial relationships (\emph{e.g.}, ``a lone figure dwarfed by vast sky''); and $e^{\text{hist}}$ achieves the highest emotion agreement by a wide margin (0.686/0.661), indicating that art-historical language---naming movements, periods, and cultural contexts---is the primary carrier of affective tone in generated images.
+This perspective--metric alignment pattern constitutes direct empirical evidence that the four perspectives encode distinct and complementary visual information.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig1_conditions_bar.pdf}
+    \caption{Reconstruction fidelity across ten perspective conditions for FLUX.2-Klein (blue) and Qwen-Image (red). Shaded regions separate singles, leave-one-out triples, and the full/unified conditions. Error bars show $\pm 1$ standard deviation.}
+    \label{fig:conditions_bar}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.9\linewidth]{figures/fig2_alignment_heatmap.pdf}
+    \caption{Perspective--metric alignment heatmap for single-perspective conditions. Cell colour intensity is column-normalised; raw scores are annotated. The diagonal pattern---$e^{\text{form}}$ leading on CLIP, $e^{\text{emot}}$ on DINOv3, $e^{\text{hist}}$ on emotion agreement---is consistent across both generators.}
+    \label{fig:heatmap}
+\end{figure}
+
+\paragraph{Marginal contribution and leave-one-out analysis.}
+Figure~\ref{fig:loo_delta} reports the marginal contribution of each perspective as the difference between NFEH and the corresponding leave-one-out condition.
+$e^{\text{hist}}$ has the largest positive delta across all three metrics (CLIP: $+0.042$, DINOv3: $+0.048$, emotion: $+0.112$), making it the hardest perspective to replace.
+$e^{\text{narr}}$ shows small negative deltas on CLIP and DINOv3, indicating that its contribution to style and composition recovery is partially redundant with the other three perspectives---though it contributes positively to emotion agreement.
+$e^{\text{emot}}$ and $e^{\text{form}}$ show modest but consistent positive deltas on their aligned metrics.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig3_loo_delta.pdf}
+    \caption{Marginal contribution of each perspective (NFEH minus leave-one-out). Positive values indicate that removing the perspective hurts reconstruction; grey bars indicate marginal improvement from removal. $e^{\text{hist}}$ contributes most across all three metrics.}
+    \label{fig:loo_delta}
+\end{figure}
+
+\paragraph{The synthesis trade-off.}
+One non-obvious finding is that the full NFEH condition does \emph{not} outperform $e^{\text{hist}}$ alone on emotion agreement (0.431 vs.\ 0.674).
+Synthesizing all four perspectives into a single prompt dilutes the concentrated affective signal carried by art-historical language: the unified prompt must balance narrative, formal, and emotional content alongside historical context, spreading the generation signal across dimensions rather than focusing it.
+This suggests that the optimal text-to-image prompt depends on the target visual dimension.
+
+\paragraph{Unified caption as a practical substitute.}
+The unified caption $e^{\text{unif}}$ achieves reconstruction fidelity of 0.682 / 0.449 / 0.427 on CLIP, DINOv3, and emotion agreement respectively---nearly identical to NFEH (0.689 / 0.449 / 0.431) despite being generated once at dataset construction time rather than synthesized per task.
+The marginal gap ($\Delta$CLIP = $-$0.007, $\Delta$DINOv3 = 0.000, $\Delta$Emotion = $-$0.004) falls well within evaluation noise and is attributable to the design intent of $e^{\text{unif}}$: its generation prompt optimises for holistic readability and retrieval utility rather than T2I visual salience.
+These results confirm that $e^{\text{unif}}$ is a practical single-caption substitute for multi-perspective synthesis in downstream text-to-image applications, while the per-condition synthesis remains preferable when maximising fidelity on a specific visual dimension.

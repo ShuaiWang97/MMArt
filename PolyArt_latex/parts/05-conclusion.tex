@@ -1,0 +1,9 @@
+\section{Discussion and Conclusion}
+
+\paragraph{Use cases.}
+PolyArt is designed to support a broad range of downstream research tasks in multimodal art understanding.
+The four independently generated perspectives enable \textbf{perspective-conditioned fine-tuning}: researchers can train or evaluate vision-language models on each dimension separately --- formal, emotional, historical, or narrative --- and measure the effect of perspective alignment on generation quality, without the confounds introduced by mixing heterogeneous annotation styles.
+The unified caption ($e^{\text{unified}}$) provides a single rich descriptor for \textbf{cross-modal retrieval} experiments, where multi-perspective grounding produces more semantically complete query representations than any single-perspective caption.
+The co-presence of ArtEmis emotion labels and generated emotional perspectives makes PolyArt directly applicable to \textbf{affective computing} research on visual art, supporting both classification and generation tasks with human-grounded supervision.
+Finally, the ArtRAG-grounded historical perspectives, combined with style and artist metadata, enable \textbf{knowledge-intensive art question answering} and retrieval-augmented generation benchmarks that require models to integrate visual evidence with external cultural knowledge.
+Datasets, generation scripts, and pre-computed embeddings are released publicly to facilitate reproducible research across all these applications.

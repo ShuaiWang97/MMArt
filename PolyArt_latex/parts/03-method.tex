@@ -1,0 +1,147 @@
+\section{PolyArt Dataset}
+
+\begin{figure*}[ht]
+    \centering\includegraphics[width=\linewidth]{images/polyart_pipeline.jpg}
+    \vspace{-5mm}
+    \caption{Overview of the PolyArt dataset construction pipeline. Each painting is processed through four specialized vision-language models to produce independently generated perspectives (narrative, formal, emotional, historical), which are then harmonized into a unified caption.}
+\label{fig:polyart_framework}
+\end{figure*}
+
+We introduce PolyArt, a large-scale multi-perspective dataset grounding visual art understanding in four distinct interpretive dimensions.
+This section describes the data foundation, the four-perspective architecture, the model selection and generation pipeline, quality control procedures, and the two benchmark tasks built on the dataset.
+
+\subsection{Data Foundation}
+
+PolyArt is built on the WikiArt dataset~\cite{2017omniart}, which covers approximately 75,921 artworks across 27 style categories spanning the 15th through the 21st century.
+After filtering to artworks with verified image files on disk, the dataset comprises approximately 70,000 paintings from over 1,100 artists.
+Each painting is associated with structured metadata including title, artist name, production date, style classification, and artist school.
+
+For a subset of artworks, we additionally retrieve artist-level biographical and contextual information from Wikidata, including movement affiliations, key biographical events, and cross-references to other artists.
+This Wikidata context is used as a retrieval source for grounding the historical and contextual perspective.
+
+\subsection{Four-Perspective Architecture}
+
+Expert art interpretation operates simultaneously across multiple analytical registers.
+Rather than generating a single descriptive caption, PolyArt decomposes each artwork's annotation into four independently generated perspectives:
+
+\begin{equation}
+P(w) = \{ e^{\text{narr}},\ e^{\text{form}},\ e^{\text{emot}},\ e^{\text{hist}} \},
+\end{equation}
+
+where $w$ denotes a painting and each component captures a distinct interpretive dimension.
+
+\paragraph{Narrative and Scene Interpretation ($e^{\text{narr}}$).}
+A factual account of the depicted entities, figures, scene composition, and visual elements as they appear in the image.
+This perspective answers \textit{what} is shown, without invoking symbolic or historical interpretation.
+
+\paragraph{Formal Visual Analysis ($e^{\text{form}}$).}
+An analysis of the painting's compositional structure, including spatial organization, color palette, brushwork, use of light and shadow, and visual rhythm.
+This perspective corresponds to the vocabulary of formal art criticism, focusing on \textit{how} the work is constructed.
+
+\paragraph{Emotional Response ($e^{\text{emot}}$).}
+An affective characterization of the painting's perceived mood, atmosphere, and psychological tone as registered by a viewer.
+This perspective captures the phenomenological dimension of art encounter---\textit{what it feels like} to look at the work.
+
+\paragraph{Historical and Contextual Analysis ($e^{\text{hist}}$).}
+An art-historical interpretation situating the work within its cultural context: movement affiliation, iconographic codes, period-specific symbolic meaning, and relevant biographical or historical circumstances.
+This perspective answers \textit{why} the work looks and means as it does.
+
+In addition to the four independent perspectives, each painting receives a \textit{unified caption} $e^{\text{unif}}$ produced by harmonizing all four into a single coherent description.
+This unified caption serves as a strong single-text baseline in benchmark evaluations.
+
+\subsection{Generation Pipeline}
+
+A central design principle of PolyArt is the use of specialized models per perspective, each chosen for its demonstrated strength in the corresponding interpretive task.
+Generating all perspectives with a single general-purpose model risks homogenizing the output; using specialized models encourages each perspective to reflect genuine domain fit.
+
+\paragraph{Narrative perspective.}
+Narrative captions are generated using \textbf{Qwen2.5-VL-72B-Instruct}~\cite{qwen25vl}, a large-scale vision-language model with strong scene understanding.
+The 72B scale supports detailed factual description while the model's training on diverse visual corpora reduces systematic bias toward art-specific jargon, keeping the output grounded in observable visual content.
+
+\paragraph{Formal analysis.}
+Formal perspectives are generated using \textbf{GalleryGPT}~\cite{MM24GalleryGPT}, a LLaVA-7B model fine-tuned on the PaintingForm dataset specifically for formal art analysis.
+This specialization ensures that output adheres to the vocabulary and analytical conventions of formal criticism rather than defaulting to general image description.
+
+\paragraph{Emotional response.}
+Emotional perspectives are generated using \textbf{Qwen3-VL-8B-Instruct}, conditioned on the painting image together with human-written emotional utterances from the ArtEmis dataset~\cite{achlioptas2021artemis} as few-shot context.
+ArtEmis provides on average 5.7 affective utterances per WikiArt painting, grounding the emotional generation in authentic human responses rather than model inference alone.
+
+\paragraph{Historical and contextual analysis.}
+Historical perspectives are generated using \textbf{Qwen2.5-VL-72B-Instruct} augmented with a Wikidata knowledge graph retrieved via LightRAG~\cite{lightrag2024} in hybrid retrieval mode.
+For each artwork, relevant Wikidata snippets covering the artist biography, movement, and historical events are retrieved and injected into the generation context.
+This retrieval-augmented approach grounds historical claims in verifiable external knowledge and reduces hallucination of biographical or period-specific facts.
+
+\paragraph{Unified caption.}
+Given the four independently generated perspectives $\{e^{\text{narr}}, e^{\text{form}}, e^{\text{emot}}, e^{\text{hist}}\}$, a unified caption $e^{\text{unif}}$ is produced via \textbf{Qwen3-8B}~\cite{qwen3} using a harmonization prompt that synthesizes the four perspectives into a single coherent, non-redundant description of approximately 150 words.
+The unified caption preserves interpretive breadth while eliminating cross-perspective repetition, and is designed for downstream tasks such as retrieval and language-model grounding where a holistic single-text representation is preferred.
+
+Formally, the generation of perspective $v$ for painting $w$ with image $I$, metadata $M$, and optional retrieved context $\mathcal{S}$ is:
+
+\begin{equation}
+e^{v} = \text{VLM}_v\!\left(I,\ M,\ \mathcal{S},\ \pi_v\right),
+\end{equation}
+
+where $\pi_v$ is a perspective-specific prompt template designed to enforce interpretive focus and minimize cross-perspective overlap.
+
+\subsection{Quality Control}
+
+\paragraph{Cross-view consistency.}
+We enforce consistency between the historical perspective and the WikiArt style classification label.
+Let $m_w$ denote the known style label for painting $w$.
+We require semantic alignment between $e^{\text{hist}}$ and $m_w$:
+
+\begin{equation}
+\text{sim}\!\left(e^{\text{hist}},\ m_w\right) \ge \tau,
+\end{equation}
+
+where $\text{sim}(\cdot, \cdot)$ is sentence-level cosine similarity computed via a pretrained text encoder and $\tau$ is a threshold calibrated on the gold subset.
+Perspectives failing this check are flagged for regeneration under constrained prompting.
+
+\paragraph{Gold subset evaluation.}
+We evaluate perspective quality via two complementary checks reported in Section~\ref{sec:quality}.
+First, a \textit{metadata factual verification} checks whether $e^{\text{hist}}$ correctly identifies the artist name, art movement, and production period against WikiArt metadata across all 74,234 paintings.
+Second, an \textit{LLM-as-judge} evaluation uses Gemma-3-27B~\cite{gemma3}---a vision-language model from a different model family than all generation models---to rate all five perspectives on perspective fidelity, factual accuracy, and depth on a stratified 300-painting sample.
+Using an independent judge from a different model family mitigates self-evaluation bias.
+
+\paragraph{Dataset-level statistics.}
+Table~\ref{tab:dataset_stats} summarizes the final dataset statistics, including coverage per perspective and comparison against prior art captioning datasets.
+
+\begin{table}[h]
+\centering
+\caption{PolyArt dataset statistics and comparison with related datasets.}
+\label{tab:dataset_stats}
+\begin{tabular}{lrrl}
+\toprule
+\textbf{Dataset} & \textbf{Paintings} & \textbf{Captions/img} & \textbf{Perspectives} \\
+\midrule
+SemArt~\cite{semart_2018}        & 21,384 & 1 & Historical/iconographic \\
+ArtEmis~\cite{achlioptas2021artemis}       & 81,446 & 5.7 & Emotional \\
+ExpArt~\cite{ExpArt_acl2024}          & 19,181 & 1 & Formal/historical \\
+GalleryGPT~\cite{MM24GalleryGPT}     & 75,336 & 1 & Formal \\
+\midrule
+\textbf{PolyArt (ours)} & \textbf{$\sim$70,000} & \textbf{5} & \textbf{All four + unified} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Benchmark Task: Perspective Complementarity}
+
+PolyArt includes a benchmark for evaluating whether the four perspectives encode genuinely distinct visual information.
+
+\textbf{Question}: Do the four perspectives encode genuinely distinct information, or are they stylistic paraphrases of the same description?
+
+\textbf{Setup}: Given text from one or more perspectives (without the original image), a text-to-image model generates a reconstruction of the original painting.
+We evaluate ten perspective conditions: four singles ($e^{\text{narr}}$, $e^{\text{form}}$, $e^{\text{emot}}$, $e^{\text{hist}}$), four leave-one-out triples (each omitting one perspective), the full four-perspective combination, and the unified caption as a holistic baseline.
+Each reconstruction is compared to the original across three fidelity dimensions:
+
+\begin{equation}
+\mathcal{F}(w, \hat{w}) = \bigl(\delta_{\text{style}},\ \delta_{\text{comp}},\ \delta_{\text{emot}}\bigr),
+\end{equation}
+
+where $\delta_{\text{style}}$ is CLIP ViT-L/14 cosine similarity, $\delta_{\text{comp}}$ is DINOv3-Large CLS token cosine similarity capturing spatial structure and composition, and $\delta_{\text{emot}}$ is CLIP zero-shot emotion agreement against nine ArtEmis emotion labels.
+
+\textbf{Hypothesis}: Each perspective recovers a different subset of fidelity dimensions, and reconstruction improves as perspectives are combined.
+If perspectives were redundant, adding more would not improve reconstruction fidelity.
+
+\textbf{Scale}: Evaluated on a stratified sample of 1,350 paintings (50 per style $\times$ 27 styles) using two text-to-image models---FLUX.2-Klein-4B~\cite{flux2} and Qwen-Image-2512~\cite{qwenimage}---to confirm that findings are model-agnostic.
+

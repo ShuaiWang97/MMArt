@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MMArt: A Multi-Perspective Multimodal Art Dataset</title>
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: #242728;
+      background: #fff;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: #0d6efd; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Header / Banner ── */
+    .header-container {
+      background: url('figures/fig_overview.png') center center / cover no-repeat;
+      background-color: #1a0a2e;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      padding: 48px 40px;
+      position: relative;
+    }
+    .header-container::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(28,10,46,0.82) 0%, rgba(80,20,100,0.65) 100%);
+    }
+
+    .header-content {
+      position: relative;
+      max-width: 860px;
+    }
+
+    .header-content .venue {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .header-content h1 {
+      color: #fff;
+      font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+      text-shadow:
+        1.5px  1.5px 0 #1a0a2e,
+       -1.5px -1.5px 0 #1a0a2e,
+        1.5px -1.5px 0 #1a0a2e,
+       -1.5px  1.5px 0 #1a0a2e;
+      margin-bottom: 20px;
+    }
+
+    /* ── Buttons ── */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button-container a.button {
+      display: inline-block;
+      background-color: #b7c3cb;
+      color: #03325c;
+      border: 2px solid #ccdde5;
+      border-radius: 25px;
+      padding: 9px 22px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.25s, color 0.25s;
+    }
+    .button-container a.button:hover {
+      background-color: #EAB682;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ── Byline ── */
+    .byline {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: 20px 0;
+      margin: 0 auto;
+      max-width: 900px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .byline-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .byline-column h3 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .byline-column p {
+      font-size: 0.88rem;
+      color: #333;
+      margin-bottom: 4px;
+    }
+
+    .byline-column a {
+      color: #555;
+      font-size: 0.85rem;
+    }
+    .byline-column a:hover { text-decoration: underline; }
+
+    /* ── Page layout: sidebar + content ── */
+    .page-wrapper {
+      display: flex;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Sidebar TOC */
+    .sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      position: sticky;
+      top: 24px;
+      align-self: flex-start;
+      padding: 32px 20px 32px 0;
+      border-right: 1px solid rgba(0,0,0,0.1);
+      margin-top: 40px;
+    }
+
+    .sidebar h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      font-size: 0.82rem;
+      color: rgba(0,0,0,0.7);
+      padding: 3px 0;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    .sidebar nav a:hover { color: #0d6efd; text-decoration: underline; }
+    .sidebar nav .section-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(91,184,73,0.9);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 12px;
+      margin-bottom: 2px;
+    }
+
+    /* Main article */
+    article {
+      flex: 1;
+      min-width: 0;
+      padding: 40px 0 80px 40px;
+    }
+
+    /* ── Sections ── */
+    section { margin-bottom: 56px; }
+
+    h2 {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #1a0a2e;
+      margin-bottom: 16px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e8e0f0;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #2c1a3a;
+      margin: 24px 0 10px;
+    }
+
+    p { color: #333; margin-bottom: 14px; }
+
+    ul, ol {
+      padding-left: 1.4em;
+      margin-bottom: 14px;
+      color: #444;
+    }
+    li { margin-bottom: 6px; }
+
+    /* ── Finding box ── */
+    .finding-box {
+      background-color: rgba(240,240,240,0.9);
+      border: 1.2pt solid rgba(25,25,25,0.5);
+      border-radius: 10pt;
+      padding: 14px 18px;
+      margin: 20px 0;
+      box-shadow: 2px 2px 4px rgba(128,128,128,0.25);
+      font-size: 0.95rem;
+      color: #1a1a1a;
+    }
+    .finding-box strong { color: #5a0080; }
+
+    /* ── Stats grid ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: #f3e8f7;
+      border-radius: 10px;
+      padding: 18px 12px;
+      text-align: center;
+    }
+    .stat-card .num {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #7b2d8b;
+    }
+    .stat-card .label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+    }
+
+    /* ── Perspective cards ── */
+    .perspective-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+    .perspective-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .perspective-card .tag {
+      display: inline-block;
+      background: #7b2d8b;
+      color: #fff;
+      font-family: monospace;
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .perspective-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #1a0a2e;
+    }
+    .perspective-card p {
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+    }
+    .perspective-card .model {
+      font-family: monospace;
+      font-size: 0.72rem;
+      color: #888;
+    }
+
+    /* ── Figures ── */
+    figure {
+      margin: 24px 0;
+      text-align: center;
+    }
+    figure img {
+      max-width: 100%;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+    }
+    figcaption {
+      font-size: 0.82rem;
+      color: #666;
+      margin-top: 10px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.5;
+    }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      text-align: center;
+      margin: 0 auto;
+    }
+    th {
+      border-top: 1.5px solid #222;
+      border-bottom: 1px solid #222;
+      padding: 8px 12px;
+      font-weight: 700;
+      background: transparent;
+      color: #1a0a2e;
+    }
+    td {
+      padding: 7px 12px;
+      border-bottom: 1px solid #e0e0e0;
+      color: #333;
+    }
+    tr:last-child td { border-bottom: 1.5px solid #222; }
+    tr:nth-child(even) td { background: #f9f9f9; }
+    td.best { font-weight: 700; color: #7b2d8b; }
+    td.gain { color: #2a7a2a; font-weight: 600; }
+    td.loss { color: #aa0000; font-weight: 600; }
+    tr.highlight td { background: #f3e8f7 !important; font-weight: 600; }
+
+    /* ── Code block ── */
+    pre {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #f7f3fa;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.82rem;
+      color: #777;
+    }
+    footer a { color: #7b2d8b; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .sidebar { display: none; }
+      article { padding: 24px 0 60px 0; }
+      .page-wrapper { padding: 0 16px; }
+      .header-container { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ HEADER ══════════════════ -->
+<div class="header-container">
+  <div class="header-content">
+    <p class="venue">ACM Multimedia 2026 &middot; Dataset Track &middot; Rio de Janeiro, Brazil</p>
+    <h1>MMArt: A Multi-Perspective Multimodal Dataset<br>for Visual Art Understanding</h1>
+    <div class="button-container">
+      <a class="button" href="https://arxiv.org/abs/XXXX.XXXXX" target="_blank">&#128196; Paper</a>
+      <a class="button" href="https://github.com/ShuaiWang97/MMArt" target="_blank">&#128187; Code</a>
+      <a class="button" href="https://huggingface.co/datasets/ShuaiWang97/MMArt" target="_blank">🤗 Dataset</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ BYLINE ══════════════════ -->
+<div class="byline">
+  <div class="byline-container">
+    <div class="byline-column">
+      <h3>Authors</h3>
+      <p>Shuai Wang</p>
+      <p>[Co-authors]</p>
+    </div>
+    <div class="byline-column">
+      <h3>Affiliations</h3>
+      <p><a href="#">University of Amsterdam</a></p>
+    </div>
+    <div class="byline-column">
+      <h3>Resources</h3>
+      <p><a href="#">Paper (arXiv)</a></p>
+      <p><a href="https://github.com/ShuaiWang97/MMArt">Code Repository</a></p>
+      <p><a href="https://huggingface.co/datasets/ShuaiWang97/MMArt">HuggingFace Dataset</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE LAYOUT ══════════════════ -->
+<div class="page-wrapper">
+
+  <!-- Sidebar TOC -->
+  <aside class="sidebar">
+    <h4>Contents</h4>
+    <nav>
+      <span class="section-label">Dataset</span>
+      <a href="#overview">Overview</a>
+      <a href="#stats">At a Glance</a>
+      <a href="#perspectives">Four Perspectives</a>
+      <span class="section-label">Benchmarks</span>
+      <a href="#experiment">Reconstruction Fidelity</a>
+      <a href="#retrieval">Text-to-Image Retrieval</a>
+      <span class="section-label">Analysis</span>
+      <a href="#perstyle">Per-Style Breakdown</a>
+      <span class="section-label">Access</span>
+      <a href="#access">Dataset Access</a>
+    </nav>
+  </aside>
+
+  <!-- Main content -->
+  <article>
+
+    <!-- ── Overview ── -->
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        Visual artworks demand multi-layered interpretation: a single painting simultaneously invites
+        narrative reading, formal visual analysis, emotional response, and art-historical contextualisation.
+        Current vision-language models, however, are trained predominantly on <em>single-perspective</em>
+        captions that flatten this interpretive complexity.
+      </p>
+      <p>
+        We introduce <strong>MMArt</strong>, a large-scale multi-perspective dataset of over
+        <strong>74,000 paintings</strong> annotated across four interpretive dimensions, designed to study
+        whether different interpretive lenses encode genuinely distinct visual information — and to
+        support models that reason about art in its full interpretive depth.
+      </p>
+      <figure>
+        <img src="figures/fig_overview.png" alt="MMArt dataset overview" />
+        <figcaption>
+          <strong>Figure 1.</strong> MMArt annotates each painting with four independent expert-style
+          perspectives and a synthesized unified caption.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ── Stats ── -->
+    <section id="stats">
+      <h2>Dataset at a Glance</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><span class="num">74k</span><span class="label">Paintings</span></div>
+        <div class="stat-card"><span class="num">20</span><span class="label">Art Styles</span></div>
+        <div class="stat-card"><span class="num">1,111</span><span class="label">Artists</span></div>
+        <div class="stat-card"><span class="num">5</span><span class="label">Centuries</span></div>
+        <div class="stat-card"><span class="num">4</span><span class="label">Perspectives</span></div>
+        <div class="stat-card"><span class="num">370k+</span><span class="label">Captions</span></div>
+        <div class="stat-card"><span class="num">98.5%</span><span class="label">Coverage</span></div>
+      </div>
+      <figure>
+        <img src="figures/fig_style_distribution.png" alt="Style distribution" />
+        <figcaption>
+          <strong>Figure 2.</strong> Distribution of paintings across 27 WikiArt art styles.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ── Four Perspectives ── -->
+    <section id="perspectives">
+      <h2>The Four Perspectives</h2>
+      <p>
+        Each painting is annotated with four independently generated, expert-style captions —
+        one per interpretive dimension — plus a synthesized unified caption (U).
+      </p>
+      <div class="perspective-grid">
+        <div class="perspective-card">
+          <span class="tag">N — narrative</span>
+          <h4>Narrative &amp; Scene</h4>
+          <p>Depicted entities, figures, scene composition, and story.</p>
+          <span class="model">Qwen2.5-VL-72B-Instruct</span>
+        </div>
+        <div class="perspective-card">
+          <span class="tag">F — formal</span>
+          <h4>Formal Analysis</h4>
+          <p>Composition, brushwork, palette, light and shadow.</p>
+          <span class="model">GalleryGPT (LLaVA-7B + LoRA)</span>
+        </div>
+        <div class="perspective-card">
+          <span class="tag">E — emotional</span>
+          <h4>Emotional Response</h4>
+          <p>Mood, atmosphere, and psychological tone.</p>
+          <span class="model">Qwen3-VL-8B + ArtEmis-v2</span>
+        </div>
+        <div class="perspective-card">
+          <span class="tag">H — historical</span>
+          <h4>Historical Context</h4>
+          <p>Art-historical meaning, symbolism, and cultural codes.</p>
+          <span class="model">Qwen2.5-VL-72B + LightRAG KG</span>
+        </div>
+      </div>
+
+      <figure>
+        <img src="figures/fig_example_annotation.png" alt="Example annotation" />
+        <figcaption>
+          <strong>Figure 3.</strong> Example annotation showing all four perspective captions
+          alongside the unified synthesis.
+        </figcaption>
+      </figure>
+
+      <h3>Comparison with Existing Datasets</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Dataset</th><th>Size</th><th>Narrative</th><th>Formal</th><th>Emotional</th><th>Historical</th><th>Unified</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SemArt</td><td>21K</td><td>&#10003;</td><td>—</td><td>—</td><td>&#10003;</td><td>—</td></tr>
+            <tr><td>ArtEmis</td><td>80K</td><td>—</td><td>—</td><td>&#10003;</td><td>—</td><td>—</td></tr>
+            <tr><td>Artpedia</td><td>3K</td><td>&#10003;</td><td>—</td><td>—</td><td>~</td><td>—</td></tr>
+            <tr><td>ExpArt</td><td>3.5K</td><td>—</td><td>&#10003;</td><td>—</td><td>&#10003;</td><td>—</td></tr>
+            <tr><td>OmniArt</td><td>432K</td><td>—</td><td>—</td><td>—</td><td>~</td><td>—</td></tr>
+            <tr class="highlight"><td><strong>MMArt (ours)</strong></td><td><strong>74K</strong></td><td><strong>&#10003;</strong></td><td><strong>&#10003;</strong></td><td><strong>&#10003;</strong></td><td><strong>&#10003;</strong></td><td><strong>&#10003;</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Reconstruction ── -->
+    <section id="experiment">
+      <h2>Reconstruction Fidelity Experiment</h2>
+      <p>
+        We test whether each perspective encodes <em>distinct</em> visual information by regenerating
+        paintings from text prompts under 10 perspective conditions and measuring how faithfully the
+        regenerated image recovers the original across three complementary dimensions.
+      </p>
+
+      <div class="finding-box">
+        <strong>Hypothesis:</strong> Each perspective recovers a different subset of fidelity dimensions,
+        and reconstruction improves as perspectives are combined. If perspectives were redundant, adding
+        more would not improve reconstruction fidelity.
+      </div>
+
+      <p>
+        <strong>Scale:</strong> 1,350 paintings (50 per style &times; 27 styles). &nbsp;
+        <strong>T2I models:</strong> FLUX.2-Klein-4B and Qwen-Image-2512.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th>CLIP &uarr; <small>(Style)</small></th>
+              <th>DINOv3 &uarr; <small>(Composition)</small></th>
+              <th>Emotion &uarr; <small>(Affective)</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>N — Narrative</td><td>0.578</td><td>0.344</td><td>0.224</td></tr>
+            <tr><td>F — Formal</td><td class="best">0.641</td><td>0.401</td><td>0.343</td></tr>
+            <tr><td>E — Emotional</td><td>0.612</td><td class="best">0.416</td><td>0.257</td></tr>
+            <tr><td>H — Historical</td><td>0.603</td><td>0.378</td><td class="best">0.674</td></tr>
+            <tr><td>NFE (no H)</td><td>0.647</td><td>0.456</td><td>0.320</td></tr>
+            <tr><td>NFH (no E)</td><td>0.691</td><td>0.505</td><td>0.457</td></tr>
+            <tr><td>NEH (no F)</td><td>0.682</td><td>0.498</td><td>0.439</td></tr>
+            <tr><td>FEH (no N)</td><td>0.692</td><td>0.479</td><td>0.491</td></tr>
+            <tr class="highlight"><td><strong>NFEH (full)</strong></td><td><strong>0.689</strong></td><td><strong>0.503</strong></td><td><strong>0.431</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <figure>
+        <img src="figures/fig1_conditions_bar.png" alt="Reconstruction fidelity across conditions" />
+        <figcaption>
+          <strong>Figure 4.</strong> Reconstruction fidelity across all conditions for both T2I models.
+          Each perspective contributes uniquely: Formal leads on CLIP, Emotional on DINOv3,
+          Historical on emotion agreement.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="figures/fig2_alignment_heatmap.png" alt="Perspective-metric alignment" />
+        <figcaption>
+          <strong>Figure 5.</strong> Diagonal alignment between perspectives and fidelity metrics —
+          each perspective specialises in a distinct dimension.
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="figures/fig3_loo_delta.png" alt="Marginal contribution (leave-one-out delta)" />
+        <figcaption>
+          <strong>Figure 6.</strong> Marginal contribution of each perspective (NFEH minus leave-one-out).
+          Historical (H) contributes most across all three metrics.
+        </figcaption>
+      </figure>
+
+      <h3>Key Findings</h3>
+      <ul>
+        <li><strong>Diagonal specialisation:</strong> F → CLIP style; E → DINOv3 composition; H → emotion agreement. Perspectives are complementary, not redundant.</li>
+        <li><strong>Combinatorial gain:</strong> NFEH exceeds the best single perspective on CLIP and DINOv3.</li>
+        <li><strong>H is hardest to replace:</strong> Removing H causes the largest drop across all three metrics.</li>
+        <li><strong>Synthesis dilutes emotion:</strong> H alone (0.674) &gt; NFEH (0.431) — combining perspectives concentrates style/composition information but dilutes the affective signal.</li>
+      </ul>
+    </section>
+
+    <!-- ── Retrieval ── -->
+    <section id="retrieval">
+      <h2>Text-to-Image Retrieval Benchmark</h2>
+      <p>
+        We introduce a large-scale text-to-image retrieval benchmark using the full
+        <strong>74,234-painting gallery</strong>. Each of 1,000 query paintings is described under
+        <strong>10 conditions</strong> and used to retrieve the correct painting via
+        <strong>Qwen3-VL-Embedding-2B</strong> (bi-encoder), with optional re-ranking by
+        <strong>Qwen3-VL-Reranker-2B</strong> (cross-encoder, top-100 candidates).
+      </p>
+
+      <div class="finding-box">
+        <strong>Key finding:</strong> Narrative (N) alone achieves the best R@1 (44.0%), outperforming
+        naïve concatenation of all four perspectives (NFEH = 34.2%). The Unified LLM caption
+        (U = 42.2%) nearly matches N. Re-ranking boosts N from 44.0% &rarr; <strong>52.4%</strong>.
+      </div>
+
+      <h3>Stage 1: Bi-Encoder Retrieval</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Condition</th><th>R@1 &uarr;</th><th>R@5 &uarr;</th><th>R@10 &uarr;</th><th>MRR &uarr;</th><th>NDCG@10 &uarr;</th><th>MedR &darr;</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="best">N — Narrative</td><td class="best">44.0</td><td class="best">65.0</td><td class="best">72.6</td><td class="best">0.537</td><td class="best">57.64</td><td class="best">2.0</td></tr>
+            <tr><td>F — Formal</td><td>7.8</td><td>16.4</td><td>21.7</td><td>0.125</td><td>13.93</td><td>145.5</td></tr>
+            <tr><td>E — Emotional</td><td>25.7</td><td>41.7</td><td>49.6</td><td>0.338</td><td>36.63</td><td>11.0</td></tr>
+            <tr><td>H — Historical</td><td>2.2</td><td>4.4</td><td>6.2</td><td>0.037</td><td>3.90</td><td>1115.5</td></tr>
+            <tr><td>NFE</td><td>34.8</td><td>57.9</td><td>66.0</td><td>0.457</td><td>49.85</td><td>3.0</td></tr>
+            <tr><td>NFH</td><td>35.4</td><td>57.0</td><td>64.4</td><td>0.456</td><td>49.44</td><td>3.0</td></tr>
+            <tr><td>NEH</td><td>40.1</td><td>62.1</td><td>70.8</td><td>0.508</td><td>54.86</td><td>2.0</td></tr>
+            <tr><td>FEH</td><td>17.6</td><td>33.9</td><td>43.3</td><td>0.257</td><td>29.02</td><td>18.0</td></tr>
+            <tr><td>NFEH (full)</td><td>34.2</td><td>56.4</td><td>64.8</td><td>0.448</td><td>48.88</td><td>3.0</td></tr>
+            <tr class="highlight"><td><strong>U — Unified</strong></td><td><strong>42.2</strong></td><td><strong>65.0</strong></td><td><strong>72.5</strong></td><td><strong>0.528</strong></td><td><strong>56.95</strong></td><td><strong>2.0</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Stage 2: After Re-Ranking (top-100)</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Condition</th><th>R@1 &uarr;</th><th>R@5 &uarr;</th><th>R@10 &uarr;</th><th>MRR &uarr;</th><th>NDCG@10 &uarr;</th><th>&Delta;R@1</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="best">N — Narrative</td><td class="best">52.4</td><td class="best">74.0</td><td class="best">80.2</td><td class="best">0.625</td><td class="best">66.37</td><td class="gain">+8.4</td></tr>
+            <tr><td>E — Emotional</td><td>23.7</td><td>44.7</td><td>56.2</td><td>0.341</td><td>38.55</td><td class="loss">−2.0</td></tr>
+            <tr><td>NEH</td><td>42.9</td><td>68.1</td><td>77.5</td><td>0.544</td><td>59.36</td><td class="gain">+2.8</td></tr>
+            <tr><td>NFE</td><td>37.7</td><td>59.9</td><td>69.6</td><td>0.482</td><td>52.67</td><td class="gain">+2.9</td></tr>
+            <tr><td>NFEH</td><td>35.3</td><td>57.4</td><td>67.7</td><td>0.461</td><td>50.55</td><td class="gain">+1.1</td></tr>
+            <tr class="highlight"><td><strong>U — Unified</strong></td><td><strong>39.7</strong></td><td><strong>63.8</strong></td><td><strong>71.9</strong></td><td><strong>0.507</strong></td><td><strong>55.13</strong></td><td class="loss">−2.5</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.84rem; color:#777;">
+        Re-ranking strongly benefits N-containing conditions. Non-narrative conditions (F, H) lack
+        the visual grounding needed to benefit from cross-modal re-scoring.
+      </p>
+    </section>
+
+    <!-- ── Per-Style ── -->
+    <section id="perstyle">
+      <h2>Per-Style Analysis</h2>
+      <p>
+        Aggregated numbers mask strong style-level variation. We break down both benchmarks by the
+        20 WikiArt styles in our benchmark sample.
+      </p>
+
+      <h3>Retrieval: Narrative vs. Unified by Style</h3>
+      <p>
+        U outperforms N for styles where <em>cultural and historical context</em> matters most —
+        Cubism (+12%), Art Nouveau (+14%), Ukiyo-e (+8%), Early Renaissance (+8%).
+        N dominates for styles with strong visual identity —
+        Impressionism (+18%), Baroque (+16%), Romanticism (+12%).
+      </p>
+      <figure>
+        <img src="figures/figA_style_retrieval_NvsU.png" alt="Per-style N vs U R@1" />
+        <figcaption>
+          <strong>Figure 7.</strong> Per-style retrieval R@1 for Narrative (N, blue) vs. Unified (U, red),
+          sorted by N performance. Outlined red bars = styles where U &gt; N.
+        </figcaption>
+      </figure>
+
+      <h3>Retrieval Heatmap: All 10 Conditions × 20 Styles</h3>
+      <p>
+        The H column is near-zero across all styles. Pop Art is consistently easiest to retrieve;
+        Abstract Expressionism is hardest.
+      </p>
+      <figure>
+        <img src="figures/figB_style_retrieval_heatmap.png" alt="Retrieval heatmap" />
+        <figcaption>
+          <strong>Figure 8.</strong> R@1 heatmap across 20 art styles and 10 query conditions.
+          Vertical line separates single-perspective from multi-perspective conditions.
+        </figcaption>
+      </figure>
+
+      <h3>Regeneration CLIP: Single Perspectives × 20 Styles</h3>
+      <p>
+        Formal (F) dominates CLIP similarity for most styles. Exception: Ukiyo-e achieves its
+        highest CLIP score with Historical (H = 0.765), where cultural context uniquely encodes
+        the woodblock aesthetic.
+      </p>
+      <figure>
+        <img src="figures/figC_style_regen_heatmap.png" alt="Regen CLIP heatmap" />
+        <figcaption>
+          <strong>Figure 9.</strong> Per-style CLIP similarity for regenerated images under four
+          single-perspective conditions (averaged over FLUX.2-Klein and Qwen-Image).
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ── Access ── -->
+    <section id="access">
+      <h2>Dataset Access</h2>
+
+      <h3>Download</h3>
+      <p>Released on HuggingFace upon paper acceptance. Two splits:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Split</th><th>Records</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td><code>full</code></td><td>75,336</td><td>All paintings; null where a perspective was filtered</td></tr>
+            <tr><td><code>experiment</code></td><td>74,234</td><td>All four perspectives present; used for all experiments</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Data Schema</h3>
+      <pre>{
+  "image_id":         "Romanticism/delacroix_liberty-leading-the-people.jpg",
+  "title":            "liberty-leading-the-people",
+  "artist":           "delacroix",
+  "style":            "romanticism",
+  "date":             "1830",
+  "e_narrative":      "A triumphant woman strides forward...",
+  "e_formal":         "The diagonal composition surges from lower left...",
+  "e_emotional":      "The painting radiates fierce exhilaration...",
+  "e_historical":     "Painted in the wake of the July Revolution...",
+  "e_unified":        "Liberty Leading the People captures the explosive...",
+  "dominant_emotion": "awe",
+  "n_perspectives":   4
+}</pre>
+
+      <h3>Citation</h3>
+      <pre>@inproceedings{wang2026mmart,
+  title     = {MMArt: A Multi-Perspective Multimodal Dataset for Visual Art Understanding},
+  author    = {Wang, Shuai and others},
+  booktitle = {Under submission to ACM International Conference on Multimedia},
+  year      = {2026},
+}</pre>
+    </section>
+
+  </article>
+</div><!-- /.page-wrapper -->
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <p>MMArt &mdash; ACM MM 2026 Dataset Track &nbsp;&bull;&nbsp;
+     <a href="https://github.com/ShuaiWang97/MMArt">GitHub</a>
+  </p>
+  <p style="margin-top:6px;">Questions? Open an issue on GitHub.</p>
+</footer>
+
+</body>
+</html>
