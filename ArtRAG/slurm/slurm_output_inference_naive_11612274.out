@@ -1,123 +1,0 @@
-============================================================================================== 
-Warning! Mixing Conda and module environments may lead to corruption of the
-user environment. 
-We do not recommend users mixing those two environments unless absolutely
-necessary. Note that 
-SURF does not provide any support for Conda environment.
-For more information, please refer to our software policy page:
-https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
-
-Remember that many packages have already been installed on the system and can
-be loaded using 
-the 'module load <package__name>' command. If you are uncertain if a package is
-already available 
-on the system, please use 'module avail' or 'module spider' to search for it.
-============================================================================================== 
-/var/spool/slurm/slurmd/job11612274/slurm_script: line 21: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
-INFO:lightrag:Logger initialized for working directory: ./art_context
-DEBUG:lightrag:LightRAG init with param:
-  working_dir = ./art_context,
-  chunk_token_size = 1200,
-  chunk_overlap_token_size = 100,
-  tiktoken_model_name = gpt-4o-mini,
-  entity_extract_max_gleaning = 1,
-  entity_summary_to_max_tokens = 500,
-  node_embedding_algorithm = node2vec,
-  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
-  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x14aac025de50>},
-  embedding_batch_num = 32,
-  embedding_func_max_async = 16,
-  llm_model_func = <function hf_model_complete at 0x14aac1a0c820>,
-  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
-  llm_model_max_token_size = 32768,
-  llm_model_max_async = 16,
-  llm_model_kwargs = {},
-  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
-  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
-  vector_db_storage_cls_kwargs = {},
-  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
-  enable_llm_cache = True,
-  addon_params = {},
-  convert_response_to_json_func = <function convert_response_to_json at 0x14aace103040>
-
-INFO:lightrag:Load KV full_docs with 1144 data
-INFO:lightrag:Load KV text_chunks with 4335 data
-INFO:lightrag:Load KV llm_response_cache with 0 data
-INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
-INFO:nano-vectordb:Load (4335, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
-args:  Namespace(working_dir='./art_context', mdoel_name='Qwen/Qwen2.5-VL-7B-Instruct', shot_number=0, retrieval_strategy='naive', batch_size=16, data_num=200, generated_descriptions=None, fewshot_type='SM_fewshot', question_type='cultural&histroical')
-Using WikiArt dataset
-Processing rows:   0%|          | 0/200 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Processing row:  0
-
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
-Loading checkpoint shards:  20%|██        | 1/5 [00:01<00:06,  1.74s/it][A
-Loading checkpoint shards:  40%|████      | 2/5 [00:03<00:05,  1.74s/it][A
-Loading checkpoint shards:  60%|██████    | 3/5 [00:05<00:03,  1.75s/it][A
-Loading checkpoint shards:  80%|████████  | 4/5 [00:06<00:01,  1.72s/it][A
-Loading checkpoint shards: 100%|██████████| 5/5 [00:07<00:00,  1.33s/it][ALoading checkpoint shards: 100%|██████████| 5/5 [00:07<00:00,  1.51s/it]
-/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
-  warnings.warn(
-Processing rows:   0%|          | 1/200 [00:19<1:03:06, 19.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   1%|          | 2/200 [00:21<30:44,  9.31s/it]  INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▏         | 3/200 [00:24<21:42,  6.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▏         | 4/200 [00:27<15:44,  4.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▎         | 5/200 [00:29<12:23,  3.81s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   3%|▎         | 6/200 [00:31<10:51,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▎         | 7/200 [00:34<09:55,  3.08s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▍         | 8/200 [00:37<10:04,  3.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▍         | 9/200 [00:40<09:39,  3.04s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   5%|▌         | 10/200 [00:43<09:35,  3.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▌         | 11/200 [00:46<09:28,  3.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▌         | 12/200 [00:49<09:23,  3.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▋         | 13/200 [00:52<09:46,  3.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   7%|▋         | 14/200 [00:55<09:49,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 15/200 [00:58<09:33,  3.10s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 16/200 [01:01<09:17,  3.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 17/200 [01:03<08:38,  2.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   9%|▉         | 18/200 [01:06<07:57,  2.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|▉         | 19/200 [01:08<07:19,  2.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|█         | 20/200 [01:10<07:31,  2.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-slurmstepd: error: *** JOB 11612274 ON gcn146 CANCELLED AT 2025-05-07T10:55:21 ***
-
-JOB STATISTICS
-==============
-Job ID: 11612274
-Cluster: snellius
-User/Group: wangsh/wangsh
-State: CANCELLED (exit code 0)
-Nodes: 1
-Cores per node: 16
-CPU Utilized: 00:00:00
-CPU Efficiency: 0.00% of 00:24:00 core-walltime
-Job Wall-clock time: 00:01:30
-Memory Utilized: 3.25 GB
-Memory Efficiency: 5.41% of 60.00 GB (60.00 GB/node)

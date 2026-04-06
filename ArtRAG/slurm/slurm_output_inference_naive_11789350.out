@@ -1,982 +1,0 @@
-============================================================================================== 
-Warning! Mixing Conda and module environments may lead to corruption of the
-user environment. 
-We do not recommend users mixing those two environments unless absolutely
-necessary. Note that 
-SURF does not provide any support for Conda environment.
-For more information, please refer to our software policy page:
-https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
-
-Remember that many packages have already been installed on the system and can
-be loaded using 
-the 'module load <package__name>' command. If you are uncertain if a package is
-already available 
-on the system, please use 'module avail' or 'module spider' to search for it.
-============================================================================================== 
-/var/spool/slurm/slurmd/job11789350/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
-INFO:lightrag:Logger initialized for working directory: ./art_context
-DEBUG:lightrag:LightRAG init with param:
-  working_dir = ./art_context,
-  chunk_token_size = 1200,
-  chunk_overlap_token_size = 100,
-  tiktoken_model_name = gpt-4o-mini,
-  entity_extract_max_gleaning = 1,
-  entity_summary_to_max_tokens = 500,
-  node_embedding_algorithm = node2vec,
-  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
-  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x149788b2ab80>},
-  embedding_batch_num = 32,
-  embedding_func_max_async = 16,
-  llm_model_func = <function hf_model_complete at 0x14978a248820>,
-  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
-  llm_model_max_token_size = 32768,
-  llm_model_max_async = 16,
-  llm_model_kwargs = {},
-  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
-  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
-  vector_db_storage_cls_kwargs = {},
-  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
-  enable_llm_cache = True,
-  addon_params = {},
-  convert_response_to_json_func = <function convert_response_to_json at 0x1497b9d939d0>
-
-INFO:lightrag:Load KV full_docs with 1144 data
-INFO:lightrag:Load KV text_chunks with 4335 data
-INFO:lightrag:Load KV llm_response_cache with 0 data
-INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
-INFO:nano-vectordb:Load (4335, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
-args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=7)
-Processing data from index 700 to 800
-Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Processing row:  700
-
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
-Loading checkpoint shards:  20%|██        | 1/5 [00:00<00:02,  1.41it/s][A
-Loading checkpoint shards:  40%|████      | 2/5 [00:01<00:02,  1.43it/s][A
-Loading checkpoint shards:  60%|██████    | 3/5 [00:02<00:01,  1.43it/s][A
-Loading checkpoint shards:  80%|████████  | 4/5 [00:02<00:00,  1.43it/s][A
-Loading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.74it/s][ALoading checkpoint shards: 100%|██████████| 5/5 [00:03<00:00,  1.59it/s]
-/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
-  warnings.warn(
-Processing rows:   1%|          | 1/100 [00:17<29:02, 17.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▏         | 2/100 [00:21<15:49,  9.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   3%|▎         | 3/100 [00:25<10:59,  6.80s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▍         | 4/100 [00:28<08:56,  5.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   5%|▌         | 5/100 [00:32<07:38,  4.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▌         | 6/100 [00:36<07:02,  4.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   7%|▋         | 7/100 [00:38<05:48,  3.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 8/100 [00:41<05:36,  3.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   9%|▉         | 9/100 [00:45<05:41,  3.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|█         | 10/100 [00:48<05:10,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  11%|█         | 11/100 [00:52<05:07,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  12%|█▏        | 12/100 [00:56<05:30,  3.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  13%|█▎        | 13/100 [01:00<05:19,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  14%|█▍        | 14/100 [01:03<05:03,  3.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  15%|█▌        | 15/100 [01:06<04:56,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  16%|█▌        | 16/100 [01:10<05:12,  3.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  17%|█▋        | 17/100 [01:15<05:26,  3.93s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  18%|█▊        | 18/100 [01:18<05:03,  3.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  19%|█▉        | 19/100 [01:21<04:35,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  20%|██        | 20/100 [01:24<04:39,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  21%|██        | 21/100 [01:29<04:52,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  22%|██▏       | 22/100 [01:32<04:39,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  23%|██▎       | 23/100 [01:36<04:38,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  24%|██▍       | 24/100 [01:40<04:47,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  25%|██▌       | 25/100 [01:44<05:05,  4.07s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  26%|██▌       | 26/100 [01:49<05:04,  4.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  27%|██▋       | 27/100 [01:51<04:30,  3.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  28%|██▊       | 28/100 [01:56<04:45,  3.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  29%|██▉       | 29/100 [01:59<04:29,  3.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  30%|███       | 30/100 [02:02<04:05,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  31%|███       | 31/100 [02:06<04:15,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  32%|███▏      | 32/100 [02:10<04:11,  3.70s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  33%|███▎      | 33/100 [02:14<04:04,  3.65s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  34%|███▍      | 34/100 [02:17<04:02,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  35%|███▌      | 35/100 [02:21<04:05,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  36%|███▌      | 36/100 [02:25<03:55,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  37%|███▋      | 37/100 [02:29<04:05,  3.89s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  38%|███▊      | 38/100 [02:33<04:08,  4.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  39%|███▉      | 39/100 [02:37<04:03,  4.00s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  40%|████      | 40/100 [02:41<03:56,  3.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  41%|████      | 41/100 [02:45<03:50,  3.91s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  42%|████▏     | 42/100 [02:49<03:46,  3.90s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  43%|████▎     | 43/100 [02:53<03:37,  3.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  44%|████▍     | 44/100 [02:56<03:28,  3.73s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  45%|████▌     | 45/100 [02:59<03:10,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  46%|████▌     | 46/100 [03:03<03:13,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  47%|████▋     | 47/100 [03:07<03:11,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  48%|████▊     | 48/100 [03:11<03:20,  3.85s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  49%|████▉     | 49/100 [03:15<03:22,  3.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  50%|█████     | 50/100 [03:19<03:15,  3.91s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  51%|█████     | 51/100 [03:23<03:14,  3.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  52%|█████▏    | 52/100 [03:27<03:09,  3.95s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  53%|█████▎    | 53/100 [03:31<03:06,  3.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  54%|█████▍    | 54/100 [03:34<02:53,  3.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  55%|█████▌    | 55/100 [03:38<02:50,  3.79s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  56%|█████▌    | 56/100 [03:42<02:42,  3.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  57%|█████▋    | 57/100 [03:46<02:44,  3.82s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  58%|█████▊    | 58/100 [03:50<02:43,  3.90s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  59%|█████▉    | 59/100 [03:54<02:42,  3.97s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  60%|██████    | 60/100 [03:58<02:37,  3.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  61%|██████    | 61/100 [04:01<02:30,  3.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  62%|██████▏   | 62/100 [04:05<02:20,  3.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  63%|██████▎   | 63/100 [04:09<02:21,  3.81s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  64%|██████▍   | 64/100 [04:13<02:18,  3.86s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  65%|██████▌   | 65/100 [04:16<02:11,  3.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  66%|██████▌   | 66/100 [04:20<02:07,  3.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  67%|██████▋   | 67/100 [04:25<02:12,  4.01s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  68%|██████▊   | 68/100 [04:28<02:06,  3.94s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  69%|██████▉   | 69/100 [04:32<01:58,  3.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  70%|███████   | 70/100 [04:36<01:57,  3.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  71%|███████   | 71/100 [04:41<01:58,  4.09s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  72%|███████▏  | 72/100 [04:45<01:58,  4.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  73%|███████▎  | 73/100 [04:49<01:47,  3.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  74%|███████▍  | 74/100 [04:53<01:49,  4.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  75%|███████▌  | 75/100 [04:57<01:39,  3.98s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  76%|███████▌  | 76/100 [05:01<01:38,  4.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  77%|███████▋  | 77/100 [05:04<01:26,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  78%|███████▊  | 78/100 [05:08<01:20,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  79%|███████▉  | 79/100 [05:12<01:19,  3.77s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  80%|████████  | 80/100 [05:15<01:14,  3.71s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  81%|████████  | 81/100 [05:19<01:09,  3.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  82%|████████▏ | 82/100 [05:22<01:06,  3.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  83%|████████▎ | 83/100 [05:25<00:58,  3.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  84%|████████▍ | 84/100 [05:29<00:54,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  85%|████████▌ | 85/100 [05:32<00:51,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  86%|████████▌ | 86/100 [05:35<00:46,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  87%|████████▋ | 87/100 [05:38<00:41,  3.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  88%|████████▊ | 88/100 [05:42<00:40,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  89%|████████▉ | 89/100 [05:45<00:35,  3.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  90%|█████████ | 90/100 [05:48<00:31,  3.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  91%|█████████ | 91/100 [05:51<00:29,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  92%|█████████▏| 92/100 [05:54<00:25,  3.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  93%|█████████▎| 93/100 [05:58<00:23,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  94%|█████████▍| 94/100 [06:01<00:19,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  95%|█████████▌| 95/100 [06:04<00:15,  3.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  96%|█████████▌| 96/100 [06:07<00:12,  3.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  97%|█████████▋| 97/100 [06:11<00:10,  3.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  98%|█████████▊| 98/100 [06:15<00:06,  3.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  99%|█████████▉| 99/100 [06:18<00:03,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows: 100%|██████████| 100/100 [06:21<00:00,  3.28s/it]Processing rows: 100%|██████████| 100/100 [06:21<00:00,  3.81s/it]
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1064 at 0x14977DE52F10>]
-generated_description:  This drawing by Peter Paul Rubens, titled "Son Nicolas with a Red Cap," exemplifies the Baroque style with its dynamic composition and rich coloration. Created around 1627, it reflects the artist's focus on capturing individual character and emotion, typical of the era's emphasis on realism and drama. The red cap and the subject's contemplative expression highlight Rubens' ability to convey personality through subtle details.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  701
-image_inputs [<PIL.Image.Image image mode=RGB size=476x812 at 0x14978A21B130>]
-generated_description:  This painting, "St. Domitilla with St. Nereus and St. Achilles," by Peter Paul Rubens, created in 1608, exemplifies the Baroque style with its dynamic composition and rich color palette. Set in a mythological context, the painting depicts the saints in a dramatic, almost theatrical manner, surrounded by cherubs, emphasizing themes of divine intervention and spiritual significance. The use of light and shadow, typical of Baroque art, enhances the emotional intensity and grandeur of the scene. This work reflects the influence of classical and Christian traditions, common in Rubens' oeuvre, and aligns with the Counter-Reformation's emphasis on religious devotion and moral instruction.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  702
-image_inputs [<PIL.Image.Image image mode=RGB size=588x756 at 0x14977DABCAF0>]
-generated_description:  This sketch by Peter Paul Rubens, titled "St. George Slaying the Dragon," exemplifies the Baroque style prevalent in the 17th century. It reflects the era's focus on dramatic movement and intense emotion, typical of religious and mythological themes. The sketch captures the dynamic struggle between St. George and the dragon, emphasizing the power and heroism central to the story. This work showcases Rubens' ability to convey action and emotion through fluid lines and expressive forms, aligning with the broader artistic trends of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  703
-image_inputs [<PIL.Image.Image image mode=RGB size=476x784 at 0x14977DE52C10>]
-generated_description:  This Baroque painting by Peter Paul Rubens, titled "St. George with St. Maurus and Papianus," created around 1600-1650, depicts a scene from Christian mythology. It features St. George, a saint associated with chivalry and martyrdom, alongside two other saints, St. Maurus and St. Papianus. The dynamic composition and rich colors reflect the Baroque style's emphasis on movement and drama, typical of the Counter-Reformation era. The painting likely served as an altarpiece or devotional piece, emphasizing faith and moral values through its mythological subject matter.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  704
-image_inputs [<PIL.Image.Image image mode=RGB size=700x952 at 0x14977D7C59A0>]
-generated_description:  This painting, "St. James the Apostle," by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Painted in 1613, it reflects the era's emphasis on drama, movement, and rich color. The figure's dynamic pose and vibrant red robe convey a sense of power and spiritual intensity, typical of Rubens' religious works. The dark background isolates the subject, drawing focus to the figure's commanding presence, aligning with the Baroque tendency to create a strong visual impact.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  705
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x1344 at 0x14977D836280>]
-generated_description:  This painting, "St. Jerome in His Hermitage," by Peter Paul Rubens, exemplifies the Baroque style with its dynamic composition and rich color palette. Set in a hermitage, it depicts St. Jerome, a hermit saint, surrounded by mythological and symbolic elements, reflecting the Counter-Reformation's emphasis on spiritual themes. The lion symbolizes St. Jerome's asceticism, while the cherubs and open book suggest divine inspiration and scholarly pursuits. The painting's dramatic lighting and movement convey a sense of contemplation and spiritual intensity, typical of Rubens' Baroque approach.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  706
-image_inputs [<PIL.Image.Image image mode=RGB size=588x868 at 0x14977DABC4F0>]
-generated_description:  This drawing by Peter Paul Rubens depicts Saint Onufriй instructing a monk, reflecting the Baroque style's emphasis on movement and drama. Set in a natural landscape, it illustrates themes of spiritual guidance and asceticism, typical of religious narratives in the 17th century.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  707
-image_inputs [<PIL.Image.Image image mode=RGB size=1148x1008 at 0x14977DE52FA0>]
-generated_description:  This painting, "Susanna and the Elders," by Peter Paul Rubens, is a Baroque masterpiece from the 1600s. It depicts the biblical story of Susanna, a virtuous woman falsely accused by two lecherous elders. Rubens uses dramatic lighting and dynamic poses to emphasize the tension and moral conflict of the scene, reflecting the Baroque emphasis on emotion and movement. The painting is rich in symbolism, with the elders' robes and Susanna's nudity highlighting themes of temptation and virtue.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  708
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x756 at 0x14977D7C5D00>]
-generated_description:  This painting, "Tereus Confronted with the Head of His Son Itylos," by Peter Paul Rubens, depicts a scene from Greek mythology. Set in a dramatic, Baroque style, it illustrates the story of Tereus, who discovers his son's head in a basket. Rubens' dynamic composition and rich colors reflect the Baroque emphasis on movement and emotion, capturing the tension and horror of the moment. The painting was created in 1638, during Rubens' mature period, showcasing his mastery of mythological themes and his ability to convey intense drama.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  709
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x812 at 0x14977D7C5340>]
-generated_description:  This Baroque relief by Peter Paul Rubens depicts the abduction of bulls, a mythological scene. Created between 1600-1650, it showcases Rubens' dynamic composition and dramatic use of light and shadow, typical of the Baroque style. The relief likely served as a decorative element, reflecting the era's fascination with mythological narratives and grandeur.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  710
-image_inputs [<PIL.Image.Image image mode=RGB size=1120x1092 at 0x14977DE52B50>]
-generated_description:  This painting, "The Abduction of Ganymede" by Peter Paul Rubens, depicts a mythological scene from Greek mythology. Set in a Baroque style, it illustrates Ganymede, a mortal youth, being abducted by Zeus in the form of an eagle. The dynamic composition and vibrant colors reflect the Baroque emphasis on movement and drama. The painting was created between 1600-1650, a period marked by the Counter-Reformation and Rubens' exploration of classical themes.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  711
-image_inputs [<PIL.Image.Image image mode=RGB size=868x1288 at 0x14977D7C5430>]
-generated_description:  This painting, *The Assumption of Mary* by Peter Paul Rubens, created in 1622, exemplifies the Baroque style with its dynamic composition and vibrant colors. Set in a heavenly realm, the painting depicts the ascension of Mary into heaven, surrounded by cherubs and angels. The scene is rich with religious symbolism, reflecting the Counter-Reformation's emphasis on faith and devotion. The Baroque era, marked by the 1600-1650 timeframe, was characterized by dramatic expressions and emotional intensity, which are evident in the painting's movement and emotion. This work is a testament to Rubens' ability to convey spiritual themes through vivid imagery and grandeur.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  712
-image_inputs [<PIL.Image.Image image mode=RGB size=392x868 at 0x14977DABCC40>]
-generated_description:  This Baroque painting by Peter Paul Rubens, *The Birth of Henri IV of France*, created around 1630, depicts a mythological scene blending historical and allegorical elements. The composition, rich in movement and color, reflects the Baroque style's emphasis on drama and emotion. The central figure, a seated woman holding a child, is surrounded by mythological figures, symbolizing divine intervention and the birth of a new era. This work showcases Rubens' ability to merge classical themes with contemporary political narratives, reflecting the cultural and religious context of the Counter-Reformation.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  713
-image_inputs [<PIL.Image.Image image mode=RGB size=1344x812 at 0x14977D7FB5B0>]
-generated_description:  This painting, *The Consequences of War* by Peter Paul Rubens, created around 1638, is a Baroque masterpiece reflecting the turmoil of the Thirty Years' War. Set in a mythological context, it symbolizes the destructive impact of conflict, with figures representing peace and war clashing amidst chaos. The dynamic composition and vibrant colors capture the emotional intensity of the scene, embodying the Baroque style's emphasis on movement and drama.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  714
-image_inputs [<PIL.Image.Image image mode=RGB size=980x1288 at 0x14977D7F9F40>]
-generated_description:  This Baroque painting, *The Entombment* by Peter Paul Rubens (1612), depicts a biblical scene with dynamic movement and rich color, reflecting the Counter-Reformation's emphasis on emotional intensity and realism. It showcases Rubens' mastery of light and shadow, capturing the grief and solemnity of the moment as Jesus is prepared for burial. The work aligns with the Baroque style's focus on drama and grandeur, emphasizing the emotional and spiritual depth of the event.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  715
-image_inputs [<PIL.Image.Image image mode=RGB size=588x1624 at 0x14977D836EE0>]
-generated_description:  This painting, *The Fate Spinning Mary's Destiny* by Peter Paul Rubens, created around 1625, is a Baroque masterpiece reflecting the era's focus on dramatic movement and rich color. It depicts a mythological scene involving the Fates, who control destiny. The Fates are shown spinning threads of fate, symbolizing the inevitability of life's events. The dynamic poses and expressive faces capture the tension and emotion central to Baroque art, emphasizing the divine and human realms intertwined. The painting's mythological subject matter aligns with the cultural fascination with classical themes during the Counter-Reformation, aiming to convey spiritual truths through allegory.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  716
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x784 at 0x14977D7D1F10>]
-generated_description:  This painting, *The Feast of Herod* by Peter Paul Rubens, created in 1633, exemplifies the Baroque style with its dynamic composition and rich color palette. Set in a luxurious, opulent setting, it depicts a scene from the Bible where Herodias, the wife of Herod Antipas, serves wine to Herod, leading to the beheading of John the Baptist. The painting reflects the Baroque emphasis on drama, movement, and emotional intensity, capturing the moment's tension and grandeur. It showcases Rubens' mastery of light and shadow, creating a vivid, theatrical effect. The opulent attire and setting highlight the themes of luxury and power prevalent in the Counter-Reformation era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  717
-image_inputs [<PIL.Image.Image image mode=RGB size=784x896 at 0x14977D7FB880>]
-generated_description:  This painting, *The Flagellation of Christ* by Peter Paul Rubens, depicts a scene from the Passion of Christ, specifically the flagellation. Set in a dramatic, Baroque style, it emphasizes movement and emotional intensity. The use of chiaroscuro highlights the suffering of Christ, reflecting the Counter-Reformation's focus on religious devotion and the human body's vulnerability. The dynamic composition and expressive gestures convey the pain and struggle of the moment, resonating with the religious fervor of the period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  718
-image_inputs [<PIL.Image.Image image mode=RGB size=616x868 at 0x14977D7FBC10>]
-generated_description:  This sketch by Peter Paul Rubens, titled "The Girl Squatted Down," exemplifies the Baroque style prevalent in the 1600s. Created around 1618, it showcases Rubens' focus on anatomical accuracy and dynamic poses, typical of the period. The figure drawing reflects his exploration of human form and movement, characteristic of his broader artistic output.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  719
-image_inputs [<PIL.Image.Image image mode=RGB size=672x868 at 0x14977D7F9670>]
-generated_description:  This painting, *The Happiness of the Regency* by Peter Paul Rubens, created in 1625, exemplifies the Baroque style with its dynamic composition and vibrant colors. Set in a mythological context, the scene celebrates the reign of the Archduke Leopold William and his wife, Isabella Clara Eugenia, symbolizing their rule as a harmonious partnership. The figures, including allegorical representations of virtues and mythological beings, convey themes of prosperity, peace, and divine favor, reflecting the religious and political aspirations of the Habsburg dynasty during the Counter-Reformation.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  720
-image_inputs [<PIL.Image.Image image mode=RGB size=952x1260 at 0x14977D7FBEE0>]
-generated_description:  This painting, *The Meeting of King Henry IV and Marie de' Medici at Lyon, 9 November 1600*, by Peter Paul Rubens, exemplifies the Baroque style with its dynamic composition and rich symbolism. Commissioned in 1625, it celebrates the political alliance between France and the Habsburgs. The meeting is depicted with mythological and allegorical elements, reflecting the era's focus on grandeur and divine intervention in historical events. The presence of cherubs and the lion symbolize strength and courage, while the overall opulence underscores the power and prestige of the rulers.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  721
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x700 at 0x14977D7FBAF0>]
-generated_description:  This painting, *The Nativity of the Virgin Mary* by Peter Paul Rubens, is a Baroque masterpiece from the 17th century. It reflects the Counter-Reformation's emphasis on emotional intensity and grandeur. The dynamic composition and rich, vibrant colors highlight the sacred event, emphasizing themes of divinity and human connection. The artwork's style and subject matter align with Rubens' focus on religious narratives and his role as a court painter, reflecting the cultural and religious values of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  722
-image_inputs [<PIL.Image.Image image mode=RGB size=784x840 at 0x14977D7FB3A0>]
-generated_description:  This painting, *The Prophet Elijah Receiving Bread and Water from an Angel* by Peter Paul Rubens, created in 1628, exemplifies the Baroque style with its dynamic composition and vivid colors. Set in a mythological context, it depicts the biblical story of Elijah receiving sustenance from an angel, symbolizing divine intervention and faith. The dramatic lighting and expressive figures reflect the Counter-Reformation's emphasis on emotional intensity and spiritual themes. This work showcases Rubens' ability to blend classical influences with religious narratives, creating a visually striking and spiritually resonant piece.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  723
-image_inputs [<PIL.Image.Image image mode=RGB size=1400x896 at 0x14977D7F9D00>]
-generated_description:  This triptych by Peter Paul Rubens, "The Raising of the Cross," created around 1610, exemplifies the Baroque style with its dynamic composition and vivid colors. Set against a dramatic sky, the painting depicts the moment Jesus is taken down from the cross, surrounded by grieving women and soldiers. The Baroque movement, prevalent during the 1600s, emphasized movement, emotion, and realism, reflecting the Counter-Reformation's focus on emotional engagement in religious narratives. The triptych's rich symbolism and detailed figures highlight Rubens' mastery in capturing both the physical and spiritual aspects of the event.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  724
-image_inputs [<PIL.Image.Image image mode=RGB size=952x784 at 0x14977DABC550>]
-generated_description:  This painting, "The Raising of the Cross" by Peter Paul Rubens, created in 1621, exemplifies the Baroque style with its dynamic composition and vivid colors. Set during the Counter-Reformation, it reflects the era's emphasis on emotional intensity and dramatic religious themes. The painting depicts the moment Jesus is lifted off the cross, showcasing Rubens' mastery of movement and color, typical of the Baroque period. It was commissioned for a church in Antwerp, reflecting the religious devotion and artistic patronage prevalent in 17th-century Europe.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  725
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x728 at 0x149774E1B970>]
-generated_description:  This triptych by Peter Paul Rubens, "The Resurrection of Christ," created in 1612, exemplifies the Baroque style with its dynamic composition, vivid colors, and dramatic lighting. Set against a backdrop of swirling clouds and radiant light, the central panel depicts Jesus Christ rising triumphantly from the tomb, surrounded by a crowd of mourners in a state of awe and reverence. The left panel shows a figure, possibly a saint, witnessing the event, while the right panel features a woman, likely a disciple, holding a scroll, symbolizing the spread of the gospel. This work reflects the Counter-Reformation's emphasis on emotional intensity and the glorification of religious themes.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  726
-image_inputs [<PIL.Image.Image image mode=RGB size=784x840 at 0x14977D7FB3A0>]
-generated_description:  This drawing by Peter Paul Rubens, titled "The Three Caryatids," exemplifies the Baroque style prevalent between 1600-1650. It features three nude female figures, each holding a fruit or flower, embodying classical ideals of beauty and grace. The work reflects Rubens' exploration of human form and his influence on the Baroque movement, emphasizing movement and sensuality.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  727
-image_inputs [<PIL.Image.Image image mode=RGB size=756x1120 at 0x149788893D60>]
-generated_description:  This painting, "The Three Graces" by Peter Paul Rubens, created around 1623, is a Baroque masterpiece reflecting the era's emphasis on movement, color, and sensuality. It depicts the mythological figures of the Three Graces, showcasing their idealized beauty and grace. The work aligns with the Counter-Reformation's focus on elevating classical themes to spiritual and moral narratives, emphasizing the harmony and elegance of the human form. The use of light and shadow enhances the three-dimensional quality, typical of Baroque art, while the figures' poses and expressions convey a sense of joy and celebration. This piece exemplifies Rubens' ability to blend classical mythology with contemporary sensibilities, making it a significant work in the history of art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  728
-image_inputs [<PIL.Image.Image image mode=RGB size=588x1624 at 0x14977D836790>]
-generated_description:  This painting, *The Triumph of Truth* by Peter Paul Rubens, created around 1625, is a Baroque masterpiece reflecting the era's emphasis on drama, movement, and color. Set in a mythological context, it symbolizes the triumph of truth over falsehood, with figures representing virtue and reason battling ignorance. The dynamic composition and rich detail exemplify Rubens' ability to convey complex narratives through vivid imagery, aligning with the Counter-Reformation's goal of communicating moral and spiritual messages.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  729
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x560 at 0x14977D7C5F70>]
-generated_description:  This painting, "Triumphal Entry of Henry IV into Paris," by Peter Paul Rubens, depicts a Baroque celebration of King Henry IV of France entering Paris in 1600. The dynamic composition, rich colors, and dramatic lighting reflect the Baroque style, emphasizing movement and emotion. It celebrates the king's restoration of peace and unity in France, reflecting the Counter-Reformation's focus on grandeur and religious fervor.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  730
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x1400 at 0x14977D7DB760>]
-generated_description:  This painting, *The Virgin and Child*, by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set in a lush garden, it combines religious iconography with naturalistic detail, reflecting the Counter-Reformation's emphasis on emotional engagement. The vibrant colors and dynamic composition highlight Rubens' mastery of light and movement, creating a sense of intimacy and devotion. The child's tender embrace of the Virgin symbolizes the bond between mother and child, while the surrounding flora and fruit symbolize purity and abundance. This work was likely commissioned for a private collection or church, showcasing Rubens' ability to blend religious themes with secular beauty.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  731
-image_inputs [<PIL.Image.Image image mode=RGB size=756x1064 at 0x14977D7FB880>]
-generated_description:  This painting, *Virgin and Child* by Peter Paul Rubens, exemplifies the Baroque style prevalent in the 17th century. Set within a dark, intimate setting, it features a serene Madonna holding the Christ Child, capturing a moment of quiet devotion. The vibrant red of the Madonna's dress contrasts with the soft, golden tones of the child, emphasizing the divine and maternal themes central to Christian iconography. This work reflects the Baroque emphasis on emotion, movement, and rich color, typical of the Counter-Reformation era, aiming to evoke spiritual contemplation and emotional engagement in viewers.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  732
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x14977D7DBC40>]
-generated_description:  This drawing by Peter Paul Rubens, titled "Vision of Ezekiel," from 1608, exemplifies the Baroque style with its dynamic composition and dramatic use of light and shadow. It depicts a biblical scene with Ezekiel surrounded by cherubs and winged creatures, reflecting themes of divine vision and spiritual transcendence. The muscular figures and expressive gestures align with Rubens' emphasis on movement and emotion, typical of the Counter-Reformation era. The work showcases Rubens' mastery of classical mythology and his ability to convey religious narratives through powerful imagery.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  733
-image_inputs [<PIL.Image.Image image mode=RGB size=1260x1484 at 0x14977D7D01F0>]
-generated_description:  This painting, *A Dutch Courtyard* by Pieter de Hooch, captures a serene moment in a Dutch courtyard, reflecting the Baroque era's focus on realism and naturalism. The composition showcases de Hooch's mastery of light and perspective, emphasizing the interplay between indoor and outdoor spaces. The figures, dressed in period attire, engage in everyday activities, highlighting the social dynamics of the time. The architecture, with its brick walls and wooden doors, embodies the folk-architecture of the Dutch Golden Age, offering a glimpse into the daily life and culture of the period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  734
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x14977D7D0370>]
-generated_description:  This painting, *A Musical Party* by Pieter de Hooch, depicts a lively scene within a courtyard, showcasing the Baroque style's focus on dramatic lighting and rich detail. Set in the Dutch Golden Age, the painting reflects the era's fascination with everyday life and social interactions. The use of chiaroscuro highlights the figures and their activities, emphasizing the contrast between light and shadow. The inclusion of a musician and a woman in conversation suggests themes of leisure and social engagement, typical of de Hooch's genre paintings. The architectural setting and the checkered floor add depth and realism, characteristic of de Hooch's meticulous approach to perspective and composition.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  735
-image_inputs [<PIL.Image.Image image mode=RGB size=616x532 at 0x14977D7D0E20>]
-generated_description:  This painting, "A Sick Child" by Pieter de Hooch, depicts a domestic scene from the Dutch Golden Age, reflecting the Baroque period's focus on realism and emotional depth. The intimate setting, with its detailed furniture and warm lighting, captures a moment of care and concern, highlighting the artist's skill in portraying human emotion and everyday life. The use of chiaroscuro emphasizes the child's vulnerability, while the mother's attentive posture underscores the familial bond. This work exemplifies de Hooch's ability to blend realism with emotional resonance, typical of the Delft School.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  736
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x2968 at 0x14977D7D07F0>]
-generated_description:  This painting, *A Woman and a Child on a Bleichwiese* by Pieter de Hooch, exemplifies the Dutch Golden Age's focus on everyday life and domestic scenes. Set in a sunlit courtyard, the composition reflects the Baroque era's emphasis on realism and naturalism. The architectural details, such as the brick walls and tiled roofs, showcase the folk-architecture of the time. The woman and child engaged in laundry symbolize the daily routines of the lower classes, capturing a slice of life typical of de Hooch's genre paintings. The church steeple in the background hints at the religious and communal aspects of Dutch society during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  737
-image_inputs [<PIL.Image.Image image mode=RGB size=2016x2492 at 0x14977D7D0790>]
-generated_description:  This painting, *A Woman and a Maid in a Courtyard* by Pieter de Hooch, exemplifies the Dutch Golden Age's focus on everyday life and domestic scenes. Set in a typical Dutch courtyard, the artwork captures the mundane yet intimate moments of daily life, reflecting the Baroque era's emphasis on realism and naturalism. The detailed depiction of architecture and the figures' attire highlight the social and economic conditions of the time, showcasing the middle-class lifestyle and the importance of household chores. The painting's meticulous rendering of light and shadow adds depth, emphasizing the textures of the environment and clothing, which are characteristic of de Hooch's style.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  738
-image_inputs [<PIL.Image.Image image mode=RGB size=1260x1456 at 0x14977A076CA0>]
-generated_description:  This painting, *A Woman Drinking with Two Men* by Pieter de Hooch, is a Baroque genre scene from the 17th century. It depicts a domestic interior with a checkered floor and exposed ceiling beams, characteristic of Dutch Golden Age painting. The scene captures a moment of social interaction, highlighting the everyday life and social dynamics of the time. The painting reflects the Baroque emphasis on realism and dramatic lighting, with a focus on capturing the textures and details of the room and its occupants. The inclusion of a religious painting above the fireplace underscores the coexistence of secular and sacred spaces within private homes.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  739
-image_inputs [<PIL.Image.Image image mode=RGB size=1092x1344 at 0x14977D7D01F0>]
-generated_description:  Pieter de Hooch's "A Woman Peeling Apples" exemplifies the Dutch Golden Age's focus on domestic life and realism. Painted between 1650-1700, it reflects the Baroque era's emphasis on naturalism and everyday scenes. The composition, with its mother and child in a warmly lit room, captures a moment of domestic tranquility. The use of light and shadow, typical of de Hooch's style, enhances the intimate atmosphere. The fireplace and tiled floor emphasize the setting's authenticity, portraying a slice of middle-class life during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  740
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x1400 at 0x149774E16220>]
-generated_description:  This painting, *A Woman with a Baby in Her Lap and a Small Child*, by Pieter de Hooch, exemplifies the Dutch Golden Age's focus on domestic life and everyday scenes. Set in a well-lit interior, the composition highlights the intimate bond between the woman and child, reflecting the era's emphasis on family values. The checkered floor and wooden beams emphasize the room's simplicity and the lived-in nature of the space, typical of de Hooch's genre paintings. The scene captures a moment of quiet interaction, showcasing the artist's skill in portraying human emotion and the textures of daily life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  741
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x924 at 0x14977D7D0790>]
-generated_description:  This painting, "At the Linen Closet," by Pieter de Hooch, depicts a domestic scene from the Dutch Golden Age, showcasing the Baroque style's focus on realism and spatial depth. The meticulous depiction of light, shadow, and everyday life reflects the era's fascination with capturing the mundane. The checkered floor and richly detailed furniture highlight the artist's skill in rendering textures and light, while the figures' interactions suggest themes of intimacy and social hierarchy within a household setting.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  742
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x2856 at 0x14977D7D14C0>]
-generated_description:  Pieter de Hooch's "Card Players" (1658) exemplifies the Dutch Golden Age's focus on everyday life and domestic interiors. Set in a well-lit room with checkered tiles and a window casting natural light, the painting captures a moment of leisure among middle-class individuals. The scene reflects the era's emphasis on realism and the social dynamics within private spaces, showcasing the artist's meticulous attention to detail and the cultural significance of card games as a form of entertainment and social interaction.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  743
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x149774E08CA0>]
-generated_description:  This painting, "Company Making Music," by Pieter de Hooch, depicts a lively scene of musicians and spectators in a grand interior setting, characteristic of the Dutch Golden Age. The Baroque style emphasizes dramatic lighting and dynamic composition, reflecting the era's focus on realism and emotional expression. The architectural details and the checkered floor suggest a wealthy home or a public building, common in Delft during the 17th century. The painting captures the social and cultural aspects of music-making, highlighting the leisure activities of the upper classes.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  744
-image_inputs [<PIL.Image.Image image mode=RGB size=588x672 at 0x14977D7D0D90>]
-generated_description:  This painting, "Concert," by Pieter de Hooch, depicts a domestic scene with figures engaged in music-making, characteristic of the Dutch Golden Age. The use of chiaroscuro and attention to light and shadow reflect the Baroque style, emphasizing dramatic contrasts. The inclusion of doors and windows frames the composition, drawing attention to the figures within. This work exemplifies de Hooch's mastery in capturing everyday life with a refined aesthetic.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  745
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1008 at 0x14977D7E29A0>]
-generated_description:  This painting, *Couple with Parrot* by Pieter de Hooch, exemplifies the Baroque style prevalent in the 17th century. Set in a domestic interior, the scene captures a moment of intimacy between two figures, highlighting the era's focus on everyday life and human interaction. The use of light and shadow, along with the detailed depiction of objects like the parrot cage and checkered floor, reflects de Hooch's meticulous approach to realism and his ability to convey atmosphere through composition. The painting aligns with the broader Dutch Golden Age tradition, emphasizing domesticity and the beauty of ordinary moments.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  746
-image_inputs [<PIL.Image.Image image mode=RGB size=3276x3892 at 0x14977D7E2130>]
-generated_description:  This painting, "Courtyard of a House in Delft" by Pieter de Hooch, captures a serene domestic scene from the Dutch Golden Age. Depicting a mother and child in a sunlit courtyard, it exemplifies de Hooch's mastery of light and perspective, reflecting the Baroque era's focus on realism and emotional depth. The architectural detail and everyday activities highlight the social and cultural context of 17th-century Dutch life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  747
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x3052 at 0x14977A0675B0>]
-generated_description:  This painting, *Family Portrait* by Pieter de Hooch, exemplifies the Baroque period's focus on realism and everyday life. Painted between 1650-1700, it captures a Dutch family in their courtyard, reflecting the era's emphasis on domesticity and social hierarchy. De Hooch's meticulous attention to detail and use of light and shadow highlight the textures of clothing and the architectural elements, showcasing the prosperity and sophistication of Dutch society during the Golden Age. The composition, with figures arranged in a semi-circle, creates a sense of intimacy and community, typical of family portraits of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  748
-image_inputs [<PIL.Image.Image image mode=RGB size=2744x2268 at 0x14977A067F40>]
-generated_description:  This painting, "Going for the Walk," by Pieter de Hooch, captures a serene domestic scene from the Dutch Golden Age. Set in a grand interior with classical columns and a richly decorated wall, the artwork reflects the opulence and refined tastes of the era. The couple, dressed in elegant attire, symbolize the social status and leisure activities of the upper class. The inclusion of a dog adds a touch of everyday life, blending the private and public spheres typical of the Baroque period. The painting exemplifies de Hooch's mastery in depicting intimate moments within grand architectural settings, showcasing the cultural emphasis on domesticity and social hierarchy.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  749
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x3052 at 0x14977D7D14C0>]
-generated_description:  This painting, *Happy Drinker* by Pieter de Hooch, captures a lively moment in a rustic interior setting, characteristic of the Dutch Golden Age. Depicting a cheerful scene with a man raising a glass in celebration, the artwork reflects the era's focus on everyday life and human emotion. The use of chiaroscuro emphasizes the central figure, highlighting the joyous atmosphere amidst a subdued background. This piece exemplifies de Hooch's mastery in capturing intimate, candid moments, blending realism with a touch of Baroque drama.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  750
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x1260 at 0x14977A0454F0>]
-generated_description:  This painting, *Interior of a Dutch House* by Pieter de Hooch, exemplifies the Baroque style, capturing a domestic scene with meticulous attention to light and perspective. Painted between 1650-1700, it reflects the Dutch Golden Age's focus on realism and everyday life. The use of light, particularly the sunlight streaming through the window, highlights the textures and activities within the home, emphasizing the harmony between indoor and outdoor spaces. The composition, with its balanced arrangement of figures and objects, showcases de Hooch's skill in creating intimate, lifelike scenes that resonate with the cultural values of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  751
-image_inputs [<PIL.Image.Image image mode=RGB size=3136x2772 at 0x14977A045EB0>]
-generated_description:  This painting, "Interior with a Mother Delousing Her Child," by Pieter de Hooch, is a Baroque-era work from the 1650s. It showcases de Hooch's mastery of light and composition, capturing a domestic moment with a focus on realism and emotional depth. The scene reflects the daily life and social norms of the Dutch Golden Age, emphasizing the intimate and private nature of household activities. The use of light and shadow highlights the textures and materials, creating a sense of warmth and intimacy within the room.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  752
-image_inputs [<PIL.Image.Image image mode=RGB size=1344x1148 at 0x14977A045EB0>]
-generated_description:  This painting, "Interior with Figures," by Pieter de Hooch, exemplifies the Baroque style prevalent in the 17th century. Set in a richly decorated room, the scene captures a domestic moment with figures engaged in conversation. The use of light and shadow, along with the detailed depiction of furniture and decor, reflects the era's focus on realism and dramatic contrasts. The presence of a nude figure in the background suggests a connection to classical themes, blending secular and religious influences common in Baroque art. This work showcases de Hooch's mastery in capturing everyday life with a sense of grandeur and narrative depth.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  753
-image_inputs [<PIL.Image.Image image mode=RGB size=560x448 at 0x14977A067F40>]
-generated_description:  This painting, "Interior with Two Gentlemen and a Woman Beside a Fireplace," by Pieter de Hooch, captures a domestic scene from the Dutch Golden Age. Set in a warmly lit room, the interplay of light and shadow highlights the figures and emphasizes the intimate atmosphere. The presence of a fireplace suggests a moment of leisure or conversation, reflecting the social dynamics of the era. De Hooch's use of chiaroscuro and attention to detail in the figures' expressions and attire offer insights into 17th-century Dutch life and culture.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  754
-image_inputs [<PIL.Image.Image image mode=RGB size=1540x1036 at 0x149774E25610>]
-generated_description:  This painting, "Interior," by Pieter de Hooch, exemplifies the Baroque style, capturing a domestic scene with meticulous attention to light and shadow. Set in the 1650s, it reflects the Dutch Golden Age, showcasing the artist's skill in portraying everyday life with a moralistic undertone. The use of doors and windows frames the scene, emphasizing the interplay of indoor and outdoor spaces, a hallmark of de Hooch's work. The dog adds a touch of realism, grounding the composition in the mundane yet elegant daily life of the upper-middle class.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  755
-image_inputs [<PIL.Image.Image image mode=RGB size=420x504 at 0x149774E25D00>]
-generated_description:  This painting, "Man Offering a Glass of Wine to a Woman," by Pieter de Hooch, depicts a scene from the Dutch Golden Age, reflecting the Baroque style. It showcases de Hooch's mastery of light and perspective, capturing a moment of interaction between a soldier and a woman in a rustic setting. The painting embodies themes of social hierarchy and everyday life, typical of de Hooch's genre paintings, which often portrayed soldiers and civilians in intimate settings. The timeframe places it within the 17th century, a period marked by significant cultural and economic developments in the Netherlands.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  756
-image_inputs [<PIL.Image.Image image mode=RGB size=2016x1904 at 0x149774E2D0D0>]
-generated_description:  This painting, *Mother at the Cradle* by Pieter de Hooch, exemplifies the Dutch Golden Age's focus on domestic life and realism. Set in a well-lit interior, the scene captures a moment of maternal care, reflecting the cultural emphasis on family and home. The use of soft lighting and detailed textures showcases de Hooch's mastery of chiaroscuro and his attention to everyday objects, such as the cradle and the checkered floor, which add depth and realism to the composition. The painting aligns with the Baroque period's interest in capturing intimate, everyday moments, highlighting the importance of domesticity during this era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  757
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x3136 at 0x149774E25FD0>]
-generated_description:  This painting, "Nursing Mother," by Pieter de Hooch, exemplifies the Dutch Golden Age's focus on domestic scenes. Created around 1650-1700, it reflects the Baroque era's emphasis on realism and everyday life. The intimate setting, with its detailed depiction of furniture and decoration, showcases de Hooch's meticulous attention to detail. The scene captures a moment of maternal care, highlighting themes of family and domesticity prevalent in Dutch society during this period. The warm lighting and soft colors create a serene atmosphere, emphasizing the bond between the mother and child.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  758
-image_inputs [<PIL.Image.Image image mode=RGB size=1064x1204 at 0x149774E2D7C0>]
-generated_description:  This painting, "Paying the Hostess" by Pieter de Hooch, depicts a domestic scene from the Dutch Golden Age, showcasing the Baroque style's focus on realism and dramatic lighting. The interaction between characters highlights social dynamics and emotions, reflecting the era's interest in everyday life and human relationships. The checkerboard floor and detailed interior emphasize the artist's mastery of perspective and light, capturing a moment of exchange in a middle-class home.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  759
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x2128 at 0x149774E25FD0>]
-generated_description:  This painting, *Portrait of a Family of Musicians* by Pieter de Hooch, exemplifies the Baroque period's focus on realism and dramatic lighting. Set in a luxurious interior, the scene captures a family engaged in music-making, reflecting the cultural emphasis on leisure and refinement during the Dutch Golden Age. The detailed depiction of furniture and decoration underscores the wealth and status of the subjects, typical of de Hooch's genre paintings. The composition and use of light highlight the intimate yet grand setting, showcasing de Hooch's mastery in capturing everyday life with sophistication.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  760
-image_inputs [<PIL.Image.Image image mode=RGB size=1064x1316 at 0x14977A0652B0>]
-generated_description:  This painting, "Tavern Scene with Maid Trying to Fill the Glass of a Cavalier," by Pieter de Hooch, captures a lively moment in a Dutch tavern from the 17th century. Depicting a servant attending to a patron, it showcases the social dynamics and leisure activities of the era, reflecting the bustling atmosphere of taverns and inns. The scene is rendered in de Hooch's characteristic Baroque style, emphasizing realism and detail. It highlights the cultural importance of taverns as gathering places for social interaction and entertainment during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  761
-image_inputs [<PIL.Image.Image image mode=RGB size=1568x1316 at 0x14977A065880>]
-generated_description:  This painting, *The Card Players* by Pieter de Hooch, depicts a lively scene of social interaction within a luxurious interior, characteristic of the Dutch Golden Age. The Baroque style emphasizes dramatic lighting and rich textures, capturing the opulence of the era. The checkered floor and detailed architecture reflect the artist's meticulous approach, while the figures engaging in card play highlight leisure activities of the upper class. The painting reflects the cultural emphasis on domestic life and social gatherings during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  762
-image_inputs [<PIL.Image.Image image mode=RGB size=896x1036 at 0x149774E25850>]
-generated_description:  Pieter de Hooch's *The Council Chamber of the Burgermasters* (c. 1650-1655) exemplifies the Baroque style, focusing on dramatic lighting and realistic detail. Set in a grand hall, the painting captures a moment of social interaction, reflecting the power dynamics of the era. The rich textures of fabrics and the precise depiction of architectural elements highlight de Hooch's mastery of light and space, typical of the Dutch Golden Age. The presence of a dog adds a touch of everyday life amidst the formal setting, underscoring the blend of public and private spheres in 17th-century society.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  763
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x2968 at 0x14977A079B20>]
-generated_description:  Pieter de Hooch's *The Courtyard of a House in Delft* (c. 1658) exemplifies the Baroque period's focus on realism and dramatic lighting. Set in a Delft courtyard, the painting captures a serene domestic scene, reflecting the artist's keen observation of everyday life. The use of chiaroscuro highlights the figures and architecture, emphasizing depth and texture. This work showcases de Hooch's mastery in portraying familial interactions and the intimate spaces of Dutch homes, aligning with the broader Delft School tradition.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  764
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x1820 at 0x14977A045610>]
-generated_description:  This painting, *The Morning Toilet of a Young Man* by Pieter de Hooch, depicts a domestic scene from the Dutch Golden Age, reflecting the Baroque period's focus on realism and everyday life. It showcases the intimate relationship between masters and servants, common in Dutch society, highlighting the contrast between the servant's humble attire and the young man's more elaborate clothing. The use of light and shadow emphasizes the textures of fabrics and the room's furnishings, capturing the era's attention to detail and realism.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  765
-image_inputs [<PIL.Image.Image image mode=RGB size=1232x1512 at 0x14977A0651C0>]
-generated_description:  Pieter de Hooch's "The Visit" (c. 1650) exemplifies the Baroque period's focus on realism and dramatic lighting. Set in a modest Dutch home, the painting captures a moment of domestic intimacy, reflecting the era's interest in everyday life. The use of chiaroscuro highlights the central figures, emphasizing their interaction and the social dynamics within the household. The inclusion of furniture and decoration provides insight into 17th-century Dutch interiors, showcasing the artist's meticulous attention to detail and his ability to convey a sense of time and place.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  766
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x3556 at 0x149774C7AA90>]
-generated_description:  Pieter de Hooch's "Tric-Trac Players" (c. 1650-1700) exemplifies the Baroque style, capturing everyday life with meticulous detail and dramatic lighting. Set in a dimly lit interior, the painting depicts a lively scene of three individuals engaged in a game of tric-trac, a popular pastime during the Dutch Golden Age. The warm tones and realistic textures reflect the era's focus on domestic realism, while the dynamic poses and expressive faces convey the social interactions typical of the time. This work showcases de Hooch's skill in portraying intimate moments and the leisure activities that defined daily life in 17th-century Dutch society.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  767
-image_inputs [<PIL.Image.Image image mode=RGB size=1092x1344 at 0x14977A076D60>]
-generated_description:  This painting, *Two Soldiers and a Serving Woman with a Trumpeter* by Pieter de Hooch, depicts a scene from the Dutch Golden Age, reflecting the Baroque period's focus on realism and dramatic lighting. It showcases the social hierarchy of the time, with the serving woman and soldiers interacting in a rustic setting, highlighting the everyday life and interactions within a military context. The use of chiaroscuro emphasizes the figures, creating depth and tension, typical of de Hooch's style. This work exemplifies the genre painting tradition, focusing on the mundane yet revealing aspects of life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  768
-image_inputs [<PIL.Image.Image image mode=RGB size=336x392 at 0x149774E2D970>]
-generated_description:  Pieter de Hooch's "Woman and Child in a Courtyard" (1650-1700) exemplifies the Baroque style, capturing a moment of everyday life with meticulous detail and a focus on natural lighting. The scene reflects the Dutch Golden Age's emphasis on domesticity and realism, portraying a mother and child walking through a courtyard. This type of genre painting was popular, reflecting the era's interest in middle-class life and family dynamics. The warm, subdued colors and realistic depiction of textures highlight de Hooch's skill in rendering everyday scenes with depth and intimacy.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  769
-image_inputs [<PIL.Image.Image image mode=RGB size=868x1008 at 0x14977A070880>]
-generated_description:  This painting, "Woman Drinking with Soldiers," by Pieter de Hooch, depicts a domestic scene from the Dutch Golden Age, showcasing the artist's mastery of light and perspective. Set in a sunlit room, the painting reflects the social dynamics of the era, highlighting interactions between soldiers and civilians. The use of chiaroscuro emphasizes the figures and their activities, while the inclusion of everyday objects and architectural details provides insight into 17th-century Dutch life. The painting exemplifies de Hooch's ability to blend realism with moral storytelling, capturing a moment of leisure and camaraderie.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  770
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x3500 at 0x14977A045610>]
-generated_description:  This painting, "Woman Hands Over Money to Her Servant," by Pieter de Hooch, exemplifies the Baroque period's focus on everyday life and social hierarchy. Set in a Dutch interior, the scene depicts a moment of interaction between a mistress and her servant, reflecting the masters-and-servants dynamic common in 17th-century Dutch society. The detailed depiction of domestic life and the use of light and shadow highlight de Hooch's mastery of the Baroque style. The painting captures a slice of life, emphasizing realism and the importance of social status within the household.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  771
-image_inputs [<PIL.Image.Image image mode=RGB size=2016x2044 at 0x149774C7A700>]
-generated_description:  This painting, *Woman Reading a Letter* by Pieter de Hooch, exemplifies the Baroque period's focus on realism and dramatic lighting. Set in a domestic interior, the scene captures a moment of quiet contemplation, reflecting the cultural emphasis on personal reflection and the role of women in society. The use of light and shadow, characteristic of de Hooch's style, highlights the woman's focused expression and the textures of the room, emphasizing the intimate and private nature of the activity. The furniture and decoration reflect the era's craftsmanship and the status of the depicted individual. This work showcases de Hooch's ability to blend realism with emotional depth, capturing a slice of daily life with a touch of narrative.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  772
-image_inputs [<PIL.Image.Image image mode=RGB size=1568x1904 at 0x14977D7E2130>]
-generated_description:  This painting, *Woman Weighing Gold Coins* by Pieter de Hooch, exemplifies the Baroque period's focus on realism and domestic scenes. Set in a Dutch interior, the artwork captures everyday life with meticulous detail, reflecting the era's fascination with craftsmanship and the value of labor. The warm lighting and realistic textures highlight the textures of fabrics and wood, emphasizing the tactile nature of the scene. The subject's activity symbolizes the importance of trade and wealth in 17th-century Dutch society.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  773
-image_inputs [<PIL.Image.Image image mode=RGB size=2828x2408 at 0x14977A065EB0>]
-generated_description:  This painting, "Woman with a Child and a Maid in an Interior," by Pieter de Hooch, captures a domestic scene from the Dutch Golden Age. Set in a well-lit room with a checkered floor, the painting showcases de Hooch's mastery of light and shadow, emphasizing the figures and their interactions. The maid and child are depicted in a moment of quiet domesticity, while the open door reveals a glimpse of the outside world, suggesting a connection between the private and public spheres. This work reflects the Baroque era's focus on realism and narrative, highlighting the roles of masters and servants within a household. The use of doors and windows symbolizes the boundaries and interplay between different aspects of life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  774
-image_inputs [<PIL.Image.Image image mode=RGB size=1512x1848 at 0x14977A079730>]
-generated_description:  This painting, *Woman with Basket of Beans in the Kitchen Garden* by Pieter de Hooch, captures a serene moment in a Dutch kitchen garden, reflecting the Baroque period's focus on domestic life and natural beauty. The detailed rendering of the brick path, lush greenery, and the woman's traditional attire highlight the artist's meticulous approach to capturing everyday scenes, typical of the Delft School. The timeframe places it within the Dutch Golden Age, emphasizing themes of harvest and rural tranquility.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  775
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x2072 at 0x149774E0AF70>]
-generated_description:  This painting, *Woman with Infant Serving Maid with Child* by Pieter de Hooch, exemplifies the Dutch Golden Age's focus on domestic life and realism. Set in a rustic interior, the scene captures everyday activities, reflecting the era's emphasis on naturalism and the intimate portrayal of daily routines. The use of light and shadow, characteristic of Baroque techniques, enhances the three-dimensional quality of the figures and objects, creating a sense of depth and realism. The presence of furniture and decoration, along with the fireplace, situates the scene within a middle-class household, highlighting the importance of domestic spaces during this period. The painting offers a glimpse into the social dynamics and familial relationships of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  776
-image_inputs [<PIL.Image.Image image mode=RGB size=700x1008 at 0x14977A04DF10>]
-generated_description:  This Baroque ceiling fresco by Pietro da Cortona, "Allegory of Divine Providence and Barberini Power," created in 1639, reflects the grandeur and theatricality of the period. It combines allegorical figures and symbols with elaborate architectural details, emphasizing divine intervention and the power of the Barberini family. The use of vibrant colors and dynamic composition captures the opulence and religious fervor typical of the Counter-Reformation and Baroque art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  777
-image_inputs [<PIL.Image.Image image mode=RGB size=952x1176 at 0x14977A065EB0>]
-generated_description:  The painting depicts the biblical scene of Ananias restoring the sight of Saint Paul, rendered in the Baroque style by Pietro da Cortona. This timeframe (1600-1650) aligns with the Baroque period, characterized by dramatic contrasts and emotional intensity. The artwork reflects Christian themes, focusing on the miraculous healing of Saint Paul, a central figure in Christianity. The use of light and shadow, along with dynamic poses, emphasizes the divine intervention and the spiritual significance of the event.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  778
-image_inputs [<PIL.Image.Image image mode=RGB size=1204x812 at 0x149774C5FD90>]
-generated_description:  This ceiling fresco by Pietro da Cortona, executed in 1665, exemplifies the Baroque style, characterized by dramatic lighting, dynamic compositions, and grandeur. Commissioned for a basilica, it reflects the religious fervor of the Counter-Reformation, emphasizing the presence of saints and angels in celestial scenes. The ornate gold carvings and intricate designs highlight the opulence typical of Baroque architecture, aiming to inspire awe and devotion within the sacred space.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  779
-image_inputs [<PIL.Image.Image image mode=RGB size=672x868 at 0x149774C5FE50>]
-generated_description:  This painting, "Holy Family Resting on the Flight to Egypt," by Pietro da Cortona, is a Baroque masterpiece from the 17th century. It depicts the Holy Family during their journey to Egypt, a common subject in Christian art. The serene and intimate scene, set against a lush landscape, reflects the Baroque emphasis on emotion and realism. The artist's use of light and shadow enhances the dramatic effect, while the inclusion of angels adds a divine presence, typical of Baroque religious art. This work exemplifies the period's focus on storytelling through visual narrative and emotional depth.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  780
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x784 at 0x14977A070EE0>]
-generated_description:  The painting "Landing of the Trojans at the Mouth of the Tiber" by Pietro da Cortona, created around 1654, exemplifies the Baroque style. Set in a mythological context, it depicts the landing of the Trojans during the Trojan War, blending classical themes with dramatic Baroque techniques such as dynamic composition and vivid contrasts. The ceiling fresco, typical of the period, showcases elaborate ornamentation and allegorical figures, reflecting the grandeur and theatricality characteristic of Baroque art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  781
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1232 at 0x14977A04D0A0>]
-generated_description:  This Baroque painting, *Madonna and Saints* by Pietro da Cortona, created around 1628, reflects the religious fervor and dramatic expression characteristic of the era. It features the Virgin Mary holding the infant Jesus, surrounded by saints, including John the Baptist and Saint Francis, emphasizing themes of piety and devotion. The rich textures and dynamic poses highlight the Baroque style's focus on emotion and grandeur. This work likely served as a devotional piece, promoting Christian faith through its symbolic representation of sacred figures.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  782
-image_inputs [<PIL.Image.Image image mode=RGB size=364x504 at 0x149774C7FE50>]
-generated_description:  This Baroque portrait, likely from the 17th century, depicts a gentleman in formal attire, characteristic of the era's portraiture style. The dark tones and dramatic lighting emphasize the subject's status and the artist's skill in capturing the subject's personality and social standing. The inclusion of a small figure on the table adds a subtle narrative element, possibly symbolizing humility or a personal story. The timeframe aligns with the Baroque period's focus on realism and emotional expression.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  783
-image_inputs [<PIL.Image.Image image mode=RGB size=1680x2632 at 0x14977A04DC70>]
-generated_description:  This Baroque painting by Pietro da Cortona depicts the Martyrdom of Saint Lawrence, a central figure in Christianity. The dramatic scene, filled with dynamic figures and intense emotion, reflects the Baroque style's focus on grandeur and emotional impact. The painting likely serves as a devotional piece, emphasizing the suffering and sacrifice of the saint, a common theme in Christian art. The use of chiaroscuro and vibrant colors enhances the sense of drama and realism characteristic of the period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  784
-image_inputs [<PIL.Image.Image image mode=RGB size=756x1176 at 0x14977A079190>]
-generated_description:  This Baroque painting, "Pietà" by Pietro da Cortona, created around 1625, depicts a Christian scene of Jesus Christ being supported by angels and a saint, likely St. John the Evangelist. The dramatic lighting and emotional expressions reflect the Baroque style's focus on drama and emotion. The inclusion of saints and angels underscores the religious devotion typical of the period, while the setting and symbols, such as the crown of thorns, emphasize the themes of sacrifice and redemption central to Christianity.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  785
-image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x149774C76D90>]
-generated_description:  This Baroque portrait by Pietro da Cortona depicts Pope Urban VIII, Maffeo Barberini, seated regally in opulent attire, symbolizing his power and piety. The rich red velvet and intricate lace reflect the wealth and status of the papacy during the Counter-Reformation. The setting, with its ornate throne and gold accents, underscores the grandeur of the Catholic Church. This work exemplifies the Baroque emphasis on dramatic lighting and realism to convey the subject's authority and spiritual significance.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  786
-image_inputs [<PIL.Image.Image image mode=RGB size=588x756 at 0x14977DE52DF0>]
-generated_description:  This Baroque painting by Pietro da Cortona depicts the biblical story of Hagar and Abraham, rendered with dramatic lighting and rich textures characteristic of the period. It reflects the religious fervor and mythological themes prevalent in 17th-century art, emphasizing the divine presence and human interaction within a natural setting. The figures' expressions and gestures convey a narrative of faith and struggle, aligning with the Baroque emphasis on emotional intensity and spiritual depth.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  787
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x952 at 0x149774C5D1C0>]
-generated_description:  The painting "Romulus and Remus Given Shelter by Faustulus" by Pietro da Cortona, created between 1600-1650, depicts a mythological scene from Greek and Roman mythology. It reflects the Baroque style, characterized by dramatic lighting and dynamic composition. The figures are rendered with expressive gestures, emphasizing themes of heroism and divine intervention. This work likely draws inspiration from classical narratives, celebrating the origins of Rome through mythological storytelling.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  788
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1316 at 0x14977DE52DF0>]
-generated_description:  This sketch by Pietro da Cortona, dated between 1600-1650, exemplifies the Baroque style's emphasis on dynamic movement and dramatic expression. It likely served as a preparatory study for a larger work, reflecting the era's focus on realism and emotional intensity. The figure's pose and the fluid lines suggest a deep understanding of anatomy and gesture, characteristic of Baroque draftsmanship.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  789
-image_inputs [<PIL.Image.Image image mode=RGB size=616x1092 at 0x149774C76BB0>]
-generated_description:  This sketch by Pietro da Cortona, dated 1600-1650, exemplifies the Baroque style's focus on dramatic lighting and anatomical detail. It serves as a study for a female portrait, reflecting the era's emphasis on realism and the human form. The sketch captures the delicate features and texture of the subject's skin, showcasing the artist's attention to detail and the Baroque fascination with the beauty of the human body.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  790
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1204 at 0x149774C7F190>]
-generated_description:  The painting "The Age of Bronze" by Pietro da Cortona, created around 1641, is a Baroque masterpiece reflecting Greek and Roman mythology. It depicts a dramatic scene with figures in classical attire, set against a backdrop of grand architecture, symbolizing the transition between mythological and historical periods. The rich textiles and dynamic composition highlight the Baroque style's emphasis on movement and emotional intensity. This work exemplifies the period's fascination with ancient Greece and Rome, blending mythological narratives with contemporary artistic techniques.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  791
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1036 at 0x14977A079190>]
-generated_description:  This drawing by Pietro da Cortona, titled "The Age of Gold," is a Baroque design sketch from the 17th century. It reflects Greek and Roman mythology, showcasing themes of divine intervention and mythological narratives through dynamic line work and expressive figures. The grid background suggests preparatory work for a larger project, likely a fresco or architectural decoration. This piece exemplifies the Baroque era's focus on dramatic composition and mythological storytelling.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  792
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1204 at 0x14977D7E2130>]
-generated_description:  The painting "The Age of Iron" by Pietro da Cortona, created around 1641, is a Baroque masterpiece that reflects the mythological themes common in the period. Set in a classical setting, the scene depicts a dramatic moment from Greek mythology, emphasizing dynamic movement and emotional intensity typical of Baroque art. The use of rich textiles and detailed figures highlights Cortona's mastery in capturing both the grandeur and the turmoil of mythological narratives. This work exemplifies the Baroque era's focus on drama, emotion, and the interplay of light and shadow.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  793
-image_inputs [<PIL.Image.Image image mode=RGB size=1092x1204 at 0x149774C7A400>]
-generated_description:  This Baroque painting, *The Alliance of Jacob and Laban*, by Pietro da Cortona, created around 1635, depicts a biblical scene blending Christian and mythological themes. It reflects the Baroque era's focus on dramatic lighting and emotional intensity, emphasizing the sacred narrative through rich, dynamic composition and vibrant colors. The artwork showcases Cortona's skill in portraying human emotion and divine interaction, typical of the period's religious and mythological subject matter.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  794
-image_inputs [<PIL.Image.Image image mode=RGB size=476x644 at 0x149774C76DC0>]
-generated_description:  The painting "The Copper Age" by Pietro da Cortona, created between 1600-1650, reflects the Baroque style with its dramatic use of light and shadow. It depicts mythological figures, likely representing the Greek and Roman gods, engaging in leisurely activities amidst a pastoral landscape. This work aligns with the broader Baroque interest in mythology and the human form, emphasizing movement and emotion.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  795
-image_inputs [<PIL.Image.Image image mode=RGB size=896x1176 at 0x14977A070640>]
-generated_description:  The painting "The Golden Age" by Pietro da Cortona, created between 1600-1650, reflects the Baroque style's emphasis on grandeur and mythological themes. It depicts a scene from Greek and Roman mythology, showcasing figures in classical attire amidst lush landscapes and mythical creatures, embodying the idealized beauty and harmony of the Golden Age. The use of rich textiles and dramatic lighting enhances the opulent and mythological atmosphere typical of the era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  796
-image_inputs [<PIL.Image.Image image mode=RGB size=700x1260 at 0x149774C7F190>]
-generated_description:  This Baroque painting, *The Martyrdom of Saint Stephen* by Pietro da Cortona, created around 1660, depicts the biblical account of Saint Stephen's death. Set against a dramatic sky, the scene shows Stephen being stoned by a crowd, with angels and saints in the heavens offering support. The painting reflects the Baroque emphasis on emotion and grandeur, capturing the moment of martyrdom with vivid detail and dynamic composition. It aligns with the religious fervor of the Counter-Reformation, emphasizing the suffering and sanctity of the saints.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  797
-image_inputs [<PIL.Image.Image image mode=RGB size=1204x812 at 0x149774B09850>]
-generated_description:  This painting, "The Rape of the Sabine Women" by Pietro da Cortona, depicts a mythological scene from Roman history, reflecting the Baroque style's dramatic and dynamic composition. It was created during the 1600-1650 timeframe, a period when Baroque art emphasized movement, emotion, and grandeur. The painting's vivid depiction of action and the use of light and shadow highlight Cortona's mastery of the Baroque aesthetic, capturing the tension and chaos of the mythological event.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  798
-image_inputs [<PIL.Image.Image image mode=RGB size=1316x952 at 0x149774E0AF70>]
-generated_description:  This Baroque ceiling fresco by Pietro da Cortona, "The Triumph of Divine Providence," created in 1639, exemplifies the opulence and dramatic flair characteristic of the period. It celebrates divine intervention, depicted through allegorical figures and dynamic compositions, reflecting the Counter-Reformation's emphasis on spiritual themes. The rich textiles and ornate details underscore the luxurious patronage typical of the era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  799
-image_inputs [<PIL.Image.Image image mode=RGB size=1540x1988 at 0x14977A079190>]
-generated_description:  This engraving by Pietro da Cortona, titled "Flora Sive Florum Cultura," is a Baroque work from the 17th century. It depicts Flora, the Roman goddess of flowers, surrounded by figures representing various aspects of gardening and nature. The title and imagery reflect the Renaissance interest in botany and the celebration of natural beauty, typical of the Baroque era's emphasis on grandeur and detail.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_190154_job_7.json'.
-
-JOB STATISTICS
-==============
-Job ID: 11789350
-Cluster: snellius
-User/Group: wangsh/wangsh
-State: RUNNING
-Nodes: 1
-Cores per node: 16
-CPU Utilized: 00:00:00
-CPU Efficiency: 0.00% of 01:46:40 core-walltime
-Job Wall-clock time: 00:06:40
-Memory Utilized: 0.00 MB
-Memory Efficiency: 0.00% of 180.00 GB (180.00 GB/node)
-WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

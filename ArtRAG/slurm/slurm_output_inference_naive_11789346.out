@@ -1,982 +1,0 @@
-============================================================================================== 
-Warning! Mixing Conda and module environments may lead to corruption of the
-user environment. 
-We do not recommend users mixing those two environments unless absolutely
-necessary. Note that 
-SURF does not provide any support for Conda environment.
-For more information, please refer to our software policy page:
-https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
-
-Remember that many packages have already been installed on the system and can
-be loaded using 
-the 'module load <package__name>' command. If you are uncertain if a package is
-already available 
-on the system, please use 'module avail' or 'module spider' to search for it.
-============================================================================================== 
-/var/spool/slurm/slurmd/job11789346/slurm_script: line 20: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
-INFO:lightrag:Logger initialized for working directory: ./art_context
-DEBUG:lightrag:LightRAG init with param:
-  working_dir = ./art_context,
-  chunk_token_size = 1200,
-  chunk_overlap_token_size = 100,
-  tiktoken_model_name = gpt-4o-mini,
-  entity_extract_max_gleaning = 1,
-  entity_summary_to_max_tokens = 500,
-  node_embedding_algorithm = node2vec,
-  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
-  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x14d483a0fb80>},
-  embedding_batch_num = 32,
-  embedding_func_max_async = 16,
-  llm_model_func = <function hf_model_complete at 0x14d485146820>,
-  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
-  llm_model_max_token_size = 32768,
-  llm_model_max_async = 16,
-  llm_model_kwargs = {},
-  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
-  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
-  vector_db_storage_cls_kwargs = {},
-  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
-  enable_llm_cache = True,
-  addon_params = {},
-  convert_response_to_json_func = <function convert_response_to_json at 0x14d4b4c929d0>
-
-INFO:lightrag:Load KV full_docs with 1144 data
-INFO:lightrag:Load KV text_chunks with 4335 data
-INFO:lightrag:Load KV llm_response_cache with 0 data
-INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
-INFO:nano-vectordb:Load (4335, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
-args:  Namespace(working_dir='./art_context', model_name='Qwen/Qwen2.5-VL-7B-Instruct', retrieval_strategy='naive', data_num=10000, data_source='../../data/wikiart/wikiart_full.csv', question_type='cultural&histroical', job_id=3)
-Processing data from index 300 to 400
-Processing rows:   0%|          | 0/100 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Processing row:  300
-
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
-Loading checkpoint shards:  20%|██        | 1/5 [00:07<00:29,  7.26s/it][A
-Loading checkpoint shards:  40%|████      | 2/5 [00:09<00:13,  4.59s/it][A
-Loading checkpoint shards:  60%|██████    | 3/5 [00:12<00:07,  3.71s/it][A
-Loading checkpoint shards:  80%|████████  | 4/5 [00:15<00:03,  3.25s/it][A
-Loading checkpoint shards: 100%|██████████| 5/5 [00:16<00:00,  2.52s/it][ALoading checkpoint shards: 100%|██████████| 5/5 [00:16<00:00,  3.28s/it]
-/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
-  warnings.warn(
-Processing rows:   1%|          | 1/100 [00:29<48:30, 29.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▏         | 2/100 [00:32<22:48, 13.96s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   3%|▎         | 3/100 [00:35<14:38,  9.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▍         | 4/100 [00:38<10:38,  6.65s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   5%|▌         | 5/100 [00:42<08:37,  5.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▌         | 6/100 [00:44<07:11,  4.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   7%|▋         | 7/100 [00:48<06:22,  4.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 8/100 [00:51<06:00,  3.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   9%|▉         | 9/100 [00:54<05:18,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|█         | 10/100 [00:57<05:12,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  11%|█         | 11/100 [01:01<05:12,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  12%|█▏        | 12/100 [01:04<05:04,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  13%|█▎        | 13/100 [01:07<04:41,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  14%|█▍        | 14/100 [01:10<04:35,  3.21s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  15%|█▌        | 15/100 [01:13<04:34,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  16%|█▌        | 16/100 [01:16<04:33,  3.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  17%|█▋        | 17/100 [01:20<04:31,  3.27s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  18%|█▊        | 18/100 [01:23<04:34,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  19%|█▉        | 19/100 [01:27<04:35,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  20%|██        | 20/100 [01:30<04:31,  3.40s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  21%|██        | 21/100 [01:33<04:20,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  22%|██▏       | 22/100 [01:36<04:02,  3.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  23%|██▎       | 23/100 [01:39<04:01,  3.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  24%|██▍       | 24/100 [01:43<04:05,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  25%|██▌       | 25/100 [01:46<04:10,  3.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  26%|██▌       | 26/100 [01:49<04:00,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  27%|██▋       | 27/100 [01:52<03:55,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  28%|██▊       | 28/100 [01:56<03:56,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  29%|██▉       | 29/100 [01:59<03:43,  3.15s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  30%|███       | 30/100 [02:02<03:39,  3.14s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  31%|███       | 31/100 [02:05<03:41,  3.21s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  32%|███▏      | 32/100 [02:09<03:45,  3.31s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  33%|███▎      | 33/100 [02:12<03:46,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  34%|███▍      | 34/100 [02:15<03:33,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  35%|███▌      | 35/100 [02:19<03:41,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  36%|███▌      | 36/100 [02:23<03:44,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  37%|███▋      | 37/100 [02:26<03:34,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  38%|███▊      | 38/100 [02:30<03:37,  3.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  39%|███▉      | 39/100 [02:33<03:30,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  40%|████      | 40/100 [02:36<03:11,  3.20s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  41%|████      | 41/100 [02:39<03:21,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  42%|████▏     | 42/100 [02:43<03:14,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  43%|████▎     | 43/100 [02:46<03:17,  3.47s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  44%|████▍     | 44/100 [02:50<03:13,  3.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  45%|████▌     | 45/100 [02:53<03:04,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  46%|████▌     | 46/100 [02:57<03:15,  3.62s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  47%|████▋     | 47/100 [03:01<03:07,  3.54s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  48%|████▊     | 48/100 [03:04<02:59,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  49%|████▉     | 49/100 [03:07<02:55,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  50%|█████     | 50/100 [03:11<02:56,  3.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  51%|█████     | 51/100 [03:15<03:05,  3.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  52%|█████▏    | 52/100 [03:19<02:53,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  53%|█████▎    | 53/100 [03:22<02:48,  3.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  54%|█████▍    | 54/100 [03:26<02:46,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  55%|█████▌    | 55/100 [03:29<02:36,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  56%|█████▌    | 56/100 [03:32<02:30,  3.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  57%|█████▋    | 57/100 [03:36<02:30,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  58%|█████▊    | 58/100 [03:40<02:36,  3.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  59%|█████▉    | 59/100 [03:44<02:28,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  60%|██████    | 60/100 [03:47<02:25,  3.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  61%|██████    | 61/100 [03:51<02:20,  3.61s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  62%|██████▏   | 62/100 [03:54<02:11,  3.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  63%|██████▎   | 63/100 [03:57<02:08,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  64%|██████▍   | 64/100 [04:01<02:09,  3.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  65%|██████▌   | 65/100 [04:04<01:57,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  66%|██████▌   | 66/100 [04:08<01:57,  3.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  67%|██████▋   | 67/100 [04:11<01:55,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  68%|██████▊   | 68/100 [04:14<01:44,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  69%|██████▉   | 69/100 [04:17<01:42,  3.29s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  70%|███████   | 70/100 [04:20<01:36,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  71%|███████   | 71/100 [04:23<01:27,  3.03s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  72%|███████▏  | 72/100 [04:26<01:20,  2.88s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  73%|███████▎  | 73/100 [04:30<01:27,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  74%|███████▍  | 74/100 [04:33<01:24,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  75%|███████▌  | 75/100 [04:36<01:18,  3.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  76%|███████▌  | 76/100 [04:38<01:11,  2.98s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  77%|███████▋  | 77/100 [04:42<01:10,  3.05s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  78%|███████▊  | 78/100 [04:45<01:11,  3.25s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  79%|███████▉  | 79/100 [04:48<01:07,  3.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  80%|████████  | 80/100 [04:52<01:04,  3.24s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  81%|████████  | 81/100 [04:55<01:03,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  82%|████████▏ | 82/100 [04:59<01:00,  3.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  83%|████████▎ | 83/100 [05:03<00:59,  3.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  84%|████████▍ | 84/100 [05:06<00:57,  3.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  85%|████████▌ | 85/100 [05:10<00:55,  3.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  86%|████████▌ | 86/100 [05:13<00:48,  3.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  87%|████████▋ | 87/100 [05:16<00:43,  3.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  88%|████████▊ | 88/100 [05:20<00:40,  3.37s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  89%|████████▉ | 89/100 [05:24<00:39,  3.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  90%|█████████ | 90/100 [05:27<00:35,  3.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  91%|█████████ | 91/100 [05:30<00:30,  3.38s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  92%|█████████▏| 92/100 [05:33<00:26,  3.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  93%|█████████▎| 93/100 [05:37<00:23,  3.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  94%|█████████▍| 94/100 [05:39<00:18,  3.02s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  95%|█████████▌| 95/100 [05:41<00:14,  2.84s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  96%|█████████▌| 96/100 [05:45<00:12,  3.11s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  97%|█████████▋| 97/100 [05:49<00:09,  3.19s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  98%|█████████▊| 98/100 [05:52<00:06,  3.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  99%|█████████▉| 99/100 [05:55<00:03,  3.18s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows: 100%|██████████| 100/100 [05:58<00:00,  3.13s/it]Processing rows: 100%|██████████| 100/100 [05:58<00:00,  3.59s/it]
-image_inputs [<PIL.Image.Image image mode=RGB size=364x504 at 0x14D478D61E50>]
-generated_description:  This painting, "Sunrise of Wonder VI," by John Miller, captures a serene sunrise with a minimalist approach. The realistic style emphasizes the tranquil atmosphere and the vibrant azure hues of the sky, evoking a sense of calm and wonder. The horizon line and the glowing sun create a harmonious balance, reflecting the artist's focus on natural beauty and atmospheric effects. Created between 1950 and 2000, it aligns with mid-20th-century realism, emphasizing simplicity and the power of natural light.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  301
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x1232 at 0x14D480909DC0>]
-generated_description:  This painting, *A Backwater at Wargrave* by John Singer Sargent, exemplifies Realism, capturing the natural environment with meticulous detail. Set in the late 19th century, it reflects the artist's keen observation of nature, focusing on the interplay of light and shadow on trees and water. The work showcases Sargent's skill in rendering textures and reflections, emphasizing the serene beauty of the backwater setting.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  302
-image_inputs [<PIL.Image.Image image mode=RGB size=896x644 at 0x14D4789B47C0>]
-generated_description:  This painting, *A Mountain Stream* by John Singer Sargent, created around 1914, captures the dynamic energy of a mountain stream with a realistic style. It reflects the artist's interest in natural landscapes and his ability to convey the movement and texture of water. The work aligns with the broader trend of 20th-century realism, emphasizing direct observation and the depiction of everyday scenes. The painting's focus on the natural world resonates with the growing appreciation for environmental themes during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  303
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1260 at 0x14D4789B4D90>]
-generated_description:  This painting, *A Rose Trellis* by John Singer Sargent, exemplifies his realistic style, capturing the delicate beauty of pink roses climbing a trellis in spring. It reflects the artist's attention to botanical detail and natural light, typical of the Realism movement in the late 19th century. The scene evokes a sense of tranquility and the vibrant life of nature.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  304
-image_inputs [<PIL.Image.Image image mode=RGB size=588x1092 at 0x14D4789B4BE0>]
-generated_description:  This painting, "Ada Rehan," by John Singer Sargent, exemplifies the realism style prevalent in the late 19th century. Commissioned in 1894, it portrays Ada Rehan, a renowned Irish-American actress, in a formal setting. The meticulous rendering of her attire and the dramatic background suggest Sargent's focus on capturing the essence of his subjects. This work reflects the era's fascination with portraiture and the prominence of famous personalities in art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  305
-image_inputs [<PIL.Image.Image image mode=RGB size=644x924 at 0x14D4789B4730>]
-generated_description:  This painting, "Alice Vanderbilt Shepard," by John Singer Sargent, exemplifies the realism movement of the late 19th century. It portrays Alice Vanderbilt Shepard, a prominent figure of the Gilded Age, capturing her elegance and poise. The use of soft, natural lighting and realistic textures reflects Sargent's skill in portraying his subjects with precision and subtlety, typical of the era's focus on capturing the essence of individuals.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  306
-image_inputs [<PIL.Image.Image image mode=RGB size=2128x2548 at 0x14D482091100>]
-generated_description:  This painting, "Self-Portrait," by John Singer Sargent, reflects the Realism movement of the late 19th century. It captures Sargent's likeness with a focus on natural lighting and realistic features, showcasing his technical skill and attention to detail. The dark background and soft lighting emphasize his facial features and attire, typical of his portraits from this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  307
-image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14D478618E80>]
-generated_description:  This painting, "Mrs. Ernest G. Raphael Florence Cecilia Sassoon," by John Singer Sargent, exemplifies the realism style prevalent in the early 20th century. Commissioned in 1905, it portrays a prominent figure, reflecting the era's focus on portraiture and the social status of its subjects. The dark tones and detailed rendering of the subject's attire and jewelry highlight the artist's skill in capturing the essence of his subjects. The setting, with its ornate chair and table, underscores the subject's refined taste and the societal norms of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  308
-image_inputs [<PIL.Image.Image image mode=RGB size=476x644 at 0x14D4789B42B0>]
-generated_description:  This sketch by John Singer Sargent, titled "Olimpio Fusco," exemplifies his realistic style from the early 20th century. It captures a male portrait with meticulous attention to detail in the hair and facial features, reflecting Sargent's skill in portraiture. The timeframe places it within the period of his mature work, showcasing his ability to render human expressions and textures with precision.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  309
-image_inputs [<PIL.Image.Image image mode=RGB size=896x1092 at 0x14D471E5CBE0>]
-generated_description:  This sketch by John Singer Sargent, titled "Polly Barnard," is a study for his famous painting "Carnation, Lily, Lily, Rose." Created around 1887, it exemplifies Sargent's skill in capturing facial features and figure drawing. The sketch reflects the Realism movement's focus on accurate representation, showcasing Sargent's attention to detail and his ability to convey personality through subtle lines. It highlights his expertise in female portraiture and his commitment to precise observation.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  310
-image_inputs [<PIL.Image.Image image mode=RGB size=868x1176 at 0x14D4786F2D00>]
-generated_description:  This painting, "Portrait of Gordon Fairchild" by John Singer Sargent, exemplifies the Realism movement of the late 19th century. It depicts a young boy in formal attire, seated in a wicker chair, conveying a sense of quiet contemplation. The use of natural light and detailed textures reflects Sargent's skill in capturing everyday life, typical of the Realist style. The timeframe places it within the period when Sargent was renowned for his portraits of prominent figures, showcasing his ability to portray subjects with sensitivity and realism.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  311
-image_inputs [<PIL.Image.Image image mode=RGB size=1316x1904 at 0x14D4786F2C40>]
-generated_description:  This sketch by John Singer Sargent, titled "Portrait of Sir Max Michaelis," from 1925, exemplifies his realistic style. It captures Sir Max Michaelis with a focus on his facial features, including his chin, forehead, and jaw, reflecting the artist's attention to detail and his skill in portraiture. The timeframe places it within the early 20th century, a period when Sargent was renowned for his portraits of prominent figures.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  312
-image_inputs [<PIL.Image.Image image mode=RGB size=672x924 at 0x14D471E41460>]
-generated_description:  This painting, *Rose-Marie Ormond* by John Singer Sargent, exemplifies his realistic style from the early 20th century. It portrays a female figure with a serene expression, dressed elegantly, reflecting the fashion of the era. The dark background emphasizes the subject, typical of Sargent's portraiture, capturing the essence of his subjects with precision and subtlety.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  313
-image_inputs [<PIL.Image.Image image mode=RGB size=336x448 at 0x14D4786CBEE0>]
-generated_description:  This painting, "Portrait of Carlos I of Portugal" by José Malhoa, created in 1891, reflects the Realist style prevalent in the late 19th century. It captures the monarch in formal attire, emphasizing his authority and status within the context of the Portuguese monarchy during the late 19th century. The use of realistic detail and the grandeur of the setting underscore the importance of the subject, aligning with the Realist movement's focus on depicting contemporary life with accuracy and depth.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  314
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x1120 at 0x14D478618610>]
-generated_description:  This painting, "Assembly of Peter I," by Klavdy Lebedev, depicts a lively gathering during the reign of Peter the Great, rendered in a realistic style. The scene, illuminated by chandeliers and candles, captures the celebratory atmosphere of a royal assembly, reflecting the opulence and social dynamics of the time. The attire and setting suggest a significant historical event, likely a celebration or formal meeting, highlighting the artist's focus on capturing the essence of the era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  315
-image_inputs [<PIL.Image.Image image mode=RGB size=812x700 at 0x14D471E5CF40>]
-generated_description:  This painting, "Cliff in the Slope of Aragats" by Martiros Saryan, reflects the post-war Soviet era's focus on natural beauty and national identity. Set against the backdrop of Mount Aragats, a significant landmark in Armenia, the artwork captures the rugged mountainous terrain with vibrant colors and dynamic brushstrokes, characteristic of the Realism movement. It symbolizes the resilience and grandeur of the Armenian landscape, aligning with the broader Soviet emphasis on national pride and the natural environment.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  316
-image_inputs [<PIL.Image.Image image mode=RGB size=812x560 at 0x14D4786180A0>]
-generated_description:  This ink sketch, "Landscape of Armenia," by Martiros Saryan (1972), embodies the realism style prevalent in the 1950s-2000s. It captures the natural beauty of Armenian landscapes, focusing on botanical details like trees and slopes, and the interplay of light and shadow. The artist's use of line emphasizes the organic forms of nature, reflecting a deep appreciation for the environment. This work aligns with the broader trend of depicting everyday life and natural scenery during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  317
-image_inputs [<PIL.Image.Image image mode=RGB size=812x812 at 0x14D4786CB8E0>]
-generated_description:  This painting, "Smolensk Walls," by Nicholas Roerich, depicts the historic fortifications of Smolensk, Russia, rendered in a realistic style. Created between 1900 and 1950, it reflects the artist's interest in historical and cultural themes, particularly the preservation of Russian heritage. The image serves as a record of the city's defensive structures, emphasizing their historical significance and architectural beauty. It aligns with the broader context of early 20th-century efforts to document and celebrate national identity through art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  318
-image_inputs [<PIL.Image.Image image mode=RGB size=616x504 at 0x14D471E56A90>]
-generated_description:  This painting, "Study of Female Nude," by Nicholas Roerich, created around 1895, exemplifies the Realism movement prevalent during the late 19th century. Roerich's work focuses on capturing the human form with precision and detail, reflecting the era's emphasis on naturalism and direct observation. The use of muted colors and realistic portrayal of light and shadow aligns with Realist principles, aiming to depict reality without idealization. The subject matter, a nude woman, suggests themes of human anatomy and the exploration of the female form, common in Realist art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  319
-image_inputs [<PIL.Image.Image image mode=RGB size=1568x2184 at 0x14D47862EEE0>]
-generated_description:  This painting, "Peasant Woman from Muscel" by Nicolae Grigorescu, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It depicts a woman in traditional Romanian attire, highlighting everyday life and cultural authenticity. The artist's focus on realistic detail and natural lighting reflects the movement's emphasis on capturing reality and social issues. The headscarf and vibrant colors symbolize the subject's identity and the rural setting.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  320
-image_inputs [<PIL.Image.Image image mode=RGB size=504x392 at 0x14D4786CBD60>]
-generated_description:  The painting "Noon in the Village" by Nicolae Vermont, created in 1923, exemplifies Realism, capturing everyday rural life with vivid detail and natural lighting. Set in a village, it reflects the artist's interest in depicting the simple, unadorned existence of peasants during the interwar period. The scene, rendered with a focus on realism, offers a glimpse into the daily routines and social interactions of villagers, embodying the era's emphasis on authenticity and direct observation.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  321
-image_inputs [<PIL.Image.Image image mode=RGB size=448x588 at 0x14D471C1A730>]
-generated_description:  The painting "Portrait of a Man" by Nicolae Vermont, created in 1918, exemplifies Realism, capturing the subject with meticulous detail and a focus on everyday life. The artist's portrayal of the gentleman, dressed formally, reflects the social norms and attire of the early 20th century. This work likely serves as a formal portrait, emphasizing the subject's status and personality through realistic representation.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  322
-image_inputs [<PIL.Image.Image image mode=RGB size=812x616 at 0x14D4786D00D0>]
-generated_description:  This painting, "Fire," by Pyotr Konchalovsky, depicts a realistic scene of firefighters battling a blaze, likely from the early 20th century. The style reflects the realism movement, capturing the intensity and urgency of the moment. The crowd and detailed depiction of the fire truck emphasize the communal effort and the dramatic atmosphere of the event. This work likely reflects the social and historical context of its time, highlighting the importance of public safety and the heroic efforts of firefighters.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  323
-image_inputs [<PIL.Image.Image image mode=RGB size=448x504 at 0x14D4786D05E0>]
-generated_description:  This painting, "Katya with Grains" by Pyotr Konchalovsky, created in 1933, exemplifies the Realist style prevalent in the early 20th century. Set against a muted background, the focus is on a young child seated at a table, wearing a simple headscarf and a brown coat, eating from a bowl. The realistic depiction captures everyday life, emphasizing the innocence and simplicity of childhood. This work reflects the social and cultural context of the Soviet era, where artists often portrayed ordinary people and scenes to promote realism and social commentary.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  324
-image_inputs [<PIL.Image.Image image mode=RGB size=560x728 at 0x14D478618F10>]
-generated_description:  This painting, "Poppies," by Pyotr Konchalovsky, created in 1955, exemplifies the realism style prevalent in mid-20th-century Soviet art. It captures the vibrant beauty of flowers in a garden setting, reflecting a focus on natural subjects and everyday life. Konchalovsky's work aligns with the post-war emphasis on realism and national identity, showcasing the lush greenery and vivid colors characteristic of the period. The painting's tags highlight its botanical and floral themes, emphasizing the artist's interest in nature and the garden as a serene, contemplative space.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  325
-image_inputs [<PIL.Image.Image image mode=RGB size=336x448 at 0x14D4786C5B80>]
-generated_description:  This painting, "Portrait of Alexander Alexandrovich Fadeyev" by Pyotr Konchalovsky, created in 1941, exemplifies the Realist style prevalent in Soviet art during the mid-20th century. It reflects the cultural and political climate of the time, focusing on capturing the subject's personality and social status through meticulous detail and realistic portrayal. The subject's attire and composed demeanor suggest his intellectual and professional standing, aligning with the era's emphasis on portraying individuals of significance.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  326
-image_inputs [<PIL.Image.Image image mode=RGB size=364x448 at 0x14D4786C51C0>]
-generated_description:  This painting, "Portrait of Dolgintsev" by Pyotr Konchalovsky, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It depicts a gentleman in a formal setting, reflecting the social and cultural norms of the era. The realistic portrayal, with attention to detail in attire and expression, underscores the artist's focus on capturing the essence of his subject. The dark palette and somber mood align with the Realist movement's emphasis on depicting contemporary life truthfully.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  327
-image_inputs [<PIL.Image.Image image mode=RGB size=4172x3052 at 0x14D4786C5040>]
-generated_description:  This photograph by Thomas Eakins, taken around 1910-1917, exemplifies his commitment to realism. It captures a candid moment of a person outdoors, emphasizing natural light and shadow, and showcasing his skill in documenting everyday life. The photograph reflects the era's focus on capturing reality and personal moments, aligning with the broader movement towards realism in art and photography.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  328
-image_inputs [<PIL.Image.Image image mode=RGB size=2128x2828 at 0x14D471CA38E0>]
-generated_description:  This photograph by Thomas Eakins, taken around 1910, exemplifies his realistic style. It captures a candid moment of a woman interacting with dogs outdoors, showcasing his focus on everyday life and natural settings. The image reflects the late 19th to early 20th-century interest in documenting real-life activities and environments.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  329
-image_inputs [<PIL.Image.Image image mode=RGB size=952x1204 at 0x14D471CA3A00>]
-generated_description:  This painting, "Portrait of Asbury H. Lee" by Thomas Eakins, exemplifies his realistic style from the early 20th century. Commissioned in 1905, it captures a gentleman in formal attire, reflecting the social norms and portraiture conventions of the time. The subdued lighting and detailed rendering of the subject's clothing emphasize realism and the artist's focus on capturing the sitter's character and status.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  330
-image_inputs [<PIL.Image.Image image mode=RGB size=560x1204 at 0x14D471CA33A0>]
-generated_description:  This painting, *Portrait of Leslie W. Miller* by Thomas Eakins (1901), exemplifies his realistic style. Set against a simple, textured backdrop, the subject, dressed in a formal suit, holds papers, suggesting a professional or scholarly demeanor. The focus on natural lighting and meticulous attention to detail reflect Eakins' commitment to realism, capturing the subject's character and environment with precision. This portrait aligns with the broader context of late 19th-century portraiture, emphasizing individuality and realism.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  331
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1092 at 0x14D471CA3460>]
-generated_description:  This painting, "Seventy Years Ago" by Thomas Eakins, depicts a woman engaged in domestic work, likely spinning yarn, set against a rustic backdrop. The realistic style captures the textures of her clothing and the environment, reflecting Eakins' focus on everyday life and the human form. The timeframe places it within the late 19th century, a period marked by realism and a shift towards depicting ordinary subjects. The painting aligns with Eakins' broader exploration of the human figure and his commitment to accurate representation.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  332
-image_inputs [<PIL.Image.Image image mode=RGB size=728x560 at 0x14D471CAD790>]
-generated_description:  This painting, "In a Village: Peasant Woman with a Horse" by Valentin Serov, exemplifies Realism, capturing a candid moment in a rural setting. Created in 1898, it reflects the artist's focus on everyday life and the natural environment. The warm tones and realistic depiction of the woman and horse contrast with the cold, snowy backdrop, highlighting the resilience of rural life during winter. The painting aligns with the broader movement towards depicting authentic, unidealized subjects, resonating with the social and cultural context of late 19th-century Russia.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  333
-image_inputs [<PIL.Image.Image image mode=RGB size=364x1064 at 0x14D471CADA90>]
-generated_description:  This painting, "Portrait of Mikhail Morozov" by Valentin Serov (1902), exemplifies Realism, capturing the subject with meticulous detail and a focus on naturalism. Set against an ornate interior, the portrait highlights Morozov's status through his attire and the surrounding opulence, reflecting the social and cultural milieu of the early 20th century. The style emphasizes the subject's personality and the era's aesthetic sensibilities.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  334
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x14D471CADEE0>]
-generated_description:  This painting, "Portrait of Savva Mamontov" by Valentin Serov, exemplifies Realism, a style prevalent in the late 19th century. Commissioned by Mamontov, a prominent Russian patron of the arts, the portrait captures Mamontov's dignified presence and the opulence of his era. The dark, somber palette and meticulous rendering of Mamontov's attire reflect Serov's focus on capturing the subject's personality and social standing. This work aligns with the broader trend of depicting notable figures in a straightforward, unidealized manner, characteristic of Realism.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  335
-image_inputs [<PIL.Image.Image image mode=RGB size=868x1120 at 0x14D471CA37C0>]
-generated_description:  This painting, "Art Teacher" by Vasily Perov, depicts a male musician seated at a piano, rendered in a realistic style characteristic of the 19th century. Set in a warmly lit interior, the scene captures the intimate atmosphere of a music lesson or practice session. Perov's attention to detail in the musician's attire and the piano's texture reflects his commitment to realism, a movement that sought to portray everyday life with accuracy and emotional depth. The painting likely reflects the cultural emphasis on education and the arts during the period, showcasing the importance of music instruction in society.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  336
-image_inputs [<PIL.Image.Image image mode=RGB size=1596x812 at 0x14D4786C5670>]
-generated_description:  This painting, "Evening on Holy Saturday" by Vasily Perov, captures a realistic scene of a rural road bustling with activity. Set in the 1870s, it reflects the daily life and transportation methods of the time, showcasing horse-drawn carriages and people engaged in various activities. The style emphasizes naturalism and social commentary, typical of Perov's work, highlighting the contrast between the busy foreground and the serene background.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  337
-image_inputs [<PIL.Image.Image image mode=RGB size=504x336 at 0x14D471CAD370>]
-generated_description:  This painting, "Manor of V.D. Polenov," by Vasily Polenov, depicts a realistic representation of a villa, likely from the late 19th to early 20th century. The style aligns with Realism, focusing on capturing the natural and unembellished aspects of the scene. The Manor of V.D. Polenov, a significant historical residence, reflects the artist's interest in documenting architectural and rural landscapes during a period of transition in Russian society. The painting captures the essence of the era through its detailed depiction of the building and surrounding environment, emphasizing the harmony between human habitation and nature.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  338
-image_inputs [<PIL.Image.Image image mode=RGB size=952x364 at 0x14D471C9E220>]
-generated_description:  This painting, *The Nile* by Vasily Polenov, exemplifies Realism, capturing the serene beauty of the Nile with meticulous detail. Set in the late 19th century, it reflects the Romantic fascination with nature and the grandeur of ancient civilizations. The calm waters mirror the lush banks and distant mountains, evoking a sense of tranquility and timelessness. Polenov's work aligns with the broader European interest in Egypt during this period, influenced by the archaeological excavations and the popularity of Orientalist themes.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  339
-image_inputs [<PIL.Image.Image image mode=RGB size=896x448 at 0x14D471BCFB20>]
-generated_description:  This painting, "Troada" by Vasily Polenov, exemplifies Realism, capturing a natural landscape with vivid detail. Set in the 1850-1900 timeframe, it showcases mountains and a dynamic seascape, reflecting the artist's focus on realistic depiction of nature. The work aligns with the Realist movement's emphasis on accurate representation of the physical world.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  340
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x14D471CA3E80>]
-generated_description:  This watercolor by Vasily Surikov, titled "Cossacks," depicts a scene of military activity, likely from the late 19th century, reflecting the Realist style. Surikov, a prominent Russian artist, captures the raw energy and intensity of soldiers in action, emphasizing realism through detailed observation and dynamic composition. The timeframe aligns with the period of Russian military expansion and the evolving role of Cossacks in Russian society. This work showcases Surikov's skill in portraying the gritty realities of military life, resonating with the broader themes of national identity and historical narrative prevalent in Russian art of the era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  341
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x672 at 0x14D4786F0820>]
-generated_description:  This painting, "Cossacks in a Boat," by Vasily Surikov, is a realistic depiction of Cossacks traveling by boat, likely part of the Conquest of Siberia led by Yermak Timofeyevich. Created in the 1850-1900 timeframe, it reflects the Realist movement's focus on capturing everyday life and historical events. The scene captures the ruggedness of the Cossacks and the harsh environment, emphasizing realism and historical accuracy.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  342
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x14D4786F0250>]
-generated_description:  This painting, "Empress Anna Ioannovna in Peterhof Temple Shoots Deer," by Vasily Surikov, depicts a scene from the 18th-century Russian court. Set in the Peterhof Palace, it showcases the Empress engaging in hunting, a common activity among nobility during the era. The realistic style captures the opulence of the palace and the elegance of the Empress's attire, reflecting the grandeur of the Russian aristocracy. The inclusion of animals and the depiction of a famous historical figure highlight the painting's focus on capturing a moment of royal leisure and power.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  343
-image_inputs [<PIL.Image.Image image mode=RGB size=728x1008 at 0x14D4786C5850>]
-generated_description:  This painting, "Head of Boyarynya Morozova Study," by Vasily Surikov, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It portrays a woman wearing traditional headgear, reflecting the artist's focus on capturing realistic details and emotional depth. The piece likely draws from historical or literary sources, emphasizing the subject's character and the social context of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  344
-image_inputs [<PIL.Image.Image image mode=RGB size=504x252 at 0x14D471BCF670>]
-generated_description:  This painting, "Krasnoyarsk Vicinities" by Vasily Surikov, depicts a realistic portrayal of the Siberian tundra, characterized by its vast, open terrain and rugged hills. Created during the 1850-1900 timeframe, it reflects the Realist movement's focus on capturing the natural world and everyday life. The depiction of the ecoregion highlights Surikov's attention to detail and his ability to convey the harsh beauty of Siberia's landscape.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  345
-image_inputs [<PIL.Image.Image image mode=RGB size=952x1288 at 0x14D471C9E190>]
-generated_description:  The painting "Soldier with Drum" by Vasily Surikov, created in 1898, exemplifies Realism, a style prevalent in the late 19th century. Set in a snowy landscape, the work captures a soldier in uniform, holding a drum, reflecting the artist's focus on depicting everyday life with accuracy and detail. The timeframe of 1850-1900 places the painting within the broader context of Russian Realism, which sought to portray the social and political realities of the time. The inclusion of musical instruments underscores the importance of music in military life and society, highlighting the cultural and social aspects of the era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  346
-image_inputs [<PIL.Image.Image image mode=RGB size=1092x1288 at 0x14D471BCF670>]
-generated_description:  This sketch by Vasily Surikov, titled "Study to Boyarynya Morozova," exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It captures the emotional depth and character of a figure, focusing on the head and shoulders, reflecting Surikov's attention to detail and the human condition. The sketch likely served as preparatory work for a larger composition, showcasing Surikov's skill in capturing nuanced expressions and gestures.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  347
-image_inputs [<PIL.Image.Image image mode=RGB size=1036x1288 at 0x14D4786CAAF0>]
-generated_description:  This sketch by Vasily Surikov, titled "Study to Boyarynya Morozova," exemplifies Realism, a style prevalent in the 1850-1900 timeframe. It captures characters and emotions through detailed observation and direct representation, reflecting the artist's focus on depicting contemporary life and social issues. The sketch likely served as preparatory work for a larger historical painting, showcasing Surikov's skill in capturing the essence of his subjects.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  348
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x756 at 0x14D4786CAD30>]
-generated_description:  This painting, "Yenisey" by Vasily Surikov, exemplifies Realism, capturing the natural beauty of the Yenisei River in Siberia. Surikov's depiction of the river and surrounding mountains reflects the grandeur of the Russian landscape during the 19th century. The realistic style emphasizes the raw, untamed nature of the environment, resonating with the Romantic ideal of the sublime. The painting likely serves as a testament to the artist's commitment to depicting the authentic essence of the Siberian wilderness.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  349
-image_inputs [<PIL.Image.Image image mode=RGB size=840x1288 at 0x14D471BCFFD0>]
-generated_description:  This painting, "Young Lady with Blue Fur Coat" by Vasily Surikov, exemplifies Realism, a movement prevalent in the 1850-1900 timeframe. Surikov's work captures a candid moment, focusing on the texture and detail of the subject's attire and surroundings, reflecting the era's emphasis on portraying everyday life with accuracy and emotional depth. The realistic portrayal of the young lady's clothing and the intimate setting suggest a focus on capturing the essence of the subject rather than idealized beauty.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  350
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x616 at 0x14D4786B6AF0>]
-generated_description:  This painting, "Corner of the Turkish Redoubt Captured on May 30 But Abandoned on May 31, 1877," by Vasily Vereshchagin, is a realistic depiction of a battlefield scene from the Russo-Turkish War. Set against a backdrop of rugged terrain and a clear sky, the work captures the harsh realities of war. The focus on the abandoned redoubt and the surrounding landscape underscores themes of conflict, loss, and the transient nature of human endeavors. Vereshchagin's style, rooted in realism, emphasizes the gritty details of the environment and the soldiers' experiences, reflecting the historical context of the war and the artist's commitment to documenting the truth of military engagements.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  351
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x812 at 0x14D4786B6220>]
-generated_description:  This painting, "In the Park" by Vasily Vereshchagin, exemplifies Realism, a style prevalent in the 1850-1900 timeframe. Set in a park, the scene captures a moment of quiet contemplation, with figures in muted tones reflecting in water. The use of natural light and detailed observation aligns with Realist principles, emphasizing everyday life and the environment. The brown hues and reflective water create a serene, introspective atmosphere.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  352
-image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14D4786B6CD0>]
-generated_description:  This painting, "Lully-Gypsy" by Vasily Vereshchagin, created in 1868, exemplifies Realism, a style prevalent in the 1850s-1900s. It portrays a male figure, likely a Gypsy, with realistic facial features and attire, capturing the essence of everyday life. The use of light and shadow emphasizes the texture of the subject's clothing and skin, reflecting Vereshchagin's focus on accurate representation. This work aligns with the broader movement towards depicting authentic human experiences and societal realities.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  353
-image_inputs [<PIL.Image.Image image mode=RGB size=924x1204 at 0x14D471C8FDF0>]
-generated_description:  This painting, "On the Way: Bad News from France," by Vasily Vereshchagin, depicts a military officer receiving distressing news during the Franco-Prussian War (1870-1871). Set in a dimly lit room adorned with religious icons, the scene reflects the tension and gravity of wartime communication. Vereshchagin's realistic style captures the somber mood, highlighting the personal impact of war on individuals. The painting is emblematic of the Realist movement, focusing on the truth and immediacy of historical events.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  354
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x420 at 0x14D471C8FB50>]
-generated_description:  This painting, "Sea" by Vasily Vereshchagin, exemplifies Realism, a style prevalent in the 1850s-1900s. It captures a serene seascape with a single boat, emphasizing calmness and natural beauty. The use of soft colors and realistic depiction aligns with the Realist movement's focus on accurate representation of everyday life. The painting likely reflects the artist's interest in nature and the sea, common themes in 19th-century Russian art.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  355
-image_inputs [<PIL.Image.Image image mode=RGB size=616x1036 at 0x14D471BCF4C0>]
-generated_description:  This sketch by Vincent van Gogh, titled "Peasant with Sickle Seen from the Back," is a prime example of his early realist style, reflecting the influence of his time and the labor-intensive nature of rural life. Created in 1885, it captures the simplicity and dignity of manual labor, showcasing van Gogh's commitment to depicting everyday subjects with honesty and empathy. The work aligns with the broader movement towards realism in art, emphasizing direct observation and the portrayal of contemporary life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  356
-image_inputs [<PIL.Image.Image image mode=RGB size=2016x2492 at 0x14D471BECD30>]
-generated_description:  This portrait, "Portrait of Mary Atkins, Mrs. Martin," by Allan Ramsay, exemplifies Rococo style from the 1750-1800 timeframe. The subject, dressed in elaborate attire, sits gracefully in a luxurious setting, reflecting the opulence and refined elegance characteristic of the Rococo period. The use of soft, flowing lines and pastel colors enhances the intimate and intimate atmosphere, capturing the subject's poised demeanor and the era's aesthetic sensibilities.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  357
-image_inputs [<PIL.Image.Image image mode=RGB size=784x532 at 0x14D4786CA880>]
-generated_description:  This painting, "Birth of Christ," by Antoine Pesne, exemplifies Rococo art, characterized by its ornate, light, and playful style. Created in the 1740s, it reflects the period's fascination with mythological and religious themes. The soft lighting and intimate setting highlight the sacred moment of the nativity, with figures arranged in a circular composition that emphasizes the divine presence. The Rococo era, marked by the 1700s, saw a revival of interest in the past, particularly through the works of earlier masters like Annibale Carracci, influencing Pesne's approach to religious subjects. The painting's focus on the Virgin Mary and the newborn Christ underscores the Christian faith's central narrative.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  358
-image_inputs [<PIL.Image.Image image mode=RGB size=1456x1596 at 0x14D471C8FEE0>]
-generated_description:  This Rococo portrait, painted by Antoine Pesne between 1700-1750, features Frederick and his sister Wilhelmina. The style reflects the era's emphasis on elegance, lightness, and informality, with soft colors and delicate details. The inclusion of a black servant and a dog adds to the aristocratic setting, highlighting the social dynamics of the time. The painting captures the children in a moment of play, reflecting the Rococo ideal of capturing fleeting, natural moments.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  359
-image_inputs [<PIL.Image.Image image mode=RGB size=1008x1372 at 0x14D471BECB20>]
-generated_description:  This portrait, "Fridericus Hoffmannus," by Antoine Pesne, exemplifies Rococo style, prevalent between 1700-1750. It features a male scientist, Friedrich Hoffmann, dressed in formal attire, seated with a book, symbolizing his scholarly pursuits. The ornate oval frame and luxurious drapery reflect the era's emphasis on elegance and refinement. The inscription identifies Hoffmann's prestigious roles, linking him to scientific and academic institutions. This type of portrait was common for individuals of intellectual standing during the period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  360
-image_inputs [<PIL.Image.Image image mode=RGB size=784x1036 at 0x14D471BD0790>]
-generated_description:  This portrait, painted by Antoine Pesne in 1738, exemplifies Rococo style, characterized by its lightness, elegance, and ornamental detail. The subject, Georg Wenzeslaus von Knobelsdorff, is depicted in a richly dressed red garment with a black vest, holding a sword, suggesting nobility and military status. The soft lighting and delicate brushwork reflect the Rococo aesthetic, emphasizing grace and refinement. This type of portrait was common during the 18th century to showcase the subject's wealth and social standing.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  361
-image_inputs [<PIL.Image.Image image mode=RGB size=392x896 at 0x14D4786CAD60>]
-generated_description:  This painting, "The Death of General Wolfe," by Benjamin West, depicts a poignant moment during the Battle of Quebec in 1759. Set against a dramatic sky, the scene captures the emotional gravity of General Wolfe's final moments. The Rococo style, characterized by its lightness and elegance, complements the somber subject matter, reflecting the era's blend of grandeur and sentimentality. This work is emblematic of the period's fascination with heroic sacrifice and the romanticization of war.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  362
-image_inputs [<PIL.Image.Image image mode=RGB size=644x448 at 0x14D471BD4490>]
-generated_description:  This painting, *View of Cracow Suburb Leading to the Castle Square* by Bernardo Bellotto (1774), captures the bustling urban life of 18th-century Warsaw. Set in the Rococo style, it showcases the vibrant streets and squares of the city, reflecting the social and economic activities of the time. The scene includes detailed depictions of roads, vehicles, and crowds, highlighting the town's public spaces and waterways, which were central to daily life. Bellotto's work reflects the grandeur and sophistication of the era, emphasizing the urban landscape's role in community and commerce.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  363
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1008 at 0x14D471C9EEE0>]
-generated_description:  This painting, *Capriccio: River Landscape with a Column* by Canaletto, exemplifies the Rococo style prevalent in the 18th century. Set in a picturesque landscape, the piece features ruins and columns, typical of Canaletto's interest in architectural elements. The soft lighting and delicate brushwork reflect the Rococo aesthetic, emphasizing elegance and lightness. The inclusion of figures and a monkey adds a touch of whimsy, characteristic of the period's playful and ornate sensibilities. This work likely served as a decorative piece, reflecting the Rococo era's appreciation for fantasy and beauty in everyday life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  364
-image_inputs [<PIL.Image.Image image mode=RGB size=504x364 at 0x14D471C9EEE0>]
-generated_description:  This painting by Canaletto, *The Prato della Valle with Santa Giustina and the Church of Misericordia*, showcases the Rococo style prevalent in the 1700s. It depicts a bustling public square in Padua, Italy, reflecting the lively urban life and architectural grandeur typical of the period. The scene captures the dynamic movement of people and the ornate buildings, emphasizing the era's focus on elegance and detail.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  365
-image_inputs [<PIL.Image.Image image mode=RGB size=924x1036 at 0x14D471BCF670>]
-generated_description:  This painting, *Canaletto: Venice—Bacino di San Marco on Ascension Day* (1754), captures the vibrant atmosphere of Venice during a public celebration. Set in the Bacino di San Marco, it showcases the bustling activity of gondolas and crowds, reflecting the city's lively social life and tourism. The Rococo style emphasizes lightness and elegance, capturing the opulence and festivity typical of Venetian celebrations. This work highlights the intersection of art, culture, and commerce in 18th-century Venice.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  366
-image_inputs [<PIL.Image.Image image mode=RGB size=1260x840 at 0x14D471BDCFD0>]
-generated_description:  This painting, *The Basin from the Giudecca* by Canaletto, captures the bustling maritime life of Venice during the Rococo period (1700-1750). It showcases the city's iconic waterways, boats, and architectural details, reflecting the era's fascination with urban landscapes and the grandeur of Venice as a major trading hub. The serene yet lively scene highlights the interplay between human activity and the natural beauty of the lagoon, embodying the Rococo aesthetic of refined elegance and attention to detail.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  367
-image_inputs [<PIL.Image.Image image mode=RGB size=448x560 at 0x14D471BDCD90>]
-generated_description:  This portrait, painted by Carl-Ludwig-Johann Christineck in 1768, exemplifies the Rococo style prevalent during the 1750-1800 timeframe. It features a lady in elegant attire, characteristic of the period's fashion, reflecting the aristocratic culture of the time. The soft lighting and delicate brushwork emphasize the subject's refined beauty, typical of Rococo portraiture.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  368
-image_inputs [<PIL.Image.Image image mode=RGB size=784x980 at 0x14D471BD0BE0>]
-generated_description:  This portrait, painted by Carl-Ludwig-Johann Christineck in 1779, exemplifies Rococo style, characterized by its ornate details and soft curves. The subject, Count Orlov-Chesmensky, is depicted in formal attire adorned with medals, reflecting his status and achievements. The dark background emphasizes the subject, typical of the era's portraiture, while the rich colors and decorative elements highlight the opulence of the time. This painting captures the aristocratic ideals of the late 18th century.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  369
-image_inputs [<PIL.Image.Image image mode=RGB size=420x560 at 0x14D471BDA3D0>]
-generated_description:  This portrait, painted by Carl Ludwig Johann Christineck in the Rococo style during the 1750-1800 timeframe, depicts a gentleman adorned in formal attire, reflecting the fashion and status of the era. The use of rich colors and decorative elements aligns with Rococo aesthetics, emphasizing elegance and sophistication. The subject's attire, including medals and a sash, suggests a connection to nobility or high society, typical of the period's portraiture conventions.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  370
-image_inputs [<PIL.Image.Image image mode=RGB size=756x924 at 0x14D471BDA790>]
-generated_description:  This portrait, attributed to Dmitry Levitzky, exemplifies Rococo style prevalent in the 18th century. The subject's attire and powdered wig reflect the fashion of the time, while the soft, delicate brushwork and subtle lighting are characteristic of Rococo portraiture. The painting likely served as a formal representation of the subject's social standing and personality.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  371
-image_inputs [<PIL.Image.Image image mode=RGB size=588x728 at 0x14D471BD0BE0>]
-generated_description:  This portrait, "Portrait of Countess A.S. Protasova," by Dmitry Levitzky, exemplifies Rococo style prevalent in the 18th century. The soft, flowing lines and delicate colors reflect the era's emphasis on elegance and grace. The subject's attire and pose highlight the fashion and social norms of the time, capturing a moment of refined aristocratic life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  372
-image_inputs [<PIL.Image.Image image mode=RGB size=868x1036 at 0x14D471BD6FD0>]
-generated_description:  This painting, *The Setting of the Sun* by François Boucher (1752), exemplifies the Rococo style, characterized by its lightness, elegance, and playful themes. Set against a dramatic sky, the scene depicts Helios, the Greek god of the sun, descending into the sea, surrounded by nymphs and cherubs. It reflects the era's fascination with Greek and Roman mythology, blending classical themes with a whimsical, sensuous aesthetic typical of Rococo art. The painting captures the fleeting beauty of nature and the divine, resonating with the hedonistic spirit of the 18th-century French court.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  373
-image_inputs [<PIL.Image.Image image mode=RGB size=588x756 at 0x14D471BD6D30>]
-generated_description:  This portrait, "Portrait of Countess Elizaveta Santi," by Fyodor Rokotov, exemplifies Rococo style prevalent in the 18th century. The soft, flowing lines and delicate colors reflect the era's emphasis on elegance and sensuality. The subject's pose and the floral bouquet symbolize refinement and grace, typical of aristocratic portraiture of the time. The dark background isolates the subject, focusing attention on her refined features and attire, characteristic of Rococo portraiture.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  374
-image_inputs [<PIL.Image.Image image mode=RGB size=504x644 at 0x14D471C8FDF0>]
-generated_description:  This portrait, "Portrait of Prince Ivan Bariatinsky as a Youth," by Fyodor Rokotov, exemplifies Rococo style, prevalent during the 1750-1800 timeframe. The vibrant red and delicate lace collar reflect the fashion of the era, emphasizing elegance and youthfulness. The soft lighting and intimate setting highlight the subject's youthful charm, aligning with Rococo's focus on sensuality and refined beauty.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  375
-image_inputs [<PIL.Image.Image image mode=RGB size=812x504 at 0x14D471BDC100>]
-generated_description:  This painting, "A Windy Day" by George Morland, exemplifies the Rococo style prevalent between 1750-1800. It depicts a pastoral scene with figures and animals in a natural setting, reflecting the era's appreciation for leisure and outdoor activities. The soft, atmospheric sky and the dynamic composition capture the essence of the Rococo movement, emphasizing grace and elegance.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  376
-image_inputs [<PIL.Image.Image image mode=RGB size=812x616 at 0x14D471BD65B0>]
-generated_description:  This painting, "Cowherd and Milkmaid," by George Morland, exemplifies the Rococo style prevalent in the late 18th century. Set in a rural scene, it depicts everyday farm life, reflecting the pastoral ideals of the era. The soft lighting and intimate composition emphasize the harmony between humans and nature, typical of Rococo aesthetics. Morland's work captures a moment of rural tranquility, showcasing the genre painting's focus on domestic scenes and the natural world.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  377
-image_inputs [<PIL.Image.Image image mode=RGB size=812x616 at 0x14D471D8DD60>]
-generated_description:  This painting, "Outside an Inn in Winter" by George Morland, created around 1795, exemplifies the Rococo style, characterized by its lightness, elegance, and playful humor. Set in a snowy rural scene, the artwork captures a moment of interaction between travelers and innkeepers, reflecting the social dynamics of the era. The use of soft lighting and detailed textures highlights Morland's skill in portraying everyday life with a touch of whimsy, typical of the Rococo movement. The painting's focus on domesticity and the natural world aligns with the broader Romantic movement's emphasis on nature and human connection.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  378
-image_inputs [<PIL.Image.Image image mode=RGB size=812x588 at 0x14D471D8D790>]
-generated_description:  This painting, "Winter Landscape with Peasants and Donkeys" by George Morland, exemplifies the Rococo style prevalent between 1750-1800. It depicts a serene winter scene with a snow-covered landscape, emphasizing natural beauty and pastoral life. The stormy sky contrasts with the tranquil figures, reflecting the Rococo fascination with light, color, and the picturesque. Morland's use of soft, delicate brushstrokes captures the quiet charm of rural life during the season.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  379
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1120 at 0x14D471D8D8E0>]
-generated_description:  This ceiling fresco by Giovanni Battista Tiepolo, "Allegory of Merit Accompanied by Nobility and Virtue," exemplifies the Rococo style prevalent in the 18th century. It depicts celestial figures representing merit, nobility, and virtue, symbolizing ideals of excellence and honor. The use of light and airy composition reflects the era's focus on elegance and grace. The setting, likely within a grand building, underscores the importance of these virtues in society.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  380
-image_inputs [<PIL.Image.Image image mode=RGB size=756x1288 at 0x14D471BD6DC0>]
-generated_description:  This painting, *The Last Communion of St. Lucy* by Giovanni Battista Tiepolo, created in 1748, exemplifies the Rococo style prevalent in the 18th century. Set in a grand, ornate interior, the scene depicts the momentous event of St. Lucy receiving her last communion. The soft, diffused light and delicate, flowing lines characteristic of Rococo art enhance the emotional gravity of the religious narrative. The painting reflects the cultural emphasis on piety and devotion common in Catholic communities during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  381
-image_inputs [<PIL.Image.Image image mode=RGB size=700x952 at 0x14D471BFED00>]
-generated_description:  This painting, attributed to Giovanni Battista Tiepolo, exemplifies the Rococo style prevalent between 1750-1800. It features an allegorical figure, likely representing a classical muse or virtue, set against a golden background, characteristic of Tiepolo's use of light and color to evoke a sense of grace and ethereal beauty. The ornate frame complements the Rococo aesthetic, emphasizing the decorative and theatrical nature of the period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  382
-image_inputs [<PIL.Image.Image image mode=RGB size=812x1400 at 0x14D471BFE610>]
-generated_description:  This painting, "Pope St. Clement Adoring the Trinity" by Giovanni Battista Tiepolo, created in 1738, exemplifies the Rococo style prevalent during the 1700-1750 timeframe. It depicts Pope St. Clement adoring the Holy Trinity, a common Christian theme. The opulent, ornate frame and soft, flowing brushwork characteristic of Rococo art reflect the era's focus on luxury and lightness. The painting's religious subject matter aligns with the widespread influence of Christianity and the veneration of saints in European culture during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  383
-image_inputs [<PIL.Image.Image image mode=RGB size=1540x504 at 0x14D471BD6670>]
-generated_description:  This painting, *The Madonna of Carmel and the Souls of the Purgatory* by Giovanni Battista Tiepolo, reflects the Baroque period's emphasis on dramatic lighting and emotional intensity. Set in a celestial realm, it depicts the Virgin Mary and angels interceding for souls in purgatory, a common theme in Christian art. The use of light and shadow, along with dynamic poses, captures the spiritual struggle and divine intervention, embodying the Baroque style's theatricality and emotional depth. The presence of musical instruments suggests a heavenly concert, further emphasizing the divine realm's beauty and harmony.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  384
-image_inputs [<PIL.Image.Image image mode=RGB size=2548x2044 at 0x14D4786B98E0>]
-generated_description:  This painting, *The Triumph of Fortitude and Sapiency* by Giovanni Battista Tiepolo, exemplifies the Rococo style prevalent in the late 18th century. Set against a dreamlike sky, the composition celebrates virtues like fortitude and wisdom through allegorical figures. The vibrant colors and dynamic poses reflect the era's emphasis on lightness and elegance, while the inclusion of cherubs adds a whimsical touch. This work likely served as a decorative piece, reflecting Tiepolo's mastery in creating visually engaging and meaningful allegories.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  385
-image_inputs [<PIL.Image.Image image mode=RGB size=308x504 at 0x14D4786B94C0>]
-generated_description:  This painting, *Mrs. Richard Bennett Lloyd* by Joshua Reynolds, exemplifies Rococo style, prevalent between 1750-1800. The subject, dressed in flowing white robes, stands in a natural setting, embodying grace and elegance typical of the era. The mythological undertones suggest a connection to classical ideals, reflecting the Rococo fascination with antiquity and the natural world. This portrait highlights Reynolds' skill in capturing the delicate beauty and refined sensibility of his subjects.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  386
-image_inputs [<PIL.Image.Image image mode=RGB size=448x756 at 0x14D4786B9880>]
-generated_description:  This portrait by Joshua Reynolds, painted in 1776, exemplifies the Rococo style prevalent during the late 18th century. It features Georgiana, Duchess of Devonshire, in elegant attire, set against a pastoral landscape. The soft lighting and delicate brushwork reflect the Rococo emphasis on grace and refinement, while the natural setting symbolizes the Duchess's connection to nature and leisure. This painting captures the aristocratic ideal of beauty and sophistication typical of the era.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  387
-image_inputs [<PIL.Image.Image image mode=RGB size=2128x1680 at 0x14D4786EC6A0>]
-generated_description:  This painting, "Homecoming" by Thomas Gainsborough, exemplifies the Rococo style prevalent in the 1750-1800 timeframe. It depicts a pastoral scene with a drover and cattle in a rural setting, capturing the tranquility and simplicity of country life. The soft, diffused light and gentle composition reflect the Rococo aesthetic, emphasizing harmony and natural beauty. The painting aligns with the broader trend of romanticizing rural life during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  388
-image_inputs [<PIL.Image.Image image mode=RGB size=2408x2912 at 0x14D4786EC2E0>]
-generated_description:  This portrait, attributed to Thomas Gainsborough, depicts a gentleman in the Rococo style, characteristic of the 1750-1800 timeframe. The subject's attire and pose suggest refinement and intellectual engagement, typical of the era's portraiture. The use of soft colors and light contrasts aligns with Gainsborough's known techniques, emphasizing elegance and sophistication. The inclusion of a book hints at the subject's scholarly pursuits, reflecting the cultural emphasis on education and learning prevalent during this period.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  389
-image_inputs [<PIL.Image.Image image mode=RGB size=756x672 at 0x14D471BDCFD0>]
-generated_description:  This painting, "Open Landscape with Shepherd and Sheep" by Thomas Gainsborough, exemplifies the Rococo style prevalent in the 1750-1800 timeframe. It showcases Gainsborough's mastery of pastoral scenes, reflecting the era's appreciation for natural beauty and leisure. The use of soft, flowing lines and muted colors aligns with the Rococo aesthetic, emphasizing grace and elegance. The inclusion of a shepherd and sheep adds a serene, idyllic element typical of the period's focus on rural life and harmony with nature.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  390
-image_inputs [<PIL.Image.Image image mode=RGB size=728x560 at 0x14D471DAAAC0>]
-generated_description:  This painting, "River Landscape with Rustic Lovers," by Thomas Gainsborough, exemplifies the Rococo style prevalent in the 1750-1800 timeframe. It showcases pastoral scenes, emphasizing harmony with nature through soft colors and delicate brushwork. The inclusion of lovers in a serene landscape reflects the era's fascination with romantic themes and the idealized depiction of rural life. The use of sky and trees highlights Gainsborough's mastery of atmospheric effects and natural settings.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  391
-image_inputs [<PIL.Image.Image image mode=RGB size=1624x1988 at 0x14D4786B9880>]
-generated_description:  This portrait, "Portrait of S.A. Rayevskaya" by Vladimir Borovikovsky, exemplifies the Rococo style prevalent in the 1800-1850 timeframe. It features a female subject adorned with a decorative sash and intricate hairstyle, reflecting the elegance and refinement characteristic of the period. The use of soft lighting and delicate brushwork highlights the subject's beauty and grace, typical of Rococo portraiture.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  392
-image_inputs [<PIL.Image.Image image mode=RGB size=1260x1008 at 0x14D4786ECAC0>]
-generated_description:  This engraving by William Hogarth, part of "A Harlot's Progress," depicts a scene of social commentary from the 18th century. The Rococo style reflects the era's focus on elegance and lightness, yet the image critiques societal norms through its depiction of prostitution and the moral decay of individuals. The setting, with its everyday objects and figures, emphasizes the relatability of the subject matter, making it a powerful critique of the time.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  393
-image_inputs [<PIL.Image.Image image mode=RGB size=448x812 at 0x14D471DAA7C0>]
-generated_description:  This painting, "Caliban from 'The Tempest'" by William Hogarth, depicts the character Caliban from Shakespeare's play, rendered in a Rococo style typical of the 18th century. The painting reflects Hogarth's exploration of mythology and Shakespearean themes, capturing the wild and untamed nature of Caliban amidst a rustic setting.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  394
-image_inputs [<PIL.Image.Image image mode=RGB size=812x532 at 0x14D471B92940>]
-generated_description:  This sketch by William Hogarth, likely from the Rococo period (1700-1750), depicts a scene of leisure and sleep, capturing everyday life with a focus on domestic interiors and human interactions. It reflects the era's emphasis on realism and the intimate portrayal of daily activities, typical of Hogarth's satirical and observational style.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16098.00 MB
-Processing row:  395
-image_inputs [<PIL.Image.Image image mode=RGB size=980x1484 at 0x14D471DAAEE0>]
-generated_description:  This portrait, attributed to William Hogarth, depicts a lady in a grand Rococo setting, reflecting the opulence and elegance of the 18th century. The rich fabrics, ornate jewelry, and luxurious surroundings highlight the subject's status and wealth. The presence of cherubs and a dog adds a touch of whimsy and domesticity, suggesting themes of familial love and nobility. The dark background contrasts with the bright attire, emphasizing the subject's prominence. This style was prevalent during the Rococo period, characterized by its lightness, grace, and decorative detail.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  396
-image_inputs [<PIL.Image.Image image mode=RGB size=2016x1680 at 0x14D471BDA7C0>]
-generated_description:  This painting, "The Gaming House" from Hogarth's "A Rake's Progress," depicts a chaotic scene within a gaming establishment, reflecting the excesses and moral decay of the rake's lifestyle. The Rococo style emphasizes lightness, elegance, and ornamentation, capturing the opulence and decadence of the era. The crowd and dynamic composition highlight the social commentary on gambling and its corrupting influence, set against a dark, almost ominous sky, symbolizing the moral downfall.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  397
-image_inputs [<PIL.Image.Image image mode=RGB size=3444x3696 at 0x14D471DAA340>]
-generated_description:  This painting, "Rustic Life" by Akseli Gallén-Kallela, captures a moment of everyday life in a rustic setting, reflecting the Romanticism movement's focus on nature and rural themes. Created in 1887, it showcases the artist's interest in Finnish folklore and the simplicity of rural life, aligning with the broader European trend towards depicting authentic peasant scenes. The warm lighting and intimate composition emphasize the quiet dignity of the subjects, resonating with the Romantic ideal of the simple life.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  398
-image_inputs [<PIL.Image.Image image mode=RGB size=336x504 at 0x14D471B92B80>]
-generated_description:  This painting, "View from North Quay" by Akseli Gallen-Kallela, exemplifies the Romanticism style prevalent in the late 19th century. Set in Finland, it captures a serene harbor scene, reflecting the artist's appreciation for nature and the picturesque. The use of vibrant colors and detailed observation of light and atmosphere align with Romantic ideals of emotional expression and the beauty of the natural world.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Processing row:  399
-image_inputs [<PIL.Image.Image image mode=RGB size=868x280 at 0x14D471DAA280>]
-generated_description:  This painting, "Stones on a River Shore" by Alexander Ivanov, exemplifies the Romanticism style prevalent in the 1800s. Set in a natural landscape, it captures the serene beauty of a river with rocks and water, reflecting the Romantic appreciation for nature's power and tranquility. The artist's use of light and color evokes a sense of the sublime, aligning with Romantic ideals of emotional intensity and the sublime beauty of the natural world.
-
-GPU Memory Usage:
-Allocated: 15897.97 MB
-Cached: 16096.00 MB
-Inference completed. Generated descriptions saved to './art_context/output_2025-05-12_WikiArt_10000data/generated_descriptions_naive_20250512_185359_job_3.json'.
-
-JOB STATISTICS
-==============
-Job ID: 11789346
-Cluster: snellius
-User/Group: wangsh/wangsh
-State: RUNNING
-Nodes: 1
-Cores per node: 16
-CPU Utilized: 00:00:00
-CPU Efficiency: 0.00% of 01:43:44 core-walltime
-Job Wall-clock time: 00:06:29
-Memory Utilized: 0.00 MB
-Memory Efficiency: 0.00% of 180.00 GB (180.00 GB/node)
-WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

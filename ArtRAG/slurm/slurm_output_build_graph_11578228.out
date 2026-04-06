@@ -1,1844 +1,0 @@
-***************************************************************************************************** 
-* WARNING: The 2022 software stack is deprecated. Please consider switching to
-the latest 2024 * 
-* software stack, or the older 2023 software stack. * 
-* * 
-* If you have any question, please contact us via
-http://servicedesk.surfsara.nl. * 
-***************************************************************************************************** 
-============================================================================================== 
-Warning! Mixing Conda and module environments may lead to corruption of the
-user environment. 
-We do not recommend users mixing those two environments unless absolutely
-necessary. Note that 
-SURF does not provide any support for Conda environment.
-For more information, please refer to our software policy page:
-https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
-
-Remember that many packages have already been installed on the system and can
-be loaded using 
-the 'module load <package__name>' command. If you are uncertain if a package is
-already available 
-on the system, please use 'module avail' or 'module spider' to search for it.
-============================================================================================== 
-/var/spool/slurm/slurmd/job11578228/slurm_script: line 16: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
-INFO:lightrag:Logger initialized for working directory: ./art_context
-DEBUG:lightrag:LightRAG init with param:
-  working_dir = ./art_context,
-  chunk_token_size = 1200,
-  chunk_overlap_token_size = 100,
-  tiktoken_model_name = gpt-4o-mini,
-  entity_extract_max_gleaning = 1,
-  entity_summary_to_max_tokens = 500,
-  node_embedding_algorithm = node2vec,
-  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
-  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function main.<locals>.<lambda> at 0x15340854bf70>},
-  embedding_batch_num = 32,
-  embedding_func_max_async = 16,
-  llm_model_func = <function hf_model_complete at 0x153408548a60>,
-  llm_model_name = Qwen/Qwen2.5-7B-Instruct,
-  llm_model_max_token_size = 32768,
-  llm_model_max_async = 16,
-  llm_model_kwargs = {},
-  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
-  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
-  vector_db_storage_cls_kwargs = {},
-  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
-  enable_llm_cache = True,
-  addon_params = {},
-  convert_response_to_json_func = <function convert_response_to_json at 0x153409a11e50>
-
-INFO:lightrag:Load KV full_docs with 584 data
-INFO:lightrag:Load KV text_chunks with 1764 data
-INFO:lightrag:Load KV llm_response_cache with 0 data
-INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
-INFO:nano-vectordb:Load (1764, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 1764 data
-Processing files:   0%|          | 0/439 [00:00<?, ?file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   0%|          | 1/439 [00:00<02:02,  3.58file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   0%|          | 2/439 [00:00<01:49,  4.01file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   1%|          | 3/439 [00:00<01:43,  4.21file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   1%|          | 4/439 [00:00<01:40,  4.32file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   1%|          | 5/439 [00:01<01:39,  4.37file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   1%|▏         | 6/439 [00:01<01:38,  4.41file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   2%|▏         | 7/439 [00:01<01:37,  4.44file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   2%|▏         | 8/439 [00:01<01:36,  4.46file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   2%|▏         | 9/439 [00:02<01:36,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   2%|▏         | 10/439 [00:02<01:35,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   3%|▎         | 11/439 [00:02<01:35,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   3%|▎         | 12/439 [00:02<01:34,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   3%|▎         | 13/439 [00:02<01:35,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   3%|▎         | 14/439 [00:03<01:34,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   3%|▎         | 15/439 [00:03<01:34,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   4%|▎         | 16/439 [00:03<01:34,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   4%|▍         | 17/439 [00:03<01:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   4%|▍         | 18/439 [00:04<01:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   4%|▍         | 19/439 [00:04<01:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   5%|▍         | 20/439 [00:04<01:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   5%|▍         | 21/439 [00:04<01:32,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   5%|▌         | 22/439 [00:04<01:37,  4.28file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   5%|▌         | 23/439 [00:05<01:35,  4.34file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   5%|▌         | 24/439 [00:05<01:34,  4.39file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   6%|▌         | 25/439 [00:05<01:33,  4.41file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   6%|▌         | 26/439 [00:05<01:33,  4.44file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   6%|▌         | 27/439 [00:06<01:32,  4.46file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   6%|▋         | 28/439 [00:06<01:32,  4.47file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   7%|▋         | 29/439 [00:06<01:31,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   7%|▋         | 30/439 [00:06<01:31,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   7%|▋         | 31/439 [00:06<01:30,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   7%|▋         | 32/439 [00:07<01:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   8%|▊         | 33/439 [00:07<01:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   8%|▊         | 34/439 [00:07<01:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   8%|▊         | 35/439 [00:07<01:29,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   8%|▊         | 36/439 [00:08<01:29,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   8%|▊         | 37/439 [00:08<01:29,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   9%|▊         | 38/439 [00:08<01:28,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   9%|▉         | 39/439 [00:08<01:28,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   9%|▉         | 40/439 [00:08<01:28,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:   9%|▉         | 41/439 [00:09<01:28,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  10%|▉         | 42/439 [00:09<01:28,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  10%|▉         | 43/439 [00:09<01:27,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  10%|█         | 44/439 [00:09<01:27,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  10%|█         | 45/439 [00:10<01:27,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  10%|█         | 46/439 [00:10<01:27,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  11%|█         | 47/439 [00:10<01:26,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  11%|█         | 48/439 [00:10<01:26,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  11%|█         | 49/439 [00:10<01:26,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  11%|█▏        | 50/439 [00:11<01:26,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  12%|█▏        | 51/439 [00:11<01:25,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  12%|█▏        | 52/439 [00:11<01:25,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  12%|█▏        | 53/439 [00:11<01:25,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  12%|█▏        | 54/439 [00:12<01:25,  4.52file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  13%|█▎        | 55/439 [00:12<01:25,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  13%|█▎        | 56/439 [00:12<01:24,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  13%|█▎        | 57/439 [00:12<01:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  13%|█▎        | 58/439 [00:12<01:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  13%|█▎        | 59/439 [00:13<01:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  14%|█▎        | 60/439 [00:13<01:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  14%|█▍        | 61/439 [00:13<01:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  14%|█▍        | 62/439 [00:13<01:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  14%|█▍        | 63/439 [00:14<01:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  15%|█▍        | 64/439 [00:14<01:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  15%|█▍        | 65/439 [00:14<01:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  15%|█▌        | 66/439 [00:14<01:22,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  15%|█▌        | 67/439 [00:14<01:22,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  15%|█▌        | 68/439 [00:15<01:22,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  16%|█▌        | 69/439 [00:15<01:22,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  16%|█▌        | 70/439 [00:15<01:21,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  16%|█▌        | 71/439 [00:15<01:21,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  16%|█▋        | 72/439 [00:16<01:21,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  17%|█▋        | 73/439 [00:16<01:21,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  17%|█▋        | 74/439 [00:16<01:21,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  17%|█▋        | 75/439 [00:16<01:21,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  17%|█▋        | 76/439 [00:16<01:20,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  18%|█▊        | 77/439 [00:17<01:20,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  18%|█▊        | 78/439 [00:17<01:20,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  18%|█▊        | 79/439 [00:17<01:19,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  18%|█▊        | 80/439 [00:17<01:19,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  18%|█▊        | 81/439 [00:18<01:19,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  19%|█▊        | 82/439 [00:18<01:19,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  19%|█▉        | 83/439 [00:18<01:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  19%|█▉        | 84/439 [00:18<01:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  19%|█▉        | 85/439 [00:18<01:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  20%|█▉        | 86/439 [00:19<01:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  20%|█▉        | 87/439 [00:19<01:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  20%|██        | 88/439 [00:19<01:17,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  20%|██        | 89/439 [00:19<01:17,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  21%|██        | 90/439 [00:20<01:17,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  21%|██        | 91/439 [00:20<01:17,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  21%|██        | 92/439 [00:20<01:16,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  21%|██        | 93/439 [00:20<01:16,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  21%|██▏       | 94/439 [00:20<01:16,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  22%|██▏       | 95/439 [00:21<01:16,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  22%|██▏       | 96/439 [00:21<01:16,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  22%|██▏       | 97/439 [00:21<01:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  22%|██▏       | 98/439 [00:21<01:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  23%|██▎       | 99/439 [00:22<01:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  23%|██▎       | 100/439 [00:22<01:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  23%|██▎       | 101/439 [00:22<01:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  23%|██▎       | 102/439 [00:22<01:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  23%|██▎       | 103/439 [00:22<01:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  24%|██▎       | 104/439 [00:23<01:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  24%|██▍       | 105/439 [00:23<01:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  24%|██▍       | 106/439 [00:23<01:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  24%|██▍       | 107/439 [00:23<01:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  25%|██▍       | 108/439 [00:24<01:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  25%|██▍       | 109/439 [00:24<01:13,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  25%|██▌       | 110/439 [00:24<01:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  25%|██▌       | 111/439 [00:24<01:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  26%|██▌       | 112/439 [00:24<01:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  26%|██▌       | 113/439 [00:25<01:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  26%|██▌       | 114/439 [00:25<01:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  26%|██▌       | 115/439 [00:25<01:11,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  26%|██▋       | 116/439 [00:25<01:11,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  27%|██▋       | 117/439 [00:26<01:11,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  27%|██▋       | 118/439 [00:26<01:11,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  27%|██▋       | 119/439 [00:26<01:11,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  27%|██▋       | 120/439 [00:26<01:10,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  28%|██▊       | 121/439 [00:26<01:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  28%|██▊       | 122/439 [00:27<01:10,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  28%|██▊       | 123/439 [00:27<01:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  28%|██▊       | 124/439 [00:27<01:09,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  28%|██▊       | 125/439 [00:27<01:09,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  29%|██▊       | 126/439 [00:28<01:09,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  29%|██▉       | 127/439 [00:28<01:09,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  29%|██▉       | 128/439 [00:28<01:09,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  29%|██▉       | 129/439 [00:28<01:08,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  30%|██▉       | 130/439 [00:28<01:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  30%|██▉       | 131/439 [00:29<01:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  30%|███       | 132/439 [00:29<01:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  30%|███       | 133/439 [00:29<01:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  31%|███       | 134/439 [00:29<01:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  31%|███       | 135/439 [00:30<01:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  31%|███       | 136/439 [00:30<01:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  31%|███       | 137/439 [00:30<01:07,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  31%|███▏      | 138/439 [00:30<01:06,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  32%|███▏      | 139/439 [00:30<01:06,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  32%|███▏      | 140/439 [00:31<01:06,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  32%|███▏      | 141/439 [00:31<01:06,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  32%|███▏      | 142/439 [00:31<01:05,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  33%|███▎      | 143/439 [00:31<01:05,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  33%|███▎      | 144/439 [00:32<01:05,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  33%|███▎      | 145/439 [00:32<01:05,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  33%|███▎      | 146/439 [00:32<01:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  33%|███▎      | 147/439 [00:32<01:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  34%|███▎      | 148/439 [00:32<01:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  34%|███▍      | 149/439 [00:33<01:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  34%|███▍      | 150/439 [00:33<01:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  34%|███▍      | 151/439 [00:33<01:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  35%|███▍      | 152/439 [00:33<01:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  35%|███▍      | 153/439 [00:34<01:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  35%|███▌      | 154/439 [00:34<01:03,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  35%|███▌      | 155/439 [00:34<01:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  36%|███▌      | 156/439 [00:34<01:02,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  36%|███▌      | 157/439 [00:34<01:02,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  36%|███▌      | 158/439 [00:35<01:02,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  36%|███▌      | 159/439 [00:35<01:02,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  36%|███▋      | 160/439 [00:35<01:01,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  37%|███▋      | 161/439 [00:35<01:01,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  37%|███▋      | 162/439 [00:36<01:01,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  37%|███▋      | 163/439 [00:36<01:01,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  37%|███▋      | 164/439 [00:36<01:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  38%|███▊      | 165/439 [00:36<01:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  38%|███▊      | 166/439 [00:36<01:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  38%|███▊      | 167/439 [00:37<01:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  38%|███▊      | 168/439 [00:37<01:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  38%|███▊      | 169/439 [00:37<00:59,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  39%|███▊      | 170/439 [00:37<00:59,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  39%|███▉      | 171/439 [00:38<00:59,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  39%|███▉      | 172/439 [00:38<00:59,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  39%|███▉      | 173/439 [00:38<00:59,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  40%|███▉      | 174/439 [00:38<00:58,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  40%|███▉      | 175/439 [00:38<00:58,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  40%|████      | 176/439 [00:39<00:58,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  40%|████      | 177/439 [00:39<00:58,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  41%|████      | 178/439 [00:39<00:57,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  41%|████      | 179/439 [00:39<00:57,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  41%|████      | 180/439 [00:40<00:57,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  41%|████      | 181/439 [00:40<00:57,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  41%|████▏     | 182/439 [00:40<00:57,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  42%|████▏     | 183/439 [00:40<00:57,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  42%|████▏     | 184/439 [00:40<00:56,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  42%|████▏     | 185/439 [00:41<00:56,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  42%|████▏     | 186/439 [00:41<00:56,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  43%|████▎     | 187/439 [00:41<00:55,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  43%|████▎     | 188/439 [00:41<00:55,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  43%|████▎     | 189/439 [00:42<00:55,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  43%|████▎     | 190/439 [00:42<00:55,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  44%|████▎     | 191/439 [00:42<00:55,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  44%|████▎     | 192/439 [00:42<00:54,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  44%|████▍     | 193/439 [00:42<00:54,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  44%|████▍     | 194/439 [00:43<00:54,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  44%|████▍     | 195/439 [00:43<00:54,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  45%|████▍     | 196/439 [00:43<00:53,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  45%|████▍     | 197/439 [00:43<00:53,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  45%|████▌     | 198/439 [00:44<00:53,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  45%|████▌     | 199/439 [00:44<00:53,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  46%|████▌     | 200/439 [00:44<00:53,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  46%|████▌     | 201/439 [00:44<00:52,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  46%|████▌     | 202/439 [00:44<00:52,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  46%|████▌     | 203/439 [00:45<00:52,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  46%|████▋     | 204/439 [00:45<00:52,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  47%|████▋     | 205/439 [00:45<00:51,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  47%|████▋     | 206/439 [00:45<00:51,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  47%|████▋     | 207/439 [00:46<00:51,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  47%|████▋     | 208/439 [00:46<00:51,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  48%|████▊     | 209/439 [00:46<00:51,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  48%|████▊     | 210/439 [00:46<00:50,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  48%|████▊     | 211/439 [00:46<00:50,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  48%|████▊     | 212/439 [00:47<00:50,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  49%|████▊     | 213/439 [00:47<00:50,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  49%|████▊     | 214/439 [00:47<00:49,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  49%|████▉     | 215/439 [00:47<00:49,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  49%|████▉     | 216/439 [00:48<00:49,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  49%|████▉     | 217/439 [00:48<00:49,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  50%|████▉     | 218/439 [00:48<00:49,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  50%|████▉     | 219/439 [00:48<00:48,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  50%|█████     | 220/439 [00:48<00:48,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  50%|█████     | 221/439 [00:49<00:48,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  51%|█████     | 222/439 [00:49<00:48,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  51%|█████     | 223/439 [00:49<00:48,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  51%|█████     | 224/439 [00:49<00:47,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  51%|█████▏    | 225/439 [00:50<00:47,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  51%|█████▏    | 226/439 [00:50<00:47,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  52%|█████▏    | 227/439 [00:50<00:47,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  52%|█████▏    | 228/439 [00:50<00:46,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  52%|█████▏    | 229/439 [00:50<00:46,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  52%|█████▏    | 230/439 [00:51<00:46,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  53%|█████▎    | 231/439 [00:51<00:46,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  53%|█████▎    | 232/439 [00:51<00:45,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  53%|█████▎    | 233/439 [00:51<00:45,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  53%|█████▎    | 234/439 [00:52<00:45,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  54%|█████▎    | 235/439 [00:52<00:45,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  54%|█████▍    | 236/439 [00:52<00:45,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  54%|█████▍    | 237/439 [00:52<00:44,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  54%|█████▍    | 238/439 [00:52<00:44,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  54%|█████▍    | 239/439 [00:53<00:44,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  55%|█████▍    | 240/439 [00:53<00:44,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  55%|█████▍    | 241/439 [00:53<00:43,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  55%|█████▌    | 242/439 [00:53<00:43,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  55%|█████▌    | 243/439 [00:54<00:43,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  56%|█████▌    | 244/439 [00:54<00:43,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  56%|█████▌    | 245/439 [00:54<00:43,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  56%|█████▌    | 246/439 [00:54<00:42,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  56%|█████▋    | 247/439 [00:54<00:42,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  56%|█████▋    | 248/439 [00:55<00:42,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  57%|█████▋    | 249/439 [00:55<00:42,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  57%|█████▋    | 250/439 [00:55<00:41,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  57%|█████▋    | 251/439 [00:55<00:41,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  57%|█████▋    | 252/439 [00:56<00:41,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  58%|█████▊    | 253/439 [00:56<00:41,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  58%|█████▊    | 254/439 [00:56<00:41,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  58%|█████▊    | 255/439 [00:56<00:40,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  58%|█████▊    | 256/439 [00:56<00:40,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  59%|█████▊    | 257/439 [00:57<00:40,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  59%|█████▉    | 258/439 [00:57<00:40,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  59%|█████▉    | 259/439 [00:57<00:40,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  59%|█████▉    | 260/439 [00:57<00:41,  4.27file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  59%|█████▉    | 261/439 [00:58<00:41,  4.33file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  60%|█████▉    | 262/439 [00:58<00:40,  4.38file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  60%|█████▉    | 263/439 [00:58<00:39,  4.42file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  60%|██████    | 264/439 [00:58<00:39,  4.45file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  60%|██████    | 265/439 [00:58<00:38,  4.47file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  61%|██████    | 266/439 [00:59<00:38,  4.48file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  61%|██████    | 267/439 [00:59<00:38,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  61%|██████    | 268/439 [00:59<00:38,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  61%|██████▏   | 269/439 [00:59<00:37,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  62%|██████▏   | 270/439 [01:00<00:37,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  62%|██████▏   | 271/439 [01:00<00:37,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  62%|██████▏   | 272/439 [01:00<00:37,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  62%|██████▏   | 273/439 [01:00<00:36,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  62%|██████▏   | 274/439 [01:00<00:36,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  63%|██████▎   | 275/439 [01:01<00:36,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  63%|██████▎   | 276/439 [01:01<00:36,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  63%|██████▎   | 277/439 [01:01<00:36,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  63%|██████▎   | 278/439 [01:01<00:35,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  64%|██████▎   | 279/439 [01:02<00:35,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  64%|██████▍   | 280/439 [01:02<00:35,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  64%|██████▍   | 281/439 [01:02<00:35,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  64%|██████▍   | 282/439 [01:02<00:34,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  64%|██████▍   | 283/439 [01:02<00:34,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  65%|██████▍   | 284/439 [01:03<00:34,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  65%|██████▍   | 285/439 [01:03<00:34,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  65%|██████▌   | 286/439 [01:03<00:34,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  65%|██████▌   | 287/439 [01:03<00:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  66%|██████▌   | 288/439 [01:04<00:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  66%|██████▌   | 289/439 [01:04<00:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  66%|██████▌   | 290/439 [01:04<00:33,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  66%|██████▋   | 291/439 [01:04<00:32,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  67%|██████▋   | 292/439 [01:04<00:32,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  67%|██████▋   | 293/439 [01:05<00:32,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  67%|██████▋   | 294/439 [01:05<00:32,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  67%|██████▋   | 295/439 [01:05<00:31,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  67%|██████▋   | 296/439 [01:05<00:31,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  68%|██████▊   | 297/439 [01:06<00:31,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  68%|██████▊   | 298/439 [01:06<00:31,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  68%|██████▊   | 299/439 [01:06<00:31,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  68%|██████▊   | 300/439 [01:06<00:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  69%|██████▊   | 301/439 [01:06<00:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  69%|██████▉   | 302/439 [01:07<00:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  69%|██████▉   | 303/439 [01:07<00:30,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  69%|██████▉   | 304/439 [01:07<00:29,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  69%|██████▉   | 305/439 [01:07<00:29,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  70%|██████▉   | 306/439 [01:08<00:29,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  70%|██████▉   | 307/439 [01:08<00:29,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  70%|███████   | 308/439 [01:08<00:29,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  70%|███████   | 309/439 [01:08<00:28,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  71%|███████   | 310/439 [01:08<00:28,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  71%|███████   | 311/439 [01:09<00:28,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  71%|███████   | 312/439 [01:09<00:28,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  71%|███████▏  | 313/439 [01:09<00:27,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  72%|███████▏  | 314/439 [01:09<00:27,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  72%|███████▏  | 315/439 [01:10<00:27,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  72%|███████▏  | 316/439 [01:10<00:27,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  72%|███████▏  | 317/439 [01:10<00:27,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  72%|███████▏  | 318/439 [01:10<00:26,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  73%|███████▎  | 319/439 [01:10<00:26,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  73%|███████▎  | 320/439 [01:11<00:26,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  73%|███████▎  | 321/439 [01:11<00:26,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  73%|███████▎  | 322/439 [01:11<00:25,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  74%|███████▎  | 323/439 [01:11<00:25,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  74%|███████▍  | 324/439 [01:12<00:25,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  74%|███████▍  | 325/439 [01:12<00:25,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  74%|███████▍  | 326/439 [01:12<00:25,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  74%|███████▍  | 327/439 [01:12<00:24,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  75%|███████▍  | 328/439 [01:12<00:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  75%|███████▍  | 329/439 [01:13<00:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  75%|███████▌  | 330/439 [01:13<00:24,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  75%|███████▌  | 331/439 [01:13<00:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  76%|███████▌  | 332/439 [01:13<00:23,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  76%|███████▌  | 333/439 [01:14<00:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  76%|███████▌  | 334/439 [01:14<00:23,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  76%|███████▋  | 335/439 [01:14<00:23,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  77%|███████▋  | 336/439 [01:14<00:22,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  77%|███████▋  | 337/439 [01:14<00:22,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  77%|███████▋  | 338/439 [01:15<00:22,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  77%|███████▋  | 339/439 [01:15<00:22,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  77%|███████▋  | 340/439 [01:15<00:21,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  78%|███████▊  | 341/439 [01:15<00:21,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  78%|███████▊  | 342/439 [01:16<00:21,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  78%|███████▊  | 343/439 [01:16<00:21,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  78%|███████▊  | 344/439 [01:16<00:21,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  79%|███████▊  | 345/439 [01:16<00:20,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  79%|███████▉  | 346/439 [01:16<00:20,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  79%|███████▉  | 347/439 [01:17<00:20,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  79%|███████▉  | 348/439 [01:17<00:20,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  79%|███████▉  | 349/439 [01:17<00:20,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  80%|███████▉  | 350/439 [01:17<00:19,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  80%|███████▉  | 351/439 [01:18<00:19,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  80%|████████  | 352/439 [01:18<00:19,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  80%|████████  | 353/439 [01:18<00:19,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  81%|████████  | 354/439 [01:18<00:18,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  81%|████████  | 355/439 [01:18<00:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  81%|████████  | 356/439 [01:19<00:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  81%|████████▏ | 357/439 [01:19<00:18,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  82%|████████▏ | 358/439 [01:19<00:17,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  82%|████████▏ | 359/439 [01:19<00:17,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  82%|████████▏ | 360/439 [01:20<00:17,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  82%|████████▏ | 361/439 [01:20<00:17,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  82%|████████▏ | 362/439 [01:20<00:17,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  83%|████████▎ | 363/439 [01:20<00:16,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  83%|████████▎ | 364/439 [01:20<00:16,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  83%|████████▎ | 365/439 [01:21<00:16,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  83%|████████▎ | 366/439 [01:21<00:16,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  84%|████████▎ | 367/439 [01:21<00:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  84%|████████▍ | 368/439 [01:21<00:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  84%|████████▍ | 369/439 [01:22<00:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  84%|████████▍ | 370/439 [01:22<00:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  85%|████████▍ | 371/439 [01:22<00:15,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  85%|████████▍ | 372/439 [01:22<00:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  85%|████████▍ | 373/439 [01:22<00:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  85%|████████▌ | 374/439 [01:23<00:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  85%|████████▌ | 375/439 [01:23<00:14,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  86%|████████▌ | 376/439 [01:23<00:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  86%|████████▌ | 377/439 [01:23<00:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  86%|████████▌ | 378/439 [01:24<00:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  86%|████████▋ | 379/439 [01:24<00:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  87%|████████▋ | 380/439 [01:24<00:13,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  87%|████████▋ | 381/439 [01:24<00:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  87%|████████▋ | 382/439 [01:24<00:12,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  87%|████████▋ | 383/439 [01:25<00:12,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  87%|████████▋ | 384/439 [01:25<00:12,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  88%|████████▊ | 385/439 [01:25<00:11,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  88%|████████▊ | 386/439 [01:25<00:11,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  88%|████████▊ | 387/439 [01:26<00:11,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  88%|████████▊ | 388/439 [01:26<00:11,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  89%|████████▊ | 389/439 [01:26<00:11,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  89%|████████▉ | 390/439 [01:26<00:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  89%|████████▉ | 391/439 [01:26<00:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  89%|████████▉ | 392/439 [01:27<00:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  90%|████████▉ | 393/439 [01:27<00:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  90%|████████▉ | 394/439 [01:27<00:10,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  90%|████████▉ | 395/439 [01:27<00:09,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  90%|█████████ | 396/439 [01:28<00:09,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  90%|█████████ | 397/439 [01:28<00:09,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  91%|█████████ | 398/439 [01:28<00:09,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  91%|█████████ | 399/439 [01:28<00:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  91%|█████████ | 400/439 [01:28<00:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  91%|█████████▏| 401/439 [01:29<00:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  92%|█████████▏| 402/439 [01:29<00:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  92%|█████████▏| 403/439 [01:29<00:08,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  92%|█████████▏| 404/439 [01:29<00:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  92%|█████████▏| 405/439 [01:30<00:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  92%|█████████▏| 406/439 [01:30<00:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  93%|█████████▎| 407/439 [01:30<00:07,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  93%|█████████▎| 408/439 [01:30<00:06,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  93%|█████████▎| 409/439 [01:30<00:06,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  93%|█████████▎| 410/439 [01:31<00:06,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  94%|█████████▎| 411/439 [01:31<00:06,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  94%|█████████▍| 412/439 [01:31<00:06,  4.49file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  94%|█████████▍| 413/439 [01:31<00:05,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  94%|█████████▍| 414/439 [01:32<00:05,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  95%|█████████▍| 415/439 [01:32<00:05,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  95%|█████████▍| 416/439 [01:32<00:05,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  95%|█████████▍| 417/439 [01:32<00:04,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  95%|█████████▌| 418/439 [01:32<00:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  95%|█████████▌| 419/439 [01:33<00:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  96%|█████████▌| 420/439 [01:33<00:04,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  96%|█████████▌| 421/439 [01:33<00:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  96%|█████████▌| 422/439 [01:33<00:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  96%|█████████▋| 423/439 [01:34<00:03,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  97%|█████████▋| 424/439 [01:34<00:03,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  97%|█████████▋| 425/439 [01:34<00:03,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  97%|█████████▋| 426/439 [01:34<00:02,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  97%|█████████▋| 427/439 [01:34<00:02,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  97%|█████████▋| 428/439 [01:35<00:02,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  98%|█████████▊| 429/439 [01:35<00:02,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  98%|█████████▊| 430/439 [01:35<00:01,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  98%|█████████▊| 431/439 [01:35<00:01,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  98%|█████████▊| 432/439 [01:36<00:01,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  99%|█████████▊| 433/439 [01:36<00:01,  4.50file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  99%|█████████▉| 434/439 [01:36<00:01,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  99%|█████████▉| 435/439 [01:36<00:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files:  99%|█████████▉| 436/439 [01:36<00:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files: 100%|█████████▉| 437/439 [01:37<00:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files: 100%|█████████▉| 438/439 [01:37<00:00,  4.51file/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-WARNING:lightrag:All docs are already in the storage
-INFO:lightrag:Writing graph with 0 nodes, 0 edges
-Processing files: 100%|██████████| 439/439 [01:37<00:00,  4.51file/s]Processing files: 100%|██████████| 439/439 [01:37<00:00,  4.50file/s]
-INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 0 chunks
-Sliding Window Attention is enabled but not implemented for `sdpa`; unexpected results may be encountered.
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Portrait painting.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Interior design.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Landscape painting.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Mythological Cycle.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Study (art).txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/History painting.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Religious art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/still-life.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Type/Genre painting.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Scottish art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Norwegian art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Flemish art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Hungarian art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Danish art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Netherlandish art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Russian art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Italian art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Catalan art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Spanish art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/German art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/English art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Irish art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Austrian art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Swiss art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Dutch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/American art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Portuguese art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/French art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Schools/Belgian art.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pierre-Jacques Volaire.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Rembrandt Harmenszoon Van Rijn.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Master Theoderic.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giuseppe Recco.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/William Hogarth.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Viggo Johansen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartolomeo Vivarini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lorenzo Salimbeni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bernardo Zenale.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alessandro Allori.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Traini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Dosso Dossi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Prospero Fontana.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Agnolo Gaddi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Auguste Raffet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Christian Berentz.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Richard Wilson.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bernardino Licinio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Odilon Redon.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Harmen Steenwijck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lucas Van Leyden.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Caravaggio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Domenico Robusti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sandro Botticelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Corrado Giaquinto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sebastiano Mazzoni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Closterman.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Domenico Tiepolo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Henry Fuseli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Henri Testelin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Michelangelo Cerquozzi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Petrus Christus.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gustave Courbet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gerard David.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Longhi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Van Eyck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Rogier Van Der Weyden.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacques Linard.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacopo Bassano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Cornelisz Verspronck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Carlo Crivelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andrea Belvedere.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Agnolo Bronzino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Michel Bouillon.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Fernando Llanos.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Mostaert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/El Greco.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Joli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Thomas Phillips.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartolomeo Montagna.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean Tassel.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hans Memling.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pieter Aertsen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alonso Berruguete.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Lanfranco.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hans Bol.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacopo Guarana.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Herbert Pugh.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paulus Potter.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pedro Orrente.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Cesare Dandini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartolomeo Manfredi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/James Webb.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Toussaint Dubreuil.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Maria Falconetto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Friedrich Overbeck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Vittore Carpaccio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Spinello Aretino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonello Da Messina.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Domenico Beccafumi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Albert Bierstadt.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Garofalo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giacomo Ceruti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Vincenzo Foppa.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Tintoretto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pier Francesco Mola.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hercules Seghers.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Philips Koninck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Emile Claus.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Charles Brooking.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Agostino Mitelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pompeo Batoni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Johann Michael Rottmayr.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Ottavio Leoni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Domenichino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean-Baptiste Regnault.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Willem Van Mieris.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Rossellino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bernardo Strozzi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Ponce.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacob Rotius.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Orazio Gentileschi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Hendrik Weissenbruch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Palma.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giorgione.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Hamilton.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gaspard Dughet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Mattia Preti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giotto Di Bondone.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Michiel Sweerts.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Battista Caracciolo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Carlo Saraceni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Charles-Joseph Natoire.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean-Baptiste Greuze.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Filippo Lauri.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Vassilacchi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartolomeo Bimbi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Panfilo Nuvolone.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Benozzo Gozzoli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Da Milano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Abraham Bloemaert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Zanchi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Maerten Van Heemskerck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean Fouquet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paolo Veronese.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andrey Rublyov.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gustave Caillebotte.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Paolo Bonzi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Samuel Scott.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Constable.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Carlo Maratti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Donato Creti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Derick Baegert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Wolf Huber.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/George Barret.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Francesco Romanelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean-Victor Bertin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Hackaert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean-Baptiste Perronneau.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Lorenzetti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Steen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Joseph-Marie Vien.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Vittore Crivelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Carle Vernet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lodovico Carracci.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gerard Terborch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lorenzo Lotto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hieronymus Bosch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Arent Arentsz..txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Quentin Massys.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacopo Torriti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Both.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Nicolaes Berchem.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pieter Andreas Rysbrack.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Guido Reni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pordenone.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Altobello Melone.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Thomas Stringer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Willem Claesz. Heda.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Felix Ivo Leicher.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andrea Del Sarto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Ferdinand Bol.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alvise Vivarini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Domenico Maria Canuti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Stanislaw Samostrzelnik.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sir Edwin Henry Landseer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Frans Floris.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean Bellegambe.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Correggio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Antonio Rotari.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Camille Pissarro.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Victors.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Edwart Collier.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Orazio Samacchini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Taddeo Zuccaro.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Laurens Craen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Anton Kern.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Abel Grimmer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giuseppe Angeli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Matteo Rosselli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/George Henry Harlow.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alexander Nasmyth.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartolomeo Passerotti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacopo Amigoni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Vinea.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Francia.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/William Blake.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hendrick Gerritsz Pot.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andrea Solario.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Rosalba Carriera.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Dirck Van Baburen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Tiziano Vecellio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Duccio Di Buoninsegna.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sassoferrato.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Lombardo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Vincenzo Campi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Raffaello Sanzio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alfred Sisley.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hendrick Terbrugghen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Battista Tiepolo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Cavallini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Gossart.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Squarcione.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Nicolas Bertin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Georges De La Tour.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Heinrich Bollandt.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Maso Di Banco.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Do.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Caspar David Friedrich.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Claude Lorrain.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hans Eworth.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sebastiano Ricci.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Karel Dujardin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Herman Saftleven.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Angelo Michele Colonna.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Nicolas Lancret.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paul Bril.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Luca Carlevaris.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Cima Da Conegliano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Nost Sartorius.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Michael Pacher.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacob Philipp Hackert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Girolamo Romanino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Aelbert Cuyp.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Ambrogio Lorenzetti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Vincent Van Gogh.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Karl Friedrich Lessing.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Guercino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alessandro Gherardini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sebastiano Del Piombo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hieronymus Francken.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Bonsignori.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Anthonie Palamedesz..txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Lievens.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Van Bijlert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Frans Van Bloemen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartholomew Dandridge.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bernardo Bellotto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Davide Ghirlandaio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Nicolas Poussin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Guardi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antoniazzo Romano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paul Gauguin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Franz Xaver Winterhalter.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/David Vinckboons.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Claudio Coello.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Girolamo Savoldo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pellegrino Tibaldi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gaudenzio Ferrari.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Girolamo Da Carpi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Santi Di Tito.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Annibale Carracci.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Joachim Beuckelaer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/William Anderson.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Santi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Henri De Toulouse-Lautrec.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Albrecht Altdorfer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Nicolas Froment.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Franz Christoph Janneck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lippo Vanni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Winslow Homer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sir Joshua Reynolds.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paolo Antonio Barbieri.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hortense Haudebourt-Lescot.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Christen Dalsgaard.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paul Delaroche.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sir Anthony Van Dyck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Geertgen Tot Sint Jans.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gerrit Dou.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Constantin Meunier.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sassetta.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paolo Monaldi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Edgar Degas.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sofonisba Anguissola.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giuseppe Cesari.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giulio Romano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bernardino Luini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Philips Wouwerman.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pieter Leermans.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Fontebasso.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Georg Hainz.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Ambrogio Figino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/George Romney.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paolo Uccello.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean-Baptiste Monnoyer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Franz Ittenbach.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/William Dobson.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Joachim Von Sandrart.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Heerman Witmont.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Angelo D'Antonio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Hayez.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Cimabue.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Bernard Duvivier.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Anton Raphael Mengs.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Louis Galloche.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Johan Richter.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Frans Post.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Anne Vallayer-Coster.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Marten De Vos.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacopo Da Empoli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Arthur Devis.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Fra Angelico.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hans Multscher.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francesco Albani.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Glover.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Richard Boyle.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Marco Basaiti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Del Pollaiuolo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Antonio Fasolo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hans Baldung Grien.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Angelica Kauffmann.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Luca Cambiaso.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Franz Ludwig Catel.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Valerio Castello.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bonifacio Veronese.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Canaletto.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Adriaen Brouwer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hans Maler.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Paolo Porpora.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Taddeo Gaddi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pieter De Hooch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Peter Paul Rubens.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Luca Signorelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Fra Filippo Lippi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Mikhail Konstantinovich Klodt.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Mary Cassatt.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/James Tissot.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lorenzo Veneziano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pietro Perugino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Il Sodoma.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giulio Carpioni.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Klaes Molenaer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Antonio Pellegrini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alessandro Turchi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Dionysius.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jean-Baptiste Camille Corot.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andries Both.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Franz Anton Maulbertsch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Leonardo Da Vinci.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Michele Marieschi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Kerstiaen De Keuninck.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pinturicchio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Edouard Manet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bastiano Mainardi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Henri-Joseph Harpignies.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alessandro Magnasco.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Charles-Marie Bouton.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacopo Bellini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Simone Martini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andrea Pozzo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Johann Zoffany.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Frans Hals.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Felice Giani.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Frans Ykens.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bernardino Castelli.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Carl Gustav Carus.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jan Miel.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Bellini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antonio Vivarini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hubert Robert.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Emilio Taruffi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Bartolomeo Guidobono.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Sir William Beechey.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Coenraet Roepel.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Paolo Pannini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Simone Peterzano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Salvator Rosa.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alonso Cano.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Domenico Ghirlandaio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Hieronymus Janssens.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Rachel Ruysch.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Arnold Houbraken.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Buonconsiglio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Michelangelo Buonarroti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Claude Monet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Alessio Baldovinetti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pierre-Auguste Renoir.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Baglione.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Moretto Da Brescia.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Johann Peter Krafft.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Adam Elsheimer.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Battista Piazzetta.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Evaristo Baschenis.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/John Martin.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Francisco Rizi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Horace Vernet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Luigi Loir.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Henri Rousseau.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gaspare Diziani.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Claude-Joseph Vernet.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Masaccio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Onorio Marinari.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Baciccio.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giovanni Costa.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Peter Candid.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Carlo Bonavia.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Antoine Caron.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gregorio Lazzarini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Johan Thomas Lundbye.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Pedro Berruguete.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Domenico Fetti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Viviano Codazzi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Johan Barthold Jongkind.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Karl Blechen.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Simon De Vos.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Cristiano Banti.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Andrea Mantegna.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Lorenzo Monaco.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Cecco Bravo.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Louis Dorigny.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Max Liebermann.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Jacques-Louis David.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Abraham Mignon.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Parmigianino.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Richard Waitt.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Apollonio Domenichini.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gaetano Gandolfi.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Gabriel Metsu.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Giusto Utens.txt
-Processing file: ../../data/wikipedia_art/SemArtv2_wiki_pages_test/Artists_test/Salomon Van Ruysdael.txt
-------------------------------------------------------------------------------------
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:05<00:17,  5.71s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:13<00:13,  6.65s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:06,  6.95s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:25<00:00,  6.33s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:25<00:00,  6.43s/it]
-/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
-  warnings.warn(
-INFO:lightrag:Creating a new event loop in a sub-thread.
-('Content: A large, early Gothic altarpiece featuring religious figures.\nContext: Created around 1280, reflecting medieval Christian art.\nForm: Use of gold leaf, simple linear forms, and flat colors.', None, None)
-------------------------------------------------------------------------------------
-('**Content**: A Madonna and Child with angels.\n**Form**: Simple linear style, flat figures, basic perspective.\n**Context**: Early Renaissance, influenced by Byzantine art, reflecting religious devotion.', None, None)
-
-JOB STATISTICS
-==============
-Job ID: 11578228
-Cluster: snellius
-User/Group: wangsh/wangsh
-State: RUNNING
-Nodes: 1
-Cores per node: 18
-CPU Utilized: 00:00:00
-CPU Efficiency: 0.00% of 00:49:12 core-walltime
-Job Wall-clock time: 00:02:44
-Memory Utilized: 0.00 MB
-Memory Efficiency: 0.00% of 60.00 GB (60.00 GB/node)
-WARNING: Efficiency statistics can only be obtained after the job has ended as seff tool is based on the accounting database data.

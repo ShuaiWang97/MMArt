@@ -1,251 +1,0 @@
-============================================================================================== 
-Warning! Mixing Conda and module environments may lead to corruption of the
-user environment. 
-We do not recommend users mixing those two environments unless absolutely
-necessary. Note that 
-SURF does not provide any support for Conda environment.
-For more information, please refer to our software policy page:
-https://servicedesk.surf.nl/wiki/display/WIKI/Software+policy+Snellius#SoftwarepolicySnellius-UseofAnacondaandMinicondaenvironmentsonSnellius 
-
-Remember that many packages have already been installed on the system and can
-be loaded using 
-the 'module load <package__name>' command. If you are uncertain if a package is
-already available 
-on the system, please use 'module avail' or 'module spider' to search for it.
-============================================================================================== 
-/var/spool/slurm/slurmd/job11612022/slurm_script: line 21: cd: ../../projects/0/prjs0996/PolyArt/ArtRAG: No such file or directory
-INFO:lightrag:Logger initialized for working directory: ./art_context
-DEBUG:lightrag:LightRAG init with param:
-  working_dir = ./art_context,
-  chunk_token_size = 1200,
-  chunk_overlap_token_size = 100,
-  tiktoken_model_name = gpt-4o-mini,
-  entity_extract_max_gleaning = 1,
-  entity_summary_to_max_tokens = 500,
-  node_embedding_algorithm = node2vec,
-  node2vec_params = {'dimensions': 1536, 'num_walks': 10, 'walk_length': 40, 'window_size': 2, 'iterations': 3, 'random_seed': 3},
-  embedding_func = {'embedding_dim': 384, 'max_token_size': 5000, 'func': <function run_ArtRAG_inference.<locals>.<lambda> at 0x14e3b5fd4310>},
-  embedding_batch_num = 32,
-  embedding_func_max_async = 16,
-  llm_model_func = <function hf_model_complete at 0x14e3b777f9d0>,
-  llm_model_name = Qwen/Qwen2.5-VL-7B-Instruct,
-  llm_model_max_token_size = 32768,
-  llm_model_max_async = 16,
-  llm_model_kwargs = {},
-  key_string_value_json_storage_cls = <class 'lightrag.storage.JsonKVStorage'>,
-  vector_db_storage_cls = <class 'lightrag.storage.NanoVectorDBStorage'>,
-  vector_db_storage_cls_kwargs = {},
-  graph_storage_cls = <class 'lightrag.storage.NetworkXStorage'>,
-  enable_llm_cache = True,
-  addon_params = {},
-  convert_response_to_json_func = <function convert_response_to_json at 0x14e3c3e7c1f0>
-
-INFO:lightrag:Load KV full_docs with 1144 data
-INFO:lightrag:Load KV text_chunks with 4335 data
-INFO:lightrag:Load KV llm_response_cache with 0 data
-INFO:lightrag:Loaded graph from ./art_context/graph_chunk_entity_relation.graphml with 0 nodes, 0 edges
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_entities.json'} 0 data
-INFO:nano-vectordb:Load (0, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_relationships.json'} 0 data
-INFO:nano-vectordb:Load (4335, 384) data
-INFO:nano-vectordb:Init {'embedding_dim': 384, 'metric': 'cosine', 'storage_file': './art_context/vdb_chunks.json'} 4335 data
-args:  Namespace(working_dir='./art_context', mdoel_name='Qwen/Qwen2.5-VL-7B-Instruct', shot_number=0, retrieval_strategy='naive', batch_size=16, data_num=200, generated_descriptions=None, fewshot_type='SM_fewshot', question_type='cultural&histroical')
-Using WikiArt dataset
-Processing rows:   0%|          | 0/200 [00:00<?, ?it/s]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.48, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-INFO:accelerate.utils.modeling:We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
-Processing row:  0
-
-Loading checkpoint shards:   0%|          | 0/5 [00:00<?, ?it/s][A
-Loading checkpoint shards:  20%|██        | 1/5 [00:05<00:20,  5.23s/it][A
-Loading checkpoint shards:  40%|████      | 2/5 [00:10<00:16,  5.44s/it][A
-Loading checkpoint shards:  60%|██████    | 3/5 [00:16<00:10,  5.48s/it][A
-Loading checkpoint shards:  80%|████████  | 4/5 [00:21<00:05,  5.51s/it][A
-Loading checkpoint shards: 100%|██████████| 5/5 [00:23<00:00,  4.02s/it][ALoading checkpoint shards: 100%|██████████| 5/5 [00:23<00:00,  4.66s/it]
-/home/wangsh/.conda/envs/LightRAG/lib/python3.9/site-packages/transformers/generation/configuration_utils.py:677: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
-  warnings.warn(
-Processing rows:   0%|          | 1/200 [00:39<2:10:30, 39.35s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   1%|          | 2/200 [00:41<57:49, 17.52s/it]  INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▏         | 3/200 [00:44<35:24, 10.78s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▏         | 4/200 [00:46<23:34,  7.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   2%|▎         | 5/200 [00:48<17:41,  5.44s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   3%|▎         | 6/200 [00:50<14:24,  4.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▎         | 7/200 [00:53<12:08,  3.77s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▍         | 8/200 [00:56<11:10,  3.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   4%|▍         | 9/200 [00:58<10:14,  3.22s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   5%|▌         | 10/200 [01:01<09:55,  3.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▌         | 11/200 [01:04<09:51,  3.13s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▌         | 12/200 [01:07<09:35,  3.06s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   6%|▋         | 13/200 [01:10<09:06,  2.92s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   7%|▋         | 14/200 [01:12<08:17,  2.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 15/200 [01:15<08:43,  2.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 16/200 [01:18<08:26,  2.75s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   8%|▊         | 17/200 [01:21<08:37,  2.83s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:   9%|▉         | 18/200 [01:23<07:47,  2.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|▉         | 19/200 [01:25<07:16,  2.41s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|█         | 20/200 [01:27<06:58,  2.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  10%|█         | 21/200 [01:30<07:38,  2.56s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  11%|█         | 22/200 [01:33<07:52,  2.65s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  12%|█▏        | 23/200 [01:36<07:52,  2.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  12%|█▏        | 24/200 [01:38<07:36,  2.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  12%|█▎        | 25/200 [01:40<07:21,  2.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  13%|█▎        | 26/200 [01:43<07:39,  2.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  14%|█▎        | 27/200 [01:46<07:17,  2.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  14%|█▍        | 28/200 [01:48<07:09,  2.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  14%|█▍        | 29/200 [01:50<06:48,  2.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  15%|█▌        | 30/200 [01:53<07:33,  2.67s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  16%|█▌        | 31/200 [01:55<06:59,  2.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  16%|█▌        | 32/200 [01:59<07:39,  2.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  16%|█▋        | 33/200 [02:02<08:00,  2.87s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  17%|█▋        | 34/200 [02:05<08:16,  2.99s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  18%|█▊        | 35/200 [02:07<07:31,  2.74s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  18%|█▊        | 36/200 [02:10<07:03,  2.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  18%|█▊        | 37/200 [02:12<06:47,  2.50s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  19%|█▉        | 38/200 [02:15<07:10,  2.65s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  20%|█▉        | 39/200 [02:18<07:11,  2.68s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  20%|██        | 40/200 [02:21<07:22,  2.77s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  20%|██        | 41/200 [02:23<07:00,  2.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  21%|██        | 42/200 [02:26<07:16,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  22%|██▏       | 43/200 [02:28<06:57,  2.66s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  22%|██▏       | 44/200 [02:31<07:10,  2.76s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  22%|██▎       | 45/200 [02:34<07:20,  2.84s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  23%|██▎       | 46/200 [02:38<07:28,  2.91s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  24%|██▎       | 47/200 [02:40<06:43,  2.63s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  24%|██▍       | 48/200 [02:42<06:28,  2.55s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  24%|██▍       | 49/200 [02:44<06:13,  2.48s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  25%|██▌       | 50/200 [02:46<05:34,  2.23s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  26%|██▌       | 51/200 [02:49<06:01,  2.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  26%|██▌       | 52/200 [02:52<06:14,  2.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  26%|██▋       | 53/200 [02:53<05:44,  2.34s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  27%|██▋       | 54/200 [02:56<05:40,  2.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  28%|██▊       | 55/200 [02:58<05:37,  2.33s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  28%|██▊       | 56/200 [03:00<05:04,  2.12s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  28%|██▊       | 57/200 [03:02<05:28,  2.30s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  29%|██▉       | 58/200 [03:05<05:34,  2.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  30%|██▉       | 59/200 [03:07<05:26,  2.32s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  30%|███       | 60/200 [03:09<05:03,  2.17s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  30%|███       | 61/200 [03:11<05:06,  2.21s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  31%|███       | 62/200 [03:14<05:12,  2.26s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  32%|███▏      | 63/200 [03:17<05:46,  2.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  32%|███▏      | 64/200 [03:19<05:43,  2.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  32%|███▎      | 65/200 [03:22<05:48,  2.58s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  33%|███▎      | 66/200 [03:25<05:53,  2.64s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  34%|███▎      | 67/200 [03:27<05:23,  2.43s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  34%|███▍      | 68/200 [03:29<05:23,  2.45s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  34%|███▍      | 69/200 [03:32<05:21,  2.46s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  35%|███▌      | 70/200 [03:35<05:38,  2.60s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  36%|███▌      | 71/200 [03:36<05:04,  2.36s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  36%|███▌      | 72/200 [03:39<05:21,  2.51s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  36%|███▋      | 73/200 [03:41<05:03,  2.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  37%|███▋      | 74/200 [03:44<05:18,  2.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  38%|███▊      | 75/200 [03:47<05:23,  2.59s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  38%|███▊      | 76/200 [03:51<06:05,  2.95s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  38%|███▊      | 77/200 [03:53<05:31,  2.69s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  39%|███▉      | 78/200 [03:55<05:09,  2.53s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  40%|███▉      | 79/200 [03:58<05:04,  2.52s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  40%|████      | 80/200 [04:01<05:26,  2.72s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  40%|████      | 81/200 [04:03<05:05,  2.57s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  41%|████      | 82/200 [04:05<04:45,  2.42s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  42%|████▏     | 83/200 [04:07<04:39,  2.39s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-Processing rows:  42%|████▏     | 84/200 [04:10<04:49,  2.49s/it]INFO:lightrag:Creating a new event loop in a sub-thread.
-INFO:lightrag:Truncate 5 to 5 chunks
-slurmstepd: error: *** JOB 11612022 ON gcn146 CANCELLED AT 2025-05-07T10:47:35 ***
-
-JOB STATISTICS
-==============
-Job ID: 11612022
-Cluster: snellius
-User/Group: wangsh/wangsh
-State: CANCELLED (exit code 0)
-Nodes: 1
-Cores per node: 16
-CPU Utilized: 00:00:00
-CPU Efficiency: 0.00% of 01:14:08 core-walltime
-Job Wall-clock time: 00:04:38
-Memory Utilized: 3.30 GB
-Memory Efficiency: 5.50% of 60.00 GB (60.00 GB/node)
