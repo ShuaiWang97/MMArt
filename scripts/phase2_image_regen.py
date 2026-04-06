@@ -55,7 +55,7 @@ from tqdm import tqdm
 # Constants
 # ---------------------------------------------------------------------------
 
-ALL_CONDITIONS = ["N", "F", "E", "H", "NFE", "NFH", "NEH", "FEH", "NFEH"]
+ALL_CONDITIONS = ["N", "F", "E", "H", "NFE", "NFH", "NEH", "FEH", "NFEH", "U"]
 
 # Eval resolution — all saved images are resized to this for Phase 3
 EVAL_SIZE = 512

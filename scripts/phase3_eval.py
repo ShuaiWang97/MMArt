@@ -11,8 +11,8 @@ Three complementary metrics are computed for each (painting, condition, model) t
      Measures how well the regenerated image matches the style and semantic
      character of the original (CLIP space is organized by art-language concepts).
 
-  2. DINOv2 cosine similarity — compositional / structural fidelity
-     facebook/dinov2-large
+  2. DINOv3 cosine similarity — compositional / structural fidelity
+     facebook/dinov3-vitl16-pretrain-lvd1689m
      Self-supervised patch features capture spatial layout and structure
      independent of style labels.
 
@@ -66,7 +66,7 @@ PROMPTS_DIR = REPO_ROOT / "output" / "synthesis_prompts"
 OUT_DIR     = REPO_ROOT / "output" / "phase3_results"
 WIKIART_DIR = Path("/gpfs/work5/0/prjs0996/data/wikiart/Images")
 
-ALL_CONDITIONS = ["N", "F", "E", "H", "NFE", "NFH", "NEH", "FEH", "NFEH"]
+ALL_CONDITIONS = ["N", "F", "E", "H", "NFE", "NFH", "NEH", "FEH", "NFEH", "U"]
 ALL_MODELS     = ["flux2_klein", "qwen_image"]
 EVAL_SIZE      = 512
 
@@ -151,8 +151,8 @@ class CLIPEvaluator:
 
 class DINOEvaluator:
     def __init__(self, device: str):
-        model_id = "facebook/dinov2-large"
-        print(f"  Loading DINOv2 ({model_id}) ...")
+        model_id = "facebook/dinov3-vitl16-pretrain-lvd1689m"
+        print(f"  Loading DINOv3 ({model_id}) ...")
         self.device    = device
         self.processor = AutoImageProcessor.from_pretrained(model_id)
         self.model     = AutoModel.from_pretrained(model_id).to(device).eval()
@@ -381,7 +381,15 @@ def main():
                         help="Images per batch (default: 64)")
     parser.add_argument("--device", type=str,
                         default="cuda" if torch.cuda.is_available() else "cpu")
+    parser.add_argument("--fresh", action="store_true",
+                        help="Delete existing checkpoint and start from scratch")
     args = parser.parse_args()
+
+    if args.fresh:
+        raw_path = OUT_DIR / "results_raw.json"
+        if raw_path.exists():
+            raw_path.unlink()
+            print("Deleted old results_raw.json (--fresh flag set)")
 
     print(f"Device: {args.device}")
     print(f"Batch size: {args.batch_size}\n")

@@ -43,7 +43,7 @@ module purge
 module load 2023
 module load Anaconda3/2023.07-2
 
-cd /projects/prjs0996/ArtRAG_Series/PolyArt
+cd /projects/prjs0996/ArtRAG_Series/MMArt
 source activate gallery_gpt
 
 python scripts/phase2_image_regen.py \
