@@ -1157,20 +1157,21 @@ Respond with ONLY this JSON:
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`.sidebar nav a[href="#${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+  function updateActive() {
+    const scrollY = window.scrollY + 120; // offset for top margin
+    let current = sections[0].id;
+    sections.forEach(section => {
+      if (section.offsetTop <= scrollY) {
+        current = section.id;
       }
     });
-  }, {
-    rootMargin: '0px 0px -60% 0px',
-    threshold: 0
-  });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
 
-  sections.forEach(s => observer.observe(s));
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive(); // run on load
 </script>
 </body>
 </html>
