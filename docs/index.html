@@ -150,6 +150,13 @@
       line-height: 1.4;
     }
     .sidebar nav a:hover { color: #0d6efd; text-decoration: underline; }
+    .sidebar nav a.active {
+      color: #7b2d8b;
+      font-weight: 700;
+      border-left: 2px solid #7b2d8b;
+      padding-left: 6px;
+      margin-left: -8px;
+    }
     .sidebar nav .section-label {
       display: block;
       font-size: 0.72rem;
@@ -886,7 +893,7 @@ Write a unified ~150-word description integrating all perspectives above.</pre>
         <li>Embed with local sentence-transformer (~2 ms on CPU)</li>
         <li>Cosine similarity vs. all chunks (L2-normalised dot product)</li>
         <li>If <code>max_similarity &lt; 0.25</code> → fall back to no-RAG prompt (Variant B)</li>
-        <li>Otherwise return top-3 chunks as <code>{context}</code></li>
+        <li>Otherwise return top-5 chunks as <code>{context}</code></li>
       </ol>
       <div class="table-wrap">
         <table>
@@ -969,7 +976,7 @@ Respond with ONLY this JSON:
         <strong style="color:#CB181D">E</strong> (Emotional) &rarr;
         <strong style="color:#238B45">F</strong> (Formal) &rarr;
         <strong style="color:#6A51A3">H</strong> (Historical) &rarr;
-        <strong style="color:#D94801">Unfied</strong> (All four combined)
+        <strong style="color:#D94801">Unified</strong> (All four combined)
       </div>
 
       <!-- Painting selector -->
@@ -1146,6 +1153,25 @@ Respond with ONLY this JSON:
       b.classList.toggle('active', i === idx);
     });
   }
+
+  // ── Scrollspy ──
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.sidebar nav a[href^="#"]');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.sidebar nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, {
+    rootMargin: '0px 0px -60% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(s => observer.observe(s));
 </script>
 </body>
 </html>
