@@ -609,13 +609,13 @@
           <span class="tag">E — emotional</span>
           <h4>Emotional Response</h4>
           <p>Mood, atmosphere, and psychological tone.</p>
-          <span class="model">Qwen3-VL-8B + ArtEmis-v2</span>
+          <span class="model">Qwen3-VL-8B-Instruct + ArtEmis-v2</span>
         </div>
         <div class="perspective-card">
           <span class="tag">H — historical</span>
           <h4>Historical Context</h4>
           <p>Art-historical meaning, symbolism, and cultural codes.</p>
-          <span class="model">Qwen3-VL-8B + RAG</span>
+          <span class="model">Qwen3-VL-8B-Instruct + RAG</span>
         </div>
       </div>
     </section>
@@ -1081,7 +1081,7 @@ Respond with ONLY this JSON:
       </p>
     </section>
 
-    <!-- ── S6: Per-Style Analysis ── -->
+    ── S6: Per-Style Analysis ── -->
     <section id="perstyle">
       <h2>S6 &mdash; Per-Style Analysis</h2>
       <p>
@@ -1089,7 +1089,7 @@ Respond with ONLY this JSON:
         in the 1,000-painting benchmark sample — supplementary to the paper's aggregated numbers.
       </p>
 
-      <h3>Retrieval: Narrative vs. Unified by Style</h3>
+      <!-- <h3>Retrieval: Narrative vs. Unified by Style</h3>
       <p>
         U outperforms N for styles where <em>cultural and historical context</em> matters most —
         Cubism (+12%), Art Nouveau (+14%), Ukiyo-e (+8%), Early Renaissance (+8%).
@@ -1097,12 +1097,12 @@ Respond with ONLY this JSON:
         Impressionism (+18%), Baroque (+16%), Romanticism (+12%).
       </p>
       <figure>
-        <img src="figures/figA_style_retrieval_NvsU.png" alt="Per-style N vs U R@1" />
+        <img src="figures/figA_style_retrieval_NvsU.pdf" alt="Per-style N vs U R@1" />
         <figcaption>
           <strong>Figure A.</strong> Per-style retrieval R@1 for Narrative (N, blue) vs. Unified (U, red),
           sorted by N performance. Outlined red bars = styles where U &gt; N.
         </figcaption>
-      </figure>
+      </figure> -->
 
       <h3>Retrieval Heatmap: All 10 Conditions × 20 Styles</h3>
       <p>
