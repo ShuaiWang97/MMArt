@@ -541,12 +541,13 @@
       <a href="#access">Dataset Access</a>
       <div class="supp-divider"></div>
       <span class="section-label">Supplementary</span>
-      <a href="#supp-prompts">S1 &mdash; Full Prompts</a>
-      <a href="#supp-hyperparams">S2 &mdash; Hyperparameters</a>
-      <a href="#supp-rag">S3 &mdash; RAG Details</a>
-      <a href="#supp-judge">S4 &mdash; Judge Prompt</a>
-      <a href="#supp-gallery">S5 &mdash; Qualitative Examples</a>
-      <a href="#perstyle">S6 &mdash; Per-Style Analysis</a>
+      <a href="#supp-human-eval">S1 &mdash; Human Evaluation</a>
+      <a href="#supp-prompts">S2 &mdash; Full Prompts</a>
+      <a href="#supp-hyperparams">S3 &mdash; Hyperparameters</a>
+      <a href="#supp-rag">S4 &mdash; RAG Details</a>
+      <a href="#supp-judge">S5 &mdash; Judge Prompt</a>
+      <a href="#supp-gallery">S6 &mdash; Qualitative Examples</a>
+      <a href="#perstyle">S7 &mdash; Per-Style Analysis</a>
       <div class="supp-divider"></div>
     </nav>
   </aside>
@@ -590,7 +591,7 @@
       <p>
         Each painting is annotated with four independently generated, specialist-model captions —
         one per interpretive dimension — plus a synthesized unified caption (U).
-        Full prompt templates for each are in <a href="#supp-prompts">S1</a>.
+        Full prompt templates for each are in <a href="#supp-prompts">S2</a>.
       </p>
       <div class="perspective-grid">
         <div class="perspective-card">
@@ -652,9 +653,59 @@
          SUPPLEMENTARY MATERIALS
          ════════════════════════════════════════ -->
 
-    <!-- ── S1: Full Prompts ── -->
+    <!-- ── S1: Human Evaluation ── -->
+    <section id="supp-human-eval">
+      <h2>S1 &mdash; Human Evaluation</h2>
+      <h3>Setup</h3>
+      <p>
+        To validate description quality beyond automatic metrics, we conducted a blinded A/B human evaluation comparing MMArt descriptions against Claude 4.5 Sonnet generated baselines.
+        Paintings were presented via  Google Forms, embedding the painting image directly alongside the two descriptions. A and B labels were <strong>randomly assigned</strong> per painting to eliminate position bias — annotators were not told which system produced which description.
+      </p>
+      <p>
+        For each painting, annotators judged four independent questions, one per perspective:
+      </p>
+      <ul>
+        <li><em>Narrative &amp; Scene</em> — which description better captures the depicted scene, figures, and story?</li>
+        <li><em>Formal Analysis</em> — which better describes composition, brushwork, palette, and technique?</li>
+        <li><em>Emotional Response</em> — which better conveys the mood, atmosphere, and psychological tone?</li>
+        <li><em>Historical Context</em> — which better explains the art-historical meaning and cultural context?</li>
+      </ul>
+      <p>
+        Each question offered three options: <em>A is better</em>, <em>B is better</em>, or
+        <em>Equal / Cannot decide</em>. All questions were optional to allow partial completion.
+      </p>
+      <h3>Coverage</h3>
+      <p>
+        The study covered <strong>25 paintings</strong> spanning <strong>18 art styles</strong>
+        (Baroque, Cubism, Expressionism, Impressionism, Romanticism, Ukiyo-e, and others),
+        yielding <strong>100 image–perspective pairs</strong> (25 paintings × 4 perspectives).
+        Each pair was evaluated by <strong>at least 3 annotators</strong>, resulting in
+        <strong>261 pairwise judgements</strong> in total (244 decisive + 17 ties).
+      </p>
+      <figure style="text-align:center; margin: 2rem auto; max-width: 860px;">
+        <img src="figures/human_eval_results.png"
+             alt="Human evaluation results: MMArt vs Claude win rates per perspective and overall"
+             style="width:100%; border-radius:6px; box-shadow:0 2px 12px rgba(0,0,0,0.12);">
+        <figcaption style="margin-top:0.75rem; font-size:0.9rem; color:#555;">
+          <strong>Figure S1.</strong> Human evaluation results. Left: pairwise win counts per
+          evaluation perspective (MMArt in blue, Claude 4.5 Sonnet in red); win rates and significance
+          p-values shown above each MMArt bar. Right: overall win rate at the judgement level
+          (74.2%) and painting level (96.0%, 24/25 paintings).
+        </figcaption>
+      </figure>
+      <p>
+        MMArt descriptions were preferred in <strong>74.2%</strong> of decisive judgements
+        (181 vs. 63, excluding 17 ties; p&nbsp;&lt;&nbsp;0.0001, binomial test) and won
+        <strong>24 out of 25 paintings</strong> overall. The advantage is strongest on
+        <em>Formal Analysis</em> (79.4%) and <em>Emotional Response</em> (80.3%), reflecting
+        the benefit of multimodal, artist-specific knowledge. All four perspectives are
+        individually significant (p&nbsp;&lt;&nbsp;0.05).
+      </p>
+    </section>
+
+    <!-- ── S2: Full Prompts ── -->
     <section id="supp-prompts">
-      <h2>S1 &mdash; Full Prompt Templates</h2>
+      <h2>S2 &mdash; Full Prompt Templates</h2>
       <p>
         The paper states: <em>"Full prompt templates for all five generation steps are provided in the
         supplementary website."</em> (§3.2). All prompts are reproduced verbatim below.
@@ -663,7 +714,7 @@
 
       <!-- Narrative -->
       <details class="prompt-block">
-        <summary>S1.1 &nbsp; Narrative Perspective &nbsp; (π<sub>narr</sub>)</summary>
+        <summary>S2.1 &nbsp; Narrative Perspective &nbsp; (π<sub>narr</sub>)</summary>
         <div class="prompt-meta">
           <span>Qwen3-VL-8B-Instruct</span> Image + text &nbsp;·&nbsp; Target: ~80 words
         </div>
@@ -685,7 +736,7 @@ Write the narrative and scene interpretation:</pre>
 
       <!-- Formal -->
       <details class="prompt-block">
-        <summary>S1.2 &nbsp; Formal Perspective &nbsp; (π<sub>form</sub>)</summary>
+        <summary>S2.2 &nbsp; Formal Perspective &nbsp; (π<sub>form</sub>)</summary>
         <div class="prompt-meta">
           <span>GalleryGPT</span> LLaVA-7B + LoRA &nbsp;·&nbsp; Deterministic (temp=0, beams=1) &nbsp;·&nbsp; Target: ~80 words
         </div>
@@ -699,7 +750,7 @@ Length: ~80 words.</pre>
 
       <!-- Emotional -->
       <details class="prompt-block">
-        <summary>S1.3 &nbsp; Emotional Perspective &nbsp; (π<sub>emot</sub>)</summary>
+        <summary>S2.3 &nbsp; Emotional Perspective &nbsp; (π<sub>emot</sub>)</summary>
         <div class="prompt-meta">
           <span>Qwen3-VL-8B-Instruct</span> Image + text + ArtEmis utterances &nbsp;·&nbsp; Target: ~80 words
         </div>
@@ -736,7 +787,7 @@ Write the emotional interpretation:</pre>
 
       <!-- Historical -->
       <details class="prompt-block">
-        <summary>S1.4 &nbsp; Historical Perspective &nbsp; (π<sub>hist</sub>)</summary>
+        <summary>S2.4 &nbsp; Historical Perspective &nbsp; (π<sub>hist</sub>)</summary>
         <div class="prompt-meta">
           <span>Qwen3-VL-8B-Instruct</span> Image + text + RAG context &nbsp;·&nbsp; Target: ~80 words
         </div>
@@ -780,7 +831,7 @@ Write the historical interpretation:</pre>
 
       <!-- Unified -->
       <details class="prompt-block">
-        <summary>S1.5 &nbsp; Unified Caption &nbsp; ( π<sub>unif</sub>)</summary>
+        <summary>S2.5 &nbsp; Unified Caption &nbsp; ( π<sub>unif</sub>)</summary>
         <div class="prompt-meta">
           <span>Qwen3-8B</span> Text-only via vLLM &nbsp;·&nbsp; Target: ~150 words &nbsp;·&nbsp; Applied to all 74,234 paintings
         </div>
@@ -819,7 +870,7 @@ Write a unified ~150-word description integrating all perspectives above.</pre>
 
     <!-- ── S2: Hyperparameters ── -->
     <section id="supp-hyperparams">
-      <h2>S2 &mdash; Additional Implementation Details</h2>
+      <h2>S3 &mdash; Additional Implementation Details</h2>
       <p>
         The main paper reports <code>max_tokens=256</code> with default decoding temperature for
         VLM perspectives. The following parameters were omitted due to space constraints.
@@ -876,7 +927,7 @@ Write a unified ~150-word description integrating all perspectives above.</pre>
 
     <!-- ── S3: RAG ── -->
     <section id="supp-rag">
-      <h2>S3 &mdash; RAG Construction (Historical Perspective)</h2>
+      <h2>S4 &mdash; RAG Construction (Historical Perspective)</h2>
       <p>
         The main paper states that the top-5 context documents are retrieved via embedding ranking.
         The complete retrieval pipeline is as follows.
@@ -910,7 +961,7 @@ Write a unified ~150-word description integrating all perspectives above.</pre>
 
     <!-- ── S4: Judge Prompt ── -->
     <section id="supp-judge">
-      <h2>S4 &mdash; Quality Evaluation: LLM-as-Judge Prompt</h2>
+      <h2>S5 &mdash; Quality Evaluation: LLM-as-Judge Prompt</h2>
       <p>
         The paper reports judge scores (Table 3) and states the full prompt is in the supplementary.
         Judge model: <strong>google/gemma-3-27b-it</strong> (temperature 0.1, max tokens 150, bfloat16).
@@ -962,7 +1013,7 @@ Respond with ONLY this JSON:
 
     <!-- ── S5: Qualitative Gallery ── -->
     <section id="supp-gallery">
-      <h2>S5 &mdash; Regeneration Experiment: Qualitative Examples</h2>
+      <h2>S6 &mdash; Regeneration Experiment: Qualitative Examples</h2>
       <p>
         Each example shows the original painting alongside regenerations under five perspective
         conditions. The synthesized ~80-word caption used as the image-generation prompt is shown
@@ -1083,7 +1134,7 @@ Respond with ONLY this JSON:
 
     ── S6: Per-Style Analysis ── -->
     <section id="perstyle">
-      <h2>S6 &mdash; Per-Style Analysis</h2>
+      <h2>S7 &mdash; Per-Style Analysis</h2>
       <p>
         The figures below break down reconstruction and retrieval results by the 20 WikiArt styles
         in the 1,000-painting benchmark sample — supplementary to the paper's aggregated numbers.
